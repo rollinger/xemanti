@@ -118,9 +118,9 @@ class SubCategory(models.Model):
 NGram holds the ngrams
 """
 class NGrams(models.Model):
-    # Unique key for the set of tokens - whitespace separated
+    # Unique key for a token
     token       = models.CharField(max_length=255,unique=True)
-    # Counter how many times the token was injected
+    # Counter how many times the token was injected into the system
     t_occurred  = models.PositiveIntegerField(default=0)
     
     # Word Stem of the token
