@@ -31,7 +31,7 @@ def home_view(request):
             # Add NGrams to the system
             add_text_to_system.delay(text_to_analyze)
             # TODO: Initiate Report generation
-            # Redirect to Rating Process after POST
+            # TODO: Redirect to Rating Process after POST
             #url = reverse('rating')
             #response = HttpResponseRedirect(url)
             # Set Cookie for rating
