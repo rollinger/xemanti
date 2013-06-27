@@ -1,0 +1,290 @@
+# -*- coding: utf-8 -*-
+
+from django.db import models
+from django.db.models import Sum
+from django.utils.translation import ugettext as _
+
+# Custom Imports
+from tokenizer import Tokenizer
+
+
+
+"""
+Word Stems a stem for ngrams with the same stem
+"""
+class WordStems(models.Model):
+    # The Stem of a set of Ngrams
+    stem        = models.CharField(max_length=255,unique=True)
+    
+    def __unicode__(self):
+        return self.stem
+    
+    class Meta:
+        verbose_name = 'Word Stem'
+        verbose_name_plural = 'Word Stems'
+        ordering = ['stem',]
+        
+        
+"""
+Part Of Speech typify the ngram for their part of speech
+"""
+class PartOfSpeech(models.Model):
+    # The Part of Speech of a set of Ngrams
+    type        = models.CharField(max_length=255,unique=True)
+    # Part of Speech related to NGrams
+    ngrams = models.ManyToManyField('NGrams', related_name="partofspeech", blank=True, null=True)
+    # Boolean if the part or speech indicates meaninglessness of the ngram
+    indicates_semantic_meaninglessness = models.BooleanField(default=False)
+    
+    def __unicode__(self):
+        return self.type
+    
+    class Meta:
+        verbose_name = 'Part Of Speech'
+        verbose_name_plural = 'Part Of Speeches'
+        ordering = ['type',]
+"""
+Languages of a ngram
+"""
+class Languages(models.Model):
+    # The Stem of a set of Ngrams
+    language        = models.CharField(max_length=255,unique=True)
+    # Language of NGram 
+    ngrams = models.ManyToManyField('NGrams', related_name="language", blank=True, null=True)
+    
+    def __unicode__(self):
+        return self.language
+    
+    class Meta:
+        verbose_name = 'Language'
+        verbose_name_plural = 'Languages'
+        ordering = ['language',]
+"""
+Synonyms of an ngram
+"""
+class Synonyms(models.Model):
+    source  = models.ForeignKey('NGrams', related_name="synonyms")
+    target  = models.ForeignKey('NGrams', related_name="synonym_of")
+    
+    def __unicode__(self):
+        return self.target#"%s <synonym> &s"%(self.source,self.target)
+    
+    class Meta:
+        verbose_name = 'Synonym'
+        verbose_name_plural = 'Synonyms'
+"""
+Antonyms of an ngram
+"""
+class Antonyms(models.Model):
+    source  = models.ForeignKey('NGrams', related_name="antonym")
+    target  = models.ForeignKey('NGrams', related_name="antonym_of")
+    
+    def __unicode__(self):
+        return self.target#"%s <antonym> &s"%(self.source,self.target)
+    
+    class Meta:
+        verbose_name = 'Antonym'
+        verbose_name_plural = 'Antonyms'
+"""
+SuperCategory of an ngram
+"""
+class SuperCategory(models.Model):
+    source  = models.ForeignKey('NGrams', related_name="supercategory")
+    target  = models.ForeignKey('NGrams', related_name="supercategory_of")
+    
+    def __unicode__(self):
+        return self.target#"%s <super> &s"%(self.source,self.target)
+    
+    class Meta:
+        verbose_name = 'Super Category'
+        verbose_name_plural = 'Super Categories'
+"""
+SubCategory of an ngram
+"""
+class SubCategory(models.Model):
+    source  = models.ForeignKey('NGrams', related_name="subcategory")
+    target  = models.ForeignKey('NGrams', related_name="subcategory_of")
+    
+    def __unicode__(self):
+        return self.target#"%s <sub> &s"%(self.source,self.target)
+    
+    class Meta:
+        verbose_name = 'Sub Category'
+        verbose_name_plural = 'Sub Categories'
+
+
+
+"""
+NGram holds the ngrams
+"""
+class NGrams(models.Model):
+    # Unique key for the set of tokens - whitespace separated
+    token       = models.CharField(max_length=255,unique=True)
+    # Counter how many times the token was injected
+    t_occurred  = models.PositiveIntegerField(default=0)
+    
+    # Word Stem of the token
+    wordstem = models.ForeignKey(WordStems, blank=True, null=True)
+    # Dirty Flag: Indicates the object has changed
+    dirty = models.BooleanField(default=True)
+    
+    @classmethod
+    def add_text_to_system(cls, text):
+        token_list = Tokenizer.linear_token_list(text)
+        ngram_list = []
+        #print token_list
+        # Get or create the ngrams
+        for token in token_list:
+            ngram_list.append( NGrams.inject(token=token) )
+        # Add CoOccurrence to the system
+        for source_index,source_ngram in enumerate(ngram_list):
+            for target_index,target_ngram in enumerate(ngram_list):
+                # same ngrams to not cooccure
+                if source_index != target_index and source_ngram != target_ngram:
+                    # TODO: Fix the filter logic
+                    filter = [None,'substantiv',"verb","adjektiv"]
+                    if source_ngram.partofspeech in filter and target_ngram.partofspeech in filter:
+                        cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index-source_index)
+                
+    @classmethod
+    def inject(cls,token,times=1):
+        ngram, created = NGrams.objects.get_or_create(token=token)
+        if times > 0:
+            ngram.t_occurred = ngram.t_occurred + times
+        ngram.dirty = True
+        ngram.save()
+        return ngram
+    
+    def languages(self):
+        return self.languages
+    
+    def save(self, *args, **kwargs):
+        #Override Save Method
+        super(NGrams, self).save(*args, **kwargs)
+    
+    def __unicode__(self):
+        return self.token
+    
+    class Meta:
+        verbose_name = 'NGram'
+        verbose_name_plural = 'NGrams'
+        ordering = ['token',]
+
+
+
+"""
+Co-Occurrence Class: NGrams that occure together
+"""
+class CoOccurrences(models.Model):
+    source  = models.ForeignKey(NGrams, related_name="coocurrence_outbound")
+    target  = models.ForeignKey(NGrams, related_name="coocurrence_inbound")
+    # How many times co-occurred
+    t_cooccured = models.PositiveIntegerField(default=0)
+    # List of positions from the source (0 is the position of the source ngram)
+    positions = models.CommaSeparatedIntegerField(max_length=10000)
+    mean_position = models.FloatField(default=0.0)
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
+    # Dirty Flag: Indicates the object has changed 
+    dirty = models.BooleanField(default=True)
+    
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,position,times=1):
+        cooc, created = CoOccurrences.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            cooc.t_cooccured = cooc.t_cooccured + times
+        cooc.positions += str(position) + ","
+        cooc.dirty = True
+        cooc.save()
+        return cooc
+    
+    def compute_mean_position(self):
+        # Returns the mean position of the target ngram from the source ngram
+        positions = map(int, self.positions[:-1].split(','))
+        if positions:
+            try:
+                self.mean_position = sum(positions)/float(len(positions))
+                return self.mean_position
+            except:
+                return 0.0
+    
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = CoOccurrences.objects.filter(source=self.source).aggregate(Sum('t_cooccured'))['t_cooccured__sum']
+        if sum:
+            try:
+                self.power = self.t_cooccured/float(sum - self.t_cooccured)
+                return self.power
+            except:
+                return 0.0
+    
+    def save(self, *args, **kwargs):
+        super(CoOccurrences, self).save(*args, **kwargs)
+    
+    def __unicode__(self):
+        return self.source.token +" | " + self.target.token
+    
+    class Meta:
+        verbose_name = 'Co-Occurrence'
+        verbose_name_plural = 'Co-Occurrences'
+        
+    
+    
+    
+"""
+Association Class: NGrams that were associated by users
+"""
+class Associations(models.Model):
+    source  = models.ForeignKey(NGrams, related_name="association_outbound")
+    target  = models.ForeignKey(NGrams, related_name="association_inbound")
+    # How many times associated
+    t_associated = models.PositiveIntegerField(default=0)
+    # Discriminative Power:
+    power = models.FloatField()
+    
+    def compute_discriminatory_power(self):
+        sum  = self.source.association_outbound_set.t_associated__sum
+        return self.t_associated/float(sum - self.t_associated)
+    
+    def __unicode__(self):
+        return self.source.token + " <"+self.mean_position()+"> " + self.target.token
+    
+    class Meta:
+        verbose_name = 'Association'
+        verbose_name_plural = 'Associations'
+    
+    
+    
+"""
+InputStack holds the text sequences about to enter the system
+"""
+class InputStack(models.Model):
+    content = models.CharField(max_length=2000)
+    
+    @classmethod
+    def add(cls, text):
+        pass
+        """
+        # Tokenize and save Sentences
+        sentence_list = Tokenizer.tokenize_sentences( text )
+        for sentence in sentence_list:
+            s = InputStack(content=sentence)
+            s.save()
+        return sentence_list
+        """
+    
+    @classmethod
+    def pop_random(cls):
+        pass
+        """
+        count = cls.objects.count()
+        random_index = random.randint(0, count - 1)
+        return cls.objects.all()[random_index]
+        """
+    
+    def __unicode__(self):
+        return self.content
+    
+    class Meta:
+        verbose_name = 'Input Stack'
+        verbose_name_plural = 'Input Stack Elements'

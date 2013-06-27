@@ -1,0 +1,106 @@
+== 1.0 Release ==
+GOALS:
+a) make a living with XemantiCom
+
+== Beta Release ==
+GOALS:
+a) International: English and Spanisch
+
+0. Improve
+- Use Celery with Redis (Better Broker)
+- Sentry for production error logging
+1. Semantic Differential
+2. Ngrams for association 
+- Stemming  of words
+3. Game (Beat the Maschine)
+4. Setup for Languages: English && Spanisch
+5. Admin Interface Improvements
+
+== Alpha Release ==
+GOALS:
+b) optimize models and performance (db)
+c) add one further dimension (semantic differential)
+d) 1000+ Users
+e) 100000 Ratings a day
+f) earn more than 100 €/month (cost-effective)
+1. Rethink db-models abstraction
+2. Add LOG File for Sentence && User actions
+
+== Pre-Alpha Release ==
+GOALS:
+a) Working installation 100% testing
+b) first 100 registered Users
+c) 1000 Ratings per day
+d) earn some money ad
+STEPS:
+1. Basic Functionalities (DE_Engine)
+OK 1G, 2G, 3G, Sentences
+OK Associations (1Gto1G, 2Gto1G, 3Gto1G)
+OK Rating Associations(Sentences)
+OK Rating None possible (Skip Rating)
+OK standardize input (lowercase, strip punctuation,...)
+OK improve tokenization
+OK rate target occures only once not as much as combinations exits (overweight)
+OK rating performance improvements
+OK rating as a background job (django-celery)
+OK tokenization strip punctuation in words
+OK inbound and outbound associations
+OK Virtual Attributes (Discriminatory Power, Relative Connectivity, Devianz)
+OK stats calculation as a cronjob (dirty bool attribute)
+NO flag/delete as a cronjob (django-crontab)
+OK cascading delete (NGram => all Associations where source == NGram)
+OK Admin Interface
+OK Custom Actions in Admin (Delete_by_Occurrence)
+OK Set dirty = true if ngram was injected
+OK Enable Rating OneGram (TwoGram, ThreeGram) (added regularily to Sentence queue via maintenance)
+OK Authentication 
+OK Register
+OK Login
+OK Logout
+OK User Profile, Xemanti-Balance
+OK Nonsense Rating in model
+OK Probe Association (develop core functionality for the Reporting interface)
+OK Create Profile on user registration (with 100 xemanti)
+OK Stop adding Sentences that are highly rated nonsense
+- Reporting
+-- Report (Model) [target,linear_target,target_combinations,outbound_assoc_array]
+-- Report generation (background with celery)
+-- Report Presentation
+-- Design and Test Anonymous Workflow
+--- <text-to-analyze><rating-sequence><report-interface>
+--- workflow to registration
+- Design and Test Authenticated Workflow
+--- <text-to-analyze><report-interface>
+2. Testing 100%
+- unit test (model and utility functions)
+- cProfile Performance test
+- add indexes to heavy used db fields
+- browser tests (Selenium)
+3 Fix all Bugs on bitbucket
+4. Help texts and icons
+- refactoring all strings with i18n tags _() {trans}
+- i18n Translation
+- Text for Impressum
+- Text for FAQ
+- Only German Translation
+5. CSS Prettifications
+- Design blocks
+- Prettify User Interface (Size for all screens media queries)
+- Use LESS4 HTML5 & jQuery UI (skip jQuery Mobile)
+6. Server, SVN, Alpha Public Release (Deployment)
+OK Strato root server from 39 Euros
+OK- Strato virtual server from 15 Euros
+OK Bitbucket Account with Issue-Tracker and Wiki
+O- Domain Decision (.com)
+- Deployment to Server
+OK Apache db django pip configuration 
+OK test ip
+7. SEO
+- keyword analysis {text texten}
+O- keyword analysis
+- google ranking
+- advertisment google in report section
+8. Data Insertion
+-- Import dictionary german into system
+-- Names import
+

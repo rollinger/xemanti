@@ -1,0 +1,26 @@
+1. Server Setup
+sudo apt-get install git
+sudo apt-get install apache2 apache2-doc 
+sudo apt-get install libapache2-mod-wsgi 
+sudo a2enmod wsgi 
+
+2. File System
+mkdir /source/
+mkdir /source/xemanticom
+mkdir /source/_backup_
+mkdir /source/virtualenv
+
+3. Python/Django Virtual Environment 
+sudo apt-get install python python-mysqldb python-dev libfreetype6 libfreetype6-dev libjpeg62 libjpeg62-dev python-imaging libapache2-mod-wsgi gcc libmysqlclient-dev
+sudo apt-get install python-pip python-dev build-essential 
+sudo pip install --upgrade pip 
+sudo pip install --upgrade virtualenv 
+virtualenv /source/virtualenv
+
+# Optional: Set virtual environment as fixed
+ source /source/virtualenv/bin/activate
+
+
+
+# Allgemein
+sudo /etc/init.d/apache2 {start|stop|restart|reload|force-reload}

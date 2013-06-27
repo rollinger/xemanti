@@ -1,0 +1,26 @@
+{% extends "XemantiCom/base.html" %}
+{% load i18n %}
+
+{% block main-content %}
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>{% trans "What is Xemanti?" %}</h3>
+        <p>{ blocktrans }
+	Xemanti is your place for a comprehensive text analysis. Inspect your text and find out what others associate with the words you choose. Xemanti is free - you trade your knowledge for Xemanti-Points that you can use to inspect your texts.
+	{ endblock }</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>{% trans "What can I do on Xemanti.Com" %}</h3>
+        <p>{ blocktrans }
+	I'm the collapsible content for section 2
+	{ endblock }</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>{% trans "How can I analyze my texts?" %}</h3>
+        <p>{ blocktrans }
+	I'm the collapsible content for section 3
+	{ endblock }</p>
+    </div>
+</div>
+{% endblock %}
+

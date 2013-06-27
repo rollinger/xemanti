@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//ngramengine/admin.py=utf-8
+encoding//ngramengine/forms.py=utf-8
+encoding//ngramengine/models.py=utf-8
+encoding//ngramengine/tasks.py=utf-8
+encoding//ngramengine/tokenizer.py=utf-8
+encoding//ngramengine/urls.py=utf-8
+encoding//ngramengine/views.py=utf-8
+encoding//xemanti/urls.py=utf-8
+encoding//xemanti/views.py=utf-8

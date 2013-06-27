@@ -1,0 +1,13 @@
+{% extends "xemanti/base.html" %}
+
+{% block main-content %}
+<div class="main-content">
+	<form action="/" method="POST" data-ajax="false">
+		{% csrf_token %}
+		{% for field in form.visible_fields %}
+    		{{ field }}
+		{% endfor %}
+		<input type="submit" value="Submit" />
+	</form>
+</div>
+{% endblock %}
