@@ -65,7 +65,9 @@ Synonyms of an ngram
 class Synonyms(models.Model):
     source  = models.ForeignKey('NGrams', related_name="synonyms")
     target  = models.ForeignKey('NGrams', related_name="synonym_of")
-    
+    # How many times the synonym was rated
+    t_rated = models.PositiveIntegerField(default=0)
+
     def __unicode__(self):
         return self.target#"%s <synonym> &s"%(self.source,self.target)
     
@@ -78,7 +80,9 @@ Antonyms of an ngram
 class Antonyms(models.Model):
     source  = models.ForeignKey('NGrams', related_name="antonym")
     target  = models.ForeignKey('NGrams', related_name="antonym_of")
-    
+    # How many times the Antonym was rated
+    t_rated = models.PositiveIntegerField(default=0)
+
     def __unicode__(self):
         return self.target#"%s <antonym> &s"%(self.source,self.target)
     
@@ -91,6 +95,8 @@ SuperCategory of an ngram
 class SuperCategory(models.Model):
     source  = models.ForeignKey('NGrams', related_name="supercategory")
     target  = models.ForeignKey('NGrams', related_name="supercategory_of")
+    # How many times the Super Category was rated
+    t_rated = models.PositiveIntegerField(default=0)
     
     def __unicode__(self):
         return self.target#"%s <super> &s"%(self.source,self.target)
@@ -104,7 +110,9 @@ SubCategory of an ngram
 class SubCategory(models.Model):
     source  = models.ForeignKey('NGrams', related_name="subcategory")
     target  = models.ForeignKey('NGrams', related_name="subcategory_of")
-    
+    # How many times the Sub Category was rated
+    t_rated = models.PositiveIntegerField(default=0)
+
     def __unicode__(self):
         return self.target#"%s <sub> &s"%(self.source,self.target)
     
