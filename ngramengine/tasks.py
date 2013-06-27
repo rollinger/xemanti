@@ -10,7 +10,6 @@ import celery
 def add_text_to_system(text):
     sentence_list = Tokenizer.tokenize_sentences(text)
     for sentence in sentence_list:
-        print sentence
         NGrams.add_text_to_system( sentence )
 
 
