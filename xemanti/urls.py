@@ -28,7 +28,8 @@ urlpatterns = patterns('xemanti.views',
     #
     # Application URL Includes
     #
-    url(r'^de/', include('ngramengine.urls')),
+    url(r'^de/$', include('ngramengine.urls')),
+    url(r'^rating/$', include('rating.urls'))
     #url(r'^reporting/', include('reporting.urls')),
     
     #

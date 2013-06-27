@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'xemanti',
     #'usr_profile',
     'ngramengine',
+    'rating',
     #'reporting',
 )
 
