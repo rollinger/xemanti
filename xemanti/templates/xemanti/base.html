@@ -29,22 +29,22 @@
 		
 		<nav data-role="panel" id="menu-panel" data-position="right" data-display="reveal">
 			<ul data-role="listview">
-				<li><a href="{% url "home" %}" rel="external" title="{% trans 'Analyse your text' %}">{% trans "Analyze" %}</a></li>
-				<li><a href="{% url "home" %}" rel="external" title="{% trans 'Share your Knowledge!' %}">{% trans "Rating" %}</a></li>
+				<li><a href="{% url home %}" rel="external" title="{% trans 'Analyse your text' %}">{% trans "Analyze" %}</a></li>
+				<li><a href="{% url home %}" rel="external" title="{% trans 'Share your Knowledge!' %}">{% trans "Rating" %}</a></li>
 				{% if user.is_authenticated %}
-					<li><a href="{% url "home" %}" title="">{% trans "My Reports" %}</a></li>
-					<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
+					<li><a href="{% url home %}" title="">{% trans "My Reports" %}</a></li>
+					<li><a href="{% url logout_view %}" title="">{% trans "Logout" %}</a></li>
 					{% if user.is_staff %}
-						<li><a href="{% url "home" %}" rel="external" title="{% trans 'Probe Token' %}">{% trans "Probe" %}</a></li>
-						<li><a href="{% url "home" %}" rel="external" title="{% trans 'Maintenance' %}">{% trans "Maintenance" %}</a></li>
+						<li><a href="{% url home %}" rel="external" title="{% trans 'Probe Token' %}">{% trans "Probe" %}</a></li>
+						<li><a href="{% url home %}" rel="external" title="{% trans 'Maintenance' %}">{% trans "Maintenance" %}</a></li>
 					{% endif %}
 					{% if user.is_superuser %}
 						<li><a href="/admin/" rel="external" title="{% trans 'Administration' %}">{% trans "Administration" %}</a></li>
-						<li><a href="{% url "rating_partofspeech" %}" rel="external" title="{% trans 'Share your Knowledge!' %}">{% trans "Rate Part of Speech" %}</a></li>
+						<li><a href="{% url home %}" rel="external" title="{% trans 'Share your Knowledge!' %}">{% trans "Rate Part of Speech" %}</a></li>
 					{% endif %}
 				{% else %}
-					<li><a href="{% url "login_view" %}" title="">{% trans "Login" %}</a> </li>
-					<li><a href="{% url "registration_view" %}" title="">{% trans "Register" %}</a></li>
+					<li><a href="{% url login_view %}" title="">{% trans "Login" %}</a> </li>
+					<li><a href="{% url registration_view %}" title="">{% trans "Register" %}</a></li>
 				{% endif %}
 			</ul>
 		</nav>
@@ -53,10 +53,10 @@
 			{% if user.is_authenticated %}
 				<span>{% trans 'Welcome,' %} 
 					<a href="/" title="">{{ user.get_full_name }}</a>
-					| <a href="{% url "home" %}" title="">{{ user.profile.balance }} Xetis</a> 
+					| <a href="{% url home %}" title="">{{ user.profile.balance }} Xetis</a> 
 				</span>
 			{% endif %}
-			<h1><a href="{% url "home" %}" rel="external">{% trans "Xemanti" %}</a></h1>
+			<h1><a href="{% url home %}" rel="external">{% trans "Xemanti" %}</a></h1>
 			<a href="#menu-panel" data-role="button" data-icon="gear" class="ui-btn-right">{% trans "Menu" %}</a>
 		</header>
 
@@ -69,8 +69,8 @@
 		</div><!-- /content -->
 
 		<footer data-role="footer">
-			<a href="{% url "faq" %}">FAQ</a>
-			<a href="{% url "impressum" %}">Impressum</a>
+			<a href="{% url faq %}">FAQ</a>
+			<a href="{% url impressum %}">Impressum</a>
 		</footer><!-- /footer -->
 		
 	</div><!-- /page -->

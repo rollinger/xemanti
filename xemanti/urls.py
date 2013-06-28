@@ -16,7 +16,7 @@ urlpatterns = patterns('xemanti.views',
     #
     
     # Home View
-    url(r'^$', 'home_view', name='home'),
+    url(r'^', 'home_view', name='home'),
     # Frequently Asked Questions
     url(r'^faq/', 'faq_view', name='faq'),
     # Impressum
@@ -28,8 +28,9 @@ urlpatterns = patterns('xemanti.views',
     #
     # Application URL Includes
     #
+    # TODO: $-sign might be wrong
     url(r'^de/$', include('ngramengine.urls')),
-    url(r'^rating/$', include('rating.urls'))
+    url(r'^rating/$', include('rating.urls')),
     #url(r'^reporting/', include('reporting.urls')),
     
     #
