@@ -67,10 +67,11 @@ class MeaningfulCoOccurrenceListFilter(admin.SimpleListFilter):
             ('no', _('No')),
             )
     def queryset(self, request, queryset):
-        filter = ['substantiv',"verb","adjektiv"]
+        #filter = ['substantiv',"verb","adjektiv"]
         if self.value() == 'yes':
-            return queryset.filter(source__partofspeech__in=filter, target__partofspeech__in=filter)
-        
+            # Calls the method is_meaningful of each CoOccurrence
+            # exclude yields better performance, due less deletion from the queryset
+            return queryset.exclude(is_meaningful=False)
         if self.value() == 'no':
             return queryset
 class CoOccurrencesAdmin(admin.ModelAdmin):

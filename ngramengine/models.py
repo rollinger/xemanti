@@ -34,7 +34,8 @@ class PartOfSpeech(models.Model):
     # Part of Speech related to NGrams
     ngrams = models.ManyToManyField('NGrams', related_name="partofspeech", blank=True, null=True)
     # Boolean if the part or speech indicates meaninglessness of the ngram
-    indicates_semantic_meaninglessness = models.BooleanField(default=False)
+    # Meaninglessness is better inferred from the part of speech than meaningfulness
+    semantic_meaningless = models.BooleanField(default=False)
     
     def __unicode__(self):
         return self.type
@@ -65,7 +66,9 @@ Synonyms of an ngram
 class Synonyms(models.Model):
     source  = models.ForeignKey('NGrams', related_name="synonyms")
     target  = models.ForeignKey('NGrams', related_name="synonym_of")
-    
+    # How many times the synonym was rated
+    t_rated = models.PositiveIntegerField(default=0)
+
     def __unicode__(self):
         return self.target#"%s <synonym> &s"%(self.source,self.target)
     
@@ -78,7 +81,9 @@ Antonyms of an ngram
 class Antonyms(models.Model):
     source  = models.ForeignKey('NGrams', related_name="antonym")
     target  = models.ForeignKey('NGrams', related_name="antonym_of")
-    
+    # How many times the Antonym was rated
+    t_rated = models.PositiveIntegerField(default=0)
+
     def __unicode__(self):
         return self.target#"%s <antonym> &s"%(self.source,self.target)
     
@@ -91,6 +96,8 @@ SuperCategory of an ngram
 class SuperCategory(models.Model):
     source  = models.ForeignKey('NGrams', related_name="supercategory")
     target  = models.ForeignKey('NGrams', related_name="supercategory_of")
+    # How many times the Super Category was rated
+    t_rated = models.PositiveIntegerField(default=0)
     
     def __unicode__(self):
         return self.target#"%s <super> &s"%(self.source,self.target)
@@ -104,7 +111,9 @@ SubCategory of an ngram
 class SubCategory(models.Model):
     source  = models.ForeignKey('NGrams', related_name="subcategory")
     target  = models.ForeignKey('NGrams', related_name="subcategory_of")
-    
+    # How many times the Sub Category was rated
+    t_rated = models.PositiveIntegerField(default=0)
+
     def __unicode__(self):
         return self.target#"%s <sub> &s"%(self.source,self.target)
     
@@ -118,9 +127,9 @@ class SubCategory(models.Model):
 NGram holds the ngrams
 """
 class NGrams(models.Model):
-    # Unique key for the set of tokens - whitespace separated
+    # Unique key for a token
     token       = models.CharField(max_length=255,unique=True)
-    # Counter how many times the token was injected
+    # Counter how many times the token was injected into the system
     t_occurred  = models.PositiveIntegerField(default=0)
     
     # Word Stem of the token
@@ -132,28 +141,36 @@ class NGrams(models.Model):
     def add_text_to_system(cls, text):
         token_list = Tokenizer.linear_token_list(text)
         ngram_list = []
-        #print token_list
-        # Get or create the ngrams
+        # Get or create the ngrams and store them in ngram_list (performance)
         for token in token_list:
             ngram_list.append( NGrams.inject(token=token) )
         # Add CoOccurrence to the system
         for source_index,source_ngram in enumerate(ngram_list):
             for target_index,target_ngram in enumerate(ngram_list):
-                # same ngrams to not cooccure
+                # Same ngrams (their token equivalence) to __not__ co-occure
                 if source_index != target_index and source_ngram != target_ngram:
-                    # TODO: Fix the filter logic
-                    filter = [None,'substantiv',"verb","adjektiv"]
-                    if source_ngram.partofspeech in filter and target_ngram.partofspeech in filter:
+                    if source_ngram.is_meaningful() and target_ngram.is_meaningful():
+			# Inject Co-Occurrence with the positional difference from the source
                         cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index-source_index)
                 
     @classmethod
     def inject(cls,token,times=1):
         ngram, created = NGrams.objects.get_or_create(token=token)
         if times > 0:
+            # if zero (or less) self.t_occurred is not modified
             ngram.t_occurred = ngram.t_occurred + times
         ngram.dirty = True
         ngram.save()
         return ngram
+    
+    def is_meaningful(self):
+        """
+        Checks if the ngram belongs to a part of speech that indicates meaninglessness
+        """
+        for pos in self.partofspeech_set:
+            if pos.semantic_meaninglessness == True:
+                return False
+        return True
     
     def languages(self):
         return self.languages
@@ -218,6 +235,15 @@ class CoOccurrences(models.Model):
             except:
                 return 0.0
     
+    def is_meaningful(self):
+        """
+        Checks if source and target is semantically meaningful, 
+        i.e. does not belong to a partofspeech that is semantically meaningless
+        """
+        if self.source.is_meaningful() and self.target.is_meaningful():
+            return True
+        return False
+
     def save(self, *args, **kwargs):
         super(CoOccurrences, self).save(*args, **kwargs)
     

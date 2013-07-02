@@ -1,6 +1,6 @@
 == 1.0 Release ==
 GOALS:
-a) make a living with XemantiCom
+a) make a living with xemanti
 
 == Beta Release ==
 GOALS:
@@ -62,6 +62,19 @@ OK Nonsense Rating in model
 OK Probe Association (develop core functionality for the Reporting interface)
 OK Create Profile on user registration (with 100 xemanti)
 OK Stop adding Sentences that are highly rated nonsense
+O Import Wiktionary Dump 250000 ngrams
+-- Cleanup (delete strange languages, etc...)
+- NGramEngine workflow optimization
+:: new_text is split and each ngram is added to the system and all meaningful coooccurrences are added. 
+:: meaningful cooccurrence: ngram pairs that do not belong to a (semantically) meaningless part of speech (e.g. articles,pronouns,...) and are in the language of the language of the system (Deutsch) are considered a meaningful cooccurrence - thus added to the system. This table get laaaaarge!
+::
+- Rating
+-- Synonym
+-- Antonym
+-- SuperCategory
+-- SubCategory
+-- Association
+
 - Reporting
 -- Report (Model) [target,linear_target,target_combinations,outbound_assoc_array]
 -- Report generation (background with celery)
