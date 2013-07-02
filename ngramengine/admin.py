@@ -50,7 +50,7 @@ class IntervalListFilter(admin.SimpleListFilter):
             return queryset
 class NGramsAdmin(admin.ModelAdmin):
     list_display = ('token', 't_occurred', "dirty")
-    list_filter = ['dirty',]# IntervalListFilter,'partofspeech', 'language']
+    list_filter = ['dirty', IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
     inlines = [PartofSpeechesInline,LanguagesInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
