@@ -39,6 +39,9 @@ class PartOfSpeech(models.Model):
     
     def __unicode__(self):
         return self.type
+    @property
+    def ngram_count(self):
+        return self.ngrams.count()
     
     class Meta:
         verbose_name = 'Part Of Speech'
@@ -55,6 +58,10 @@ class Languages(models.Model):
     
     def __unicode__(self):
         return self.language
+    
+    @property
+    def ngram_count(self):
+        return self.ngrams.count()
     
     class Meta:
         verbose_name = 'Language'

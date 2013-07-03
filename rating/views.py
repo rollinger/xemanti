@@ -14,21 +14,24 @@ from forms import *
 from ngramengine.models import *
 
 #
-# Rating View for user rating of various models
+# Setup View for Admins introducing 
 #
-def rating_view(request,model=None):
+def ngram_setup_view(request,model=None):
+    # Get NGram
+    ngram = NGrams.objects.get()
+    print ngram
     
     # Form submitted:
     if request.method == 'POST': 
-        form = RatingForm(request.POST)
+        form = NGramSetupForm(request.POST)
         if form.is_valid():
 	    # DO STUFF...
  	    return HttpResponseRedirect(reverse('rating'))
     # Form not submitted:
     else:
-        form = RatingForm()
+        form = NGramSetupForm()
     
     # Render Template Home
-    return render_to_response('rating/rating.html', {
+    return render_to_response('rating/ngram_setup.html', {
         "form":form
     }, context_instance=RequestContext(request))

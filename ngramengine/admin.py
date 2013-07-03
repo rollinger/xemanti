@@ -87,11 +87,13 @@ class WordStemsAdmin(admin.ModelAdmin):
 admin.site.register(WordStems, WordStemsAdmin)
 
 class PartOfSpeechAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('type', 'semantic_meaningless', 'ngram_count')
+    exclude = ['ngrams',]
 admin.site.register(PartOfSpeech, PartOfSpeechAdmin)
 
 class LanguagesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('language', 'ngram_count')
+    exclude = ['ngrams',]
 admin.site.register(Languages, LanguagesAdmin)
 
 class AssociationsAdmin(admin.ModelAdmin):
