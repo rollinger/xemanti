@@ -16,7 +16,7 @@ urlpatterns = patterns('xemanti.views',
     #
     
     # Home View
-    url(r'^', 'home_view', name='home'),
+    url(r'^$', 'home_view', name='home'),
     # Frequently Asked Questions
     url(r'^faq/', 'faq_view', name='faq'),
     # Impressum
