@@ -7,25 +7,31 @@ from ngramengine.models import *
 
 class PartofSpeechesInline(admin.TabularInline):
     model = PartOfSpeech.ngrams.through
+    raw_id_fields = ('ngrams',)
     extra = 0
 class LanguagesInline(admin.TabularInline):
     model = Languages.ngrams.through
+    raw_id_fields = ('ngrams',)
     extra = 0
 class SynonymsInline(admin.TabularInline):
     model = Synonyms
     fk_name = 'source'
+    raw_id_fields = ('source','target',)
     extra = 0
 class AntonymsInline(admin.TabularInline):
     model = Antonyms
     fk_name = 'source'
+    raw_id_fields = ('source','target',)
     extra = 0
 class SuperCategoryInline(admin.TabularInline):
     model = SuperCategory
     fk_name = 'source'
+    raw_id_fields = ('source','target',)
     extra = 0
 class SubCategoryInline(admin.TabularInline):
     model = SubCategory
     fk_name = 'source'
+    raw_id_fields = ('source','target',)
     extra = 0
 class IntervalListFilter(admin.SimpleListFilter):
     title = _('Interval Occurrence Filter')
