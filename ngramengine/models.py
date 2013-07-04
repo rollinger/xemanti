@@ -39,6 +39,7 @@ class PartOfSpeech(models.Model):
     
     def __unicode__(self):
         return self.type
+    
     @property
     def ngram_count(self):
         return self.ngrams.count()
