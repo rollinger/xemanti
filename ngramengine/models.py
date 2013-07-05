@@ -36,13 +36,19 @@ class PartOfSpeech(models.Model):
     # Boolean if the part or speech indicates meaninglessness of the ngram
     # Meaninglessness is better inferred from the part of speech than meaningfulness
     semantic_meaningless = models.BooleanField(default=False)
+    # How many ngrams have this part of speech
+    ngram_count = models.PositiveIntegerField(default=0)
     
     def __unicode__(self):
         return self.type
     
-    @property
-    def ngram_count(self):
-        return self.ngrams.count()
+    def count_ngrams(self):
+        ngram_count = self.ngrams.count()
+        return ngram_count
+    
+    def save(self):
+        self.count_ngrams(self)
+        super(PartOfSpeech, self).save()
     
     class Meta:
         verbose_name = 'Part Of Speech'
@@ -56,13 +62,19 @@ class Languages(models.Model):
     language        = models.CharField(max_length=255,unique=True)
     # Language of NGram 
     ngrams = models.ManyToManyField('NGrams', related_name="language", blank=True, null=True)
+    # How many ngrams have this language
+    ngram_count = models.PositiveIntegerField(default=0)
     
     def __unicode__(self):
         return self.language
     
-    @property
-    def ngram_count(self):
-        return self.ngrams.count()
+    def count_ngrams(self):
+        ngram_count = self.ngrams.count()
+        return ngram_count
+    
+    def save(self):
+        self.count_ngrams(self)
+        super(Languages, self).save()
     
     class Meta:
         verbose_name = 'Language'
