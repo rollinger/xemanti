@@ -36,11 +36,36 @@ def cooccurrence_maintenance():
         elif not obj.is_meaningful():
             obj.delete()
             continue
-        else:
+    # Compute Stats after Deletion Process
+    for obj in dirty_query:
             obj.compute_mean_position()
             obj.compute_discriminatory_power()
             obj.dirty = False
             obj.save()
+
+# Calculate ngram_count of Languages and PartofSpeech (cronjob)
+@celery.task(name='tasks.add_random_wikipedia_article_to_system')
+def add_random_wikipedia_article_to_system():
+    import urllib
+    import urllib2
+    import re
+    from bs4 import BeautifulSoup
+    
+    #ngram = NGrams.objects.order_by('?')[0]
+    #print ngram.token
+    
+    opener = urllib2.build_opener()
+    opener.addheaders = [('User-agent','Mozilla/5.0 (X11; Linux x86_64; rv:2.0.1) Gecko/20110506 Firefox/4.0.1')]
+    #url = "http://de.wikipedia.org/wiki/"+ngram.token
+    #url = "http://de.wikipedia.org/w/index.php?title="+"&printable=yes"
+    url = "http://de.wikipedia.org/wiki/Spezial:Zuf%C3%A4llige_Seite"
+    #url = "http://de.wikipedia.org/wiki/Crist%C3%B3bal_Gregorio_VI_Portocarrero_Osorio_Villalpando_y_Guzm%C3%A1n"
+    html = opener.open(url.encode('utf-8'))
+    soup = BeautifulSoup(html)
+    texts = soup.find("div", {"id": "mw-content-text"}).findAll(text=True)
+    text =  "".join(texts).split('NewPP limit report')[0]
+    #print text
+    add_text_to_system(text)
 
 """
 # Process for Deleting bad Co-Occurrence (trigerable)
