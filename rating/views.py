@@ -36,7 +36,7 @@ def ngram_setup_view(request):
         return HttpResponseRedirect(reverse('ngram_setup'))
     # Form not submitted:
     else:
-        # Get NGram and 
+        # Get NGram and languages and part of speech
         ngram = NGrams.objects.filter(Q(language=None)|Q(partofspeech=None)).order_by("t_occurred")[0]
         languages = Languages.objects.all()#.annotate(ngram_count=Count(F('ngrams'))).order_by('ngram_count')
         partofspeeches = PartOfSpeech.objects.all()

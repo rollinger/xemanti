@@ -151,7 +151,6 @@ class NGrams(models.Model):
     token       = models.CharField(max_length=255,unique=True)
     # Counter how many times the token was injected into the system
     t_occurred  = models.PositiveIntegerField(default=0)
-    
     # Word Stem of the token
     wordstem = models.ForeignKey(WordStems, blank=True, null=True)
     # Dirty Flag: Indicates the object has changed
@@ -170,7 +169,7 @@ class NGrams(models.Model):
                 # Same ngrams (their token equivalence) to __not__ co-occure
                 if source_index != target_index and source_ngram != target_ngram:
                     if source_ngram.is_meaningful() and target_ngram.is_meaningful():
-			# Inject Co-Occurrence with the positional difference from the source
+                        # Inject Co-Occurrence with the positional difference from the source
                         cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index-source_index)
                 
     @classmethod
@@ -187,8 +186,8 @@ class NGrams(models.Model):
         """
         Checks if the ngram belongs to a part of speech that indicates meaninglessness
         """
-        for pos in self.partofspeech_set:
-            if pos.semantic_meaninglessness == True:
+        for pos in self.partofspeech.all():#_set:
+            if pos.semantic_meaningless == True:
                 return False
         return True
     
