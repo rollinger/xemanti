@@ -83,6 +83,7 @@ class MeaningfulCoOccurrenceListFilter(admin.SimpleListFilter):
 class CoOccurrencesAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 't_cooccured', 'mean_position', 'power', "dirty")
     list_filter = ['dirty', MeaningfulCoOccurrenceListFilter,]
+    search_fields = ('source__token', )
     ordering = ('-t_cooccured',)
     raw_id_fields = ('source','target',)
 admin.site.register(CoOccurrences, CoOccurrencesAdmin)
