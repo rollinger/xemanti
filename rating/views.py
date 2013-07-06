@@ -37,9 +37,14 @@ def ngram_setup_view(request):
     # Form not submitted:
     else:
         # Get NGram and languages and part of speech
-        ngram = NGrams.objects.filter(Q(language=None)|Q(partofspeech=None)).order_by("t_occurred")[0]
-        languages = Languages.objects.all()#.annotate(ngram_count=Count(F('ngrams'))).order_by('ngram_count')
-        partofspeeches = PartOfSpeech.objects.all()
+        relevant_language = Languages.objects.get(language="Englisch")
+        languages = Languages.objects.all().order_by('ngram_count')
+        partofspeeches = PartOfSpeech.objects.all().order_by('ngram_count')
+        try:
+            ngram = NGrams.objects.filter(language=relevant_language).filter(Q(partofspeech=None)).order_by("t_occurred")[0]
+        except:
+            return HttpResponseRedirect(reverse('home'))
+        # Unbound form
         form = NGramSetupForm(instance=ngram,languages=languages,partofspeeches=partofspeeches)
     
     # Render Template Home

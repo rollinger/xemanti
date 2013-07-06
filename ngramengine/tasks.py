@@ -19,10 +19,8 @@ def add_text_to_system(text):
 def calc_ngram_count():
     for language in Languages.objects.all():
         language.count_ngrams()
-        language.save()
     for pos in PartOfSpeech.objects.all():
         pos.count_ngrams()
-        pos.save()
 
 
 

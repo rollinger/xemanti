@@ -43,11 +43,12 @@ class PartOfSpeech(models.Model):
         return self.type
     
     def count_ngrams(self):
-        ngram_count = self.ngrams.count()
-        return ngram_count
+        self.ngram_count = self.ngrams.count()
+        self.save()
+        return self.ngram_count
     
     def save(self):
-        self.count_ngrams(self)
+        #self.count_ngrams(self)
         super(PartOfSpeech, self).save()
     
     class Meta:
@@ -69,11 +70,12 @@ class Languages(models.Model):
         return self.language
     
     def count_ngrams(self):
-        ngram_count = self.ngrams.count()
-        return ngram_count
+        self.ngram_count = self.ngrams.count()
+        self.save()
+        return self.ngram_count
     
     def save(self):
-        self.count_ngrams(self)
+        #self.count_ngrams(self)
         super(Languages, self).save()
     
     class Meta:
