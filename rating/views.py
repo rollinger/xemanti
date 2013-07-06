@@ -37,9 +37,9 @@ def ngram_setup_view(request):
     # Form not submitted:
     else:
         # Get NGram and languages and part of speech
-        relevant_language = Languages.objects.get(language="Englisch")
-        languages = Languages.objects.all().order_by('ngram_count')
-        partofspeeches = PartOfSpeech.objects.all().order_by('ngram_count')
+        relevant_language = None #Languages.objects.get(language="Englisch")
+        languages = Languages.objects.all().order_by('-ngram_count')
+        partofspeeches = PartOfSpeech.objects.all().order_by('-ngram_count')
         try:
             ngram = NGrams.objects.filter(language=relevant_language).filter(Q(partofspeech=None)).order_by("t_occurred")[0]
         except:
@@ -49,5 +49,6 @@ def ngram_setup_view(request):
     
     # Render Template Home
     return render_to_response('rating/ngram_setup.html', {
-        "form":form
+        "ngram":ngram,
+        "form":form,
     }, context_instance=RequestContext(request))

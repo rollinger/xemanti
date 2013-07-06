@@ -2,6 +2,8 @@
 
 {% block main-content %}
 <div class="main-content">
+	<a href="http://de.wiktionary.org/wiki/{{ngram.token}}" target="_blank">{{ngram.token}} on Wiktionary</a>
+	<br>
 	<form action="." method="POST" data-ajax="false">
 		
 		<input type="submit" name="delete" value="Delete" />{% csrf_token %}
