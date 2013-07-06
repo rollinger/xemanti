@@ -27,7 +27,9 @@ class Tokenizer():
         nonword_pat = re.compile(r'[.!?:;,]+', re.UNICODE)
         word_pat = re.compile(r'[\w.]+', re.UNICODE)
         text = re.sub(nonword_pat, ' ' , text)
-        return word_pat.findall( text.lower() ) 
+        # Removed to lower case text.lower()
+        # Reason: Case implies difference in semantic meaning (
+        return word_pat.findall( text ) 
     
     
     

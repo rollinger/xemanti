@@ -244,13 +244,13 @@ class CoOccurrences(models.Model):
     
     def compute_mean_position(self):
         # Returns the mean position of the target ngram from the source ngram
-        positions = map(int, self.positions[:-1].split(','))
-        if positions:
-            try:
+        try:
+            positions = map(int, self.positions[:-1].split(','))
+            if positions:
                 self.mean_position = sum(positions)/float(len(positions))
                 return self.mean_position
-            except:
-                return 0.0
+        except:
+            return 0.0
     
     def compute_discriminatory_power(self):
         # Returns the mean position of the target ngram from the source ngram
