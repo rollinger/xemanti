@@ -155,6 +155,8 @@ class NGrams(models.Model):
     t_occurred  = models.PositiveIntegerField(default=0)
     # Word Stem of the token
     wordstem = models.ForeignKey(WordStems, blank=True, null=True)
+    # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness)
+    semantic_meaningless = models.BooleanField(default=False)
     # Dirty Flag: Indicates the object has changed
     dirty = models.BooleanField(default=True)
     
@@ -186,11 +188,15 @@ class NGrams(models.Model):
     
     def is_meaningful(self):
         """
-        Checks if the ngram belongs to a part of speech that indicates meaninglessness
+        Checks if the ngram is semantically meaningless, or
+        if it belongs to a part of speech that indicates meaninglessness
         """
-        for pos in self.partofspeech.all():#_set:
-            if pos.semantic_meaningless == True:
-                return False
+        if self.semantic_meaningless == True:
+            return False
+        else:
+            for pos in self.partofspeech.all():#_set:
+                if pos.semantic_meaningless == True:
+                    return False
         return True
     
     def languages(self):

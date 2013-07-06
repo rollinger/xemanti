@@ -84,6 +84,7 @@ class CoOccurrencesAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 't_cooccured', 'mean_position', 'power', "dirty")
     list_filter = ['dirty', MeaningfulCoOccurrenceListFilter,]
     ordering = ('-t_cooccured',)
+    raw_id_fields = ('source','target',)
 admin.site.register(CoOccurrences, CoOccurrencesAdmin)
 
 

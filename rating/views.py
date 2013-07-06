@@ -41,7 +41,7 @@ def ngram_setup_view(request):
         languages = Languages.objects.all().order_by('-ngram_count')
         partofspeeches = PartOfSpeech.objects.all().order_by('-ngram_count')
         try:
-            ngram = NGrams.objects.filter(language=relevant_language).filter(Q(partofspeech=None)).order_by("t_occurred")[0]
+            ngram = NGrams.objects.filter(Q(language=relevant_language)).filter(Q(partofspeech=None)).order_by("-t_occurred")[0]
         except:
             return HttpResponseRedirect(reverse('home'))
         # Unbound form
