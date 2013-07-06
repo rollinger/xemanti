@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ngramengine.models import NGrams, CoOccurrences
+from ngramengine.models import *
 from tokenizer import Tokenizer
 
 from celery import task
@@ -11,6 +11,19 @@ def add_text_to_system(text):
     sentence_list = Tokenizer.tokenize_sentences(text)
     for sentence in sentence_list:
         NGrams.add_text_to_system( sentence )
+
+
+
+# Calculate ngram_count of Languages and PartofSpeech (cronjob)
+@celery.task(name='tasks.calc_ngram_count')
+def calc_ngram_count():
+    for language in Languages.objects.all():
+        language.count_ngrams()
+        language.save()
+    for pos in PartOfSpeech.objects.all():
+        pos.count_ngrams()
+        pos.save()
+
 
 
 # Process for Maintaining Co-Occurrence (every hour)
