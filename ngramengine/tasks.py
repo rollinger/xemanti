@@ -30,15 +30,25 @@ def cooccurrence_maintenance():
     # fetch all dirty cooccurrences
     dirty_query = CoOccurrences.objects.filter(dirty=True)
     for obj in dirty_query:
-        obj.compute_mean_position()
-        obj.compute_discriminatory_power()
-        obj.dirty = False
-        obj.save()
+        if obj.t_cooccured == 1:
+            obj.delete()
+            continue
+        elif not obj.is_meaningful():
+            obj.delete()
+            continue
+        else:
+            obj.compute_mean_position()
+            obj.compute_discriminatory_power()
+            obj.dirty = False
+            obj.save()
 
+"""
 # Process for Deleting bad Co-Occurrence (trigerable)
 @celery.task(name='tasks.cooccurrence_deletion')
 def cooccurrence_deletion():
     # Delete non meaningful co-occurences
+    dirty_query = CoOccurrences.objects.filter()
+    
     filter = ['substantiv',"verb","adjektiv"]
     dirty_query = CoOccurrences.objects.exclude(source__partofspeech__in=filter).exclude(source__partofspeech__isnull=True)
     print dirty_query.count()
@@ -53,6 +63,7 @@ def cooccurrence_deletion():
     print dirty_query.count()
     for obj in dirty_query:
         obj.delete()
+"""
 """
 @celery.task(name='tasks.calculate_devianz')
 def calculate_devianz():
