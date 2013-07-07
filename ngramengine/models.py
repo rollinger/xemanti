@@ -203,8 +203,10 @@ class NGrams(models.Model):
         return self.languages
     
     def save(self, *args, **kwargs):
-        #Override Save Method
         super(NGrams, self).save(*args, **kwargs)
+        # Set PartofSpeech 
+        if self.token.is_numeric():
+            self.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
     
     def __unicode__(self):
         return self.token
