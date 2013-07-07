@@ -41,7 +41,7 @@ class IntervalListFilter(admin.SimpleListFilter):
             (1, _('1')),
             (2, _('<10')),
             (3, _('<100')),
-            (3, _('<1000')),
+            (4, _('<1000')),
             )
     def queryset(self, request, queryset):
         if self.value() == "1":

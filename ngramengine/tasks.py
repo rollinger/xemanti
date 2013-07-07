@@ -2,22 +2,40 @@
 from ngramengine.models import *
 from tokenizer import Tokenizer
 
+from django.db.models import Q, F
+
 from celery import task
 import celery
+import time
+
+
 
 # Add text to system (user trigger)
 @celery.task(name='tasks.add_text_to_system')
 def add_text_to_system(text):
+    """
+    Add a text to the system (add ngrams and cooccurrences).
+    """
+    start_time = time.time()
+    
+    # Main Routine
     NGrams.add_text_to_system( text )
-    #sentence_list = Tokenizer.tokenize_sentences(text)
-    #for sentence in sentence_list:
-    #    NGrams.add_text_to_system( sentence )
+    
+    # Performance Message
+    duration =  time.time() - start_time
+    ntok = len(Tokenizer.linear_token_list(text))
+    print "N_Token: " + ntok
+    print "Duration: " + duration
+    print "Time per Token: " + (ntok/duration) 
 
 
 
 # Calculate ngram_count of Languages and PartofSpeech (cronjob)
 @celery.task(name='tasks.calc_ngram_count')
 def calc_ngram_count():
+    """
+    Calculates the number of ngrams that Languages and PartofSpeech objects are related to.
+    """
     for language in Languages.objects.all():
         language.count_ngrams()
     for pos in PartOfSpeech.objects.all():
@@ -26,27 +44,55 @@ def calc_ngram_count():
 
 
 # Process for Maintaining Co-Occurrence (every hour)
-@celery.task(name='tasks.cooccurrence_maintenance')
-def cooccurrence_maintenance():
-    # fetch all dirty cooccurrences
-    dirty_query = CoOccurrences.objects.filter(dirty=True)
+@celery.task(name='tasks.ngram_maintenance')
+def ngram_maintenance():
+    """
+    Periodic Maintenance of NGrams
+    - Delete Cooccurrences over 100 ordered by t_cooccurred
+    - Calculate statistics 
+    """
+    COOCCURRENCE_CUTOFF = 101
+    # fetch all dirty ngrams
+    dirty_query = NGrams.objects.filter(dirty=True).order_by('-t_occurred')[:1000]
+    #dirty_query = NGrams.objects.filter(token="Berlin")
+    #dirty_query = NGrams.objects.filter(Q(language=Languages.objects.get(language="Deutsch"))).order_by('?')[:100]
+    # Iterate ngrams
     for obj in dirty_query:
-        if obj.t_cooccured == 1:
-            obj.delete()
-            continue
-        elif not obj.is_meaningful():
-            obj.delete()
-            continue
-    # Compute Stats after Deletion Process
-    for obj in dirty_query:
-            obj.compute_mean_position()
-            obj.compute_discriminatory_power()
-            obj.dirty = False
-            obj.save()
+        print "NGRAM: " + str(obj)
+        #
+        # CoOccurrence Maintenance
+        #
+        if obj.coocurrence_outbound.exists():
+            # Delete non-meaningful coocurrences
+            for cooc in obj.coocurrence_outbound.all():
+                if not cooc.is_meaningful():
+                    cooc.delete()
+            # Delete Cooccurence by Cutoff (Delete after COOCCURRENCE_CUTOFF)
+            for cooc in obj.coocurrence_outbound.order_by('-t_cooccured')[COOCCURRENCE_CUTOFF:]:
+                    #print str(cooc) + " >> " + str(cooc.t_cooccured)
+                    cooc.delete()
+            # Calculate Statistics for remaining CoOccurrences
+            for cooc in obj.coocurrence_outbound.all():
+                #print cooc
+                cooc.compute_mean_position()
+                cooc.compute_discriminatory_power()
+                cooc.dirty = False
+                cooc.save()
+        
+        #
+        # NGram Maintenance
+        #
+        obj.dirty = False
+        obj.save()
+
+
 
 # Calculate ngram_count of Languages and PartofSpeech (cronjob)
 @celery.task(name='tasks.add_random_wikipedia_article_to_system')
 def add_random_wikipedia_article_to_system():
+    """
+    Fetch a random wikipedia article and add the text to the system
+    """
     import urllib
     import urllib2
     import re
@@ -65,7 +111,7 @@ def add_random_wikipedia_article_to_system():
     soup = BeautifulSoup(html)
     texts = soup.find("div", {"id": "mw-content-text"}).findAll(text=True)
     text =  "".join(texts).split('NewPP limit report')[0]
-    #print text
+    #Add text to system
     add_text_to_system(text)
 
 """
@@ -119,4 +165,29 @@ def add_ngrams_to_sentence_queue():
             s.save()
         else:
             print "NOT ADDED!!!" + str(obj)
+            
+# Process for Maintaining Co-Occurrence (every hour)
+@celery.task(name='tasks.cooccurrence_maintenance')
+def cooccurrence_maintenance():
+
+    Periodic Maintenance of Cooccurrences
+    - Delete Cooccurrences if not meaningfull
+    - Calculate statistics 
+
+    # fetch all dirty cooccurrences
+    dirty_query = CoOccurrences.objects.filter(dirty=True)
+    for obj in dirty_query:
+        #if obj.t_cooccured == 1:
+        #    obj.delete()
+        #    continue
+        #el
+        if not obj.is_meaningful():
+            obj.delete()
+            continue
+        else:
+            # Compute Stats after Deletion Process
+            obj.compute_mean_position()
+            obj.compute_discriminatory_power()
+            obj.dirty = False
+            obj.save()
 """

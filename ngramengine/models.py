@@ -204,6 +204,13 @@ class NGrams(models.Model):
         ngram.save()
         return ngram
     
+    def dirty(self):
+        self.dirty = True
+        self.save()
+    def not_dirty(self):
+        self.dirty = False
+        self.save()
+    
     def is_meaningful(self):
         """
         Checks if the ngram is semantically meaningless, or
@@ -221,6 +228,7 @@ class NGrams(models.Model):
         return self.languages
     
     def save(self, *args, **kwargs):
+        # TODO: Check that all ngrams stay lowercase
         super(NGrams, self).save(*args, **kwargs)
         # Set PartofSpeech to Zahlzeichen and language to International if token is_numeric
         if self.token.isnumeric():
@@ -259,6 +267,9 @@ class CoOccurrences(models.Model):
         if times > 0:
             cooc.t_cooccured = cooc.t_cooccured + times
         cooc.positions += str(position) + ","
+        # The ngram is dirty not the related model
+        # Refactor dirty to only ngram can be dirty
+        cooc.source.dirty()
         cooc.dirty = True
         cooc.save()
         return cooc

@@ -27,9 +27,7 @@ class Tokenizer():
         nonword_pat = re.compile(r'[.!?:;,]+', re.UNICODE)
         word_pat = re.compile(r'[\w.]+', re.UNICODE)
         text = re.sub(nonword_pat, ' ' , text)
-        # Removed to lower case text.lower()
-        # Reason: Case implies difference in semantic meaning (
-        return word_pat.findall( text ) 
+        return word_pat.findall( text.lower() ) 
     
     
     
@@ -43,7 +41,7 @@ class Tokenizer():
         return sentences
     
     
-    
+    #DEPRECATED:
     @classmethod
     def tokenize_to_ngrams(cls,text, order=[1,2,3],unique=False):
         # Make tokenization
