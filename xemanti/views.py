@@ -29,8 +29,8 @@ def home_view(request):
         if form.is_valid(): # All validation rules pass
             text_to_analyze = form.cleaned_data['textinput']
             # Add NGrams to the system
-            #add_text_to_system.delay(text_to_analyze)
-            NGrams.add_text_to_system(text_to_analyze)
+            add_text_to_system.delay(text_to_analyze)
+            #NGrams.add_text_to_system(text_to_analyze)
             # TODO: Initiate Report generation
             # TODO: Redirect to Rating Process after POST
             #url = reverse('rating')

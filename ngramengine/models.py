@@ -161,24 +161,37 @@ class NGrams(models.Model):
     dirty = models.BooleanField(default=True)
     
     @classmethod
-    def add_text_to_system_slow(cls, text):
-        token_list = Tokenizer.linear_token_list(text)
-        ngram_list = []
-        # Get or create the ngrams and store them in ngram_list (performance)
-        for token in token_list:
-            ngram_list.append( NGrams.inject(token=token) )
-        # Add CoOccurrence to the system
-        for source_index,source_ngram in enumerate(ngram_list):
-            for target_index,target_ngram in enumerate(ngram_list):
-                # Same ngrams (their token equivalence) to __not__ co-occure
-                if source_index != target_index and source_ngram != target_ngram:
-                    if source_ngram.is_meaningful() and target_ngram.is_meaningful():
-                        # Inject Co-Occurrence with the positional difference from the source
-                        cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index-source_index)
-                
-    @classmethod
     def add_text_to_system(cls, text):
-        NGrams.add_text_to_system_slow(text)
+        #text should be the complete (user) input
+        token_list_complete = Tokenizer.linear_token_list(text)
+        ngram_list_complete = []
+        # Get or create all ngrams and store them in ngram_list (performance)
+        for token in token_list_complete:
+            ngram = NGrams.inject(token=token) # Each token hits the database once (performance)
+            # Append if not present in list (make unique list)
+            if not ngram in ngram_list_complete:
+                ngram_list_complete.append( ngram )
+        
+        # Make List of sentences
+        sentences_list = Tokenizer.tokenize_sentences(text)
+        for sentence in sentences_list:
+            # Make linear token list for sentence
+            token_list = Tokenizer.linear_token_list(sentence)
+            ngram_list = []
+            # Make ngram_list from token_list and ngram_list_complete
+            for token in token_list:
+                for ngram in ngram_list_complete:
+                    if ngram.token == token:
+                        ngram_list.append( ngram )
+            # Add CoOccurrence inside sentence to the system
+            for source_index,source_ngram in enumerate(ngram_list):
+                for target_index,target_ngram in enumerate(ngram_list):
+                    # Identical ngrams (their token equivalence) do __not__ co-occure
+                    if source_index != target_index and source_ngram != target_ngram:
+                        # If eigther source.token or target.token indicates semantic meaninglessness: they do __not__ co-occure
+                        if source_ngram.is_meaningful() and target_ngram.is_meaningful():
+                            # Inject Co-Occurrence with the positional difference from the source (hits the database)
+                            cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index-source_index)
         
     @classmethod
     def inject(cls,token,times=1):

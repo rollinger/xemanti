@@ -8,9 +8,10 @@ import celery
 # Add text to system (user trigger)
 @celery.task(name='tasks.add_text_to_system')
 def add_text_to_system(text):
-    sentence_list = Tokenizer.tokenize_sentences(text)
-    for sentence in sentence_list:
-        NGrams.add_text_to_system( sentence )
+    NGrams.add_text_to_system( text )
+    #sentence_list = Tokenizer.tokenize_sentences(text)
+    #for sentence in sentence_list:
+    #    NGrams.add_text_to_system( sentence )
 
 
 
