@@ -162,6 +162,7 @@ class NGrams(models.Model):
     
     @classmethod
     def add_text_to_system(cls, text):
+        # Performance: 100 words = 105 sec
         #text should be the complete (user) input
         token_list_complete = Tokenizer.linear_token_list(text)
         ngram_list_complete = []
@@ -221,9 +222,10 @@ class NGrams(models.Model):
     
     def save(self, *args, **kwargs):
         super(NGrams, self).save(*args, **kwargs)
-        # Set PartofSpeech to Zahlzeichen
+        # Set PartofSpeech to Zahlzeichen and language to International if token is_numeric
         if self.token.isnumeric():
             self.partofspeech.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
+            self.language.add(Languages.objects.get(language="International"))
     
     def __unicode__(self):
         return self.token
