@@ -161,7 +161,7 @@ class NGrams(models.Model):
     dirty = models.BooleanField(default=True)
     
     @classmethod
-    def add_text_to_system(cls, text):
+    def add_text_to_system_slow(cls, text):
         token_list = Tokenizer.linear_token_list(text)
         ngram_list = []
         # Get or create the ngrams and store them in ngram_list (performance)
@@ -176,6 +176,10 @@ class NGrams(models.Model):
                         # Inject Co-Occurrence with the positional difference from the source
                         cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index-source_index)
                 
+    @classmethod
+    def add_text_to_system(cls, text):
+        NGrams.add_text_to_system_slow(text)
+        
     @classmethod
     def inject(cls,token,times=1):
         ngram, created = NGrams.objects.get_or_create(token=token)
@@ -204,9 +208,9 @@ class NGrams(models.Model):
     
     def save(self, *args, **kwargs):
         super(NGrams, self).save(*args, **kwargs)
-        # Set PartofSpeech 
-        if self.token.is_numeric():
-            self.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
+        # Set PartofSpeech to Zahlzeichen
+        if self.token.isnumeric():
+            self.partofspeech.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
     
     def __unicode__(self):
         return self.token
