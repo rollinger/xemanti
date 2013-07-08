@@ -24,9 +24,9 @@ def add_text_to_system(text):
     # Performance Message
     duration =  time.time() - start_time
     ntok = len(Tokenizer.linear_token_list(text))
-    print "N_Token: " + ntok
-    print "Duration: " + duration
-    print "Time per Token: " + (ntok/duration) 
+    print "N_Token: " + str(ntok)
+    print "Duration: " + str(duration)
+    print "Time per Token: " + str(ntok/duration) 
 
 
 
@@ -36,10 +36,23 @@ def calc_ngram_count():
     """
     Calculates the number of ngrams that Languages and PartofSpeech objects are related to.
     """
+    start_time = time.time()
+    
+    # Main Routine
+    n_lang = 0; n_pos = 0;
     for language in Languages.objects.all():
         language.count_ngrams()
+        n_lang += 1
     for pos in PartOfSpeech.objects.all():
         pos.count_ngrams()
+        n_pos += 1
+    
+    # Performance Message
+    duration =  time.time() - start_time
+    print "N_Language: " + str(n_lang)
+    print "N_os: " + str(n_pos)
+    print "Duration: " + str(duration)
+    print "Time per Object: " + str((n_lang+n_pos)/duration) 
 
 
 
@@ -51,14 +64,13 @@ def ngram_maintenance():
     - Delete Cooccurrences over 100 ordered by t_cooccurred
     - Calculate statistics 
     """
-    COOCCURRENCE_CUTOFF = 101
-    # fetch all dirty ngrams
-    dirty_query = NGrams.objects.filter(dirty=True).order_by('-t_occurred')[:1000]
-    #dirty_query = NGrams.objects.filter(token="Berlin")
-    #dirty_query = NGrams.objects.filter(Q(language=Languages.objects.get(language="Deutsch"))).order_by('?')[:100]
-    # Iterate ngrams
+    start_time = time.time()
+    
+    COOCCURRENCE_CUTOFF = 100
+    # fetch all (100) dirty ngrams
+    dirty_query = NGrams.objects.filter(dirty=True).order_by('?')[:100]
     for obj in dirty_query:
-        print "NGRAM: " + str(obj)
+        #print "NGRAM: " + str(obj)
         #
         # CoOccurrence Maintenance
         #
@@ -84,6 +96,13 @@ def ngram_maintenance():
         #
         obj.dirty = False
         obj.save()
+        
+    # Performance Message
+    duration =  time.time() - start_time
+    ntok = len(dirty_query)
+    print "N_NGrams: " + str(ntok)
+    print "Duration: " + str(duration)
+    print "Time per Token: " + str(ntok/duration) 
 
 
 

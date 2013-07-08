@@ -29,6 +29,7 @@ def ngram_setup_view(request):
             ngram.delete()
         elif 'update' in request.POST:
             # update ngram
+            ngram.save()
             if form.data['languages']:
                 ngram.language.add(Languages.objects.get(pk=int(form.data['languages'])))
             if form.data['partofspeeches']:

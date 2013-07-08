@@ -204,10 +204,10 @@ class NGrams(models.Model):
         ngram.save()
         return ngram
     
-    def dirty(self):
+    def set_dirty(self):
         self.dirty = True
         self.save()
-    def not_dirty(self):
+    def set_clean(self):
         self.dirty = False
         self.save()
     
@@ -228,8 +228,6 @@ class NGrams(models.Model):
         return self.languages
     
     def save(self, *args, **kwargs):
-        #Check that all ngrams stay lowercase
-        self.token = self.token.lower()
         super(NGrams, self).save(*args, **kwargs)
         # Set PartofSpeech to Zahlzeichen and language to International if token is_numeric
         if self.token.isnumeric():
@@ -270,7 +268,7 @@ class CoOccurrences(models.Model):
         cooc.positions += str(position) + ","
         # The ngram is dirty not the related model
         # Refactor dirty to only ngram can be dirty
-        cooc.source.dirty()
+        cooc.source.set_dirty()
         cooc.dirty = True
         cooc.save()
         return cooc

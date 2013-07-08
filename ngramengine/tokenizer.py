@@ -27,7 +27,7 @@ class Tokenizer():
         nonword_pat = re.compile(r'[.!?:;,]+', re.UNICODE)
         word_pat = re.compile(r'[\w.]+', re.UNICODE)
         text = re.sub(nonword_pat, ' ' , text)
-        return word_pat.findall( text.lower() ) 
+        return word_pat.findall( text ) 
     
     
     
