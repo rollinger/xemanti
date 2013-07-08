@@ -26,7 +26,7 @@ def add_text_to_system(text):
     ntok = len(Tokenizer.linear_token_list(text))
     print "N_Token: " + str(ntok)
     print "Duration: " + str(duration)
-    print "Time per Token: " + str(ntok/duration) 
+    print "Time per Token: " + str(duration/ntok) 
 
 
 
@@ -52,7 +52,7 @@ def calc_ngram_count():
     print "N_Language: " + str(n_lang)
     print "N_os: " + str(n_pos)
     print "Duration: " + str(duration)
-    print "Time per Object: " + str((n_lang+n_pos)/duration) 
+    print "Time per Object: " + str(duration/(n_lang+n_pos)) 
 
 
 
@@ -102,7 +102,7 @@ def ngram_maintenance():
     ntok = len(dirty_query)
     print "N_NGrams: " + str(ntok)
     print "Duration: " + str(duration)
-    print "Time per Token: " + str(ntok/duration) 
+    print "Time per NGram: " + str(duration/ntok) 
 
 
 
