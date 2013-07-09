@@ -219,14 +219,13 @@ class NGrams(models.Model):
                         ngram_list.append( ngram )
             # Add CoOccurrence inside sentence to the system
             for source_index,source_ngram in enumerate(ngram_list):
-                for target_index,target_ngram in enumerate(ngram_list):
+                for target_index,target_ngram in enumerate(ngram_list[source_index+1:]):
                     # Identical ngrams (their token equivalence) do __not__ co-occure
                     if source_index != target_index and source_ngram != target_ngram:
                         # If eigther source.token or target.token indicates semantic meaninglessness: they do __not__ co-occure
                         if source_ngram.is_meaningful() and target_ngram.is_meaningful():
                             # Inject Co-Occurrence with the positional difference from the source (hits the database)
-                            cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index-source_index)
-        
+                            cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index+1)
     @classmethod
     def inject(cls,token,times=1):
         ngram, created = NGrams.objects.get_or_create(token=token)
