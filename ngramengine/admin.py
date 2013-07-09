@@ -100,6 +100,14 @@ class WordStemsAdmin(admin.ModelAdmin):
     pass
 admin.site.register(WordStems, WordStemsAdmin)
 
+class GenusAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Genus, GenusAdmin)
+
+class NumerusAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Numerus, NumerusAdmin)
+
 class PartOfSpeechAdmin(admin.ModelAdmin):
     list_display = ('type', 'semantic_meaningless', 'ngram_count')
     exclude = ['ngrams',]

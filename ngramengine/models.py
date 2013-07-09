@@ -24,20 +24,47 @@ class WordStems(models.Model):
         verbose_name_plural = 'Word Stems'
         ordering = ['stem',]
         
-        
+"""
+Genus of an ngram
+"""
+class Genus(models.Model):
+    # The Genus of Ngrams
+    type        = models.CharField(max_length=255,unique=True)
+    
+    def __unicode__(self):
+        return self.type
+    
+    class Meta:
+        verbose_name = 'Genus'
+        verbose_name_plural = 'Genus'
+        ordering = ['type',]
+"""
+Numerus of an ngram
+"""
+class Numerus(models.Model):
+    # The Stem of a set of Ngrams
+    type        = models.CharField(max_length=255,unique=True)
+    
+    def __unicode__(self):
+        return self.type
+    
+    class Meta:
+        verbose_name = 'Numerus'
+        verbose_name_plural = 'Numerus'
+        ordering = ['type',]
 """
 Part Of Speech typify the ngram for their part of speech
 """
 class PartOfSpeech(models.Model):
     # The Part of Speech of a set of Ngrams
-    type        = models.CharField(max_length=255,unique=True)
+    type                    = models.CharField(max_length=255,unique=True)
     # Part of Speech related to NGrams
-    ngrams = models.ManyToManyField('NGrams', related_name="partofspeech", blank=True, null=True)
+    ngrams                  = models.ManyToManyField('NGrams', related_name="partofspeech", blank=True, null=True)
     # Boolean if the part or speech indicates meaninglessness of the ngram
     # Meaninglessness is better inferred from the part of speech than meaningfulness
-    semantic_meaningless = models.BooleanField(default=False)
+    semantic_meaningless    = models.BooleanField(default=False)
     # How many ngrams have this part of speech
-    ngram_count = models.PositiveIntegerField(default=0)
+    ngram_count             = models.PositiveIntegerField(default=0)
     
     def __unicode__(self):
         return self.type
@@ -48,7 +75,6 @@ class PartOfSpeech(models.Model):
         return self.ngram_count
     
     def save(self):
-        #self.count_ngrams(self)
         super(PartOfSpeech, self).save()
     
     class Meta:
@@ -62,9 +88,9 @@ class Languages(models.Model):
     # The Stem of a set of Ngrams
     language        = models.CharField(max_length=255,unique=True)
     # Language of NGram 
-    ngrams = models.ManyToManyField('NGrams', related_name="language", blank=True, null=True)
+    ngrams          = models.ManyToManyField('NGrams', related_name="language", blank=True, null=True)
     # How many ngrams have this language
-    ngram_count = models.PositiveIntegerField(default=0)
+    ngram_count     = models.PositiveIntegerField(default=0)
     
     def __unicode__(self):
         return self.language
@@ -75,7 +101,6 @@ class Languages(models.Model):
         return self.ngram_count
     
     def save(self):
-        #self.count_ngrams(self)
         super(Languages, self).save()
     
     class Meta:
@@ -153,14 +178,20 @@ class NGrams(models.Model):
     token                   = models.CharField(_('NGram'),max_length=255,unique=True)
     # Counter how many times the token was injected into the system
     t_occurred              = models.PositiveIntegerField(_('Times Occurred'),default=0)
-    # Word Stem of the token
-    wordstem                = models.ForeignKey(WordStems, blank=True, null=True)
     # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness)
     semantic_meaningless    = models.BooleanField(_('Semantical Meaningless'),default=False)
     # Dirty Flag: Indicates the object has changed
     dirty                   = models.BooleanField(_('Dirty'),default=True)
     # Qualified Flag: True if Staff has checked, qualified and updated the ngram and associated models
     qualified               = models.BooleanField(_('Qualified'),default=False)
+    
+    # Word Stem of the token
+    wordstem                = models.ForeignKey(WordStems, blank=True, null=True)
+    # Numerus of the token
+    numerus                 = models.ForeignKey(Numerus, blank=True, null=True)
+    # Genus of the token
+    genus                   = models.ForeignKey(Genus, blank=True, null=True)
+    
     
     @classmethod
     def add_text_to_system(cls, text):
