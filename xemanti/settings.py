@@ -85,6 +85,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -134,6 +135,7 @@ INSTALLED_APPS = (
     'kombu.transport.django',
     'dajaxice',
     'dajax',
+    'compress',
     # Installed Apps
     'xemanti',
     #'usr_profile',
