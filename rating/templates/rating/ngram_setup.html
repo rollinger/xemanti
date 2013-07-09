@@ -2,16 +2,14 @@
 
 {% block main-content %}
 <div class="main-content">
-	<a href="http://de.wiktionary.org/wiki/{{ngram.token}}" target="_blank">{{ngram.token}} on Wiktionary</a>
-	<br>
 	<form action="." method="POST" data-ajax="false">
-		
-		<input type="submit" name="delete" value="Delete" />{% csrf_token %}
 		{% for field in form.visible_fields %}
-    		{{ field }}
+    		{{ field.label }} {{ field }}<br>
 		{% endfor %}
+		<a href="http://de.wiktionary.org/wiki/{{form.instance.token}}" target="_blank">{{form.instance.token}} on Wiktionary</a>
+		<br>
+		<input type="submit" name="delete" value="Delete" />{% csrf_token %}
 		<input type="submit" name="update" value="Submit" />
-		
 	</form>
 </div>
 {% endblock %}

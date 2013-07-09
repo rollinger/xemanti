@@ -150,15 +150,17 @@ NGram holds the ngrams
 """
 class NGrams(models.Model):
     # Unique key for a token
-    token       = models.CharField(max_length=255,unique=True)
+    token                   = models.CharField(_('NGram'),max_length=255,unique=True)
     # Counter how many times the token was injected into the system
-    t_occurred  = models.PositiveIntegerField(default=0)
+    t_occurred              = models.PositiveIntegerField(_('Times Occurred'),default=0)
     # Word Stem of the token
-    wordstem = models.ForeignKey(WordStems, blank=True, null=True)
+    wordstem                = models.ForeignKey(WordStems, blank=True, null=True)
     # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness)
-    semantic_meaningless = models.BooleanField(default=False)
+    semantic_meaningless    = models.BooleanField(_('Semantical Meaningless'),default=False)
     # Dirty Flag: Indicates the object has changed
-    dirty = models.BooleanField(default=True)
+    dirty                   = models.BooleanField(_('Dirty'),default=True)
+    # Qualified Flag: True if Staff has checked, qualified and updated the ngram and associated models
+    qualified               = models.BooleanField(_('Qualified'),default=False)
     
     @classmethod
     def add_text_to_system(cls, text):

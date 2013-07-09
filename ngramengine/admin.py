@@ -55,11 +55,17 @@ class IntervalListFilter(admin.SimpleListFilter):
         else:
             return queryset
 class NGramsAdmin(admin.ModelAdmin):
-    list_display = ('token', 't_occurred', "dirty")
-    list_filter = ['dirty', IntervalListFilter,'partofspeech', 'language']
+    list_display = ('token', 't_occurred', "dirty","qualified","wiktionary_url")
+    list_filter = ['dirty', "qualified", IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
     inlines = [PartofSpeechesInline,LanguagesInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
+    
+    def wiktionary_url(self, obj):
+        return '<a href="http://de.wiktionary.org/wiki/%s" target="_blank">%s</a>' % (obj.token, obj.token)
+    wiktionary_url.allow_tags = True
+    wiktionary_url.short_description = 'Wiktionary entry'
+    
 admin.site.register(NGrams, NGramsAdmin)
 
 

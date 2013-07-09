@@ -23,3 +23,12 @@ class NGramSetupForm(forms.ModelForm):
     class Meta:
         model = NGrams
         fields = ['token',]
+        
+        
+        
+class NGramExtensiveForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(NGramExtensiveForm, self).__init__(*args, **kwargs)
+        
+    class Meta:
+        model = NGrams

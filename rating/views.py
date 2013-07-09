@@ -12,13 +12,45 @@ from django.db.models import Q, F
 from django.db.models import Count
 
 # Custom Import Statement
-from forms import NGramSetupForm
+from forms import NGramSetupForm, NGramExtensiveForm
 from ngramengine.models import *
 
 #
 # Setup View for Admins introducing 
 #
 def ngram_setup_view(request):
+
+    # Form submitted:
+    if request.method == 'POST':
+        form = NGramExtensiveForm(request.POST)
+        if 'delete' in request.POST:
+            pass
+            # delete ngram
+            #ngram.delete()
+        elif 'update' in request.POST:
+            pass
+            # update ngram
+            #ngram.save()
+        return HttpResponseRedirect(reverse('ngram_setup'))
+    # Form not submitted:
+    else:
+        # Get NGram
+        ngram = NGrams.objects.order_by("?")[0]
+        # Unbound form
+        form = NGramExtensiveForm(instance=ngram)
+    
+    # Render Template Home
+    return render_to_response('rating/ngram_setup.html', {
+        #"ngram":ngram,
+        "form":form,
+    }, context_instance=RequestContext(request))
+    
+    
+    
+    
+    
+    
+def ngram_setup_view_old(request):
 
     # Form submitted:
     if request.method == 'POST':
