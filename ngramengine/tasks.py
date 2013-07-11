@@ -50,7 +50,7 @@ def calc_ngram_count():
     # Performance Message
     duration =  time.time() - start_time
     print "N_Language: " + str(n_lang)
-    print "N_os: " + str(n_pos)
+    print "N_pos: " + str(n_pos)
     print "Duration: " + str(duration)
     print "Time per Object: " + str(duration/(n_lang+n_pos)) 
 

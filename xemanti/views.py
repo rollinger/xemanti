@@ -12,7 +12,7 @@ from django.template import RequestContext
 from django.conf import settings
 
 # Custom Import Statement
-from forms import TextAnalyticInputForm, RateAssociationForm
+from forms import TextAnalyticInputForm
 from ngramengine.models import NGrams
 from ngramengine.tasks import add_text_to_system
 #from ngram_engine_de.models import Sentences, Association

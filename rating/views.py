@@ -12,8 +12,42 @@ from django.db.models import Q, F
 from django.db.models import Count
 
 # Custom Import Statement
-from forms import NGramSetupForm, NGramExtensiveForm
+from forms import RateAssociationForm, NGramSetupForm, NGramExtensiveForm
 from ngramengine.models import *
+
+#
+# Rating View for Associations
+#
+def rate_assoc_view(request):
+    # Form submitted:
+    if request.method == 'POST':
+        form = RateAssociationForm(request.POST)
+        if 'skip' in request.POST:
+            return HttpResponseRedirect(reverse('rate_assoc'))
+        elif 'rate' in request.POST:
+            if form.is_valid():
+                # get source and target ngram
+                source = NGrams.objects.get(token=form.cleaned_data['target'])
+                target = NGrams.objects.get(token=form.cleaned_data['rating'])
+                # Save Association
+                Associations.inject(source, target)
+            return HttpResponseRedirect(reverse('rate_assoc'))
+    # Form not submitted:
+    else:
+        # Get NGram to rate (german and qualified, sorted ascending by t_occurred and t_rated
+        rateable_languages = Languages.objects.filter(language="Deutsch")
+        ngram = NGrams.objects.filter(language__in=rateable_languages).filter(qualified=True).order_by("-t_occurred").order_by("t_rated")[0]
+        # Unbound form
+        form = RateAssociationForm(ngram=ngram)
+        form.fields['target'] = forms.CharField(initial=ngram.token, widget=forms.widgets.HiddenInput())
+    
+    # Render Template Home
+    return render_to_response('rating/ngram_rating.html', {
+        "form":form,
+    }, context_instance=RequestContext(request))
+
+
+
 
 #
 # Setup View for Admins introducing 

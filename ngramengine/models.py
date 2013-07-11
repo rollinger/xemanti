@@ -178,6 +178,8 @@ class NGrams(models.Model):
     token                   = models.CharField(_('NGram'),max_length=255,unique=True)
     # Counter how many times the token was injected into the system
     t_occurred              = models.PositiveIntegerField(_('Times Occurred'),default=0)
+    # Counter how many times the token was rated by a user (Association)
+    t_rated                 = models.PositiveIntegerField(_('Times Rated'),default=0)
     # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness)
     semantic_meaningless    = models.BooleanField(_('Semantical Meaningless'),default=False)
     # Dirty Flag: Indicates the object has changed
@@ -219,7 +221,7 @@ class NGrams(models.Model):
                         ngram_list.append( ngram )
             # Add CoOccurrence inside sentence to the system
             for source_index,source_ngram in enumerate(ngram_list):
-                for target_index,target_ngram in enumerate(ngram_list[source_index+1:]):
+                for target_index,target_ngram in enumerate(ngram_list[source_index+1:source_index+11]):
                     # Identical ngrams (their token equivalence) do __not__ co-occure
                     if source_ngram != target_ngram:
                         # If eigther source.token or target.token indicates semantic meaninglessness: they do __not__ co-occure
@@ -241,6 +243,10 @@ class NGrams(models.Model):
         self.save()
     def set_clean(self):
         self.dirty = False
+        self.save()
+        
+    def incr_t_rated(self,times=1):
+        self.t_rated = self.t_rated + times
         self.save()
     
     def is_meaningful(self):
@@ -356,14 +362,29 @@ class Associations(models.Model):
     # How many times associated
     t_associated = models.PositiveIntegerField(default=0)
     # Discriminative Power:
-    power = models.FloatField()
+    power = models.FloatField(default=0.0)
+    
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        assoc, created = Associations.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            assoc.t_associated = assoc.t_associated + times
+        # The source_ngram is dirty not the related model
+        # Refactor dirty to only ngram can be dirty
+        assoc.source.set_dirty()
+        # increment ngram counter t_rated
+        assoc.source.incr_t_rated()
+        assoc.dirty = True
+        assoc.save()
+        return assoc
     
     def compute_discriminatory_power(self):
+        #FIXME
         sum  = self.source.association_outbound_set.t_associated__sum
         return self.t_associated/float(sum - self.t_associated)
     
     def __unicode__(self):
-        return self.source.token + " <"+self.mean_position()+"> " + self.target.token
+        return self.source.token + " <"+str(self.t_associated)+"> " + self.target.token
     
     class Meta:
         verbose_name = 'Association'

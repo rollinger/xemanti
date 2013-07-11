@@ -38,7 +38,7 @@
 		<nav data-role="panel" id="menu-panel" data-position="right" data-display="reveal">
 			<ul data-role="listview">
 				<li><a href="{% url "home" %}" rel="external" title="{% trans 'Analyse your text' %}">{% trans "Analyze" %}</a></li>
-				<li><a href="{% url "home" %}" rel="external" title="{% trans 'Share your Knowledge!' %}">{% trans "Rating" %}</a></li>
+				<li><a href="{% url "rate_assoc" %}" rel="external" title="{% trans 'Share your Knowledge!' %}">{% trans "Rate Association" %}</a></li>
 				{% if user.is_authenticated %}
 					<li><a href="{% url "home" %}" title="">{% trans "My Reports" %}</a></li>
 					<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
