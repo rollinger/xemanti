@@ -1,0 +1,57 @@
+{% extends "xemanti/base.html" %}
+
+{% block main-content %}
+<div class="main-content">
+	<form action="." method="POST" data-ajax="false">
+		{% csrf_token %}
+		{% for field in form.visible_fields %}
+			<div class="ui-widget">
+    			{{ field.label }} {{ field }}<br>
+    		</div>
+		{% endfor %}
+		{% for hidden in form.hidden_fields %} 
+			{{ hidden }} 
+		{% endfor %}
+		<br>
+		<input type="submit" name="rate" value="Submit" />
+		<input type="submit" name="skip" value="Skip" />
+	</form>
+	<div>
+		{% for option in rating_suggestions %}
+    		{{ option }} <br>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+
+<script type="text/javascript">
+	$(function() {
+		var availableTags = [
+			"ActionScript",
+			"AppleScript",
+			"Asp",
+			"BASIC",
+			"C",
+			"C++",
+			"Clojure",
+			"COBOL",
+			"ColdFusion",
+			"Erlang",
+			"Fortran",
+			"Groovy",
+			"Haskell",
+			"Java",
+			"JavaScript",
+			"Lisp",
+			"Perl",
+			"PHP",
+			"Python",
+			"Ruby",
+			"Scala",
+			"Scheme"];
+	$( "#id_rating" ).autocomplete({
+		source: availableTags
+	});
+	});
+</script>

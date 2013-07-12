@@ -265,9 +265,14 @@ class NGrams(models.Model):
     def languages(self):
         return self.languages
     
+    def get_all_outbounds(self):
+        outbound_list = self.coocurrence_outbound.all()
+        return outbound_list
+    
     def save(self, *args, **kwargs):
         super(NGrams, self).save(*args, **kwargs)
         # Set PartofSpeech to Zahlzeichen and language to International if token is_numeric
+        # TODO: Think of similar shortcut-inferences
         if self.token.isnumeric():
             self.partofspeech.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
             self.language.add(Languages.objects.get(language="International"))

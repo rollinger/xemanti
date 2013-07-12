@@ -36,7 +36,9 @@ def rate_assoc_view(request):
     else:
         # Get NGram to rate (german and qualified, sorted ascending by t_occurred and t_rated
         rateable_languages = Languages.objects.filter(language="Deutsch")
-        ngram = NGrams.objects.filter(language__in=rateable_languages).filter(qualified=True).order_by("-t_occurred").order_by("t_rated")[0]
+        ngram = NGrams.objects.filter(language__in=rateable_languages).filter(qualified=True).order_by("?")[0]#.order_by("-t_occurred").order_by("t_rated")[0]
+        # Get Suggestions for rating
+        rating_suggestions = ngram.get_all_outbounds()
         # Unbound form
         form = RateAssociationForm(ngram=ngram)
         form.fields['target'] = forms.CharField(initial=ngram.token, widget=forms.widgets.HiddenInput())
@@ -44,6 +46,7 @@ def rate_assoc_view(request):
     # Render Template Home
     return render_to_response('rating/ngram_rating.html', {
         "form":form,
+        "rating_suggestions":rating_suggestions,
     }, context_instance=RequestContext(request))
 
 
