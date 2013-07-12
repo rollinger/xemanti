@@ -10,6 +10,8 @@ from django.template import RequestContext
 from django.conf import settings
 from django.db.models import Q, F
 from django.db.models import Count
+from django.utils import simplejson
+import itertools
 
 # Custom Import Statement
 from forms import RateAssociationForm, NGramSetupForm, NGramExtensiveForm
@@ -27,8 +29,8 @@ def rate_assoc_view(request):
         elif 'rate' in request.POST:
             if form.is_valid():
                 # get source and target ngram
-                source = NGrams.objects.get(token=form.cleaned_data['target'])
-                target = NGrams.objects.get(token=form.cleaned_data['rating'])
+                source = NGrams.inject(token=form.cleaned_data['target'])
+                target = NGrams.inject(token=form.cleaned_data['rating'])
                 # Save Association
                 Associations.inject(source, target)
             return HttpResponseRedirect(reverse('rate_assoc'))
@@ -37,8 +39,8 @@ def rate_assoc_view(request):
         # Get NGram to rate (german and qualified, sorted ascending by t_occurred and t_rated
         rateable_languages = Languages.objects.filter(language="Deutsch")
         ngram = NGrams.objects.filter(language__in=rateable_languages).filter(qualified=True).order_by("?")[0]#.order_by("-t_occurred").order_by("t_rated")[0]
-        # Get Suggestions for rating
-        rating_suggestions = ngram.get_all_outbounds()
+        # Get Suggestions for rating (json)
+        rating_suggestions = simplejson.dumps( sorted( list( itertools.chain(*ngram.get_all_outbounds().values_list('target__token') ) ) ) )
         # Unbound form
         form = RateAssociationForm(ngram=ngram)
         form.fields['target'] = forms.CharField(initial=ngram.token, widget=forms.widgets.HiddenInput())
