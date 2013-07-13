@@ -7,8 +7,8 @@
 	<head>
 		<title>{% trans 'Xemanti' %}</title>
 		
-		<link rel="stylesheet" href="{{ STATIC_URL }}kube/css/kube.css" />
-		<link rel="stylesheet" href="{{ STATIC_URL }}kube/css/master.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}kube/kubeless/css/kube.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}kube/kubeless/css/master.css" />
 		
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -45,7 +45,7 @@
 						<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
 						<li>
 							<a href="{% url "home" %}" title="">
-								<span>{{ user.get_full_name }} <div class="small text-right">({{ user.profile.balance }}) Xetis</div></span>
+								{{ user.get_full_name }} <div class="small text-right label label-blue">({{ user.profile.balance }}) Xetis</div>
 							</a>
 							
 						</li>
@@ -55,35 +55,34 @@
 					{% endif %}
 				</ul>
 			</nav>
-			
-			
-			
 		</header>
 		
-		<nav id="action-menu" class="nav-g width-full">
-			<ul>
-				<li>
-					<a href="{% url "home" %}" rel="external" title="{% trans 'Analyze your text' %}">
-						{% trans "Reporting" %}
-					</a>
-				</li>
-				<li>
-					<a href="{% url "rate_assoc" %}" rel="external" title="{% trans 'Share your Knowledge!' %}">
-						{% trans "Rating" %}
-					</a>
-				</li>
-				{% if user.is_authenticated %}
-						{% if user.is_staff %}
+		{% block action-menu %}
+			<nav id="action-menu" class="nav-pills nav-g width-full ">
+				<ul>
+					<li>
+						<a href="{% url "home" %}" rel="external" title="{% trans 'Analyze your text' %}">
+							{% trans "Reporting" %}
+						</a>
+					</li>
+					<li>
+						<a href="{% url "rate_assoc" %}" rel="external" title="{% trans 'Share your Knowledge!' %}">
+							{% trans "Rating" %}
+						</a>
+					</li>
+					{% if user.is_authenticated %}
+							{% if user.is_staff %}
+							
+							{% endif %}
+							{% if user.is_superuser %}
+								<li><a href="/admin/" rel="external" title="{% trans 'Administration' %}">{% trans "Administration" %}</a></li>
+							{% endif %}
+					{% else %}
 						
-						{% endif %}
-						{% if user.is_superuser %}
-							<li><a href="/admin/" rel="external" title="{% trans 'Administration' %}">{% trans "Administration" %}</a></li>
-						{% endif %}
-				{% else %}
-					
-				{% endif %}
-			</ul>
-		</nav>
+					{% endif %}
+				</ul>
+			</nav>
+		{% endblock action-menu %}
 		
 		<div id="main" class="row">
 			<div id="main-content" class="twothird">
