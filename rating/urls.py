@@ -8,6 +8,6 @@ urlpatterns = patterns('rating.views',
     
     # Rating View
     url(r'^$', 'rate_assoc_view', name='rate_assoc'),
-    # NGram Setup Rating view for Admin
-    url(r'^ngramsetup/', 'ngram_setup_view', name='ngram_setup'),
+    # DEPRECATED: NGram Setup Rating view for Admin
+    #url(r'^ngramsetup/', 'ngram_setup_view', name='ngram_setup'),
 )

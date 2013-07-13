@@ -9,5 +9,7 @@ encoding//ngramengine/urls.py=utf-8
 encoding//ngramengine/views.py=utf-8
 encoding//rating/urls.py=utf-8
 encoding//rating/views.py=utf-8
+encoding//usr_profile/admin.py=utf-8
+encoding//usr_profile/models.py=utf-8
 encoding//xemanti/urls.py=utf-8
 encoding//xemanti/views.py=utf-8

@@ -58,7 +58,6 @@
 					{% endif %}
 					{% if user.is_superuser %}
 						<li><a href="/admin/" rel="external" title="{% trans 'Administration' %}">{% trans "Administration" %}</a></li>
-						<li><a href='{% url "ngram_setup" %}' rel="external" title="{% trans 'Share your Knowledge!' %}">{% trans "New NGram Setup" %}</a></li>
 					{% endif %}
 				{% else %}
 					<li><a href="{% url "login_view" %}" title="">{% trans "Login" %}</a> </li>

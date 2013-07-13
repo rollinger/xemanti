@@ -33,11 +33,13 @@ def rate_assoc_view(request):
                 target = NGrams.inject(token=form.cleaned_data['rating'])
                 # Save Association
                 Associations.inject(source, target)
+                request.user.profile.income(1)
             return HttpResponseRedirect(reverse('rate_assoc'))
     # Form not submitted:
     else:
         # Get NGram to rate (german and qualified, sorted ascending by t_occurred and t_rated
         rateable_languages = Languages.objects.filter(language="Deutsch")
+        #rateable_partofspeeches = PartOfSpeech.objects.filter()
         ngram = NGrams.objects.filter(language__in=rateable_languages).filter(qualified=True).order_by("?")[0]#.order_by("-t_occurred").order_by("t_rated")[0]
         # Get Suggestions for rating (json)
         rating_suggestions = simplejson.dumps( sorted( list( itertools.chain(*ngram.get_all_outbounds().values_list('target__token') ) ) ) )
@@ -52,8 +54,8 @@ def rate_assoc_view(request):
     }, context_instance=RequestContext(request))
 
 
-
-
+# DEPRECATED: BOUND TO DELETE:
+"""
 #
 # Setup View for Admins introducing 
 #
@@ -124,3 +126,4 @@ def ngram_setup_view_old(request):
         "ngram":ngram,
         "form":form,
     }, context_instance=RequestContext(request))
+"""

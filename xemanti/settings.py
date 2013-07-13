@@ -138,7 +138,7 @@ INSTALLED_APPS = (
     #'compress',
     # Installed Apps
     'xemanti',
-    #'usr_profile',
+    'usr_profile',
     'ngramengine',
     'rating',
     #'reporting',
