@@ -61,14 +61,15 @@ class NGramsAdmin(admin.ModelAdmin):
     ordering = ('-t_occurred',)
     inlines = [PartofSpeechesInline,LanguagesInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
     
-    actions = ['set_meaningless']
+    actions = ['set_meaningless','set_qualified']
 
     def set_meaningless(self, request, queryset):
         queryset.update(semantic_meaningless=True)
     set_meaningless.short_description = "Mark selected ngrams as semantically meaningless"
-    #def set_german(self, request, queryset):
-    #    queryset.update(languages=True)
-    #set_german.short_description = "Mark selected ngrams as semantically meaningless"
+    
+    def set_qualified(self, request, queryset):
+        queryset.update(qualified=True)
+    set_meaningless.short_description = "Mark selected ngrams as qualified"
     
     def wiktionary_url(self, obj):
         return '<a href="http://de.wiktionary.org/wiki/%s" target="_blank">%s</a>' % (obj.token, obj.token)
