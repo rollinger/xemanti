@@ -45,7 +45,7 @@
 						<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
 						<li>
 							<a href="{% url "home" %}" title="">
-								{{ user.get_full_name }} <div class="small text-right label label-blue">({{ user.profile.balance }}) Xetis</div>
+								{{ user.username }} <div class="small text-right label label-blue">({{ user.profile.balance }}) Xetis</div>
 							</a>
 							
 						</li>
@@ -99,9 +99,11 @@
 
 		<footer id="footer" class="row">
 			<div class="half small">
-				{% blocktrans %}
-					&copy; All rights reserved.
-				{% endblocktrans %}
+				<a href="{% url 'impressum' %}">
+					{% blocktrans %}
+						&copy; All rights reserved.
+					{% endblocktrans %}
+				</a>
 			</div>
 			<div class="half small text-right">
 				<a href="{% url 'faq' %}">{% trans "FAQ" %}</a> |

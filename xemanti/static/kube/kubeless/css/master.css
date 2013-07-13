@@ -25,9 +25,15 @@ body {
 .border-right{
 	border-right: 1px solid #ddd;
 }
+.border-bottom{
+	border-bottom: 1px solid #ddd;
+}
 .border-sandwich{
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
+}
+.border-box{
+	border: 1px solid #ddd;
 }
 /* =Layout
 -----------------------------------------------------------------------------*/

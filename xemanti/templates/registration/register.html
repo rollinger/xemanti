@@ -1,16 +1,35 @@
 {% extends "xemanti/base.html" %}
 {% load i18n %}
 
-
-{% block title %}Create an account{% endblock %}
-
 {% block main-content %}
+	
+	<div class="units-row">
+		<div class="unit-centered unit-60 border-box">
+			<h2 class="border-bottom">{% trans "Register:" %}</h2>
+			{% if form.errors %}
+				<p class="error">{% trans "Sorry, that's not a valid username, password or email" %}</p>
+			{% endif %}
+			
+			<form action="" method="post">
+				{% csrf_token %}
+				{% for field in form.visible_fields %}
+					<div class="units-row">
+						<div class="unit-30">
+							{{ field.label_tag }}
+						</div>
+						<div class="unit-70">
+							{{ field }}
+						</div>
+						<div class="unit-100 supersmall">
+							{{ field.help_text }}
+						</div>
+					</div>
+				{% endfor %}
+				<div class="units-row">
+					<input class="unit-push-50 unit-50" type="submit" value="{% trans 'Create my account' %}" />
+				</div>
+			</form>
+		</div>
+	</div>
 
-<h1>Create an account</h1>
-
-<form action="" method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Create the account">
-</form>
 {% endblock %}

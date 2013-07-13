@@ -186,3 +186,8 @@ BROKER_URL = "django://"
 # Using DjCelery Backend Tables
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERYBEAT_LOADER = "djcelery.loaders.DjangoLoader"
+
+#
+# XEMANTIC CONFIGURATION SETTINGS
+#
+REGISTRATION_START_BALANCE = 100

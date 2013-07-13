@@ -2,20 +2,30 @@
 {% load i18n %}
 
 {% block main-content %}
-
-  {% if form.errors %}
-    <p class="error">Sorry, that's not a valid username or password</p>
-  {% endif %}
-
-  <form action="" method="post">
-  	{% csrf_token %}
-    <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username">
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
-
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="/" />
-  </form>
+	
+	<div class="units-row">
+		<div class="unit-centered unit-60 border-box">
+			<h2 class="border-bottom">{% trans "Log In:" %}</h2>
+			{% if form.errors %}
+				<p class="error">{% trans "Sorry, that's not a valid username or password" %}</p>
+			{% endif %}
+			
+			<form action="" method="post">
+				{% csrf_token %}
+				<div class="units-row">
+					<label for="username" class="unit-50">{% trans "User name:" %}</label>
+					<input type="text" name="username" value="" id="username" class="unit-50">
+				</div>
+				<div class="units-row">
+					<label for="password" class="unit-50">{% trans "Password" %}:</label>
+					<input type="password" name="password" value="" id="password" class="unit-50">
+				</div>
+				<div class="units-row">
+					<input class="unit-push-50 unit-50" type="submit" value="{% trans 'login' %}" />
+					<input type="hidden" name="next" value="/" />
+				</div>
+			</form>
+		</div>
+	</div>
 
 {% endblock %}
