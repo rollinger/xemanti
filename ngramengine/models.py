@@ -267,6 +267,7 @@ class NGrams(models.Model):
     
     def get_all_outbounds(self):
         outbound_list = self.coocurrence_outbound.all()
+        # TODO: Add all 
         return outbound_list
     
     def save(self, *args, **kwargs):

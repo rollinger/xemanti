@@ -24,15 +24,15 @@
 {% block main-content %}
 <div class="units-row">
 	<div class="unit-centered unit-60">
-		<h2 class="border-bottom">{% trans "What do you associate with:" %}</h2>
+		<h4 class="border-bottom">{% trans "What do you associate with:" %}</h4>
 		<form action="." method="POST" data-ajax="false">
 		{% csrf_token %}
 		{% for field in form.visible_fields %}
     		<div class="units-row">
-				<div class="unit-30">
-					<h4>{{ field.label }}</h4>
+				<div class="unit-50 ">
+					<center><h2>{{ field.label }}</h2></center>
 				</div>
-				<div class="unit-70 ui-widget">
+				<div class="unit-50 ui-widget">
 					 {{ field }}
 				</div>
 				<div class="unit-100 supersmall">
