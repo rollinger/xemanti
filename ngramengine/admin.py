@@ -62,7 +62,8 @@ class NGramsAdmin(admin.ModelAdmin):
     ordering = ('-t_occurred',)
     inlines = [PartofSpeechesInline,LanguagesInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
     
-    actions = ['set_meaningless','set_qualified', 'make_uppercase','make_lowercase','unset_substantiv']
+    actions = ['set_meaningless','set_qualified', 'make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
+               'unset_verb','set_verb','set_buchstabe','unset_buchstabe']
 
     def set_meaningless(self, request, queryset):
         queryset.update(semantic_meaningless=True)
@@ -80,16 +81,36 @@ class NGramsAdmin(admin.ModelAdmin):
             ngram.token = ngram.token.lower()
             ngram.save()
     make_lowercase.short_description = "Convert selected ngrams to lowercase"
+    def set_substantiv(self, request, queryset):
+        for ngram in queryset.all():
+            ngram.partofspeech.add(PartOfSpeech.objects.get(type="Substantiv"))
+            ngram.save()
+    set_substantiv.short_description = "Set Part of Speech `Substantiv´"
     def unset_substantiv(self, request, queryset):
         for ngram in queryset.all():
             ngram.partofspeech.remove(PartOfSpeech.objects.get(type="Substantiv"))
             ngram.save()
     unset_substantiv.short_description = "Unset Part of Speech `Substantiv´"
-    def unset_substantiv(self, request, queryset):
+    def set_verb(self, request, queryset):
         for ngram in queryset.all():
-            ngram.partofspeech.remove(PartOfSpeech.objects.get(type="Substantiv"))
+            ngram.partofspeech.add(PartOfSpeech.objects.get(type="Verb"))
             ngram.save()
-    unset_substantiv.short_description = "Unset Part of Speech `Substantiv´"
+    set_verb.short_description = "Set Part of Speech `Verb´"
+    def unset_verb(self, request, queryset):
+        for ngram in queryset.all():
+            ngram.partofspeech.remove(PartOfSpeech.objects.get(type="Verb"))
+            ngram.save()
+    unset_verb.short_description = "Unset Part of Speech `Verb´"
+    def unset_buchstabe(self, request, queryset):
+        for ngram in queryset.all():
+            ngram.partofspeech.add(PartOfSpeech.objects.get(type="Buchstabe"))
+            ngram.save()
+    unset_buchstabe.short_description = "Set Part of Speech `Buchstabe´"
+    def set_buchstabe(self, request, queryset):
+        for ngram in queryset.all():
+            ngram.partofspeech.remove(PartOfSpeech.objects.get(type="Buchstabe"))
+            ngram.save()
+    set_buchstabe.short_description = "Unset Part of Speech `Buchstabe´"
     
     def wiktionary_url(self, obj):
         return '<a href="http://de.wiktionary.org/wiki/%s" target="_blank">%s</a>' % (obj.token, obj.token)
