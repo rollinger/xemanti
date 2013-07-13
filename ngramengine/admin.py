@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
+from django.db.models import F
 
 from ngramengine.models import *
 
@@ -61,7 +62,7 @@ class NGramsAdmin(admin.ModelAdmin):
     ordering = ('-t_occurred',)
     inlines = [PartofSpeechesInline,LanguagesInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
     
-    actions = ['set_meaningless','set_qualified']
+    actions = ['set_meaningless','set_qualified', 'make_uppercase','make_lowercase']
 
     def set_meaningless(self, request, queryset):
         queryset.update(semantic_meaningless=True)
@@ -69,7 +70,19 @@ class NGramsAdmin(admin.ModelAdmin):
     
     def set_qualified(self, request, queryset):
         queryset.update(qualified=True)
-    set_meaningless.short_description = "Mark selected ngrams as qualified"
+    set_qualified.short_description = "Mark selected ngrams as qualified"
+    
+    def make_uppercase(self, request, queryset):
+        for ngram in queryset.all():
+            ngram.token = ngram.token.title()
+            ngram.save()
+    make_uppercase.short_description = "Convert selected ngrams to uppercase"
+    
+    def make_lowercase(self, request, queryset):
+        for ngram in queryset.all():
+            ngram.token = ngram.token.lower()
+            ngram.save()
+    make_lowercase.short_description = "Convert selected ngrams to lowercase"
     
     def wiktionary_url(self, obj):
         return '<a href="http://de.wiktionary.org/wiki/%s" target="_blank">%s</a>' % (obj.token, obj.token)

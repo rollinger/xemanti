@@ -1,32 +1,57 @@
 {% extends "xemanti/base.html" %}
+{% load i18n %}
 
 {% block custom-js %}
 <script type="text/javascript">
 	$(function() {
 		$( "#id_rating" ).autocomplete({
-			source: {{ rating_suggestions|safe }}
+			source: {{ rating_suggestions|safe }},
+			messages: {
+				noResults: '',
+				results: function() {}
+			}
+		});
+		
+		$( "input#rate" ).click(function() {
+			//alert('blah');
+			$( "div#money-badge" ).effect( "pulsate", {}, 500 );
 		});
 	});
 </script>
 {% endblock custom-js %}
 
+
 {% block main-content %}
-<div class="main-content">
-	<form action="." method="POST" data-ajax="false">
+<div class="units-row">
+	<div class="unit-centered unit-60">
+		<h2 class="border-bottom">{% trans "What do you associate with:" %}</h2>
+		<form action="." method="POST" data-ajax="false">
 		{% csrf_token %}
 		{% for field in form.visible_fields %}
-			<div class="ui-widget">
-    			{{ field.label }} {{ field }}<br>
-    		</div>
+    		<div class="units-row">
+				<div class="unit-30">
+					<h4>{{ field.label }}</h4>
+				</div>
+				<div class="unit-70 ui-widget">
+					 {{ field }}
+				</div>
+				<div class="unit-100 supersmall">
+					{{ field.help_text }}
+				</div>
+			</div>
 		{% endfor %}
 		{% for hidden in form.hidden_fields %} 
 			{{ hidden }} 
 		{% endfor %}
-		<br>
-		<input type="submit" name="rate" value="Submit" />
-		<input type="submit" name="skip" value="Skip" />
+		<div class="units-row">
+			<input class="unit-push-40 unit-30" id="rate" type="submit" name="rate" value="Submit" />
+			<input class="unit-push-40 unit-30" type="submit" name="skip" value="Skip" />
+			
+		</div>
 	</form>
+	</div>
 </div>
-{% endblock %}
+
+{% endblock main-content %}
 
 

@@ -35,6 +35,9 @@ body {
 .border-box{
 	border: 1px solid #ddd;
 }
+.label-yellow {
+	color: #000;
+}
 /* =Layout
 -----------------------------------------------------------------------------*/
 .wrapper {

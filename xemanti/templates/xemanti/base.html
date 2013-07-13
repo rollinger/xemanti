@@ -12,6 +12,7 @@
 		
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 		
 		
 		{# Add Google Support #}
@@ -45,7 +46,7 @@
 						<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
 						<li>
 							<a href="{% url "home" %}" title="">
-								{{ user.username }} <div class="small text-right label label-blue">({{ user.profile.balance }}) Xetis</div>
+								{{ user.username }} <div id="money-badge" class="small text-right label label-yellow color-black">{{ user.profile.balance }} Xetis</div>
 							</a>
 							
 						</li>
