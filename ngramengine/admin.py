@@ -149,7 +149,7 @@ class LanguagesAdmin(admin.ModelAdmin):
 admin.site.register(Languages, LanguagesAdmin)
 
 class AssociationsAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('__unicode__', 't_associated', 'power')
 admin.site.register(Associations, AssociationsAdmin)
 
 class InputStackAdmin(admin.ModelAdmin):

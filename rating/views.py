@@ -15,6 +15,7 @@ import itertools
 
 # Custom Import Statement
 from forms import RateAssociationForm, NGramSetupForm, NGramExtensiveForm
+from ngramengine.tokenizer import Tokenizer
 from ngramengine.models import *
 
 #
@@ -33,6 +34,13 @@ def rate_assoc_view(request):
                 target = NGrams.inject(token=form.cleaned_data['rating'])
                 # Save Association
                 Associations.inject(source, target)
+                # Multiple Associations if multiple_tokens 
+                multiple_tokens = Tokenizer.linear_token_list(form.cleaned_data['rating'])
+                print multiple_tokens
+                if len(multiple_tokens) > 1:
+                    for t in multiple_tokens:
+                        atomic_target = NGrams.inject(token=t)
+                        Associations.inject(source, atomic_target)
                 if request.user.is_authenticated():
                     request.user.profile.income(1)
                     return HttpResponseRedirect(reverse('rate_assoc'))
