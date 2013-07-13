@@ -1466,6 +1466,9 @@ input.big {
 .text-centered {
   text-align: center;
 }
+.text-right {
+  text-align: right;
+}
 .uppercase {
   text-transform: uppercase;
 }
