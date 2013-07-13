@@ -3,6 +3,7 @@
 from django.db import models
 from django.db.models import Sum
 from django.utils.translation import ugettext as _
+from itertools import chain
 
 # Custom Imports
 from tokenizer import Tokenizer
@@ -265,9 +266,8 @@ class NGrams(models.Model):
     def languages(self):
         return self.languages
     
-    def get_all_outbounds(self):
-        outbound_list = self.coocurrence_outbound.all()
-        # TODO: Add all 
+    def get_all_outbound_tokens(self):
+        outbound_list = chain( self.coocurrence_outbound.all().values_list('target__token'), self.association_outbound.all().values_list('target__token')  )
         return outbound_list
     
     def save(self, *args, **kwargs):

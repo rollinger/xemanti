@@ -11,9 +11,7 @@
 				results: function() {}
 			}
 		});
-		
 		$( "input#rate" ).click(function() {
-			//alert('blah');
 			$( "div#money-badge" ).effect( "pulsate", {}, 500 );
 		});
 	});
@@ -23,7 +21,7 @@
 
 {% block main-content %}
 <div class="units-row">
-	<div class="unit-centered unit-60">
+	<div class="unit-centered unit-90">
 		<h4 class="border-bottom">{% trans "What do you associate with:" %}</h4>
 		<form action="." method="POST" data-ajax="false">
 		{% csrf_token %}
@@ -31,6 +29,10 @@
     		<div class="units-row">
 				<div class="unit-50 ">
 					<center><h2>{{ field.label }}</h2></center>
+					{% if user.is_superuser %}
+						{% load admin_urls %}
+						<a href="/admin/ngramengine/ngrams/{{ngram.id}}/" target="_blank" class="supersmall">{% trans "Change this N-Gram" %}</a>
+					{% endif %}
 				</div>
 				<div class="unit-50 ui-widget">
 					 {{ field }}
@@ -46,7 +48,6 @@
 		<div class="units-row">
 			<input class="unit-push-40 unit-30" id="rate" type="submit" name="rate" value="Submit" />
 			<input class="unit-push-40 unit-30" type="submit" name="skip" value="Skip" />
-			
 		</div>
 	</form>
 	</div>
@@ -54,4 +55,6 @@
 
 {% endblock main-content %}
 
-
+{% block right-sidebar %}
+	
+{% endblock right-sidebar %}

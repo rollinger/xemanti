@@ -30,16 +30,21 @@ def home_view(request):
         if form.is_valid(): # All validation rules pass
             text_to_analyze = form.cleaned_data['textinput']
             # Add NGrams to the system
+            # TODO: Strip text anonymous = 500 chars; authenticated = 2500 chars; (???) 
             add_text_to_system.delay(text_to_analyze)
             #NGrams.add_text_to_system(text_to_analyze)
             # TODO: Initiate Report generation
-            # TODO: Redirect to Rating Process after POST
-            #url = reverse('rating')
-            #response = HttpResponseRedirect(url)
-            # Set Cookie for rating
+            if request.user.is_authenticated():
+                return HttpResponseRedirect( reverse( 'rate_assoc' ) )
+            else:
+                # Set Cookie for rating
+                response = HttpResponseRedirect( reverse( 'rate_assoc' ) )
+                response.set_cookie("rating_gauge",0)
+                # Redirect to rating 
+                return response
             # TODO: Pass more options (Expiration, etc...) see: http://www.djangobook.com/en/2.0/chapter14.html
-            #response.set_cookie("rating_gauge",0)
-            return HttpResponseRedirect( reverse( 'home' ) )
+            #
+            
     # Form not submitted:
     else:
         form = TextAnalyticInputForm() # An unbound form

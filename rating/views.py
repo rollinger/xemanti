@@ -35,16 +35,21 @@ def rate_assoc_view(request):
                 Associations.inject(source, target)
                 if request.user.is_authenticated():
                     request.user.profile.income(1)
+                    return HttpResponseRedirect(reverse('rate_assoc'))
                 else:
-                    pass
-                    #TODO: Workflow for anonymous user
-            return HttpResponseRedirect(reverse('rate_assoc'))
+                    # Increment rating_gauge in cookies
+                    rating_gauge = int( request.COOKIES.get('rating_gauge', '0') ) + 1
+                    #TODO: Redirect to session based report
+                    response = HttpResponseRedirect( reverse( 'rate_assoc' ) )
+                    response.set_cookie("rating_gauge",rating_gauge)
+                    return response
     # Form not submitted:
     else:
         # Get random qualified NGram to rate
         ngram = NGrams.objects.filter(qualified=True).order_by("?")[0]
         # Get Suggestions for rating (json)
-        rating_suggestions = simplejson.dumps( sorted( list( itertools.chain(*ngram.get_all_outbounds().values_list('target__token') ) ) ) )
+        rating_suggestions = simplejson.dumps( sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) ) )
+        print rating_suggestions
         # Unbound form
         form = RateAssociationForm(ngram=ngram)
         form.fields['target'] = forms.CharField(initial=ngram.token, widget=forms.widgets.HiddenInput())
@@ -52,6 +57,7 @@ def rate_assoc_view(request):
     # Render Template Home
     return render_to_response('rating/ngram_rating.html', {
         "form":form,
+        "ngram":ngram,
         "rating_suggestions":rating_suggestions,
     }, context_instance=RequestContext(request))
 

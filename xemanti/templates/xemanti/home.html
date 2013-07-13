@@ -1,13 +1,33 @@
 {% extends "xemanti/base.html" %}
+{% load i18n %}
+
+{% block custom-js %}
+	<script type="text/javascript">
+	</script>
+{% endblock custom-js %}
+
 
 {% block main-content %}
-<div class="main-content">
-	<form action="/" method="POST" data-ajax="false">
-		{% csrf_token %}
-		{% for field in form.visible_fields %}
-    		{{ field }}
-		{% endfor %}
-		<input type="submit" value="Submit" />
-	</form>
+<div class="units-row">
+	<div class="unit-centered unit-100">
+		<h4 class="border-bottom">{% trans "Your Text:" %}</h4>
+		<form action="/" method="POST" data-ajax="false">
+			{% csrf_token %}
+			{% for field in form.visible_fields %}
+				<div class="unit-centered unit-50">
+					{{ field }}
+				</div>
+			{% endfor %}
+			<div class="units-row">
+				<input class="unit-push-80 unit-20" type="submit" value="Submit" />
+			</div>
+		</form>
+	</div>
 </div>
-{% endblock %}
+
+{% endblock main-content %}
+
+{% block right-sidebar %}
+	
+{% endblock right-sidebar %}
+

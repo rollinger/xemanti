@@ -107,6 +107,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'xemanti.middleware.AnonymousRatingMiddleware',
 )
 
 ROOT_URLCONF = 'xemanti.urls'
@@ -191,3 +192,4 @@ CELERYBEAT_LOADER = "djcelery.loaders.DjangoLoader"
 # XEMANTIC CONFIGURATION SETTINGS
 #
 REGISTRATION_START_BALANCE = 100
+ANONYMOUS_RATING_CYCLES = 3

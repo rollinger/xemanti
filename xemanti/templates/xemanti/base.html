@@ -12,7 +12,7 @@
 		
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		{# <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> #}
 		
 		
 		{# Add Google Support #}
@@ -85,28 +85,28 @@
 			</nav>
 		{% endblock action-menu %}
 		
-		<div id="main" class="row">
-			<div id="main-content" class="twothird">
+		<div id="main" class="units-row">
+			<div id="main-content" class="unit-70">
 				{% block main-content %}
 				
 				{% endblock main-content %}
 			</div>
-			<div id="right-sidebar" class="third">
+			<div id="right-sidebar" class="unit-30">
 				{% block right-sidebar %}
 				
 				{% endblock right-sidebar %}
 			</div>
 		</div>
 
-		<footer id="footer" class="row">
-			<div class="half small">
+		<footer id="footer" class="units-row">
+			<div class="unit-50 small">
 				<a href="{% url 'impressum' %}">
 					{% blocktrans %}
 						&copy; All rights reserved.
 					{% endblocktrans %}
 				</a>
 			</div>
-			<div class="half small text-right">
+			<div class="unit-50 small text-right">
 				<a href="{% url 'faq' %}">{% trans "FAQ" %}</a> |
 				<a href="{% url 'impressum' %}">{% trans "Impressum" %}</a>
 			</div>
