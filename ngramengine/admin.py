@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from django.db.models import F
+from django.db import IntegrityError
 
 from ngramengine.models import *
 
@@ -62,7 +63,8 @@ class NGramsAdmin(admin.ModelAdmin):
     ordering = ('-t_occurred',)
     inlines = [PartofSpeechesInline,LanguagesInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
     
-    actions = ['set_meaningless','set_qualified', 'make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
+    actions = ['set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
+               'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
                'unset_verb','set_verb','set_buchstabe','unset_buchstabe']
 
     def set_meaningless(self, request, queryset):
@@ -71,6 +73,43 @@ class NGramsAdmin(admin.ModelAdmin):
     def set_qualified(self, request, queryset):
         queryset.update(qualified=True)
     set_qualified.short_description = "Mark selected ngrams as qualified"
+    
+    def make_qualified_german_substantive(self, request, queryset):
+        lang = Languages.objects.get(language="Deutsch")
+        pos = PartOfSpeech.objects.get(type="Substantiv")
+        for ngram in queryset.all():
+            #try:
+            ngram.token = unicode( ngram.token.title() )
+            ngram.language.add(lang)
+            ngram.partofspeech.add(pos)
+            ngram.qualified = True
+            ngram.save()
+            #except IntegrityError, e: # Delete if double (uppercasing)
+                #ngram.delete()
+    make_qualified_german_substantive.short_description = "Sets the ngram to german, substantive and qualified"
+    
+    def make_qualified_german_verb(self, request, queryset):
+        lang = Languages.objects.get(language="Deutsch")
+        pos = PartOfSpeech.objects.get(type="Verb")
+        for ngram in queryset.all():
+            ngram.token = ngram.token.lower()
+            ngram.language.add(lang)
+            ngram.partofspeech.add(pos)
+            ngram.qualified = True
+            ngram.save()
+    make_qualified_german_verb.short_description = "Sets the ngram to german, verb and qualified"
+    
+    def make_qualified_german_adjektiv(self, request, queryset):
+        lang = Languages.objects.get(language="Deutsch")
+        pos = PartOfSpeech.objects.get(type="Adjektiv")
+        for ngram in queryset.all():
+            ngram.token = ngram.token.lower()
+            ngram.language.add(lang)
+            ngram.partofspeech.add(pos)
+            ngram.qualified = True
+            ngram.save()
+    make_qualified_german_adjektiv.short_description = "Sets the ngram to german, adjektiv and qualified"
+    
     def make_uppercase(self, request, queryset):
         for ngram in queryset.all():
             ngram.token = ngram.token.title()
@@ -171,6 +210,7 @@ admin.site.register(Languages, LanguagesAdmin)
 
 class AssociationsAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 't_associated', 'power')
+    raw_id_fields = ('source','target',)
 admin.site.register(Associations, AssociationsAdmin)
 
 class InputStackAdmin(admin.ModelAdmin):

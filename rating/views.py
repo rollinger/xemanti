@@ -51,6 +51,8 @@ def rate_assoc_view(request):
                     response = HttpResponseRedirect( reverse( 'rate_assoc' ) )
                     response.set_cookie("rating_gauge",rating_gauge)
                     return response
+            else:
+                return HttpResponseRedirect(reverse('rate_assoc'))
     # Form not submitted:
     else:
         # Get random qualified NGram to rate

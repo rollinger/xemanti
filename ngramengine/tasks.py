@@ -77,9 +77,11 @@ def ngram_maintenance():
         # CoOccurrence Maintenance
         #
         if obj.coocurrence_outbound.exists():
-            # Delete non-meaningful coocurrences
+            # Delete non-meaningful coocurrences (and those with bogus mean calculation : QD-Fix)
             for cooc in obj.coocurrence_outbound.all():
                 if not cooc.is_meaningful():
+                    cooc.delete()
+                elif cooc.mean_position > 10.0:
                     cooc.delete()
             # Delete Cooccurence by Cutoff (Delete after COOCCURRENCE_CUTOFF)
             for cooc in obj.coocurrence_outbound.order_by('-t_cooccured')[COOCCURRENCE_CUTOFF:]:

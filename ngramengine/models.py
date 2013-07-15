@@ -16,6 +16,9 @@ Word Stems a stem for ngrams with the same stem
 class WordStems(models.Model):
     # The Stem of a set of Ngrams
     stem        = models.CharField(max_length=255,unique=True)
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
         return self.stem
@@ -31,6 +34,9 @@ Genus of an ngram
 class Genus(models.Model):
     # The Genus of Ngrams
     type        = models.CharField(max_length=255,unique=True)
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
         return self.type
@@ -45,6 +51,9 @@ Numerus of an ngram
 class Numerus(models.Model):
     # The Stem of a set of Ngrams
     type        = models.CharField(max_length=255,unique=True)
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
         return self.type
@@ -66,6 +75,10 @@ class PartOfSpeech(models.Model):
     semantic_meaningless    = models.BooleanField(default=False)
     # How many ngrams have this part of speech
     ngram_count             = models.PositiveIntegerField(default=0)
+    
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
         return self.type
@@ -93,6 +106,10 @@ class Languages(models.Model):
     # How many ngrams have this language
     ngram_count     = models.PositiveIntegerField(default=0)
     
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
     def __unicode__(self):
         return self.language
     
@@ -117,6 +134,10 @@ class Synonyms(models.Model):
     # How many times the synonym was rated
     t_rated = models.PositiveIntegerField(default=0)
 
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
     def __unicode__(self):
         return self.target#"%s <synonym> &s"%(self.source,self.target)
     
@@ -132,6 +153,10 @@ class Antonyms(models.Model):
     # How many times the Antonym was rated
     t_rated = models.PositiveIntegerField(default=0)
 
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
     def __unicode__(self):
         return self.target#"%s <antonym> &s"%(self.source,self.target)
     
@@ -146,6 +171,10 @@ class SuperCategory(models.Model):
     target  = models.ForeignKey('NGrams', related_name="supercategory_of")
     # How many times the Super Category was rated
     t_rated = models.PositiveIntegerField(default=0)
+    
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
         return self.target#"%s <super> &s"%(self.source,self.target)
@@ -162,6 +191,10 @@ class SubCategory(models.Model):
     # How many times the Sub Category was rated
     t_rated = models.PositiveIntegerField(default=0)
 
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
     def __unicode__(self):
         return self.target#"%s <sub> &s"%(self.source,self.target)
     
@@ -194,6 +227,10 @@ class NGrams(models.Model):
     numerus                 = models.ForeignKey(Numerus, blank=True, null=True)
     # Genus of the token
     genus                   = models.ForeignKey(Genus, blank=True, null=True)
+    
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
     
     
     @classmethod
@@ -304,6 +341,10 @@ class CoOccurrences(models.Model):
     # Dirty Flag: Indicates the object has changed 
     dirty = models.BooleanField(default=True)
     
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
     @classmethod
     def inject(cls,source_ngram,target_ngram,position,times=1):
         cooc, created = CoOccurrences.objects.get_or_create(source=source_ngram,target=target_ngram)
@@ -370,6 +411,10 @@ class Associations(models.Model):
     # Discriminative Power:
     power = models.FloatField(default=0.0)
     
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
     @classmethod
     def inject(cls,source_ngram,target_ngram,times=1):
         assoc, created = Associations.objects.get_or_create(source=source_ngram,target=target_ngram)
@@ -403,6 +448,10 @@ InputStack holds the text sequences about to enter the system
 """
 class InputStack(models.Model):
     content = models.CharField(max_length=2000)
+    
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
     
     @classmethod
     def add(cls, text):
