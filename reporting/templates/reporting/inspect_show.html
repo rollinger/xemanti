@@ -1,0 +1,61 @@
+{% extends "xemanti/base.html" %}
+{% load i18n %}
+
+{% block custom-js %}
+<script type="text/javascript">
+	$(function() {
+		$( "#accordion" ).accordion();
+	});
+</script>
+{% endblock custom-js %}
+
+
+{% block main-content %}
+<div class="units-row">
+	<div class="unit-centered unit-90">
+		<center><h3>{{ ngram.token }}</h3></center>
+	</div>
+</div>
+
+<div id="accordion">
+	<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
+	<div>
+		{% for assoc in ngram.association_outbound.all %}
+			<a href="{% url 'inspect_show' assoc.target.id %}">{{ assoc.target }}</a>
+		{% endfor %}
+	</div>
+	<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
+	<div>
+		{% for synonym in ngram.synonyms.all %}
+			<a href="{% url 'inspect_show' synonym.target.id %}">{{ synonym.target }}</a>
+		{% endfor %}
+	</div>
+	<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
+	<div >
+		{% for antonym in ngram.antonyms.all %}
+			<a href="{% url 'inspect_show' antonym.target.id %}">{{ antonym.target }}</a>
+		{% endfor %}
+	</div>
+	<h3 class="btn">{% trans "Super Categories"%} ({{ngram.supercategories.count}})</h3>
+	<div >
+		{% for super in ngram.supercategories.all %}
+			<a href="{% url 'inspect_show' super.target.id %}">{{ super.target }}</a>
+		{% endfor %}
+	</div>
+	<h3 class="btn">{% trans "Sub Categories"%} ({{ngram.subcategories.count}})</h3>
+	<div >
+		{% for sub in ngram.subcategories.all %}
+			<a href="{% url 'inspect_show' sub.target.id %}">{{ sub.target }}</a>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock main-content %}
+
+{% block right-sidebar %}
+<div class="units-row">
+	<div class="unit-centered unit-90">
+		<h4>{% trans "Statistics for: "%}{{ ngram.token }}</h4>
+	</div>
+</div>
+{% endblock right-sidebar %}

@@ -379,6 +379,7 @@ class CoOccurrences(models.Model):
         if sum:
             try:
                 self.power = self.t_cooccured/float(sum - self.t_cooccured)
+                self.save()
                 return self.power
             except:
                 return 0.0
@@ -435,9 +436,15 @@ class Associations(models.Model):
         return assoc
     
     def compute_discriminatory_power(self):
-        #FIXME
+        # Returns the mean position of the target ngram from the source ngram
         sum  = self.source.association_outbound_set.t_associated__sum
-        return self.t_associated/float(sum - self.t_associated)
+        if sum:
+            try:
+                self.power = self.t_associated/float(sum - self.t_associated)
+                self.save()
+                return self.power
+            except:
+                return 0.0
     
     def __unicode__(self):
         return self.source.token + " <"+str(self.t_associated)+"> " + self.target.token

@@ -68,7 +68,7 @@ def ngram_maintenance():
     
     COOCCURRENCE_CUTOFF = 100
     # fetch all (100) dirty ngrams
-    dirty_query = NGrams.objects.filter(dirty=True)#.order_by('?')[:100]
+    dirty_query = NGrams.objects.filter(dirty=True).order_by('?')[:100]
     if not dirty_query:
         return # Exit task
     for obj in dirty_query:
@@ -94,7 +94,15 @@ def ngram_maintenance():
                 cooc.compute_discriminatory_power()
                 cooc.dirty = False
                 cooc.save()
-        
+        #
+        # Association Maintenance
+        #
+        if obj.association_outbound.exists():
+            # Calculate Statistics for remaining CoOccurrences
+            for assoc in obj.association_outbound.all():
+                assoc.compute_discriminatory_power()
+                assoc.dirty = False
+                assoc.save()
         #
         # NGram Maintenance
         #

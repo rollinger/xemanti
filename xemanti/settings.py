@@ -142,7 +142,7 @@ INSTALLED_APPS = (
     'usr_profile',
     'ngramengine',
     'rating',
-    #'reporting',
+    'reporting',
 )
 
 # A sample logging configuration. The only tangible logging

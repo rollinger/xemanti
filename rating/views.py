@@ -59,7 +59,6 @@ def rate_assoc_view(request):
         ngram = NGrams.objects.filter(qualified=True).order_by("?")[0]
         # Get Suggestions for rating (json)
         rating_suggestions = simplejson.dumps( sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) ) )
-        print rating_suggestions
         # Unbound form
         form = RateAssociationForm(ngram=ngram)
         form.fields['target'] = forms.CharField(initial=ngram.token, widget=forms.widgets.HiddenInput())
