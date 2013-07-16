@@ -68,11 +68,11 @@ def ngram_maintenance():
     
     COOCCURRENCE_CUTOFF = 100
     # fetch all (100) dirty ngrams
-    dirty_query = NGrams.objects.filter(dirty=True).order_by('?')[:100]
+    dirty_query = NGrams.objects.filter(dirty=True)#.order_by('?')[:100]
     if not dirty_query:
         return # Exit task
     for obj in dirty_query:
-        #print "NGRAM: " + str(obj)
+        print "NGRAM: " + str(obj)
         #
         # CoOccurrence Maintenance
         #
