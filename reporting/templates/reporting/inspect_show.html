@@ -48,6 +48,12 @@
 			<a href="{% url 'inspect_show' sub.target.id %}">{{ sub.target }}</a>
 		{% endfor %}
 	</div>
+	<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
+	<div >
+		{% for cooc in ngram.coocurrence_outbound.all %}
+			<a href="{% url 'inspect_show' cooc.target.id %}">{{ cooc.target }}({{ cooc.power|floatformat:2 }})</a>
+		{% endfor %}
+	</div>
 </div>
 
 {% endblock main-content %}

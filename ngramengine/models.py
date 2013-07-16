@@ -437,7 +437,8 @@ class Associations(models.Model):
     
     def compute_discriminatory_power(self):
         # Returns the mean position of the target ngram from the source ngram
-        sum  = self.source.association_outbound_set.t_associated__sum
+        #sum  = self.source.association_outbound_set.t_associated__sum
+        sum  = Associations.objects.filter(source=self.source).aggregate(Sum('t_associated'))['t_associated__sum']
         if sum:
             try:
                 self.power = self.t_associated/float(sum - self.t_associated)
