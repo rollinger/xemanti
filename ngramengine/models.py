@@ -71,8 +71,8 @@ class PartOfSpeech(models.Model):
     # Part of Speech related to NGrams
     ngrams                  = models.ManyToManyField('NGrams', related_name="partofspeech", blank=True, null=True)
     # Boolean if the part or speech indicates meaninglessness of the ngram
-    # Meaninglessness is better inferred from the part of speech than meaningfulness
-    semantic_meaningless    = models.BooleanField(default=False)
+    # Meaninglessness is better inferred from the part of speech than meaningfulness [old: semantic_meaningless
+    coocurrence_relevancy   = models.NullBooleanField(_('Relevant for Co-Occurrences'),blank=True, null=True)
     # How many ngrams have this part of speech
     ngram_count             = models.PositiveIntegerField(default=0)
     
@@ -214,8 +214,8 @@ class NGrams(models.Model):
     t_occurred              = models.PositiveIntegerField(_('Times Occurred'),default=0)
     # Counter how many times the token was rated by a user (Association)
     t_rated                 = models.PositiveIntegerField(_('Times Rated'),default=0)
-    # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness)
-    semantic_meaningless    = models.BooleanField(_('Semantical Meaningless'),default=False)
+    # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness) [old: semantic_meaningless]
+    coocurrence_relevancy   = models.NullBooleanField(_('Relevant for Co-Occurrences'),blank=True, null=True)
     # Dirty Flag: Indicates the object has changed
     dirty                   = models.BooleanField(_('Dirty'),default=True)
     # Qualified Flag: True if Staff has checked, qualified and updated the ngram and associated models
@@ -263,7 +263,7 @@ class NGrams(models.Model):
                     # Identical ngrams (their token equivalence) do __not__ co-occure
                     if source_ngram != target_ngram:
                         # If eigther source.token or target.token indicates semantic meaninglessness: they do __not__ co-occure
-                        if source_ngram.is_meaningful() and target_ngram.is_meaningful():
+                        if source_ngram.is_relevant_for_cooccurrences() and target_ngram.is_relevant_for_cooccurrences():
                             # Inject Co-Occurrence with the positional difference from the source (hits the database)
                             cooc = CoOccurrences.inject(source_ngram,target_ngram,target_index+1)
     @classmethod
@@ -287,16 +287,16 @@ class NGrams(models.Model):
         self.t_rated = self.t_rated + times
         self.save()
     
-    def is_meaningful(self):
+    def is_relevant_for_cooccurrences(self):
         """
-        Checks if the ngram is semantically meaningless, or
+        Checks if the ngram is semantically relevant for coocurrence, or
         if it belongs to a part of speech that indicates meaninglessness
         """
-        if self.semantic_meaningless == True:
+        if self.coocurrence_relevancy == True:
             return False
         else:
             for pos in self.partofspeech.all():#_set:
-                if pos.semantic_meaningless == True:
+                if pos.coocurrence_relevancy == True:
                     return False
         return True
     
@@ -384,12 +384,12 @@ class CoOccurrences(models.Model):
             except:
                 return 0.0
     
-    def is_meaningful(self):
+    def is_relevant_for_cooccurrences(self):
         """
-        Checks if source and target is semantically meaningful, 
+        Checks if source and target is semantically relevant for cooccurrence, 
         i.e. does not belong to a partofspeech that is semantically meaningless
         """
-        if self.source.is_meaningful() and self.target.is_meaningful():
+        if self.source.is_relevant_for_cooccurrences() and self.target.is_relevant_for_cooccurrences():
             return True
         return False
 

@@ -68,7 +68,7 @@ class NGramsAdmin(admin.ModelAdmin):
                'unset_verb','set_verb','set_buchstabe','unset_buchstabe']
 
     def set_meaningless(self, request, queryset):
-        queryset.update(semantic_meaningless=True)
+        queryset.update(coocurrence_relevancy=True)
     set_meaningless.short_description = "Mark selected ngrams as semantically meaningless"
     def set_qualified(self, request, queryset):
         queryset.update(qualified=True)
@@ -171,9 +171,9 @@ class MeaningfulCoOccurrenceListFilter(admin.SimpleListFilter):
     def queryset(self, request, queryset):
         #filter = ['substantiv',"verb","adjektiv"]
         if self.value() == 'yes':
-            # Calls the method is_meaningful of each CoOccurrence
+            # Calls the method is_relevant_for_cooccurrences of each CoOccurrence
             # exclude yields better performance, due less deletion from the queryset
-            return queryset.exclude(is_meaningful=False)
+            return queryset.exclude(coocurrence_relevancy=False)
         if self.value() == 'no':
             return queryset
 class CoOccurrencesAdmin(admin.ModelAdmin):
@@ -199,8 +199,17 @@ class NumerusAdmin(admin.ModelAdmin):
 admin.site.register(Numerus, NumerusAdmin)
 
 class PartOfSpeechAdmin(admin.ModelAdmin):
-    list_display = ('type', 'semantic_meaningless', 'ngram_count')
+    list_display = ('type', 'coocurrence_relevancy', 'ngram_count')
     exclude = ['ngrams',]
+    actions = ['set_relevant_for_coocurrences','set_not_relevant_for_coocurrences']
+
+    def set_relevant_for_coocurrences(self, request, queryset):
+        queryset.update(coocurrence_relevancy=True)
+    set_relevant_for_coocurrences.short_description = "Mark selected ngrams as relevant for cooccurrences"
+    def set_not_relevant_for_coocurrences(self, request, queryset):
+        queryset.update(coocurrence_relevancy=False)
+    set_not_relevant_for_coocurrences.short_description = "Mark selected ngrams as not relevant for cooccurrences"
+    
 admin.site.register(PartOfSpeech, PartOfSpeechAdmin)
 
 class LanguagesAdmin(admin.ModelAdmin):
