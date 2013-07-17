@@ -375,10 +375,12 @@ class CoOccurrences(models.Model):
     
     def compute_discriminatory_power(self):
         # Returns the mean position of the target ngram from the source ngram
-        sum  = CoOccurrences.objects.filter(source=self.source).aggregate(Sum('t_cooccured'))['t_cooccured__sum']
+        #sum  = CoOccurrences.objects.filter(source=self.source).aggregate(Sum('t_cooccured'))['t_cooccured__sum']
+        sum  = self.source.coocurrence_outbound.all().aggregate(Sum('t_cooccured'))['t_cooccured__sum']
         if sum:
             try:
-                self.power = self.t_cooccured/float(sum - self.t_cooccured)
+                #self.power = self.t_cooccured/float(sum - self.t_cooccured)
+                self.power = self.t_cooccured/float(sum)
                 self.save()
                 return self.power
             except:
@@ -416,6 +418,8 @@ class Associations(models.Model):
     t_associated = models.PositiveIntegerField(default=0)
     # Discriminative Power:
     power = models.FloatField(default=0.0)
+    # Dirty Flag: Indicates the object has changed 
+    dirty = models.BooleanField(default=True)
     
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
@@ -438,10 +442,12 @@ class Associations(models.Model):
     def compute_discriminatory_power(self):
         # Returns the mean position of the target ngram from the source ngram
         #sum  = self.source.association_outbound_set.t_associated__sum
-        sum  = Associations.objects.filter(source=self.source).aggregate(Sum('t_associated'))['t_associated__sum']
+        #sum  = Associations.objects.filter(source=self.source).aggregate(Sum('t_associated'))['t_associated__sum']
+        sum  = self.source.association_outbound.all().aggregate(Sum('t_associated'))['t_associated__sum']
         if sum:
             try:
-                self.power = self.t_associated/float(sum - self.t_associated)
+                #self.power = self.t_associated/float(sum - self.t_associated)
+                self.power = self.t_associated/float(sum)
                 self.save()
                 return self.power
             except:
