@@ -293,10 +293,10 @@ class NGrams(models.Model):
         if it belongs to a part of speech that indicates meaninglessness
         """
         if self.coocurrence_relevancy == True:
-            return False
+            return True
         else:
             for pos in self.partofspeech.all():#_set:
-                if pos.coocurrence_relevancy == True:
+                if pos.coocurrence_relevancy == False:
                     return False
         return True
     
