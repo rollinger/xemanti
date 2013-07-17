@@ -60,8 +60,31 @@
 
 {% block right-sidebar %}
 <div class="units-row">
-	<div class="unit-centered unit-90">
-		<h4>{% trans "Statistics for: "%}{{ ngram.token }}</h4>
-	</div>
+	<div class="unit-50">{% trans "Frequency: "%}</div>
+	<div class="unit-50 label label-blue"><center>{{ngram.t_occurred}}</center></div>
+</div>
+<div class="units-row">
+	<div class="unit-50">{% trans "Rated: "%}</div>
+	<div class="unit-50 label label-blue"><center>{{ngram.t_rated}}</center></div>
+</div>
+<div class="units-row">
+	<div class="unit-50">{% trans "Genus: "%}</div>
+	<div class="unit-50 label label-blue"><center>{{ngram.genus}}</center></div>
+</div>
+<div class="units-row">
+	<div class="unit-50">{% trans "Numerus: "%}</div>
+	<div class="unit-50 label label-blue"><center>{{ngram.numerus}}</center></div>
+</div>
+<div class="units-row">
+	<div class="unit-50">{% trans "Part of Speech: "%}</div>
+	{% for pos in ngram.partofspeech.all %}
+		<div class="unit-50 label label-blue">{{pos}}</div>
+	{% endfor %}
+</div>
+<div class="units-row">
+	<div class="unit-50">{% trans "Languages: "%}</div>
+	{% for lang in ngram.language.all %}
+		<div class="unit-50 label label-blue">{{lang}}</div>
+	{% endfor %}
 </div>
 {% endblock right-sidebar %}
