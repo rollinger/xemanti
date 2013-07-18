@@ -320,6 +320,34 @@ class NGrams(models.Model):
             self.partofspeech.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
             self.language.add(Languages.objects.get(language="International"))
     
+    def occurrence_frequency_tag(self):
+        """
+        Returns a string indicating its relative frequency to the most frequent occurred ngram
+        """
+        freq = self.t_occurred
+        tags = [_('Almost never'),_('Rarely'),_('Occasionally'),_('Often'),_('Frequently'),]
+        interval = (NGrams.objects.order_by('-t_occurred')[0].t_occurred / float(len(tags)) )
+        if freq <= interval: return tags[0]
+        elif freq <= interval*2: return tags[1]
+        elif freq <= interval*3: return tags[2]
+        elif freq <= interval*4: return tags[3]
+        elif freq <= interval*5: return tags[4]
+        else: return _('Unknown')
+        
+    def rating_frequency_tag(self):
+        """
+        Returns a string indicating its relative frequency to the most frequent occurred ngram
+        """
+        freq = self.t_rated
+        tags = [_('Almost never'),_('Rarely'),_('Occasionally'),_('Often'),_('Frequently'),]
+        interval = (NGrams.objects.order_by('-t_rated')[0].t_rated / float(len(tags)) )
+        if freq <= interval: return tags[0]
+        elif freq <= interval*2: return tags[1]
+        elif freq <= interval*3: return tags[2]
+        elif freq <= interval*4: return tags[3]
+        elif freq <= interval*5: return tags[4]
+        else: return _('Unknown')
+        
     def __unicode__(self):
         return self.token
     

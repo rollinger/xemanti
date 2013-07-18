@@ -24,9 +24,10 @@ from usr_profile.models import Profile
 # Home Page View for text submission and main navigation view
 #
 def home_view(request):
+    return HttpResponseRedirect(reverse('inspect_query'))
     # Render Template Home
-    return render_to_response('xemanti/home.html', {
-    }, context_instance=RequestContext(request))
+    #return render_to_response('xemanti/home.html', {
+    #}, context_instance=RequestContext(request))
 
 
 

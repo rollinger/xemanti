@@ -13,7 +13,7 @@
 {% block main-content %}
 <div class="units-row">
 	<div class="unit-centered unit-90">
-		<h4 class="border-bottom">{% trans "Which NGram do you want to inspect:" %}</h4>
+		<h4 class="border-bottom">{% trans "Inspect a Word:" %}</h4>
 		<form action="." method="POST" data-ajax="false">
 		{% csrf_token %}
 		{% for field in form.visible_fields %}
@@ -41,7 +41,7 @@
 
 {% if ngram %}
 	<div class="units-row">
-		<div class="unit-centered unit-90">
+		<div class="unit-centered unit-90 border-bottom">
 			<center><h2>{{ ngram.token }}</h2></center>
 		</div>
 	</div>
@@ -92,11 +92,11 @@
 {% if ngram %}
 	<div class="units-row">
 		<div class="unit-50">{% trans "Frequency: "%}</div>
-		<div class="unit-50 label label-blue"><center>{{ngram.t_occurred}}</center></div>
+		<div class="unit-50 label label-blue"><center>{{ngram.occurrence_frequency_tag}}</center></div>
 	</div>
 	<div class="units-row">
 		<div class="unit-50">{% trans "Rated: "%}</div>
-		<div class="unit-50 label label-blue"><center>{{ngram.t_rated}}</center></div>
+		<div class="unit-50 label label-blue"><center>{{ngram.rating_frequency_tag}}</center></div>
 	</div>
 	<div class="units-row">
 		<div class="unit-50">{% trans "Genus: "%}</div>
@@ -109,13 +109,13 @@
 	<div class="units-row">
 		<div class="unit-50">{% trans "Part of Speech: "%}</div>
 		{% for pos in ngram.partofspeech.all %}
-			<div class="unit-50 label label-blue">{{pos}}</div>
+			<div class="unit-50 label label-blue"><center>{{pos}}</center></div>
 		{% endfor %}
 	</div>
 	<div class="units-row">
 		<div class="unit-50">{% trans "Languages: "%}</div>
 		{% for lang in ngram.language.all %}
-			<div class="unit-50 label label-blue">{{lang}}</div>
+			<div class="unit-50 label label-blue"><center>{{lang}}</center></div>
 		{% endfor %}
 	</div>
 {% endif %}

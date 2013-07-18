@@ -6,9 +6,9 @@ from django.utils.translation import ugettext as _
 
 class QueryNGramForm(forms.Form):
     ngram = forms.CharField( widget=forms.TextInput(attrs={
-                                                            'placeholder': _("State your NGram you want to inspect"),
+                                                            'placeholder': _("State your Word you want to inspect"),
                                                             'autofocus':'autofocus','class':'unit-100'}),
-                              min_length=2, max_length=255)
+                              min_length=2, max_length=255, label=_("Inspect the Word: "))
     
     
 class TextAnalyticInputForm(forms.Form):
