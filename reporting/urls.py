@@ -8,6 +8,6 @@ urlpatterns = patterns('reporting.views',
     
     # Probe View
     url(r'^inspect/query/$', 'inspect_query_view', name='inspect_query'),
-    url(r'^inspect/show/(?P<ngram_id>\d+)/$', 'inspect_show_view', name='inspect_show'),
+    url(r'^inspect/query/(?P<ngram_id>\d+)/$', 'inspect_query_view', name='inspect_query'),
     
 )

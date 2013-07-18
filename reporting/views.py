@@ -22,31 +22,24 @@ from ngramengine.models import *
 #
 # Query an Ngram for Inspection
 #
-def inspect_query_view(request):
+def inspect_query_view(request, ngram_id=None):
     if request.method == 'POST':
         form = QueryNGramForm(request.POST)
         if form.is_valid():
             ngram = NGrams.inject(token=form.cleaned_data['ngram'])
-            return HttpResponseRedirect(reverse('inspect_show', kwargs={'ngram_id': ngram.pk}))
+            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram_id': ngram.pk}))
     else:
         form = QueryNGramForm()
+        if ngram_id:
+            ngram = NGrams.objects.get(pk=ngram_id)
+            if request.user.is_authenticated():
+                request.user.profile.payment(1)
+        else:
+            ngram = None
     
     # Render Template ngram_query
-    return render_to_response('reporting/ngram_query.html', {
+    return render_to_response('reporting/inspect_show.html', {
+        "ngram":ngram,
         "form":form,
     }, context_instance=RequestContext(request))
     
-#
-# Inspect View for NGram
-#
-def inspect_show_view(request, ngram_id):
-    
-    ngram = NGrams.objects.get(pk=ngram_id)
-    
-    if request.user.is_authenticated():
-        request.user.profile.payment(1)
-        
-    # Render Template Home
-    return render_to_response('reporting/inspect_show.html', {
-        "ngram":ngram,
-    }, context_instance=RequestContext(request))
