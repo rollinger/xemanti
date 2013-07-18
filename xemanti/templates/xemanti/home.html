@@ -10,18 +10,7 @@
 {% block main-content %}
 <div class="units-row">
 	<div class="unit-centered unit-100">
-		<h4 class="border-bottom">{% trans "Your Text:" %}</h4>
-		<form action="/" method="POST" data-ajax="false">
-			{% csrf_token %}
-			{% for field in form.visible_fields %}
-				<div class="unit-centered unit-50">
-					{{ field }}
-				</div>
-			{% endfor %}
-			<div class="units-row">
-				<input class="unit-push-80 unit-20" type="submit" value="Submit" />
-			</div>
-		</form>
+		<h4 class="border-bottom">{% trans "Welcome to Xemanti!" %}</h4>
 	</div>
 </div>
 

@@ -14,10 +14,10 @@ from django.utils import simplejson
 import itertools
 
 # Custom Import Statement
-from forms import QueryNGramForm
+from forms import QueryNGramForm, TextAnalyticInputForm
 from ngramengine.tokenizer import Tokenizer
 from ngramengine.models import *
-
+from ngramengine.tasks import add_text_to_system
 
 #
 # Query an Ngram for Inspection
@@ -43,3 +43,37 @@ def inspect_query_view(request, ngram_id=None):
         "form":form,
     }, context_instance=RequestContext(request))
     
+    
+    
+#
+# Add Text to System and initiate Reporting process
+#
+def initiate_report_view(request):
+    # Form submitted:
+    if request.method == 'POST': 
+        form = TextAnalyticInputForm(request.POST) # A form bound     to the POST data
+        if form.is_valid(): # All validation rules pass
+            text_to_analyze = form.cleaned_data['textinput']
+            # Add NGrams to the system
+            # TODO: Strip text anonymous = 500 chars; authenticated = 2500 chars; (???) 
+            add_text_to_system.delay(text_to_analyze)
+            #NGrams.add_text_to_system(text_to_analyze)
+            # TODO: Initiate Report generation
+            if request.user.is_authenticated():
+                return HttpResponseRedirect( reverse( 'rate_assoc' ) )
+            else:
+                # Set Cookie for rating
+                response = HttpResponseRedirect( reverse( 'rate_assoc' ) )
+                response.set_cookie("rating_gauge",0)
+                # Redirect to rating 
+                return response
+            # TODO: Pass more options (Expiration, etc...) see: http://www.djangobook.com/en/2.0/chapter14.html
+            #
+            
+    # Form not submitted:
+    else:
+        form = TextAnalyticInputForm() # An unbound form
+    # Render Template Home
+    return render_to_response('reporting/initiate_report.html', {
+        "form":form
+    }, context_instance=RequestContext(request))

@@ -9,3 +9,8 @@ class QueryNGramForm(forms.Form):
                                                             'placeholder': _("State your NGram you want to inspect"),
                                                             'autofocus':'autofocus','class':'unit-100'}),
                               min_length=2, max_length=255)
+    
+    
+class TextAnalyticInputForm(forms.Form):
+    textinput = forms.CharField(widget=forms.Textarea(attrs={'placeholder': _("State your text you want to analyze..."),'autofocus':'autofocus'}), min_length=2)
+    #locale = forms.ChoiceField()

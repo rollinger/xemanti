@@ -62,26 +62,29 @@
 			<nav id="action-menu" class="nav-pills nav-g width-full ">
 				<ul>
 					<li>
-						<a href="{% url "home" %}" rel="external" title="{% trans 'Analyze your text' %}">
-							{% trans "Reporting" %}
-						</a>
-					</li>
-					<li>
 						<a href="{% url "inspect_query" %}" rel="external" title="{% trans 'Inspect a Word' %}">
 							{% trans "Inspect" %}
 						</a>
 					</li>
 					<li>
 						<a href="{% url "rate_assoc" %}" rel="external" title="{% trans 'Share your Knowledge!' %}">
-							{% trans "Rating" %}
+							{% trans "Rate" %}
 						</a>
 					</li>
 					{% if user.is_authenticated %}
 							{% if user.is_staff %}
-							
 							{% endif %}
 							{% if user.is_superuser %}
-								<li><a href="/admin/" rel="external" title="{% trans 'Administration' %}">{% trans "Administration" %}</a></li>
+								<li>
+									<a href="{% url "initiate_report" %}" rel="external" title="{% trans 'Analyze your text' %}">
+										{% trans "Reporting" %}
+									</a>
+								</li>
+								<li>
+									<a href="/admin/" rel="external" title="{% trans 'Administration' %}">
+										{% trans "Administration" %}
+									</a>
+								</li>
 							{% endif %}
 					{% else %}
 						
