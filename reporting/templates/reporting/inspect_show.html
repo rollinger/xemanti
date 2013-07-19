@@ -1,5 +1,6 @@
 {% extends "xemanti/base.html" %}
 {% load i18n %}
+{% load reporting_tags %}
 
 {% block custom-js %}
 <script type="text/javascript">
@@ -50,7 +51,9 @@
 		<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
 		<div>
 			{% for assoc in ngram.association_outbound.all %}
-				<a href="{% url 'inspect_query' assoc.target.id %}">{{ assoc.target }}</a>
+				<a href="{% url 'inspect_query' assoc.target.id %}" style="font-size:{{assoc.power|power_to_font_size}}em;">
+					{{ assoc.target }}
+				</a>
 			{% endfor %}
 		</div>
 		<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
@@ -80,7 +83,9 @@
 		<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
 		<div >
 			{% for cooc in ngram.coocurrence_outbound.all %}
-				<a href="{% url 'inspect_query' cooc.target.id %}">{{ cooc.target }}({{ cooc.power|floatformat:2 }})</a>
+				<a href="{% url 'inspect_query' cooc.target.id %}" style="font-size:{{cooc.power|power_to_font_size}}em;">
+					{{ cooc.target }}({{ cooc.power|floatformat:2 }})
+				</a>
 			{% endfor %}
 		</div>
 	</div>
