@@ -1,0 +1,74 @@
+{% extends "xemanti/base.html" %}
+{% load i18n %}
+{% load reporting_tags %}
+
+{% block custom-js %}
+<script type="text/javascript">
+	 $(function() {
+		$( ".draggable" ).draggable();
+		$( "#not_related_container" ).droppable({
+			drop: function( event, ui ) {
+				$( this ).addClass( "ui-state-highlight" );
+			}
+		});
+	});
+</script>
+{% endblock custom-js %}
+
+
+{% block main-content %}
+
+	<div class="units-row">
+		<div class="unit-centered unit-90 border-bottom">
+			<center><h2>
+				{% trans "Categorize the words for: " %} {{ ngram }}
+			</h2></center>
+		</div>
+	</div>
+
+	<div class="units-row units-padding">
+		<div id="not_related_container" class="unit-33">
+			<center><h3>
+				{% trans "Not Related" %}
+			</h3></center>
+		</div>
+		<div id="association_container" class="unit-33">
+			<center><h3>
+				{% trans "Association" %}
+			</h3></center>
+		</div>
+		<div id="super_category_container" class="unit-33">
+			<center><h3>
+				{% trans "Super Category" %}
+			</h3></center>
+		</div>
+	</div>
+	<div class="units-row units-padding">
+		<div id="antonym_container" class="unit-33">
+			<center><h3>
+				{% trans "Antonyms" %}
+			</h3></center>
+		</div>
+		<div id="sort_stack" class="unit-33 border-box draggable">
+			<center><h3>
+				{{ ngram }}
+			</h3></center>
+		</div>
+		<div id="synonym_container" class="unit-33">
+			<center><h3>
+				{% trans "Synonyms" %}
+			</h3></center>
+		</div>
+	</div>
+	<div class="units-row units-padding">
+		<div id="empty_container" class="unit-33">
+		</div>
+		<div id="empty_container" class="unit-33">
+		</div>
+		<div id="sub_category_container" class="unit-33">
+			<center><h3>
+				{% trans "Sub Category" %}
+			</h3></center>
+		</div>
+	</div>
+{% endblock main-content %}

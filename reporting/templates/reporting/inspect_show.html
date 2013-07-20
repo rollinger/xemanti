@@ -43,7 +43,11 @@
 {% if ngram %}
 	<div class="units-row">
 		<div class="unit-centered unit-90 border-bottom">
-			<center><h2>{{ ngram.token }}</h2></center>
+			<center><h2>
+				<a href="{% url 'sort_ngram' ngram.id %}">
+					{{ ngram.token }}
+				</a>
+			</h2></center>
 		</div>
 	</div>
 	
