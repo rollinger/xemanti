@@ -45,12 +45,10 @@ def rate_assoc_view(request):
                     request.user.profile.income(1)
                     return HttpResponseRedirect(reverse('rate_assoc'))
                 else:
-                    # Increment rating_gauge in cookies
-                    rating_gauge = int( request.COOKIES.get('rating_gauge', '0') ) + 1
-                    #TODO: Redirect to session based report
-                    response = HttpResponseRedirect( reverse( 'rate_assoc' ) )
-                    response.set_cookie("rating_gauge",rating_gauge)
-                    return response
+                    # Increment anonymous_rating session
+                    request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
+                    request.session.modified = True
+                    return HttpResponseRedirect( reverse( 'rate_assoc' ) )
             else:
                 return HttpResponseRedirect(reverse('rate_assoc'))
     # Form not submitted:
