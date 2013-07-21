@@ -13,7 +13,17 @@
 
 {% block main-content %}
 
-	<div class="units-row-end" id="tabs">
+	<div class="units-row" id="tabs">
+	
+		<nav class="nav-tabs nav-tabs-v unit-30 noborder-reset">
+			<ul>
+			    <li><a href="#section1" class="active">{% trans "Legal Details" %}</a></li>
+			    <li><a href="#section2">{% trans "Contact" %}</a></li>
+			    <li><a href="#section3">{% trans "Exclusion of Liability" %}</a></li>
+			    <li><a href="#section4">{% trans "Data Security Terms" %}</a></li>
+			    <li><a href="#section5">{% trans "References" %}</a></li>
+			</ul>
+		</nav>
 		
 		<div class="unit-70">
 		    <section class="" id="section1">
@@ -62,21 +72,6 @@
 				{% endblocktrans %}
 		    </section>
 	    </div>
-	    <nav class="nav-tabs nav-tabs-v unit-30 noborder-reset border-left">
-			<ul>
-			    <li><a href="#section1">{% trans "Legal Details" %}</a></li>
-			    <li><a href="#section2">{% trans "Contact" %}</a></li>
-			    <li><a href="#section3">{% trans "Exclusion of Liability" %}</a></li>
-			    <li><a href="#section4">{% trans "Data Security Terms" %}</a></li>
-			    <li><a href="#section5">{% trans "References" %}</a></li>
-			</ul>
-		</nav>
 	</div>
 
 {% endblock main-content %}
-
-
-
-{% block right-sidebar %}
-
-{% endblock right-sidebar %}

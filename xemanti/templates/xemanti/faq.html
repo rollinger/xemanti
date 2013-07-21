@@ -13,8 +13,14 @@
 
 {% block main-content %}
 
-	<div class="units-row-end" id="tabs">
-		
+	<div class="units-row" id="tabs">
+		<nav class="nav-tabs nav-tabs-v unit-30 noborder-reset ">
+			<ul>
+			    <li><a href="#section1" class="active">{% trans "What is Xemanti?" %}</a></li>
+			    <li><a href="#section2">{% trans "What can I do on Xemanti.Com" %}</a></li>
+			    <li><a href="#section3">{% trans "How can I analyze my texts?" %}</a></li>
+			</ul>
+		</nav>
 		<div class="unit-70">
 		    <section class="" id="section1">
 		    	<h2>{% trans "What is Xemanti?" %}</h2>
@@ -37,19 +43,7 @@
 				{% endblocktrans %}
 		    </section>
 	    </div>
-	    <nav class="nav-tabs nav-tabs-v unit-30 noborder-reset border-left">
-			<ul>
-			    <li><a href="#section1">{% trans "What is Xemanti?" %}</a></li>
-			    <li><a href="#section2">{% trans "What can I do on Xemanti.Com" %}</a></li>
-			    <li><a href="#section3">{% trans "How can I analyze my texts?" %}</a></li>
-			</ul>
-		</nav>
 	</div>
 
 {% endblock main-content %}
 
-
-
-{% block right-sidebar %}
-
-{% endblock right-sidebar %}

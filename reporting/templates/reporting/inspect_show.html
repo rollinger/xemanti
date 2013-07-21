@@ -12,93 +12,101 @@
 
 
 {% block main-content %}
-<div class="units-row">
-	<div class="unit-centered unit-90">
-		<h4 class="border-bottom">{% trans "Inspect a Word:" %}</h4>
-		<form action="." method="POST" data-ajax="false">
-		{% csrf_token %}
-		{% for field in form.visible_fields %}
-    		<div class="units-row">
-				<div class="unit-50 ">
-					<center><h2>{{ field.label }}</h2></center>
+
+{% if ngram %}
+<div id="left-content" class="unit-70">
+{% else %}
+<div id="left-content" class="unit-100">
+{% endif %}
+
+	<div class="units-row">
+		<div class="unit-centered unit-90">
+			<h4 class="border-bottom">{% trans "Inspect a Word:" %}</h4>
+			<form action="." method="POST" data-ajax="false">
+			{% csrf_token %}
+			{% for field in form.visible_fields %}
+	    		<div class="units-row">
+					<div class="unit-50 ">
+						<center><h2>{{ field.label }}</h2></center>
+					</div>
+					<div class="unit-50 ui-widget">
+						 {{ field }}
+					</div>
+					<div class="unit-100 supersmall">
+						{{ field.help_text }}
+					</div>
 				</div>
-				<div class="unit-50 ui-widget">
-					 {{ field }}
-				</div>
-				<div class="unit-100 supersmall">
-					{{ field.help_text }}
-				</div>
+			{% endfor %}
+			{% for hidden in form.hidden_fields %} 
+				{{ hidden }} 
+			{% endfor %}
+			<div class="units-row">
+				<input class="unit-push-70 unit-30" id="rate" type="submit" name="rate" value="Submit" />
 			</div>
-		{% endfor %}
-		{% for hidden in form.hidden_fields %} 
-			{{ hidden }} 
-		{% endfor %}
-		<div class="units-row">
-			<input class="unit-push-70 unit-30" id="rate" type="submit" name="rate" value="Submit" />
+		</form>
 		</div>
-	</form>
 	</div>
+
+	{% if ngram %}
+		<div class="units-row">
+			<div class="unit-centered unit-90 border-bottom">
+				<center><h2>
+					<a href="{% url 'sort_ngram' ngram.id %}">
+						{{ ngram.token }}
+					</a>
+				</h2></center>
+			</div>
+		</div>
+		
+		<div id="accordion">
+			<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
+			<div>
+				{% for assoc in ngram.association_outbound.all %}
+					<a href="{% url 'inspect_query' assoc.target.id %}" style="font-size:{{assoc.power|power_to_font_size}}em;">
+						{{ assoc.target }}
+					</a>
+				{% endfor %}
+			</div>
+			<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
+			<div>
+				{% for synonym in ngram.synonyms.all %}
+					<a href="{% url 'inspect_query' synonym.target.id %}">{{ synonym.target }}</a>
+				{% endfor %}
+			</div>
+			<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
+			<div >
+				{% for antonym in ngram.antonyms.all %}
+					<a href="{% url 'inspect_query' antonym.target.id %}">{{ antonym.target }}</a>
+				{% endfor %}
+			</div>
+			<h3 class="btn">{% trans "Super Categories"%} ({{ngram.supercategories.count}})</h3>
+			<div >
+				{% for super in ngram.supercategories.all %}
+					<a href="{% url 'inspect_query' super.target.id %}">{{ super.target }}</a>
+				{% endfor %}
+			</div>
+			<h3 class="btn">{% trans "Sub Categories"%} ({{ngram.subcategories.count}})</h3>
+			<div >
+				{% for sub in ngram.subcategories.all %}
+					<a href="{% url 'inspect_query' sub.target.id %}">{{ sub.target }}</a>
+				{% endfor %}
+			</div>
+			<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
+			<div >
+				{% for cooc in ngram.coocurrence_outbound.all %}
+					<a href="{% url 'inspect_query' cooc.target.id %}" style="font-size:{{cooc.power|power_to_font_size}}em;">
+						{{ cooc.target }}({{ cooc.power|floatformat:2 }})
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+
 </div>
 
 {% if ngram %}
-	<div class="units-row">
-		<div class="unit-centered unit-90 border-bottom">
-			<center><h2>
-				<a href="{% url 'sort_ngram' ngram.id %}">
-					{{ ngram.token }}
-				</a>
-			</h2></center>
-		</div>
-	</div>
-	
-	<div id="accordion">
-		<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
-		<div>
-			{% for assoc in ngram.association_outbound.all %}
-				<a href="{% url 'inspect_query' assoc.target.id %}" style="font-size:{{assoc.power|power_to_font_size}}em;">
-					{{ assoc.target }}
-				</a>
-			{% endfor %}
-		</div>
-		<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
-		<div>
-			{% for synonym in ngram.synonyms.all %}
-				<a href="{% url 'inspect_query' synonym.target.id %}">{{ synonym.target }}</a>
-			{% endfor %}
-		</div>
-		<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
-		<div >
-			{% for antonym in ngram.antonyms.all %}
-				<a href="{% url 'inspect_query' antonym.target.id %}">{{ antonym.target }}</a>
-			{% endfor %}
-		</div>
-		<h3 class="btn">{% trans "Super Categories"%} ({{ngram.supercategories.count}})</h3>
-		<div >
-			{% for super in ngram.supercategories.all %}
-				<a href="{% url 'inspect_query' super.target.id %}">{{ super.target }}</a>
-			{% endfor %}
-		</div>
-		<h3 class="btn">{% trans "Sub Categories"%} ({{ngram.subcategories.count}})</h3>
-		<div >
-			{% for sub in ngram.subcategories.all %}
-				<a href="{% url 'inspect_query' sub.target.id %}">{{ sub.target }}</a>
-			{% endfor %}
-		</div>
-		<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
-		<div >
-			{% for cooc in ngram.coocurrence_outbound.all %}
-				<a href="{% url 'inspect_query' cooc.target.id %}" style="font-size:{{cooc.power|power_to_font_size}}em;">
-					{{ cooc.target }}({{ cooc.power|floatformat:2 }})
-				</a>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+<div id="right-sidebar" class="unit-30">
 
-{% endblock main-content %}
-
-{% block right-sidebar %}
-{% if ngram %}
 	<div class="units-row">
 		<div class="unit-50">{% trans "Frequency: "%}</div>
 		<div class="unit-50 label label-blue"><center>{{ngram.occurrence_frequency_tag}}</center></div>
@@ -127,5 +135,9 @@
 			<div class="unit-50 label label-blue"><center>{{lang}}</center></div>
 		{% endfor %}
 	</div>
+</div>
 {% endif %}
-{% endblock right-sidebar %}
+
+{% endblock main-content %}
+
+
