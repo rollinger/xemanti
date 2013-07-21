@@ -75,6 +75,11 @@
 							{% trans "Rate" %}
 						</a>
 					</li>
+					<li>
+						<a href="/weblog/" rel="external" title="{% trans 'Blog' %}">
+							{% trans "Blog" %}
+						</a>
+					</li>
 					{% if user.is_authenticated %}
 							{% if user.is_staff %}
 							{% endif %}
@@ -103,13 +108,6 @@
 				
 				{% endblock main-content %}
 			</div>
-			<!--
-			<div id="right-sidebar" class="unit-30">
-				{#% block right-sidebar %#}
-				
-				{#% endblock right-sidebar %#}
-			</div>
-			-->
 		</div>
 
 		<footer id="footer" class="units-row">
