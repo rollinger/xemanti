@@ -133,10 +133,21 @@ class Synonyms(models.Model):
     target  = models.ForeignKey('NGrams', related_name="synonym_of")
     # How many times the synonym was rated
     t_rated = models.PositiveIntegerField(default=0)
+    # Dirty Flag: Indicates the object has changed
+    #dirty   = models.BooleanField(_('Dirty'),default=True)
 
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
+    
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        synonym, created = Synonyms.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            synonym.t_rated = synonym.t_rated + times
+        synonym.source.set_dirty()
+        synonym.save()
+        return synonym
     
     def __unicode__(self):
         return self.target#"%s <synonym> &s"%(self.source,self.target)
@@ -157,6 +168,15 @@ class Antonyms(models.Model):
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
     
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        antonym, created = Antonyms.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            antonym.t_rated = antonym.t_rated + times
+        antonym.source.set_dirty()
+        antonym.save()
+        return antonym
+    
     def __unicode__(self):
         return self.target#"%s <antonym> &s"%(self.source,self.target)
     
@@ -176,6 +196,15 @@ class SuperCategory(models.Model):
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
     
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        super, created = SuperCategory.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            super.t_rated = super.t_rated + times
+        super.source.set_dirty()
+        super.save()
+        return super
+    
     def __unicode__(self):
         return self.target#"%s <super> &s"%(self.source,self.target)
     
@@ -194,6 +223,15 @@ class SubCategory(models.Model):
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
+    
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        sub, created = SubCategory.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            sub.t_rated = sub.t_rated + times
+        sub.source.set_dirty()
+        sub.save()
+        return sub
     
     def __unicode__(self):
         return self.target#"%s <sub> &s"%(self.source,self.target)
@@ -487,6 +525,44 @@ class Associations(models.Model):
     class Meta:
         verbose_name = 'Association'
         verbose_name_plural = 'Associations'
+    
+    
+    
+"""
+Not Related Class: An Ngram is not related to another Ngram
+"""
+class NotRelated(models.Model):
+    source  = models.ForeignKey('NGrams', related_name="not_related_to")
+    target  = models.ForeignKey('NGrams', related_name="not_related_from")
+    # How many times the Non-Relationship was rated
+    t_rated = models.PositiveIntegerField(default=0)
+
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        notrelated, created = NotRelated.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            notrelated.t_rated = notrelated.t_rated + times
+        notrelated.source.set_dirty()
+        notrelated.save()
+        return notrelated
+    
+    def __unicode__(self):
+        return self.target#"%s <sub> &s"%(self.source,self.target)
+    
+    class Meta:
+        verbose_name = 'Non-Relationship'
+        verbose_name_plural = 'Non-Relationships'
+    
+    
+    
+    
+    
+    
+    
     
     
     

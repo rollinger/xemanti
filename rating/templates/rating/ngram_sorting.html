@@ -6,12 +6,32 @@
 <script type="text/javascript">
 	 $(function() {
 		$( ".draggable" ).draggable();
-		$( "#not_related_container" ).droppable({
+		$( ".droppable" ).droppable({
 			drop: function( event, ui ) {
-				$( this ).addClass( "ui-state-highlight" );
+				$( this ).effect( "pulsate", {}, 500 );
+				$( ui.draggable ).hide( "explode", {}, 500 );
+				var source = "{{ngram.token}}";
+				var target = $( ui.draggable ).text();
+				var sort_container_func = $( this ).attr('id');
+				Dajaxice.rating.sort_ngram(update_profile_balance,{'type':sort_container_func,'source':source,'target':target});
+				Dajaxice.rating.get_next_word(show_next_word,{'ngram':'{{ngram.token}}',});
+				function update_profile_balance(data){
+					$( "div#money-badge" ).effect( "pulsate", {}, 500 );
+					$( "div#money-badge" ).text(data + " Xetis");
+				}
 			}
 		});
+		Dajaxice.rating.get_next_word(show_next_word,{'ngram':"{{ngram.token}}",});
+		function show_next_word(data){
+			if (data != "None"){
+				var word_to_sort = '<div class="unit-centered unit-50 border-box draggable"><center><h2>' + data + '</h2></center></div>';
+				$( '#word_stack' ).append(word_to_sort);
+				$( "div#word-to-sort" ).effect( "slide", {}, 1000 );
+				$( ".draggable" ).draggable();
+			}
+		}
 	});
+	
 </script>
 {% endblock custom-js %}
 
@@ -20,54 +40,47 @@
 
 	<div class="units-row">
 		<div class="unit-centered unit-90 border-bottom">
-			<center><h2>
-				{% trans "Categorize the words for: " %} {{ ngram }}
-			</h2></center>
+			<h2>{% trans "Categorize words for: " %} <span class="label">{{ ngram }}</span></h2>
 		</div>
+	</div>
+	
+	<div class="units-row" id="word_stack">
+		
 	</div>
 
 	<div class="units-row units-padding">
-		<div id="not_related_container" class="unit-33">
+		<div id="not_related_container" class="unit-50 droppable">
 			<center><h3>
 				{% trans "Not Related" %}
 			</h3></center>
 		</div>
-		<div id="association_container" class="unit-33">
+		<div id="association_container" class="unit-50 droppable">
 			<center><h3>
 				{% trans "Association" %}
 			</h3></center>
 		</div>
-		<div id="super_category_container" class="unit-33">
-			<center><h3>
-				{% trans "Super Category" %}
-			</h3></center>
-		</div>
 	</div>
 	<div class="units-row units-padding">
-		<div id="antonym_container" class="unit-33">
+		<div id="antonym_container" class="unit-50 droppable">
 			<center><h3>
 				{% trans "Antonyms" %}
 			</h3></center>
 		</div>
-		<div id="sort_stack" class="unit-33 border-box draggable">
-			<center><h3>
-				{{ ngram }}
-			</h3></center>
-		</div>
-		<div id="synonym_container" class="unit-33">
+		<div id="synonym_container" class="unit-50 droppable">
 			<center><h3>
 				{% trans "Synonyms" %}
 			</h3></center>
 		</div>
 	</div>
 	<div class="units-row units-padding">
-		<div id="empty_container" class="unit-33">
-		</div>
-		<div id="empty_container" class="unit-33">
-		</div>
-		<div id="sub_category_container" class="unit-33">
+		<div id="sub_category_container" class="unit-50 droppable">
 			<center><h3>
 				{% trans "Sub Category" %}
+			</h3></center>
+		</div>
+		<div id="super_category_container" class="unit-50 droppable">
+			<center><h3>
+				{% trans "Super Category" %}
 			</h3></center>
 		</div>
 	</div>

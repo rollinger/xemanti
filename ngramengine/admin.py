@@ -35,6 +35,16 @@ class SubCategoryInline(admin.TabularInline):
     fk_name = 'source'
     raw_id_fields = ('source','target',)
     extra = 0
+class AssociationInline(admin.TabularInline):
+    model = Associations
+    fk_name = 'source'
+    raw_id_fields = ('source','target',)
+    extra = 0
+class NotRelatedInline(admin.TabularInline):
+    model = NotRelated
+    fk_name = 'source'
+    raw_id_fields = ('source','target',)
+    extra = 0
 class IntervalListFilter(admin.SimpleListFilter):
     title = _('Interval Occurrence Filter')
     parameter_name = 'intervall_occurrence'
@@ -61,7 +71,7 @@ class NGramsAdmin(admin.ModelAdmin):
     list_filter = ['dirty', "qualified", IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
-    inlines = [PartofSpeechesInline,LanguagesInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
+    inlines = [PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
     
     actions = ['set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
                'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
@@ -221,6 +231,11 @@ class AssociationsAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 't_associated', 'power')
     raw_id_fields = ('source','target',)
 admin.site.register(Associations, AssociationsAdmin)
+
+class NotRelatedAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 't_rated')
+    raw_id_fields = ('source','target',)
+admin.site.register(NotRelated, NotRelatedAdmin)
 
 class InputStackAdmin(admin.ModelAdmin):
     pass

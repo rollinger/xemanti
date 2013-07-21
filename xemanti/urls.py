@@ -6,9 +6,13 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib.auth.views import login, logout
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-# Uncomment the next two lines to enable the admin:
+# Admin Autodiscover
 from django.contrib import admin
 admin.autodiscover()
+
+# Dajaxice Autodiscover
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
+dajaxice_autodiscover()
 
 urlpatterns = patterns('xemanti.views',
     #
@@ -38,10 +42,14 @@ urlpatterns = patterns('xemanti.views',
     #
     # Mainenance Action via Celery
     #url(r'^maintenance/', 'XemantiCom.views.maintenance', name='maintenance'),
+    
     # Admin Interface (Backend)
     url(r'^admin/', include(admin.site.urls)),
     # Admin Documentation 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    
+    # Dajaxice
+    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 )
 
 # Add Staticfiles-Urlpattern to urlpattern
