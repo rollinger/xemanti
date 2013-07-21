@@ -4,11 +4,13 @@ from tokenizer import Tokenizer
 
 from django.db.models import Q, F
 
-from celery import task
-import celery
+#from celery import task
+from celery import Celery
+#import celery
 import time
 
 
+celery = Celery('tasks', broker='amqp://guest@localhost//')
 
 # Add text to system (user trigger)
 @celery.task(name='tasks.add_text_to_system')

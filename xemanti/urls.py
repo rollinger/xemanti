@@ -38,6 +38,12 @@ urlpatterns = patterns('xemanti.views',
     url(r'^report/', include('reporting.urls')),
     
     #
+    # Zinnia Weblog URLs
+    #
+    url(r'^weblog/', include('zinnia.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
+
+    #
     # Admin URLs
     #
     # Mainenance Action via Celery

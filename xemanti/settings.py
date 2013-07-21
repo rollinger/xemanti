@@ -107,7 +107,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
-    'django.contrib.messages.context_processors.messages'
+    'django.contrib.messages.context_processors.messages',
+    'zinnia.context_processors.version', # Optional
 )
 
 MIDDLEWARE_CLASSES = (
@@ -137,6 +138,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.comments',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
@@ -144,9 +146,12 @@ INSTALLED_APPS = (
     # Django Packages
     'south',
     'djcelery',
-    'kombu.transport.django',
+    #'kombu.transport.django',
     'dajaxice',
     'dajax',
+    'tagging',
+    'mptt',
+    'zinnia',
     #'compress',
     # Installed Apps
     'xemanti',
@@ -193,9 +198,9 @@ LOGGING = {
 # ./manage.py celeryd -v 2 -B -s celery -E -l INFO 
 import djcelery
 djcelery.setup_loader()
-# Using Db as Broker via kombu
-BROKER_URL = "django://" 
-# Using DjCelery Backend Tables
+# Using RabbitMQ 
+BROKER_URL = 'amqp://guest@localhost:5672//'
+#CELERY_RESULT_BACKEND = "amqp"
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERYBEAT_LOADER = "djcelery.loaders.DjangoLoader"
 
