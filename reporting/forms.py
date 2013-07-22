@@ -5,8 +5,9 @@ from django import forms
 from django.utils.translation import ugettext as _
 
 class QueryNGramForm(forms.Form):
+    # TODO: Make Placeholder show the three hottest queries
     ngram = forms.CharField( widget=forms.TextInput(attrs={
-                                                            'placeholder': _("State your Word you want to inspect"),
+                                                            'placeholder': _("Haus, Moskau, Wirtschaft, ... "),
                                                             'autofocus':'autofocus','class':'unit-100'}),
                               min_length=2, max_length=255, label=_("Inspect the Word: "))
     
