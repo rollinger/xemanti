@@ -14,7 +14,7 @@ import time
 #celery = Celery('tasks', broker="amqp://guest:guest@localhost:5672//")
 
 # Add text to system (user trigger)
-@celery.task(name='tasks.add_text_to_system')
+@celery.task#(name='tasks.add_text_to_system')
 def add_text_to_system(text):
     """
     Add a text to the system (add ngrams and cooccurrences).

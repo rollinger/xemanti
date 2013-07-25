@@ -204,9 +204,9 @@ import djcelery
 djcelery.setup_loader()
 # Using RabbitMQ 
 BROKER_URL = "amqp://guest:guest@localhost:5672//"
-CELERY_RESULT_BACKEND = "amqp"
-CELERY_TASK_RESULT_EXPIRES = 18000
-CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+#CELERY_RESULT_BACKEND = "amqp"
+#CELERY_TASK_RESULT_EXPIRES = 18000
+#CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 #CELERYBEAT_LOADER = "djcelery.loaders.DjangoLoader"
 
 #
