@@ -150,7 +150,7 @@ INSTALLED_APPS = (
     # Django Packages
     'south',
     'djcelery',
-    'kombu.transport.django',
+    #'kombu.transport.django',
     'dajaxice',
     'dajax',
     'tagging',
@@ -206,8 +206,8 @@ djcelery.setup_loader()
 BROKER_URL = "amqp://guest:guest@localhost:5672//"
 #CELERY_RESULT_BACKEND = "amqp"
 #CELERY_TASK_RESULT_EXPIRES = 18000
-#CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
-#CELERYBEAT_LOADER = "djcelery.loaders.DjangoLoader"
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+CELERYBEAT_LOADER = "djcelery.loaders.DjangoLoader"
 
 #
 # XEMANTIC CONFIGURATION SETTINGS
