@@ -150,7 +150,7 @@ INSTALLED_APPS = (
     # Django Packages
     'south',
     'djcelery',
-    #'kombu.transport.django',
+    'kombu.transport.django',
     'dajaxice',
     'dajax',
     'tagging',
