@@ -5,6 +5,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.auth.views import login, logout
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic.simple import direct_to_template
 
 # Admin Autodiscover
 from django.contrib import admin
@@ -56,6 +57,9 @@ urlpatterns = patterns('xemanti.views',
     
     # Dajaxice
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+    
+    # Robots.txt
+     (r'^robots\.txt$', direct_to_template,{'template': 'xemanti/robots.txt', 'mimetype': 'text/plain'}),
 )
 
 # Add Staticfiles-Urlpattern to urlpattern
