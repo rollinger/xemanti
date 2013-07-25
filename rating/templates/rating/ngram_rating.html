@@ -23,7 +23,6 @@
 {% block main-content %}
 <div class="units-row">
 	<div class="unit-centered unit-90">
-		<h4 class="border-bottom">{% trans "Add an Association to:" %}</h4>
 		<form action="." method="POST" data-ajax="false">
 		{% csrf_token %}
 		{% for field in form.visible_fields %}
@@ -54,7 +53,7 @@
 			{{ hidden }} 
 		{% endfor %}
 		<div class="units-row">
-			<input class="unit-push-40 unit-30" id="rate" type="submit" name="rate" value="Submit" />
+			<input class="unit-push-40 unit-30" id="rate" type="submit" name="rate" value="Associate" />
 			<input class="unit-push-40 unit-30" type="submit" name="skip" value="Skip" />
 		</div>
 	</form>

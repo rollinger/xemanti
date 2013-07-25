@@ -7,7 +7,7 @@ from django.utils.translation import ugettext as _
 from ngramengine.models import NGrams
 
 class RateAssociationForm(forms.Form):
-    rating = forms.CharField( widget=forms.TextInput(attrs={'placeholder': _("State your immediate thought..."),'autofocus':'autofocus','class':'unit-100'}), min_length=2, max_length=255)
+    rating = forms.CharField( widget=forms.TextInput(attrs={'placeholder': _("State your immediate association..."),'autofocus':'autofocus','class':'unit-100'}), min_length=2, max_length=255)
     target = forms.CharField(widget=forms.HiddenInput())
     
     def __init__(self, *args, **kwargs):

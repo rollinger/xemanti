@@ -69,7 +69,9 @@
 			<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
 			<div>
 				{% for synonym in ngram.synonyms.all %}
-					<a href="{% url 'inspect_query' synonym.target.id %}">{{ synonym.target }}</a>
+					<a href="{% url 'inspect_query' synonym.target.id %}">
+						{{ synonym.target }}
+					</a>
 				{% endfor %}
 			</div>
 			<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
