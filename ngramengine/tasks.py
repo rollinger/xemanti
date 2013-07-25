@@ -6,11 +6,11 @@ from django.db.models import Q, F
 
 #from celery import task
 from celery import Celery
-#import celery
+import celery
 import time
 
 
-celery = Celery('tasks', broker="amqp://guest:guest@localhost:5672//")
+#celery = Celery('tasks', broker="amqp://guest:guest@localhost:5672//")
 
 # Add text to system (user trigger)
 @celery.task(name='tasks.add_text_to_system')
