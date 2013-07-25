@@ -10,7 +10,7 @@ from celery import Celery
 import time
 
 
-celery = Celery('tasks', broker='amqp://guest@localhost//')
+celery = Celery('tasks', broker="amqp://guest:guest@localhost:5672//")
 
 # Add text to system (user trigger)
 @celery.task(name='tasks.add_text_to_system')
