@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-25 22:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms.py:10
+msgid "Haus, Moskau, Wirtschaft, ... "
+msgstr ""
+
+#: forms.py:12
+msgid "Inspect the Word: "
+msgstr "Untersuch das Wort: "
+
+#: forms.py:16
+msgid "State your text you want to analyze..."
+msgstr ""
+
+#: templates/reporting/initiate_report.html:13
+msgid "Your Text:"
+msgstr "Dein Text"
+
+#: templates/reporting/inspect_show.html:24
+msgid "Inspect a Word:"
+msgstr "Untersuche ein Wort"
+
+#: templates/reporting/inspect_show.html:42
+msgid "Inspect"
+msgstr "Untersuche"
+
+#: templates/reporting/inspect_show.html:61
+msgid "Associations"
+msgstr "Assoziation"
+
+#: templates/reporting/inspect_show.html:69
+msgid "Synonyms"
+msgstr "Synonyme"
+
+#: templates/reporting/inspect_show.html:77
+msgid "Antonyms"
+msgstr "Antonyme"
+
+#: templates/reporting/inspect_show.html:83
+msgid "Super Categories"
+msgstr "Über-Kategorie"
+
+#: templates/reporting/inspect_show.html:89
+msgid "Sub Categories"
+msgstr "Unter-Kategorie"
+
+#: templates/reporting/inspect_show.html:95
+msgid "Co-Occurrences"
+msgstr "Gemeinsames Auftreten"
+
+#: templates/reporting/inspect_show.html:112
+msgid "Frequency: "
+msgstr "Häufigkeit"
+
+#: templates/reporting/inspect_show.html:116
+msgid "Rated: "
+msgstr "Bewertet: "
+
+#: templates/reporting/inspect_show.html:120
+msgid "Genus: "
+msgstr "Genus"
+
+#: templates/reporting/inspect_show.html:124
+msgid "Numerus: "
+msgstr "Numers"
+
+#: templates/reporting/inspect_show.html:128
+msgid "Part of Speech: "
+msgstr "Wortarten"
+
+#: templates/reporting/inspect_show.html:134
+msgid "Languages: "
+msgstr "Sprachen"

@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-25 22:50+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:49
+msgid "Interval Occurrence Filter"
+msgstr ""
+
+#: admin.py:53
+msgid "1"
+msgstr ""
+
+#: admin.py:54
+msgid "<10"
+msgstr ""
+
+#: admin.py:55
+msgid "<100"
+msgstr ""
+
+#: admin.py:56
+msgid "<1000"
+msgstr ""
+
+#: admin.py:174
+msgid "Meaningful Co-Occurrence"
+msgstr ""
+
+#: admin.py:178
+msgid "Yes"
+msgstr "Ja"
+
+#: admin.py:179
+msgid "No"
+msgstr "Nein"
+
+#: models.py:75 models.py:256
+msgid "Relevant for Co-Occurrences"
+msgstr ""
+
+#: models.py:250
+msgid "NGram"
+msgstr ""
+
+#: models.py:252
+msgid "Times Occurred"
+msgstr "Auftretenshäufigkeit"
+
+#: models.py:254
+msgid "Times Rated"
+msgstr "Bewertungshäufigkeit"
+
+#: models.py:258
+msgid "Dirty"
+msgstr "Dreckig"
+
+#: models.py:260
+msgid "Qualified"
+msgstr "Qualifiziert"
+
+#: models.py:366 models.py:380
+msgid "Almost never"
+msgstr "Fast Nie"
+
+#: models.py:366 models.py:380
+msgid "Rarely"
+msgstr "Selten"
+
+#: models.py:366 models.py:380
+msgid "Occasionally"
+msgstr "Gelegentlich"
+
+#: models.py:366 models.py:380
+msgid "Often"
+msgstr "Häufig"
+
+#: models.py:366 models.py:380
+msgid "Frequently"
+msgstr "Regelmäßig"
+
+#: models.py:373 models.py:387
+msgid "Unknown"
+msgstr "Unbekannt"
