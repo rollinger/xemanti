@@ -1,6 +1,7 @@
 {# Standard Template Tag loading #}
 {% load i18n %}
 {% load dajaxice_templatetags %}
+{% load zinnia_tags %}
 
 <!DOCTYPE html> 
 <html> 
@@ -107,6 +108,14 @@
 				{% block main-content %}
 				
 				{% endblock main-content %}
+			</div>
+		</div>
+		
+		<div id="main" class="units-row">
+			<div id="main-content" class="unit-100">
+				{% block blog-content %}
+					{% get_featured_entries 3 %}
+				{% endblock blog-content %}
 			</div>
 		</div>
 

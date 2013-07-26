@@ -64,8 +64,8 @@ def initiate_report_view(request):
             text_to_analyze = form.cleaned_data['textinput']
             # Add NGrams to the system
             # TODO: Strip text anonymous = 500 chars; authenticated = 2500 chars; (???) 
-            add_text_to_system.delay(text_to_analyze)
-            #NGrams.add_text_to_system(text_to_analyze)
+            #add_text_to_system.delay(text_to_analyze)
+            NGrams.add_text_to_system(text_to_analyze)
             # TODO: Initiate Report generation
             if request.user.is_authenticated():
                 return HttpResponseRedirect( reverse( 'rate_assoc' ) )
