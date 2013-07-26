@@ -59,7 +59,8 @@ urlpatterns = patterns('xemanti.views',
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
     
     # Robots.txt
-     (r'^robots\.txt$', TemplateView.as_view(template_name='xemanti/robots.txt')),
+    url(r'^robots.txt', TemplateView.as_view(template_name='xemanti/robots.txt')),
+    url(r'^googlec40e2556575ffb52.html', TemplateView.as_view(template_name='xemanti/googlec40e2556575ffb52.html')),
 )
 
 # Add Staticfiles-Urlpattern to urlpattern
