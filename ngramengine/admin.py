@@ -243,6 +243,3 @@ class NotRelatedAdmin(admin.ModelAdmin):
     raw_id_fields = ('source','target',)
 admin.site.register(NotRelated, NotRelatedAdmin)
 
-class InputStackAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(InputStack, InputStackAdmin)

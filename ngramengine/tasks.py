@@ -139,6 +139,14 @@ def ngram_maintenance():
                 instance.compute_discriminatory_power()
                 instance.save()
         #
+        # SuperCategorie Maintenance
+        #
+        if obj.not_related_to.exists():
+            # Calculate Statistics for Sub Categories
+            for instance in obj.not_related_to.all():
+                instance.compute_discriminatory_power()
+                instance.save()
+        #
         # NGram Maintenance
         #
         obj.dirty = False
