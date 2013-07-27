@@ -6,8 +6,8 @@ from django.db.models import Q, F
 
 #from celery import task
 #from celery import Celery
-#import celery
-from djcelery import celery
+import celery
+#from djcelery import celery
 import time
 
 
