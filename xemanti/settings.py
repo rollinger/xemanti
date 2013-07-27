@@ -208,8 +208,11 @@ BROKER_PORT = 5672
 BROKER_USER = "xemanti-sudo"
 BROKER_PASSWORD = "comMahakalaxemanti."
 BROKER_VHOST = "localhost"
+#BROKER_URL = "amqp://xemanti-sudo@localhost:5672/localhost"
 # List of modules to import when celery starts.
 CELERY_IMPORTS = ("ngramengine.tasks", )
+
+
 #BROKER_URL = "amqp://guest:guest@localhost:5672//"
 #CELERY_RESULT_BACKEND = "amqp"
 #CELERY_TASK_RESULT_EXPIRES = 18000
