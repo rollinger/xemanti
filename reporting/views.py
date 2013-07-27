@@ -26,6 +26,8 @@ def inspect_query_view(request, ngram_id=None):
     if request.method == 'POST':
         form = QueryNGramForm(request.POST)
         if form.is_valid():
+            if len( form.cleaned_data['rating'] ) >= 100:# reload if the input exceeds 100 Chars
+                    return HttpResponseRedirect(reverse('inspect_query'))
             ngram = NGrams.inject(token=form.cleaned_data['ngram'])
             return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram_id': ngram.pk}))
     else:
