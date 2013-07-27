@@ -203,14 +203,17 @@ LOGGING = {
 import djcelery
 djcelery.setup_loader()
 # Using RabbitMQ 
-BROKER_HOST = "localhost"
-BROKER_PORT = 5672
-BROKER_USER = "xemanti-sudo"
-BROKER_PASSWORD = "comMahakalaxemanti."
-BROKER_VHOST = "localhost"
+BROKER_URL = "amqp://xemanti-sudo@localhost:5672/localhost"
+
+
+#BROKER_HOST = "localhost"
+#BROKER_PORT = 5672
+#BROKER_USER = "xemanti-sudo"
+#BROKER_PASSWORD = "comMahakalaxemanti."
+#BROKER_VHOST = "localhost"
 #BROKER_URL = "amqp://xemanti-sudo@localhost:5672/localhost"
 # List of modules to import when celery starts.
-CELERY_IMPORTS = ("ngramengine.tasks", )
+#CELERY_IMPORTS = ("ngramengine.tasks", )
 
 
 #BROKER_URL = "amqp://guest:guest@localhost:5672//"

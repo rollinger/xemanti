@@ -15,7 +15,6 @@ framework.
 """
 import os
 
-os.environ["CELERY_LOADER"] = "django"
 import djcelery
 djcelery.setup_loader()
 
