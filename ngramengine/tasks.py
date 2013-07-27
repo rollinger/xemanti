@@ -101,11 +101,43 @@ def ngram_maintenance():
         # Association Maintenance
         #
         if obj.association_outbound.exists():
-            # Calculate Statistics for remaining CoOccurrences
+            # Calculate Statistics for Associationss
             for assoc in obj.association_outbound.all():
                 assoc.compute_discriminatory_power()
                 assoc.dirty = False
                 assoc.save()
+        #
+        # Synonym Maintenance
+        #
+        if obj.synonyms.exists():
+            # Calculate Statistics for Synonyms
+            for instance in obj.synonyms.all():
+                instance.compute_discriminatory_power()
+                instance.save()
+        #
+        # Antonym Maintenance
+        #
+        if obj.antonyms.exists():
+            # Calculate Statistics for Antonyms
+            for instance in obj.antonyms.all():
+                instance.compute_discriminatory_power()
+                instance.save()
+        #
+        # SubCategorie Maintenance
+        #
+        if obj.subcategories.exists():
+            # Calculate Statistics for Sub Categories
+            for instance in obj.subcategories.all():
+                instance.compute_discriminatory_power()
+                instance.save()
+        #
+        # SuperCategorie Maintenance
+        #
+        if obj.supercategories.exists():
+            # Calculate Statistics for Sub Categories
+            for instance in obj.supercategories.all():
+                instance.compute_discriminatory_power()
+                instance.save()
         #
         # NGram Maintenance
         #

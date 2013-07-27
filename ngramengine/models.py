@@ -133,8 +133,8 @@ class Synonyms(models.Model):
     target  = models.ForeignKey('NGrams', related_name="synonym_of")
     # How many times the synonym was rated
     t_rated = models.PositiveIntegerField(default=0)
-    # Dirty Flag: Indicates the object has changed
-    #dirty   = models.BooleanField(_('Dirty'),default=True)
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
 
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
@@ -148,6 +148,17 @@ class Synonyms(models.Model):
         synonym.source.set_dirty()
         synonym.save()
         return synonym
+    
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = self.source.synonyms.all().aggregate(Sum('t_rated'))['t_rated__sum']
+        if sum:
+            try:
+                self.power = self.t_rated/float(sum)
+                self.save()
+                return self.power
+            except:
+                return 0.0
     
     def __unicode__(self):
         return self.target#"%s <synonym> &s"%(self.source,self.target)
@@ -163,7 +174,9 @@ class Antonyms(models.Model):
     target  = models.ForeignKey('NGrams', related_name="antonym_of")
     # How many times the Antonym was rated
     t_rated = models.PositiveIntegerField(default=0)
-
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
+    
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
@@ -176,6 +189,17 @@ class Antonyms(models.Model):
         antonym.source.set_dirty()
         antonym.save()
         return antonym
+    
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = self.source.antonyms.all().aggregate(Sum('t_rated'))['t_rated__sum']
+        if sum:
+            try:
+                self.power = self.t_rated/float(sum)
+                self.save()
+                return self.power
+            except:
+                return 0.0
     
     def __unicode__(self):
         return self.target#"%s <antonym> &s"%(self.source,self.target)
@@ -191,6 +215,8 @@ class SuperCategory(models.Model):
     target  = models.ForeignKey('NGrams', related_name="supercategory_of")
     # How many times the Super Category was rated
     t_rated = models.PositiveIntegerField(default=0)
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
     
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
@@ -204,6 +230,17 @@ class SuperCategory(models.Model):
         super.source.set_dirty()
         super.save()
         return super
+    
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = self.source.supercategories.all().aggregate(Sum('t_rated'))['t_rated__sum']
+        if sum:
+            try:
+                self.power = self.t_rated/float(sum)
+                self.save()
+                return self.power
+            except:
+                return 0.0
     
     def __unicode__(self):
         return self.target#"%s <super> &s"%(self.source,self.target)
@@ -219,6 +256,8 @@ class SubCategory(models.Model):
     target  = models.ForeignKey('NGrams', related_name="subcategory_of")
     # How many times the Sub Category was rated
     t_rated = models.PositiveIntegerField(default=0)
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
 
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
@@ -232,6 +271,17 @@ class SubCategory(models.Model):
         sub.source.set_dirty()
         sub.save()
         return sub
+    
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = self.source.subcategories.all().aggregate(Sum('t_rated'))['t_rated__sum']
+        if sum:
+            try:
+                self.power = self.t_rated/float(sum)
+                self.save()
+                return self.power
+            except:
+                return 0.0
     
     def __unicode__(self):
         return self.target#"%s <sub> &s"%(self.source,self.target)
@@ -536,6 +586,8 @@ class NotRelated(models.Model):
     target  = models.ForeignKey('NGrams', related_name="not_related_from")
     # How many times the Non-Relationship was rated
     t_rated = models.PositiveIntegerField(default=0)
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
 
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
@@ -550,6 +602,17 @@ class NotRelated(models.Model):
         notrelated.save()
         return notrelated
     
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = self.source.not_related_to.all().aggregate(Sum('t_rated'))['t_rated__sum']
+        if sum:
+            try:
+                self.power = self.t_rated/float(sum)
+                self.save()
+                return self.power
+            except:
+                return 0.0
+    
     def __unicode__(self):
         return self.target#"%s <sub> &s"%(self.source,self.target)
     
@@ -559,47 +622,3 @@ class NotRelated(models.Model):
     
     
     
-    
-    
-    
-    
-    
-    
-    
-"""
-InputStack holds the text sequences about to enter the system
-"""
-class InputStack(models.Model):
-    content = models.CharField(max_length=2000)
-    
-    # Model Timestamp
-    created     = models.DateTimeField(auto_now_add=True)
-    updated     = models.DateTimeField(auto_now=True)
-    
-    @classmethod
-    def add(cls, text):
-        pass
-        """
-        # Tokenize and save Sentences
-        sentence_list = Tokenizer.tokenize_sentences( text )
-        for sentence in sentence_list:
-            s = InputStack(content=sentence)
-            s.save()
-        return sentence_list
-        """
-    
-    @classmethod
-    def pop_random(cls):
-        pass
-        """
-        count = cls.objects.count()
-        random_index = random.randint(0, count - 1)
-        return cls.objects.all()[random_index]
-        """
-    
-    def __unicode__(self):
-        return self.content
-    
-    class Meta:
-        verbose_name = 'Input Stack'
-        verbose_name_plural = 'Input Stack Elements'
