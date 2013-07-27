@@ -113,7 +113,8 @@
 		<div id="main" class="units-row">
 			<div id="main-content" class="unit-100">
 				{% block blog-content %}
-					{% get_featured_entries 3 %}
+					{#% get_featured_entries 3 %#}
+					{% get_featured_entries 3 "zinnia/featured_entries.html" %}
 				{% endblock blog-content %}
 			</div>
 		</div>
