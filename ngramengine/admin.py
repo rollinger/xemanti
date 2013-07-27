@@ -6,6 +6,8 @@ from django.db import IntegrityError
 
 from ngramengine.models import *
 
+from merge import merge_model_objects
+
 
 class PartofSpeechesInline(admin.TabularInline):
     model = PartOfSpeech.ngrams.through
@@ -73,10 +75,14 @@ class NGramsAdmin(admin.ModelAdmin):
     ordering = ('-t_occurred',)
     inlines = [PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
     
-    actions = ['set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
+    actions = ['merge','set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
                'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
                'unset_verb','set_verb','set_buchstabe','unset_buchstabe']
-
+    
+    def merge(self, request, queryset):
+        queryset = list(queryset)
+        merge_model_objects(primary_object=queryset[0],alias_objects=queryset[1:])
+    merge.short_description = "Merge marked NGrams"
     def set_meaningless(self, request, queryset):
         queryset.update(coocurrence_relevancy=True)
     set_meaningless.short_description = "Mark selected ngrams as semantically meaningless"
