@@ -4,7 +4,6 @@
 {% block custom-js %}
 	<script>
 		$(function() {
-			$( "#tabs" ).tabs();
 		});
 	</script>
 {% endblock custom-js %}
@@ -14,35 +13,42 @@
 {% block main-content %}
 
 	<div class="units-row" id="tabs">
-		<nav class="nav-tabs nav-tabs-v unit-30 noborder-reset ">
+		<nav class="nav-tabs nav-tabs-v unit-30 noborder-reset " data-toggle="tabs" data-height="equal">
 			<ul>
-			    <li><a href="#section1" class="active">{% trans "What is Xemanti?" %}</a></li>
-			    <li><a href="#section2">{% trans "What can I do on Xemanti.Com" %}</a></li>
-			    <li><a href="#section3">{% trans "How can I analyze my texts?" %}</a></li>
+			    <li><a href="#section1" class="active">{% trans "Was ist Xemanti?" %}</a></li>
+			    <li><a href="#section2">{% trans "Wie funktioniert Xemanti?" %}</a></li>
+			    <li><a href="#section3">{% trans "Wie kann ich mitmachen?" %}</a></li>
 			</ul>
 		</nav>
-		<div class="unit-70">
-		    <section class="" id="section1">
-		    	<h2>{% trans "What is Xemanti?" %}</h2>
-		        {% blocktrans %}
-					Xemanti is your place for a comprehensive text analysis. 
-					Inspect your text and find out what others associate with the words you choose. 
-					Xemanti is free - you trade your knowledge for Xemanti-Points that you can use to inspect your texts.
-				{% endblocktrans %}
-		    </section>
-		    <section class="" id="section2">
-		    	<h2>{% trans "What can I do on Xemanti.Com" %}</h2>
-		        {% blocktrans %}
-					I'm the collapsible content for section 2
-				{% endblocktrans %}
-		    </section>
-		    <section class="" id="section3">
-		    	<h2>{% trans "How can I analyze my texts?" %}</h2>
-		        {% blocktrans %}
-					I'm the collapsible content for section 2
-				{% endblocktrans %}
-		    </section>
-	    </div>
+	    <section class="unit-70" id="section1">
+	    	<h2>{% trans "Was ist Xemanti?" %}</h2>
+				<p>Xemanti ist eine Datenbank zu der tausende Menschen täglich ihr Sprach-Wissen beitragen. 
+				Im Gegenzug können unsere Benutzer das Sprach-Wissen von vielen Millionen Beiträgen anderer Nutzer abfragen. 
+				Xemanti wächst also stetig - und jeder Beitrag macht Xemanti schlauer.</p>
+				
+				<p>Andere Sprachtools bieten den Kommunikationsexperten eine feste Definition für ein Wort an. 
+				Das ist nützlich, aber Xemanti kann mehr! Xemanti will tiefer in die Sprache vorstoßen: 
+				Was ruft ein bestimmtes Wort in einem anderen Menschen hervor? 
+				Welche Wörter werden für Synonyme oder Antonyme gehalten? 
+				Wie erleben andere Menschen die Beziehungen zwischen Worten?</p>
+	    </section>
+	    <section class="unit-70" id="section2">
+	    	<h2>{% trans "Wie funktioniert Xemanti?" %}</h2>
+				<p>Jeder Benutzer der Xemanti um sein Sprach-Wissen befragt, trägt sein eigenes Wissen zur Datenbank bei. 
+				Jeder Wissens-Beitrag wird in "Xetis" gutgeschrieben. Jede Wissens-Abfrage veringert den Betrag von Xetis.</p>
+				
+				<p>Xemanti kennt in seinem frühen Stadium zwei Formen von Wissens-Beitrag: Assoziation und Sortieren.
+				Assoziation: Der Benutzer bekommt ein Wort angezeigt und schreibt seine Assoziation zu diesem Wort in ein Textfeld und schickt es ab.
+				Sortieren: Zu einem feststehenden Wort werden assoziierte Wörter gezeigt. 
+				Diese Wörter können dann per "Ziehen und Klicken" in Kategorien sortiert werden.</p>
+	    </section>
+	    <section class="unit-70" id="section3">
+	    	<h2>{% trans "Wie kann ich mitmachen?" %}</h2>
+				<p>Natürlich kannst du ohne Anmeldung die Sprachtools von Xemanti ausprobieren. 
+				Klick auf diesen Link um direkt ein <a href="{% url 'inspect_query' %}">Wort deiner Wahl zu untersuchen</a>.</p>
+				
+				<p>Eine kurze <a href="{% url 'registration_view' %}">Registrierung</a> erleichtert dir das Arbeiten mit Xemanti und viele neue Funktionen werden in der Zukunft für dich freigeschaltet.</p>
+	    </section>
 	</div>
 
 {% endblock main-content %}

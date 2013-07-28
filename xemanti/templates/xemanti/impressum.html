@@ -4,7 +4,6 @@
 {% block custom-js %}
 	<script>
 		$(function() {
-			$( "#tabs" ).tabs();
 		});
 	</script>
 {% endblock custom-js %}
@@ -15,7 +14,7 @@
 
 	<div class="units-row" id="tabs">
 	
-		<nav class="nav-tabs nav-tabs-v unit-30 noborder-reset">
+		<nav class="nav-tabs nav-tabs-v unit-30 noborder-reset" data-toggle="tabs" data-height="equal">
 			<ul>
 			    <li><a href="#section1" class="active">{% trans "Legal Details" %}</a></li>
 			    <li><a href="#section2">{% trans "Contact" %}</a></li>
