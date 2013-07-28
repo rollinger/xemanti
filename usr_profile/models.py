@@ -2,22 +2,30 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from fields import MoneyField
+
 class Profile(models.Model):
     user            = models.OneToOneField(User)
     # Xeti Accounting
-    balance         = models.IntegerField(default=0)
-    total_earnings  = models.PositiveIntegerField(default=0)
-    total_spendings = models.PositiveIntegerField(default=0)
+    balance         = MoneyField(default=0.00)
+    total_earnings  = MoneyField(default=0.00)
+    total_spendings = MoneyField(default=0.00)
     
     def income(self, value):
-        self.balance = self.balance + int(value)
-        self.total_earnings = self.total_earnings + int(value)
+        self.balance = self.balance + float(value)
+        self.total_earnings = self.total_earnings + float(value)
         self.save()
+        return True
         
     def payment(self, value):
-        self.balance = self.balance - int(value)
-        self.total_spendings = self.total_spendings + int(value)
-        self.save()
+        # User can pay
+        if self.balance >= value:
+            self.balance = self.balance - float(value)
+            self.total_spendings = self.total_spendings + float(value)
+            self.save()
+            return True
+        else:
+            return False
     
     def __unicode__(self):
         return str(self.user)

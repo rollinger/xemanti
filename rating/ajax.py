@@ -23,7 +23,7 @@ def sort_ngram(request, type, source, target):
         SuperCategory.inject(source,target)
     # increase users income
     if request.user.is_authenticated():
-        request.user.profile.income(1)
+        request.user.profile.income(0.11)
     return request.user.profile.balance
 
 @dajaxice_register

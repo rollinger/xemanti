@@ -44,7 +44,7 @@ def rate_assoc_view(request):
                         atomic_target = NGrams.inject(token=t)
                         Associations.inject(source, atomic_target)
                 if request.user.is_authenticated():
-                    request.user.profile.income(1)
+                    request.user.profile.income(1.11)
                     return HttpResponseRedirect(reverse('rate_assoc'))
                 else:
                     # Increment anonymous_rating session
