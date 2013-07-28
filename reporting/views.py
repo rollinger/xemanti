@@ -22,20 +22,20 @@ from ngramengine.tasks import add_text_to_system
 #
 # Query an Ngram for Inspection
 #
-def inspect_query_view(request, ngram_id=None):
+def inspect_query_view(request, ngram=None):
     if request.method == 'POST':
         form = QueryNGramForm(request.POST)
         if form.is_valid():
             if len( form.cleaned_data['ngram'] ) >= 100:# reload if the input exceeds 100 Chars
                     return HttpResponseRedirect(reverse('inspect_query'))
             ngram = NGrams.inject(token=form.cleaned_data['ngram'])
-            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram_id': ngram.pk}))
+            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram': ngram.token}))
     else:
         form = QueryNGramForm()
-        if ngram_id:
-            ngram = NGrams.objects.get(pk=ngram_id)
+        if ngram:
+            ngram = NGrams.objects.get(token=ngram)
             if request.user.is_authenticated():
-                # Redirect to Rateing View if user cannot pay
+                # Redirect to Rating View if user cannot pay
                 if not request.user.profile.payment(1.00):
                     return HttpResponseRedirect( reverse( 'rate_assoc' ) )
             else:
@@ -43,7 +43,7 @@ def inspect_query_view(request, ngram_id=None):
                     if int(request.session['anonymous_rating']['state']) >= int(request.session['anonymous_rating']['max']):
                         del request.session['anonymous_rating']
                 else:
-                    success_redirect = HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram_id': ngram.pk}))
+                    success_redirect = HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram': ngram.token}))
                     request.session['anonymous_rating'] = {'state':0,'max':1,'target':'rate_assoc','success_redirect':success_redirect}
                     return HttpResponseRedirect( reverse( 'rate_assoc' ) )
         else:

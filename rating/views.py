@@ -76,10 +76,10 @@ def rate_assoc_view(request):
 #
 # Sorting View for an NGram
 #
-def sort_ngram_view(request, ngram_id):
+def sort_ngram_view(request, ngram):
     
     # Get random qualified NGram to rate
-    ngram = NGrams.objects.get(pk=ngram_id)
+    ngram = NGrams.objects.get(token=ngram)
     
     # Get Suggestions for rating (json)
     #sorting_tokens = simplejson.dumps( sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) ) )
