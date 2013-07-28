@@ -24,9 +24,9 @@
 		Dajaxice.rating.get_next_word(show_next_word,{'ngram':"{{ngram.token}}",});
 		function show_next_word(data){
 			if (data != "None"){
-				var word_to_sort = '<div class="unit-centered unit-50 border-box draggable"><center><h2>' + data + '</h2></center></div>';
+				var word_to_sort = '<div class="draggable btn btn-green btn-round btn-small"><h2 class="text-centered">' + data + '</h2></div>';
 				$( '#word_stack' ).append(word_to_sort);
-				$( "div#word-to-sort" ).effect( "slide", {}, 1000 );
+				$( "div#word-to-sort" ).effect( "shake", {}, 1000 );
 				$( ".draggable" ).draggable();
 			}
 		}
@@ -37,62 +37,67 @@
 
 
 {% block main-content %}
+	
+	<div class="units-row-end">
+		<div id="" class="unit-push-40 unit-20 droppable">
+			<center>
+			<h2>{{ ngram }}</h2>
+			</center>
+		</div>
+	</div>
 
-	<div class="units-row">
-		<div class="unit-66 unit-centered" id="">
-			<div class="units-row">
-				<div class="unit-33 " id="source">
-					<h1>{{ ngram }}</h1>
-				</div>
-				<img src="{{ STATIC_URL}}images/icons/arrow_right.png">
-				<div class="unit-33 " id="target">
-					<div class="units-row" id="word_stack">
+	<div class="units-row-end">
+		<div id="not_related_container" class="unit-20 droppable">
+			<center>
+			<img src="{{ STATIC_URL}}images/design/circle.png">
+			<h4>{% trans "Not Related" %}</h4>
+			</center>
+		</div>
 		
-					</div>
-				</div>
-
-			</div>
+		
+		<div class="unit-push-20 unit-20" id="word_stack">
+		
+		</div>
+		
+		<div id="association_container" class="unit-push-40 unit-20 droppable">
+			<center>
+			<img src="{{ STATIC_URL}}images/design/circle.png">
+			<h4>{% trans "Association" %}</h4>
+			</center>
 		</div>
 	</div>
 	
-	<div class="units-row" id="word_stack">
+	<div class="units-row-end">
+		<div id="antonym_container" class="unit-push-20 unit-20 droppable">
+			<center>
+			<img src="{{ STATIC_URL}}images/design/circle.png">
+			<h4>{% trans "Antonyms" %}</h4>
+			</center>
+		</div>
+		<div id="synonym_container" class="unit-push-40 unit-20 droppable">
+			<center>
+			<img src="{{ STATIC_URL}}images/design/circle.png">
+			<h4>{% trans "Synonyms" %}</h4>
+			</center>
+		</div>
+	</div>
+	
+	<div class="units-row-end">
+		<div id="super_category_container" class="unit-push-40 unit-20 droppable">
+			<center>
+			<img src="{{ STATIC_URL}}images/design/circle.png">
+			<h4>{% trans "Super Category" %}</h4>
+			</center>
+		</div>
+	</div>
+	<div class="units-row-end">
+		<div id="sub_category_container" class="unit-push-40 unit-20 droppable">
+			<center>
+			<img src="{{ STATIC_URL}}images/design/circle.png">
+			<h4>{% trans "Sub Category" %}</h4>
+			</center>
+		</div>
 		
 	</div>
 
-	<div class="units-row units-padding">
-		<div id="not_related_container" class="unit-50 droppable">
-			<center><h3>
-				{% trans "Not Related" %}
-			</h3></center>
-		</div>
-		<div id="association_container" class="unit-50 droppable">
-			<center><h3>
-				{% trans "Association" %}
-			</h3></center>
-		</div>
-	</div>
-	<div class="units-row units-padding">
-		<div id="antonym_container" class="unit-50 droppable">
-			<center><h3>
-				{% trans "Antonyms" %}
-			</h3></center>
-		</div>
-		<div id="synonym_container" class="unit-50 droppable">
-			<center><h3>
-				{% trans "Synonyms" %}
-			</h3></center>
-		</div>
-	</div>
-	<div class="units-row units-padding">
-		<div id="sub_category_container" class="unit-50 droppable">
-			<center><h3>
-				{% trans "Sub Category" %}
-			</h3></center>
-		</div>
-		<div id="super_category_container" class="unit-50 droppable">
-			<center><h3>
-				{% trans "Super Category" %}
-			</h3></center>
-		</div>
-	</div>
 {% endblock main-content %}
