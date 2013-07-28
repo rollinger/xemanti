@@ -98,14 +98,16 @@
 					</a>&nbsp;&nbsp;&nbsp;
 				{% endfor %}
 			</div>
-			<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
-			<div >
-				{% for cooc in ngram.coocurrence_outbound.all %}
-					<a href="{% url 'inspect_query' cooc.target.token %}" style="font-size:{{cooc.power|power_to_font_size}}em;" title="{{ cooc.power|floatformat:2 }}">
-						{{ cooc.target }}
-					</a>&nbsp;&nbsp;&nbsp;
-				{% endfor %}
-			</div>
+			{% if user.is_superuser %}
+				<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
+				<div >
+					{% for cooc in ngram.coocurrence_outbound.all %}
+						<a href="{% url 'inspect_query' cooc.target.token %}" style="font-size:{{cooc.power|power_to_font_size}}em;" title="{{ cooc.power|floatformat:2 }}">
+							{{ cooc.target }}
+						</a>&nbsp;&nbsp;&nbsp;
+					{% endfor %}
+				</div>
+			{% endif %}
 		</div>
 	{% endif %}
 
