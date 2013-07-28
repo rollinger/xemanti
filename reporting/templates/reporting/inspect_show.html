@@ -61,23 +61,23 @@
 			<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
 			<div>
 				{% for assoc in ngram.association_outbound.all %}
-					<a href="{% url 'inspect_query' assoc.target.token %}" style="font-size:{{assoc.power|power_to_font_size}}em;" title="{{ assoc.power|floatformat:2 }}">
+					<a href="{% url 'inspect_query' assoc.target.token %}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
 						{{ assoc.target }}
-					</a>&nbsp;&nbsp;&nbsp;
+					</a>
 				{% endfor %}
 			</div>
 			<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
 			<div>
 				{% for synonym in ngram.synonyms.all %}
-					<a href="{% url 'inspect_query' synonym.target.token %}">
-						{{ synonym.target }}&nbsp;&nbsp;&nbsp;
+					<a href="{% url 'inspect_query' synonym.target.token %}" style="font-size:{{synonym.power|power_to_font_size}}em;margin-right:5px;" title="{{ synonym.power|floatformat:2 }}">
+						{{ synonym.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% endfor %}
 			</div>
 			<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
 			<div >
 				{% for antonym in ngram.antonyms.all %}
-					<a href="{% url 'inspect_query' antonym.target.token %}">
+					<a href="{% url 'inspect_query' antonym.target.token %}" style="font-size:{{antonym.power|power_to_font_size}}em;margin-right:5px;" title="{{ antonym.power|floatformat:2 }}">
 						{{ antonym.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% endfor %}
@@ -85,7 +85,7 @@
 			<h3 class="btn">{% trans "Super Categories"%} ({{ngram.supercategories.count}})</h3>
 			<div >
 				{% for super in ngram.supercategories.all %}
-					<a href="{% url 'inspect_query' super.target.token %}">
+					<a href="{% url 'inspect_query' super.target.token %}" style="font-size:{{super.power|power_to_font_size}}em;margin-right:5px;" title="{{ super.power|floatformat:2 }}">
 						{{ super.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% endfor %}
@@ -93,7 +93,7 @@
 			<h3 class="btn">{% trans "Sub Categories"%} ({{ngram.subcategories.count}})</h3>
 			<div >
 				{% for sub in ngram.subcategories.all %}
-					<a href="{% url 'inspect_query' sub.target.token %}">
+					<a href="{% url 'inspect_query' sub.target.token %}" style="font-size:{{sub.power|power_to_font_size}}em;margin-right:5px;" title="{{ sub.power|floatformat:2 }}">
 						{{ sub.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% endfor %}
@@ -102,7 +102,7 @@
 				<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
 				<div >
 					{% for cooc in ngram.coocurrence_outbound.all %}
-						<a href="{% url 'inspect_query' cooc.target.token %}" style="font-size:{{cooc.power|power_to_font_size}}em;" title="{{ cooc.power|floatformat:2 }}">
+						<a href="{% url 'inspect_query' cooc.target.token %}" style="font-size:{{cooc.power|power_to_font_size}}em;margin-right:5px;" title="{{ cooc.power|floatformat:2 }}">
 							{{ cooc.target }}
 						</a>&nbsp;&nbsp;&nbsp;
 					{% endfor %}
