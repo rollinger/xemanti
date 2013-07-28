@@ -39,8 +39,19 @@
 {% block main-content %}
 
 	<div class="units-row">
-		<div class="unit-centered unit-90 border-bottom">
-			<h2>{% trans "Categorize words for: " %} <span class="label">{{ ngram }}</span></h2>
+		<div class="unit-66 unit-centered" id="">
+			<div class="units-row">
+				<div class="unit-33 " id="source">
+					<h1>{{ ngram }}</h1>
+				</div>
+				<img src="{{ STATIC_URL}}images/icons/arrow_right.png">
+				<div class="unit-33 " id="target">
+					<div class="units-row" id="word_stack">
+		
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
 	
