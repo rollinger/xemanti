@@ -35,7 +35,9 @@ def inspect_query_view(request, ngram_id=None):
         if ngram_id:
             ngram = NGrams.objects.get(pk=ngram_id)
             if request.user.is_authenticated():
-                request.user.profile.payment(1)
+                # Redirect to Rateing View if user cannot pay
+                if not request.user.profile.payment(1.00):
+                    return HttpResponseRedirect( reverse( 'rate_assoc' ) )
             else:
                 if request.session.has_key('anonymous_rating'):
                     if int(request.session['anonymous_rating']['state']) >= int(request.session['anonymous_rating']['max']):
