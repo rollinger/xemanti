@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.utils.translation import ugettext as _
 from itertools import chain
+from django.core.urlresolvers import reverse
 
 # Custom Imports
 from tokenizer import Tokenizer
@@ -436,6 +437,9 @@ class NGrams(models.Model):
         elif freq <= interval*5: return tags[4]
         else: return _('Unknown')
         
+    def get_absolute_url(self):
+        return reverse('inspect_query', kwargs={'ngram':self.token})
+
     def __unicode__(self):
         return self.token
     

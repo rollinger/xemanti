@@ -6,6 +6,9 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib.auth.views import login, logout
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
+from django.contrib.sitemaps import GenericSitemap
+from zinnia.models import Entry
+from ngramengine.models import NGrams
 
 # Admin Autodiscover
 from django.contrib import admin
@@ -61,7 +64,27 @@ urlpatterns = patterns('xemanti.views',
     # Robots.txt
     url(r'^robots.txt$', TemplateView.as_view(template_name='xemanti/robots.txt')),
     url(r'^googlec40e2556575ffb52.html$', TemplateView.as_view(template_name='xemanti/googlec40e2556575ffb52.html')),
+
 )
 
 # Add Staticfiles-Urlpattern to urlpattern
 urlpatterns += staticfiles_urlpatterns()
+
+# Sitemap.xml addition
+blog_info_dict = {
+    'queryset': Entry.published.all(),
+    'date_field': 'start_publication',
+}
+ngram_info_dict = {
+    'queryset': NGrams.objects.all(),
+    'date_field': 'updated',
+}
+sitemaps = {
+    'blog': GenericSitemap(blog_info_dict, priority=0.6),
+    'ngram': GenericSitemap(ngram_info_dict, priority=0.6),
+}
+
+urlpatterns += patterns('django.contrib.sitemaps.views',
+    (r'^sitemap\.xml$', 'index', {'sitemaps': sitemaps}),
+    (r'^sitemap-(?P<section>.+)\.xml$', 'sitemap', {'sitemaps': sitemaps}),
+)
