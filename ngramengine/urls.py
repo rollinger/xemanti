@@ -7,5 +7,7 @@ urlpatterns = patterns('ngramengine.views',
     #
     
     # Home View
-    url(r'^partofspeech/', 'rating_partofspeech_view', name='rating_partofspeech')
+    url(r'^partofspeech/', 'rating_partofspeech_view', name='rating_partofspeech'),
+    # Admins Bulk upload View
+    url(r'^admin/bulk/ngram/', 'bulk_ngram_upload_view', name='bulk_ngram_upload'),
 )

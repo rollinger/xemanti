@@ -11,8 +11,72 @@ from django.template import RequestContext
 from django.conf import settings
 
 # Custom Import Statement
-from forms import RatePartOfSpeechForm
-from ngramengine.models import NGrams
+from forms import RatePartOfSpeechForm, NGramBulkUploadForm
+from ngramengine.models import *
+from tokenizer import Tokenizer
+
+def bulk_ngram_upload_view(request):
+    if not request.user.is_superuser:
+        return HttpResponseRedirect( reverse( 'home' ) )
+    
+    # Form submitted:
+    if request.method == 'POST':
+        form = NGramBulkUploadForm(request.POST)
+        if form.is_valid():
+            sources = form.cleaned_data["source"]
+            targets = form.cleaned_data["target"]
+            type = form.cleaned_data["type"]
+            # Implement Bulk upload
+            
+            if type == 'assoc':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                            Associations.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
+            elif type == 'notrelated':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        NotRelated.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
+            elif type == 'synonym':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        Synonyms.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
+            elif type == 'antonym':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        Synonyms.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
+            elif type == 'super':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        SuperCategory.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
+            elif type == 'sub':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        SubCategory.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
+            elif type == 'lang':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        lang = Languages.objects.get(language=target)
+                        ngram = NGrams.inject(source,times=0)
+                        ngram.language.add(lang)
+                        ngram.save()
+            elif type == 'pos':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        lang = PartOfSpeech.objects.get(language=target)
+                        ngram = NGrams.inject(source,times=0)
+                        ngram.partofspeech.add(lang)
+                        ngram.save()
+                        
+                    
+            
+            return HttpResponseRedirect( reverse( 'bulk_ngram_upload' ) )
+    # Form not submitted:
+    else:
+        form = NGramBulkUploadForm() 
+    # Render Template Home
+    return render_to_response('ngramengine/rate.html', {
+        "form":form
+    }, context_instance=RequestContext(request))
 
 def rating_partofspeech_view(request):
     
