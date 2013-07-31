@@ -4,7 +4,7 @@ import os
 import sys
 import manage
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
