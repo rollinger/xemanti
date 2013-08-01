@@ -57,7 +57,9 @@ def rate_assoc_view(request):
     else:
         # Get random qualified NGram to rate
         #ngram = NGrams.objects.filter(qualified=True).order_by("?")[0]
-        ngram = NGrams.objects.order_by("?")[0]
+        # Exclude NGrams that are not cooccurrence relevant
+        excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
+        ngram = NGrams.objects.exclude(partofspeech__in=excludes).order_by("?")[0]
         # Get Suggestions for rating (json)
         rating_suggestions = simplejson.dumps( sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) ) )
         # Unbound form

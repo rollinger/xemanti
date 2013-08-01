@@ -20,7 +20,7 @@ msgstr ""
 
 #: forms.py:10
 msgid "State your immediate association..."
-msgstr "Schreib deinen ersten Gedanken..."
+msgstr "Dein erster Gedanke..."
 
 #: templates/rating/ngram_rating.html:34
 msgid "Inspect"
