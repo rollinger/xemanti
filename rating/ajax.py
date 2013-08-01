@@ -26,12 +26,15 @@ def sort_ngram(request, type, source, target):
         request.user.profile.income(0.11)
     return request.user.profile.balance
 
+"""
+DEPRECATED: BOUND FOR DELETION
 @dajaxice_register
 def get_next_word(request, ngram):
     ngram = NGrams.objects.get(token=ngram)
-    token_list = list( itertools.chain(*ngram.get_all_outbound_tokens()) )
+    token_list = list( set( itertools.chain( *ngram.get_all_outbound_tokens() ) ) )
     if token_list:
         token = random.choice( token_list )
         return token
     else:
         return None
+"""

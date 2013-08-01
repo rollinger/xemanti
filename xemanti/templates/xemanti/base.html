@@ -27,6 +27,14 @@
 		<meta name="author" content="Philipp Rollinger" />
 		<meta name="copyright" content="Philipp Rollinger, 2013" />
 		
+		<script type="text/javascript">var saneBrowser = true;</script>
+		<!--[if IE]>
+			<script type="text/javascript">
+				//The current browser is bad == IE
+    			saneBrowser = false;
+			</script>
+		<![endif]-->
+
 		{% block custom-js %}
 		{% endblock custom-js %}
 		

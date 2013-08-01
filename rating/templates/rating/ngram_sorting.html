@@ -4,30 +4,43 @@
 
 {% block custom-js %}
 <script type="text/javascript">
-	 $(function() {
+	
+	$(function() {
+		var token_list = {{token_list|safe}};
 		$( ".draggable" ).draggable();
 		$( ".droppable" ).droppable({
 			drop: function( event, ui ) {
 				$( this ).effect( "pulsate", {}, 500 );
 				$( ui.draggable ).hide( "explode", {}, 500 );
-				var source = "{{ngram.token}}";
+				var source = "{{ngram.token|safe}}";
 				var target = $( ui.draggable ).text();
 				var sort_container_func = $( this ).attr('id');
 				Dajaxice.rating.sort_ngram(update_profile_balance,{'type':sort_container_func,'source':source,'target':target});
-				Dajaxice.rating.get_next_word(show_next_word,{'ngram':'{{ngram.token}}',});
+				
+				show_next_word( token_list.shift() );
+				
 				function update_profile_balance(data){
 					$( "div#money-badge" ).effect( "pulsate", {}, 500 );
 					$( "div#money-badge" ).text(data + " Xetis");
 				}
 			}
 		});
-		Dajaxice.rating.get_next_word(show_next_word,{'ngram':"{{ngram.token}}",});
+		
+		show_next_word( token_list.shift() );
+		
 		function show_next_word(data){
-			if (data != "None"){
+			if (data != undefined){
 				var word_to_sort = '<div class="draggable btn btn-green btn-round btn-small"><h2 class="text-centered">' + data + '</h2></div>';
 				$( '#word_stack' ).append(word_to_sort);
 				$( "div#word-to-sort" ).effect( "shake", {}, 1000 );
 				$( ".draggable" ).draggable();
+			}else{
+				//IE specific redirect
+				if (saneBrowser){
+					window.location = "{% url 'inspect_query' ngram.token %}";
+				}else{
+					window.navigate("{% url 'inspect_query' ngram.token %}");
+				}
 			}
 		}
 	});

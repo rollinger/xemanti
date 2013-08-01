@@ -83,12 +83,11 @@ def sort_ngram_view(request, ngram):
     # Get random qualified NGram to rate
     ngram = NGrams.objects.get(token=ngram)
     
-    # Get Suggestions for rating (json)
-    #sorting_tokens = simplejson.dumps( sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) ) )
-    #sorting_tokens = sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) )
-        
+    # Get Sorting List
+    token_list = list( set( itertools.chain( *ngram.get_all_outbound_tokens() ) ) )
+    
     # Render Template Home
     return render_to_response('rating/ngram_sorting.html', {
         "ngram":ngram,
-        #"sorting_tokens":sorting_tokens,
+        "token_list":simplejson.dumps( token_list ),
     }, context_instance=RequestContext(request))
