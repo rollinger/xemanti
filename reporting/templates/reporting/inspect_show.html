@@ -9,8 +9,8 @@
 		<meta content="Xemanti - Sprachtools für deine Texte. {{ ngram }} wurde assoziiert mit: {{ ngram.get_all_association_token|join:" " }}" name="description"></meta>
 		<meta content="sprachtools,sprachtool,assoziation,text,texten,rhetorik,kommunikation,bedeutung,synonym,antonym,wörterbuch" name="keywords"></meta>
 	{% else %}
-		{% load seo %}
-  		{% get_metadata SiteMetadata %}
+		{#% load seo %#}
+  		{#% get_metadata SiteMetadata %#}
   	{% endif %}	
 {% endblock metadata %}
 
