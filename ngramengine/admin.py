@@ -9,6 +9,7 @@ from ngramengine.models import *
 from merge import merge_model_objects
 
 
+
 class PartofSpeechesInline(admin.TabularInline):
     model = PartOfSpeech.ngrams.through
     raw_id_fields = ('ngrams',)
@@ -73,7 +74,8 @@ class NGramsAdmin(admin.ModelAdmin):
     list_filter = ['dirty', "qualified", IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
-    inlines = [PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,SuperCategoryInline,SubCategoryInline]
+    inlines = [PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,\
+               SuperCategoryInline,SubCategoryInline]
     
     actions = ['merge','set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
                'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
