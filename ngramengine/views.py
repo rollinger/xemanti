@@ -62,7 +62,7 @@ def bulk_ngram_upload_view(request):
             elif type == 'pos':
                 for source in Tokenizer.linear_token_list(sources):
                     for target in Tokenizer.linear_token_list(targets):
-                        lang = PartOfSpeech.objects.get(language=target)
+                        lang = PartOfSpeech.objects.get(type=target)
                         ngram = NGrams.inject(source,times=0)
                         ngram.partofspeech.add(lang)
                         ngram.save()
