@@ -19,6 +19,6 @@ class SiteMetadata(seo.Metadata):
     heading     = seo.Tag(name="h1")
     
     class Meta:
-        seo_models = ('ngramengine.ngrams',)
+        #seo_models = ('ngramengine.ngrams',)
         #seo_views = ('my_app', )
         backends = ("path", "modelinstance", "model", "view")
