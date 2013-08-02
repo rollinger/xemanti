@@ -74,7 +74,7 @@
 						{{ assoc.target }}
 					</a>
 				{% empty %}
-					<p>{% blocktrans%}Sorry, no entries yet! Contribute your knowledge <a href="{% url 'rate_assoc' %}">here</a> {% endblocktrans %}</p>
+					<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 				{% endfor %}
 			</div>
 			<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
@@ -84,7 +84,7 @@
 						{{ synonym.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% empty %}
-					<p>{% blocktrans%}Sorry, no entries yet! Contribute your knowledge <a href="{% url 'rate_assoc' %}">here</a> {% endblocktrans %}</p>
+					<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 				{% endfor %}
 			</div>
 			<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
@@ -94,7 +94,7 @@
 						{{ antonym.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% empty %}
-					<p>{% blocktrans%}Sorry, no entries yet! Contribute your knowledge <a href="{% url 'rate_assoc' %}">here</a> {% endblocktrans %}</p>
+					<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 				{% endfor %}
 			</div>
 			<h3 class="btn">{% trans "Super Categories"%} ({{ngram.supercategories.count}})</h3>
@@ -104,7 +104,7 @@
 						{{ super.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% empty %}
-					<p>{% blocktrans%}Sorry, no entries yet! Contribute your knowledge <a href="{% url 'rate_assoc' %}">here</a> {% endblocktrans %}</p>
+					<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 				{% endfor %}
 			</div>
 			<h3 class="btn">{% trans "Sub Categories"%} ({{ngram.subcategories.count}})</h3>
@@ -114,7 +114,7 @@
 						{{ sub.target }}
 					</a>&nbsp;&nbsp;&nbsp;
 				{% empty %}
-					<p>{% blocktrans%}Sorry, no entries yet! Contribute your knowledge <a href="{% url 'rate_assoc' %}">here</a> {% endblocktrans %}</p>
+					<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 				{% endfor %}
 			</div>
 			{% if user.is_superuser %}
@@ -125,7 +125,7 @@
 							{{ cooc.target }}
 						</a>&nbsp;&nbsp;&nbsp;
 					{% empty %}
-						<p>{% blocktrans%}Sorry, no entries yet! Contribute your knowledge <a href="{% url 'rate_assoc' %}">here</a> {% endblocktrans %}</p>
+						<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 					{% endfor %}
 				</div>
 			{% endif %}

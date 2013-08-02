@@ -31,7 +31,6 @@ GOALS:
 a) Working installation 100% testing
 b) first 100 registered Users
 c) 1000 Ratings per day
-d) earn some money ad
 STEPS:
 1. Basic Functionalities (DE_Engine)
 OK 1G, 2G, 3G, Sentences
