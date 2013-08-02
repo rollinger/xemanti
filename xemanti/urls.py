@@ -76,7 +76,7 @@ blog_info_dict = {
     'date_field': 'start_publication',
 }
 ngram_info_dict = {
-    'queryset': NGrams.objects.all(),
+    'queryset': NGrams.objects.filter(qualified=True),
     'date_field': 'updated',
 }
 sitemaps = {
