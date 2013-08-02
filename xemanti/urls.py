@@ -80,8 +80,8 @@ ngram_info_dict = {
     'date_field': 'updated',
 }
 sitemaps = {
-    'blog': GenericSitemap(blog_info_dict, priority=0.6),
-    'ngram': GenericSitemap(ngram_info_dict, priority=0.6),
+    'blog': GenericSitemap(blog_info_dict, priority=0.6, changefreq='daily'),
+    'ngram': GenericSitemap(ngram_info_dict, priority=0.6, changefreq='daily'),
 }
 
 urlpatterns += patterns('django.contrib.sitemaps.views',
