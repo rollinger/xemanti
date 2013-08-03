@@ -137,21 +137,38 @@
 	<div class="units-row">
 		<div class="unit-100">
 			<h4>{% trans 'Contibute your Knowledge:' %}</h4>
-			<button href="{% url 'sort_ngram' ngram.token %}" class="btn width-100">
-				{% trans 'Sort ' %}
-			</button><br>
-			<button href="{% url 'rate_assoc' ngram.token %}" class="btn width-100">
-				{% trans 'Associate ' %}
-			</button><br>
-			<button href="{% url 'eval_sem_diff' ngram.token %}" class="btn width-100">
-				{% trans 'Evaluate' %}
-			</button>
+			<a href="{% url 'sort_ngram' ngram.token %}"> 
+				<button class="btn width-100">{% trans 'Sort ' %}</button>
+			</a><br>
+			<a href="{% url 'rate_assoc' ngram.token %}"> 
+				<button class="btn width-100">{% trans 'Associate ' %}</button>
+			</a><br>
+			<a href="{% url 'eval_sem_diff' ngram.token %}"> 
+				<button class="btn width-100">{% trans 'Evaluate' %}</button>
+			</a>
 			<h4 class="text-right">{% trans '... earn Xetis!' %}</h4>
 		</div>
 	</div>
 	
 	<div class="units-row">
+		{% if ngram.semanticdifferential %}
 		<h4>{% trans 'Evaluation:' %}</h4>
+		{% load chart_tags %}
+		{% chart %}
+		//chart.googleapis.com/chart
+			&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active
+			&chxp=1,2,1,0|2,2,1,0
+			&chxr=0,-1,1|1,0,2|2,0,2
+			&chxt=x,y,r
+			&chbh=a
+			&chs=380x220
+			&cht=bhs
+			&chco=4D89F9
+			&chds=-1,1
+			&chd=t:{{ngram.semanticdifferential.evaluation|stringformat:"f"}},{{ngram.semanticdifferential.potency|stringformat:"f"}},{{ngram.semanticdifferential.activity|stringformat:"f"}}
+			&chtt=Evaluation
+		{% endchart %}
+		{% endif %}
 	</div>
 	
 	<div class="units-row">
