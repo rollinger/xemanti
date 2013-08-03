@@ -30,7 +30,6 @@
 
 	<div class="units-row">
 		<div class="unit-centered unit-90">
-			<!-- <h4 class="border-bottom">{% trans "Inspect a Word:" %}</h4> -->
 			<form action="." method="POST" data-ajax="false">
 			{% csrf_token %}
 			{% for field in form.visible_fields %}
@@ -59,9 +58,7 @@
 		<div class="units-row">
 			<div class="unit-centered unit-90 border-bottom">
 				<center><h2>
-					<a href="{% url 'sort_ngram' ngram.token %}">
-						{{ ngram.token }}
-					</a>
+					{{ ngram.token }}
 				</h2></center>
 			</div>
 		</div>
@@ -136,7 +133,44 @@
 
 {% if ngram %}
 <div id="right-sidebar" class="unit-30">
-
+	
+	<div class="units-row">
+		<div class="unit-100">
+			<h4>{% trans 'Contibute your Knowledge:' %}</h4>
+			<a href="{% url 'sort_ngram' ngram.token %}"> 
+				<button class="btn width-100">{% trans 'Sort ' %}</button>
+			</a><br>
+			<a href="{% url 'rate_assoc' ngram.token %}"> 
+				<button class="btn width-100">{% trans 'Associate ' %}</button>
+			</a><br>
+			<a href="{% url 'eval_sem_diff' ngram.token %}"> 
+				<button class="btn width-100">{% trans 'Evaluate' %}</button>
+			</a>
+			<h4 class="text-right">{% trans '... earn Xetis!' %}</h4>
+		</div>
+	</div>
+	
+	<div class="units-row">
+		{% if ngram.semanticdifferential %}
+		<h4>{% trans 'Evaluation:' %}</h4>
+		{% load chart_tags %}
+		{% chart %}
+		//chart.googleapis.com/chart
+			&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active
+			&chxp=1,2,1,0|2,2,1,0
+			&chxr=0,-1,1|1,0,2|2,0,2
+			&chxt=x,y,r
+			&chbh=a
+			&chs=380x220
+			&cht=bhs
+			&chco=4D89F9
+			&chds=-1,1
+			&chd=t:{{ngram.semanticdifferential.evaluation|stringformat:"f"}},{{ngram.semanticdifferential.potency|stringformat:"f"}},{{ngram.semanticdifferential.activity|stringformat:"f"}}
+			&chtt=Evaluation
+		{% endchart %}
+		{% endif %}
+	</div>
+	
 	<div class="units-row">
 		<div class="unit-50">{% trans "Frequency: "%}</div>
 		<div class="unit-50 label label-blue"><center>{{ngram.occurrence_frequency_tag}}</center></div>
@@ -165,6 +199,7 @@
 			<div class="unit-50 label label-blue"><center>{{lang}}</center></div>
 		{% endfor %}
 	</div>
+	
 </div>
 {% endif %}
 

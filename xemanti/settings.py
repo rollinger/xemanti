@@ -158,6 +158,7 @@ INSTALLED_APPS = (
     'tagging',
     'mptt',
     'zinnia',
+    'chart_tools',
     #'compress',
     # Installed Apps
     'xemanti',
