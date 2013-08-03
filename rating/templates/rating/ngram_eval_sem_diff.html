@@ -1,0 +1,61 @@
+{% extends "xemanti/base.html" %}
+{% load i18n %}
+{% load reporting_tags %}
+
+{% block custom-js %}
+<script type="text/javascript">
+</script>
+{% endblock custom-js %}
+
+
+{% block main-content %}
+	
+	<div class="units-row-end">
+		<div id="" class="unit-50">
+			<div id="" class="units-row"><br>
+			</div>
+			<div id="" class="units-row">
+				<center><h2>{{ ngram }}</h2></center>
+			</div>
+			<div id="" class="units-row"><br>
+			</div>
+			<div id="" class="units-row"><br>
+			</div>
+		</div>
+		
+		<div id="" class="unit-50">
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_evaluation">
+					<button class="btn unit-40" value="-1.0">{% trans 'bad' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'good' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_potency">
+					<button class="btn unit-40" value="-1.0">{% trans 'weak' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'strong' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_activity">
+					<button class="btn unit-40" value="-1.0">{% trans 'passive' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'active' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<div class="unit-centered unit-60">
+					<form action="." method="post">
+						{% csrf_token %}
+						{{ form.as_p }}
+						<input type="submit" value="{% trans "Rate" %}" class="btn width-100"/>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+{% endblock main-content %}

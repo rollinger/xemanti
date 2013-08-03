@@ -298,11 +298,13 @@ Semantic Differential of an ngram
 """
 class SemanticDifferential(models.Model):
     # Semantic Differential of this Ngram
-    ngram       = models.OneToOneField('NGrams', blank=True, null=True)
+    ngram       = models.OneToOneField('NGrams', blank=True, null=True,)
     # Three main dimensions of the semantic differential
-    evaluation  = models.DecimalField(_('Evaluative Dimension'),max_digits=4, decimal_places=3, default=0.000)
-    potency     = models.DecimalField(_('Potency Dimension'),max_digits=4, decimal_places=3, default=0.000)
-    activity    = models.DecimalField(_('Activity Dimension'),max_digits=4, decimal_places=3, default=0.000)
+    evaluation  = models.FloatField(_('Evaluative Dimension'), default=0.0)
+    potency     = models.FloatField(_('Potency Dimension'), default=0.0)
+    activity    = models.FloatField(_('Activity Dimension'), default=0.0)
+    # Counter how many times the Semantic Differential was rated
+    t_rated     = models.PositiveIntegerField(_('Times Rated'),default=0)
 
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
@@ -315,7 +317,7 @@ class SemanticDifferential(models.Model):
         self.save()
     
     def __unicode__(self):
-        return u"%s ()"%(self.ngram, self.target)
+        return u"%s"%(self.ngram)
     
     class Meta:
         verbose_name = 'Semantic Differential'

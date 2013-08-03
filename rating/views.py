@@ -14,14 +14,15 @@ from django.utils import simplejson
 import itertools
 
 # Custom Import Statement
-from forms import RateAssociationForm
+from forms import RateAssociationForm, SemanticDifferentialForm
 from ngramengine.tokenizer import Tokenizer
 from ngramengine.models import *
 
 #
 # Rating View for Associations
 #
-def rate_assoc_view(request):
+def rate_assoc_view(request, ngram=None):
+    ngram_token = ngram
     # Form submitted:
     if request.method == 'POST':
         form = RateAssociationForm(request.POST)
@@ -55,11 +56,11 @@ def rate_assoc_view(request):
                 return HttpResponseRedirect(reverse('rate_assoc'))
     # Form not submitted:
     else:
-        # Get random qualified NGram to rate
-        #ngram = NGrams.objects.filter(qualified=True).order_by("?")[0]
-        # Exclude NGrams that are not cooccurrence relevant
-        excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
-        ngram = NGrams.objects.exclude(partofspeech__in=excludes).order_by("?")[0]
+        if ngram == None:
+            excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
+            ngram = NGrams.objects.exclude(partofspeech__in=excludes).order_by("?")[0]
+        else:
+            ngram = NGrams.objects.get(token=ngram_token)
         # Get Suggestions for rating (json)
         rating_suggestions = simplejson.dumps( sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) ) )
         # Unbound form
@@ -79,15 +80,34 @@ def rate_assoc_view(request):
 # Sorting View for an NGram
 #
 def sort_ngram_view(request, ngram):
-    
     # Get random qualified NGram to rate
     ngram = NGrams.objects.get(token=ngram)
-    
     # Get Sorting List
     token_list = list( set( itertools.chain( *ngram.get_all_outbound_tokens() ) ) )
-    
     # Render Template Home
     return render_to_response('rating/ngram_sorting.html', {
         "ngram":ngram,
         "token_list":simplejson.dumps( token_list ),
+    }, context_instance=RequestContext(request))
+    
+    
+#
+# Sorting View for an NGram
+#
+def eval_sem_diff_view(request, ngram):
+    
+    if request.method == 'POST':
+        ngram = NGrams.objects.get(token=ngram)
+        form = SemanticDifferentialForm(request.POST, instance=ngram)
+        if form.is_valid():
+            semdiff, created = SemanticDifferential.objects.get_or_create(ngram=ngram)
+            semdiff.record(form.cleaned_data['evaluation'],form.cleaned_data['potency'],form.cleaned_data['activity'])
+            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
+    else:
+        ngram = NGrams.objects.get(token=ngram)
+        form = SemanticDifferentialForm(instance=ngram)
+    # Render Template Home
+    return render_to_response('rating/ngram_eval_sem_diff.html', {
+        "ngram":ngram,
+        "form":form,
     }, context_instance=RequestContext(request))
