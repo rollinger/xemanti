@@ -294,6 +294,38 @@ class SubCategory(models.Model):
 
 
 """
+Semantic Differential of an ngram
+"""
+class SemanticDifferential(models.Model):
+    # Semantic Differential of this Ngram
+    ngram       = models.OneToOneField('NGrams', blank=True, null=True,)
+    # Three main dimensions of the semantic differential
+    evaluation  = models.FloatField(_('Evaluative Dimension'), default=0.0)
+    potency     = models.FloatField(_('Potency Dimension'), default=0.0)
+    activity    = models.FloatField(_('Activity Dimension'), default=0.0)
+    # Counter how many times the Semantic Differential was rated
+    t_rated     = models.PositiveIntegerField(_('Times Rated'),default=0)
+
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
+    def record(self, evaluation, potency, activity):
+        self.evaluation = (self.evaluation + evaluation)/2
+        self.potency = (self.potency + potency)/2
+        self.activity = (self.activity + activity)/2
+        self.save()
+    
+    def __unicode__(self):
+        return u"%s"%(self.ngram)
+    
+    class Meta:
+        verbose_name = 'Semantic Differential'
+        verbose_name_plural = 'Semantic Differential'
+
+
+
+"""
 NGram holds the ngrams
 """
 class NGrams(models.Model):

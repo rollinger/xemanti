@@ -48,6 +48,10 @@ class NotRelatedInline(admin.TabularInline):
     fk_name = 'source'
     raw_id_fields = ('source','target',)
     extra = 0
+class SemanticDifferentialInline(admin.TabularInline):
+    model = SemanticDifferential#.ngrams.through
+    #raw_id_fields = ('ngrams',)
+    extra = 0
 class IntervalListFilter(admin.SimpleListFilter):
     title = _('Interval Occurrence Filter')
     parameter_name = 'intervall_occurrence'
@@ -74,7 +78,7 @@ class NGramsAdmin(admin.ModelAdmin):
     list_filter = ['dirty', "qualified", IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
-    inlines = [PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,\
+    inlines = [SemanticDifferentialInline,PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,\
                SuperCategoryInline,SubCategoryInline]
     
     actions = ['merge','set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
@@ -245,3 +249,6 @@ class NotRelatedAdmin(admin.ModelAdmin):
     raw_id_fields = ('source','target',)
 admin.site.register(NotRelated, NotRelatedAdmin)
 
+class SemanticDifferentialAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(SemanticDifferential, SemanticDifferentialAdmin)
