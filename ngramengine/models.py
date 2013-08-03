@@ -314,6 +314,7 @@ class SemanticDifferential(models.Model):
         self.evaluation = (self.evaluation + evaluation)/2
         self.potency = (self.potency + potency)/2
         self.activity = (self.activity + activity)/2
+        self.t_rated += 1
         self.save()
     
     def __unicode__(self):
