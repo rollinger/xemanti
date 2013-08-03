@@ -45,31 +45,36 @@
 	<div class="wrapper">
 
 		<header id="header">
-			<h1 class="">
-				<a href="{% url "home" %}" rel="external">{% trans "Xemanti" %}</a>
-			</h1>
-			
-			<nav id="main-menu" class="nav-g">
-				<ul>
-					<li>
-						<a href="{% url "home" %}" rel="external" title="{% trans 'Analyze your text' %}">
-							{% trans "Start" %}
-						</a>
-					</li>
-					{% if user.is_authenticated %}
-						<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
+			<div class="units-row-end">
+				<div class="unit-30">
+					<a href="{% url "home" %}" rel="external">
+						<img id="logo-image" src="{{STATIC_URL}}images/design/logo_small.png">
+					</a>
+				</div>
+				<div class="unit-70">
+					<nav id="main-menu" class="nav-g">
+					<ul>
 						<li>
-							<a href="{% url "home" %}" title="">
-								{{ user.username }} <div id="money-badge" class="small text-right label label-yellow color-black">{{ user.profile.balance }} Xetis</div>
+							<a href="{% url "home" %}" rel="external" title="{% trans 'Analyze your text' %}">
+								{% trans "Start" %}
 							</a>
-							
 						</li>
-					{% else %}
-						<li><a href="{% url "login_view" %}" title="">{% trans "Login" %}</a> </li>
-						<li><a href="{% url "registration_view" %}" title="">{% trans "Register" %}</a></li>
-					{% endif %}
-				</ul>
-			</nav>
+						{% if user.is_authenticated %}
+							<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
+							<li>
+								<a href="{% url "home" %}" title="">
+									{{ user.username }} <div id="money-badge" class="small text-right label label-yellow color-black">{{ user.profile.balance }} Xetis</div>
+								</a>
+							
+							</li>
+						{% else %}
+							<li><a href="{% url "login_view" %}" title="">{% trans "Login" %}</a> </li>
+							<li><a href="{% url "registration_view" %}" title="">{% trans "Register" %}</a></li>
+						{% endif %}
+					</ul>
+					</nav>
+				</div>
+			</div>
 		</header>
 		
 		{% block action-menu %}
