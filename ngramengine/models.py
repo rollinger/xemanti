@@ -305,16 +305,22 @@ class SemanticDifferential(models.Model):
     activity    = models.FloatField(_('Activity Dimension'), default=0.0)
     # Counter how many times the Semantic Differential was rated
     t_rated     = models.PositiveIntegerField(_('Times Rated'),default=0)
+    e_sum       = models.IntegerField(_('Evaluative Dimension Sum'), default=0)
+    p_sum       = models.IntegerField(_('Potency Dimension Sum'), default=0)
+    a_sum       = models.IntegerField(_('Activity Dimension Sum'), default=0)
 
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
     
     def record(self, evaluation, potency, activity):
-        self.evaluation = (self.evaluation + evaluation)/2
-        self.potency = (self.potency + potency)/2
-        self.activity = (self.activity + activity)/2
+        self.e_sum += int(evaluation)
+        self.p_sum += int(potency)
+        self.a_sum += int(activity)
         self.t_rated += 1
+        self.evaluation = float(self.e_sum) / self.t_rated
+        self.potency = float(self.p_sum) / self.t_rated
+        self.activity = float(self.a_sum) / self.t_rated
         self.save()
     
     def __unicode__(self):
