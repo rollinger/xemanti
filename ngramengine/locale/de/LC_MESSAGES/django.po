@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-25 22:50+0200\n"
+"POT-Creation-Date: 2013-08-04 11:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,82 +18,138 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.py:49
+#: admin.py:56
 msgid "Interval Occurrence Filter"
 msgstr ""
 
-#: admin.py:53
+#: admin.py:60
 msgid "1"
 msgstr ""
 
-#: admin.py:54
+#: admin.py:61
 msgid "<10"
 msgstr ""
 
-#: admin.py:55
+#: admin.py:62
 msgid "<100"
 msgstr ""
 
-#: admin.py:56
+#: admin.py:63
 msgid "<1000"
 msgstr ""
 
-#: admin.py:174
+#: admin.py:186
 msgid "Meaningful Co-Occurrence"
 msgstr ""
 
-#: admin.py:178
+#: admin.py:190
 msgid "Yes"
 msgstr "Ja"
 
-#: admin.py:179
+#: admin.py:191
 msgid "No"
 msgstr "Nein"
 
-#: models.py:75 models.py:256
-msgid "Relevant for Co-Occurrences"
+#: forms.py:9
+msgid "assoc"
 msgstr ""
 
-#: models.py:250
+#: forms.py:10
+msgid "notrelated"
+msgstr ""
+
+#: forms.py:11
+msgid "synonym"
+msgstr ""
+
+#: forms.py:12
+msgid "antonym"
+msgstr ""
+
+#: forms.py:13
+msgid "super"
+msgstr ""
+
+#: forms.py:14
+msgid "sub"
+msgstr ""
+
+#: forms.py:15
+msgid "lang"
+msgstr ""
+
+#: forms.py:16
+msgid "pos"
+msgstr ""
+
+#: models.py:76 models.py:346
+msgid "Relevant for Co-Occurrences"
+msgstr "Relevant für Ko-Okurrenz"
+
+#: models.py:303
+msgid "Evaluative Dimension"
+msgstr "Wertungs Dimension"
+
+#: models.py:304
+msgid "Potency Dimension"
+msgstr "Potenz Dimension"
+
+#: models.py:305
+msgid "Activity Dimension"
+msgstr "Aktivitäts Dimension"
+
+#: models.py:307 models.py:344
+msgid "Times Rated"
+msgstr "Einschätzungshäufigkeit"
+
+#: models.py:308
+msgid "Evaluative Dimension Sum"
+msgstr "Summe der Wertungs Dimension"
+
+#: models.py:309
+msgid "Potency Dimension Sum"
+msgstr "Summe der Potenz Dimension"
+
+#: models.py:310
+msgid "Activity Dimension Sum"
+msgstr "Summe der Aktivitäts Dimension"
+
+#: models.py:340
 msgid "NGram"
 msgstr ""
 
-#: models.py:252
+#: models.py:342
 msgid "Times Occurred"
 msgstr "Auftretenshäufigkeit"
 
-#: models.py:254
-msgid "Times Rated"
-msgstr "Bewertungshäufigkeit"
-
-#: models.py:258
+#: models.py:348
 msgid "Dirty"
-msgstr "Dreckig"
+msgstr "Verändert"
 
-#: models.py:260
+#: models.py:350
 msgid "Qualified"
 msgstr "Qualifiziert"
 
-#: models.py:366 models.py:380
+#: models.py:458 models.py:472
 msgid "Almost never"
 msgstr "Fast Nie"
 
-#: models.py:366 models.py:380
+#: models.py:458 models.py:472
 msgid "Rarely"
 msgstr "Selten"
 
-#: models.py:366 models.py:380
+#: models.py:458 models.py:472
 msgid "Occasionally"
 msgstr "Gelegentlich"
 
-#: models.py:366 models.py:380
+#: models.py:458 models.py:472
 msgid "Often"
 msgstr "Häufig"
 
-#: models.py:366 models.py:380
+#: models.py:458 models.py:472
 msgid "Frequently"
 msgstr "Regelmäßig"
 
-#: models.py:373 models.py:387
+#: models.py:465 models.py:479
 msgid "Unknown"
 msgstr "Unbekannt"

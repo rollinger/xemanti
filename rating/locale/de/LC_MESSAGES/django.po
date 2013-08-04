@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-25 22:51+0200\n"
+"POT-Creation-Date: 2013-08-04 11:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,38 +22,71 @@ msgstr ""
 msgid "State your immediate association..."
 msgstr "Dein erster Gedanke..."
 
-#: templates/rating/ngram_rating.html:34
+#: templates/rating/ngram_eval_sem_diff.html:29
+msgid "bad"
+msgstr "schlecht"
+
+#: templates/rating/ngram_eval_sem_diff.html:30
+#: templates/rating/ngram_eval_sem_diff.html:37
+#: templates/rating/ngram_eval_sem_diff.html:44
+msgid "neutral"
+msgstr "neutral"
+
+#: templates/rating/ngram_eval_sem_diff.html:31
+msgid "good"
+msgstr "gut"
+
+#: templates/rating/ngram_eval_sem_diff.html:36
+msgid "weak"
+msgstr "schwach"
+
+#: templates/rating/ngram_eval_sem_diff.html:38
+msgid "strong"
+msgstr "stark"
+
+#: templates/rating/ngram_eval_sem_diff.html:43
+msgid "passive"
+msgstr "passiv"
+
+#: templates/rating/ngram_eval_sem_diff.html:45
+msgid "active"
+msgstr "aktiv"
+
+#: templates/rating/ngram_eval_sem_diff.html:53
+msgid "Rate"
+msgstr "Einschätzen"
+
+#: templates/rating/ngram_rating.html:39
 msgid "Inspect"
 msgstr "Untersuchen"
 
-#: templates/rating/ngram_rating.html:39
+#: templates/rating/ngram_rating.html:44
 msgid "N-Gram Admin"
 msgstr ""
 
-#: templates/rating/ngram_sorting.html:43
-msgid "Categorize words for: "
-msgstr "Wörter kategorisieren für:"
-
-#: templates/rating/ngram_sorting.html:54
+#: templates/rating/ngram_sorting.html:66
 msgid "Not Related"
 msgstr "Nicht Relevant"
 
-#: templates/rating/ngram_sorting.html:59
+#: templates/rating/ngram_sorting.html:78
 msgid "Association"
 msgstr "Assoziation"
 
-#: templates/rating/ngram_sorting.html:66
+#: templates/rating/ngram_sorting.html:87
 msgid "Antonyms"
 msgstr "Antonyme"
 
-#: templates/rating/ngram_sorting.html:71
+#: templates/rating/ngram_sorting.html:93
 msgid "Synonyms"
 msgstr "Synonyme"
 
-#: templates/rating/ngram_sorting.html:78
-msgid "Sub Category"
-msgstr "Unter-Kategorie"
-
-#: templates/rating/ngram_sorting.html:83
+#: templates/rating/ngram_sorting.html:102
 msgid "Super Category"
-msgstr "Über-Kategorie"
+msgstr "Oberkategorie"
+
+#: templates/rating/ngram_sorting.html:110
+msgid "Sub Category"
+msgstr "Unterkategorie"
+
+#~ msgid "Categorize words for: "
+#~ msgstr "Wörter kategorisieren für:"

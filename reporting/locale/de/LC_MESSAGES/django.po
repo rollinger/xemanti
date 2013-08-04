@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-25 22:51+0200\n"
+"POT-Creation-Date: 2013-08-04 11:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,58 +34,100 @@ msgstr ""
 msgid "Your Text:"
 msgstr "Dein Text"
 
-#: templates/reporting/inspect_show.html:24
-msgid "Inspect a Word:"
-msgstr "Untersuche ein Wort"
-
-#: templates/reporting/inspect_show.html:42
+#: templates/reporting/inspect_show.html:50
 msgid "Inspect"
 msgstr "Untersuche"
 
-#: templates/reporting/inspect_show.html:61
+#: templates/reporting/inspect_show.html:67
 msgid "Associations"
 msgstr "Assoziation"
 
-#: templates/reporting/inspect_show.html:69
+#: templates/reporting/inspect_show.html:74
+#: templates/reporting/inspect_show.html:84
+#: templates/reporting/inspect_show.html:94
+#: templates/reporting/inspect_show.html:104
+#: templates/reporting/inspect_show.html:114
+#: templates/reporting/inspect_show.html:125
+msgid "Sorry, no entries yet! Contribute your knowledge "
+msgstr ""
+
+#: templates/reporting/inspect_show.html:74
+#: templates/reporting/inspect_show.html:84
+#: templates/reporting/inspect_show.html:94
+#: templates/reporting/inspect_show.html:104
+#: templates/reporting/inspect_show.html:114
+#: templates/reporting/inspect_show.html:125
+msgid "here"
+msgstr "hier"
+
+#: templates/reporting/inspect_show.html:77
 msgid "Synonyms"
 msgstr "Synonyme"
 
-#: templates/reporting/inspect_show.html:77
+#: templates/reporting/inspect_show.html:87
 msgid "Antonyms"
 msgstr "Antonyme"
 
-#: templates/reporting/inspect_show.html:83
+#: templates/reporting/inspect_show.html:97
 msgid "Super Categories"
-msgstr "Über-Kategorie"
+msgstr "Oberkategorie"
 
-#: templates/reporting/inspect_show.html:89
+#: templates/reporting/inspect_show.html:107
 msgid "Sub Categories"
-msgstr "Unter-Kategorie"
+msgstr "Unterkategorie"
 
-#: templates/reporting/inspect_show.html:95
+#: templates/reporting/inspect_show.html:118
 msgid "Co-Occurrences"
 msgstr "Gemeinsames Auftreten"
 
-#: templates/reporting/inspect_show.html:112
+#: templates/reporting/inspect_show.html:139
+msgid "Contibute your Knowledge:"
+msgstr "Bring dein Wissen ein:"
+
+#: templates/reporting/inspect_show.html:141
+msgid "Sort "
+msgstr "Sortieren"
+
+#: templates/reporting/inspect_show.html:144
+#, fuzzy
+msgid "Associate "
+msgstr "Assoziiere"
+
+#: templates/reporting/inspect_show.html:147
+msgid "Evaluate"
+msgstr "Bewerte"
+
+#: templates/reporting/inspect_show.html:149
+msgid "... earn Xetis!"
+msgstr "... mach' Xetis!"
+
+#: templates/reporting/inspect_show.html:155
+msgid "Evaluation:"
+msgstr "Werthaltung:"
+
+#: templates/reporting/inspect_show.html:175
 msgid "Frequency: "
 msgstr "Häufigkeit"
 
-#: templates/reporting/inspect_show.html:116
+#: templates/reporting/inspect_show.html:179
 msgid "Rated: "
 msgstr "Bewertet: "
 
-#: templates/reporting/inspect_show.html:120
+#: templates/reporting/inspect_show.html:183
 msgid "Genus: "
-msgstr "Genus"
+msgstr "Genus:"
 
-#: templates/reporting/inspect_show.html:124
+#: templates/reporting/inspect_show.html:187
 msgid "Numerus: "
-msgstr "Numers"
+msgstr "Numerus:"
 
-#: templates/reporting/inspect_show.html:128
+#: templates/reporting/inspect_show.html:191
 msgid "Part of Speech: "
-msgstr "Wortarten"
+msgstr "Wortarten:"
 
-#: templates/reporting/inspect_show.html:134
+#: templates/reporting/inspect_show.html:197
 msgid "Languages: "
-msgstr "Sprachen"
+msgstr "Sprachen:"
+
+#~ msgid "Inspect a Word:"
+#~ msgstr "Untersuche ein Wort"
