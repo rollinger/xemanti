@@ -63,7 +63,6 @@ urlpatterns = patterns('xemanti.views',
     
     # Robots.txt
     url(r'^robots.txt$', TemplateView.as_view(template_name='xemanti/robots.txt')),
-    url(r'^googlec40e2556575ffb52.html$', TemplateView.as_view(template_name='xemanti/googlec40e2556575ffb52.html')),
 
 )
 
