@@ -40,7 +40,7 @@ def inspect_query_view(request, ngram=None):
                     return HttpResponseRedirect( reverse( 'rate_assoc' ) )
             else:
                 BotNames=['Googlebot','Slurp','Twiceler','msnbot','KaloogaBot','YodaoBot','"Baiduspider','googlebot','Speedy Spider','DotBot']
-                if not request.META['HTTP_USER_AGENT'] in BotNames: #Allow robots to access the page and sitemap no 302 Redirect
+                if not any(x in request.META['HTTP_USER_AGENT'] for x in BotNames):#Allow robots to access the page and sitemap no 302 Redirect
                     if request.session.has_key('anonymous_rating'):
                         if int(request.session['anonymous_rating']['state']) >= int(request.session['anonymous_rating']['max']):
                             del request.session['anonymous_rating']

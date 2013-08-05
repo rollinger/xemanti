@@ -9,7 +9,7 @@ from django.conf import settings
 class AnonymousRatingMiddleware(object):
     def process_request(self, request):
         BotNames=['Googlebot','Slurp','Twiceler','msnbot','KaloogaBot','YodaoBot','"Baiduspider','googlebot','Speedy Spider','DotBot']
-        if not request.META['HTTP_USER_AGENT'] in BotNames: #Allow robots to access the page and sitemap
+        if not any(x in request.META['HTTP_USER_AGENT'] for x in BotNames): #Allow robots to access the page and sitemap
             if request.session.has_key('anonymous_rating'):
                 anonymous_rating = request.session.get('anonymous_rating')
                 if request.path != reverse( anonymous_rating['target'] ): 
