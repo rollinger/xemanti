@@ -54,11 +54,6 @@
 				<div class="unit-70">
 					<nav id="main-menu" class="nav-g">
 					<ul>
-						<li>
-							<a href="{% url "home" %}" rel="external" title="{% trans 'Analyze your text' %}">
-								{% trans "Start" %}
-							</a>
-						</li>
 						{% if user.is_authenticated %}
 							<li><a href="{% url "logout_view" %}" title="">{% trans "Logout" %}</a></li>
 							<li>

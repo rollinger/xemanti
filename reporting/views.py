@@ -39,13 +39,15 @@ def inspect_query_view(request, ngram=None):
                 if not request.user.profile.payment(1.00):
                     return HttpResponseRedirect( reverse( 'rate_assoc' ) )
             else:
-                if request.session.has_key('anonymous_rating'):
-                    if int(request.session['anonymous_rating']['state']) >= int(request.session['anonymous_rating']['max']):
-                        del request.session['anonymous_rating']
-                else:
-                    success_redirect = HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram': ngram.token}))
-                    request.session['anonymous_rating'] = {'state':0,'max':1,'target':'rate_assoc','success_redirect':success_redirect}
-                    return HttpResponseRedirect( reverse( 'rate_assoc' ) )
+                BotNames=['Googlebot','Slurp','Twiceler','msnbot','KaloogaBot','YodaoBot','"Baiduspider','googlebot','Speedy Spider','DotBot']
+                if not request.META['HTTP_USER_AGENT'] in BotNames: #Allow robots to access the page and sitemap no 302 Redirect
+                    if request.session.has_key('anonymous_rating'):
+                        if int(request.session['anonymous_rating']['state']) >= int(request.session['anonymous_rating']['max']):
+                            del request.session['anonymous_rating']
+                    else:
+                        success_redirect = HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram': ngram.token}))
+                        request.session['anonymous_rating'] = {'state':0,'max':1,'target':'rate_assoc','success_redirect':success_redirect}
+                        return HttpResponseRedirect( reverse( 'rate_assoc' ) )
         else:
             ngram = None
     
