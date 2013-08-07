@@ -7,6 +7,10 @@
 		<title> Xemanti - Eintrag für: {{ ngram }}</title>
 		<meta content="Xemanti - Sprachtools für deine Texte. {{ ngram }} wurde assoziiert mit: {{ ngram.get_all_association_token|join:" " }}" name="description"></meta>
 		<meta content="sprachtools,sprachtool,assoziation,text,texten,rhetorik,kommunikation,bedeutung,synonym,antonym,wörterbuch" name="keywords"></meta>
+  	{% else %}
+  		<title>Xemanti - Untersuche dein Wort</title>
+			<meta content="Xemanti - Sprachtools für deine Texte. Finde Assoziationen, Synonyme, und viel mehr für deine Wörter und Texte." name="description"></meta>
+			<meta content="sprachtools,sprachtool,assoziation,text,texten,rhetorik,kommunikation,bedeutung,synonym,antonym,wörterbuch" name="keywords"></meta>
   	{% endif %}	
 {% endblock metadata %}
 
