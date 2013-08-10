@@ -83,7 +83,7 @@ class NGramsAdmin(admin.ModelAdmin):
     
     actions = ['merge','set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
                'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
-               'unset_verb','set_verb','set_buchstabe','unset_buchstabe']
+               'unset_verb','set_verb','set_buchstabe','unset_buchstabe','set_zahl']
     
     def merge(self, request, queryset):
         queryset = list(queryset)
@@ -164,14 +164,19 @@ class NGramsAdmin(admin.ModelAdmin):
     unset_verb.short_description = "Unset Part of Speech `Verb´"
     def unset_buchstabe(self, request, queryset):
         for ngram in queryset.all():
-            ngram.partofspeech.add(PartOfSpeech.objects.get(type="Buchstabe"))
+            ngram.partofspeech.remove(PartOfSpeech.objects.get(type="Buchstabe"))
             ngram.save()
     unset_buchstabe.short_description = "Set Part of Speech `Buchstabe´"
     def set_buchstabe(self, request, queryset):
         for ngram in queryset.all():
-            ngram.partofspeech.remove(PartOfSpeech.objects.get(type="Buchstabe"))
+            ngram.partofspeech.add(PartOfSpeech.objects.get(type="Buchstabe"))
             ngram.save()
     set_buchstabe.short_description = "Unset Part of Speech `Buchstabe´"
+    def set_zahl(self, request, queryset):
+        for ngram in queryset.all():
+            ngram.partofspeech.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
+            ngram.save()
+    set_zahl.short_description = "Set Part of Speech `Zahlzeichen´"
     
     def wiktionary_url(self, obj):
         return '<a href="http://de.wiktionary.org/wiki/%s" target="_blank">%s</a>' % (obj.token, obj.token)
