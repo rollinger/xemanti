@@ -33,22 +33,27 @@
 		{% csrf_token %}
 		{% for field in form.visible_fields %}
     		<div class="units-row">
-				<div class="unit-50 ">
-					<center><h2 id="target_ngram">{{ field.label }}</h2></center>
+				<div class="unit-33 ">
 					{% if user.is_authenticated %}
-						<a href="{% url 'inspect_query' ngram.token %}" class="supersmall">
-							{% trans "Inspect" %}
-						</a>
-						{% if user.is_superuser %}
-							{% load admin_urls %}
-							<br><a href="/admin/ngramengine/ngrams/{{ngram.id}}/" target="_blank" class="supersmall">
-								{% trans "N-Gram Admin" %}
+						<center>
+							<a href="{% url 'inspect_query' ngram.token %}" title="{% trans "Inspect" %}">
+								<h2 id="target_ngram">{{ field.label }}</h2>
 							</a>
-						{% endif %}
+						</center>
+					{% endif %}
+					{% if user.is_superuser %}
+						{% load admin_urls %}
+						<br><a href="/admin/ngramengine/ngrams/{{ngram.id}}/" target="_blank" class="supersmall">
+							{% trans "N-Gram Admin" %}
+						</a>
 					{% endif %}
 				</div>
-				<div class="unit-50 ui-widget">
+				<div class="unit-33 ui-widget">
 					 {{ field }}
+				</div>
+				<div class="unit-33">
+					<input class="width-50" id="rate" type="submit" name="rate" value="Associate" />
+					<input class="width-50" type="submit" name="skip" value="Skip" />
 				</div>
 				<div class="unit-100 supersmall">
 					{{ field.help_text }}
@@ -58,10 +63,7 @@
 		{% for hidden in form.hidden_fields %} 
 			{{ hidden }} 
 		{% endfor %}
-		<div class="units-row">
-			<input class="unit-push-40 unit-30" id="rate" type="submit" name="rate" value="Associate" />
-			<input class="unit-push-40 unit-30" type="submit" name="skip" value="Skip" />
-		</div>
+		
 	</form>
 	</div>
 </div>
