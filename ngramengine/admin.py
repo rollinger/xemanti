@@ -173,10 +173,13 @@ class NGramsAdmin(admin.ModelAdmin):
             ngram.save()
     set_buchstabe.short_description = "Unset Part of Speech `Buchstabe´"
     def set_zahl(self, request, queryset):
+        lang = Languages.objects.get(language="International")
         for ngram in queryset.all():
             ngram.partofspeech.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
+            ngram.language.add(lang)
+            ngram.qualified = True
             ngram.save()
-    set_zahl.short_description = "Set Part of Speech `Zahlzeichen´"
+    set_zahl.short_description = "Set Part of Speech `Zahlzeichen´, International and qualified"
     
     def wiktionary_url(self, obj):
         return '<a href="http://de.wiktionary.org/wiki/%s" target="_blank">%s</a>' % (obj.token, obj.token)
