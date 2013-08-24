@@ -30,7 +30,8 @@ urlpatterns = patterns('xemanti.views',
     url(r'^faq/', 'faq_view', name='faq'),
     # Impressum
     url(r'^impressum/', 'impressum_view', name='impressum'),
-    url(r'^accounts/login/', login, name='login_view'),
+    #url(r'^accounts/login/', login, name='login_view'),
+    url(r'^accounts/login/', 'login_view', name='login_view'),
     url(r'^accounts/logout/', 'logout_view', name='logout_view'),
     url(r'^accounts/registration/','registration_view', name='registration_view'),
     

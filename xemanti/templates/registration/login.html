@@ -10,7 +10,7 @@
 				<p class="error">{% trans "Sorry, that's not a valid username or password" %}</p>
 			{% endif %}
 			
-			<form action="" method="post">
+			<form action="." method="post">
 				{% csrf_token %}
 				<div class="units-row">
 					<label for="username" class="unit-50">{% trans "User name:" %}</label>

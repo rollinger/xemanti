@@ -2,6 +2,7 @@
 # Generic Import Statement
 from django.contrib import auth
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
 #from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import ugettext as _
 from django.utils.html import strip_tags, escape
@@ -10,6 +11,7 @@ from django.shortcuts import render_to_response, HttpResponseRedirect, render
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.conf import settings
+from django.contrib import messages
 
 # Custom Import Statement
 from forms import UserCreationForm
@@ -38,20 +40,26 @@ def impressum_view(request):
     return render_to_response('xemanti/impressum.html', {}, context_instance=RequestContext(request))
 
 def login_view(request):
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
-    user = auth.authenticate(username=username, password=password)
-    if user is not None and user.is_active:
-        # Correct password, and the user is marked "active"
-        auth.login(request, user)
-        # Redirect to a success page.
-        return HttpResponseRedirect("/")
+    if request.method == 'POST':
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None and user.is_active:
+            # Correct password, and the user is marked "active"
+            auth.login(request, user)
+            messages.add_message(request, messages.SUCCESS, _('Welcome to Xemanti!'), fail_silently=True)
+            # Redirect to a success page.
+            return HttpResponseRedirect("/")
+        else:
+            # Show an error page
+            messages.add_message(request, messages.ERROR, _('Something went wrong! Username or Password did not validate.'), fail_silently=True)
+            return HttpResponseRedirect("login_view")
     else:
-        # Show an error page
-        return HttpResponseRedirect("/")
+        return render(request, "registration/login.html", {})
     
 def logout_view(request):
     auth.logout(request)
+    messages.add_message(request, messages.SUCCESS, _('See you soon on Xemanti!'), fail_silently=True)
     # Redirect to a success page.
     url = reverse('home')
     return HttpResponseRedirect(url)
