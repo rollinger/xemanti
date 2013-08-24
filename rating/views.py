@@ -49,8 +49,9 @@ def rate_assoc_view(request, ngram=None):
                     return HttpResponseRedirect(reverse('rate_assoc'))
                 else:
                     # Increment anonymous_rating session
-                    request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
-                    request.session.modified = True
+                    if request.session.has_key('anonymous_rating'):
+                        request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
+                        request.session.modified = True
                     return HttpResponseRedirect( reverse( 'rate_assoc' ) )
             else:
                 return HttpResponseRedirect(reverse('rate_assoc'))
