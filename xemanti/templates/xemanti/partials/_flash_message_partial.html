@@ -1,0 +1,23 @@
+
+<script>
+	$(function() {
+		setTimeout(function() {
+			$(".message").hide('blind', {}, 444)
+		}, 11111);
+		$('a.close').click(function(event) {
+			$( this ).parent().hide('blind', {}, 444)
+		});
+	});
+</script>
+
+{% if messages %}
+	<ul class="messages">
+    	{% for message in messages %}
+    		<div class="message message-{{ message.tags }}">
+				<a href="#" class="close"></a>
+	    		{{ message }}
+	    		
+			</div>
+    	{% endfor %}
+	</ul>
+{% endif %}
