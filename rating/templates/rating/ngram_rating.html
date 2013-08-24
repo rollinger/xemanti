@@ -34,13 +34,11 @@
 		{% for field in form.visible_fields %}
     		<div class="units-row">
 				<div class="unit-33 ">
-					{% if user.is_authenticated %}
-						<center>
-							<a href="{% url 'inspect_query' ngram.token %}" title="{% trans "Inspect" %}">
-								<h2 id="target_ngram">{{ field.label }}</h2>
-							</a>
-						</center>
-					{% endif %}
+					<center>
+						<a href="{% url 'inspect_query' ngram.token %}" title="{% trans "Inspect" %}">
+							<h2 id="target_ngram">{{ field.label }}</h2>
+						</a>
+					</center>
 					{% if user.is_superuser %}
 						{% load admin_urls %}
 						<br><a href="/admin/ngramengine/ngrams/{{ngram.id}}/" target="_blank" class="supersmall">

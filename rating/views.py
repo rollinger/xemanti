@@ -102,6 +102,13 @@ def eval_sem_diff_view(request, ngram):
         if form.is_valid():
             semdiff, created = SemanticDifferential.objects.get_or_create(ngram=ngram)
             semdiff.record(form.cleaned_data['evaluation'],form.cleaned_data['potency'],form.cleaned_data['activity'])
+            if request.user.is_authenticated():
+                # Increment authenticated profile
+                request.user.profile.income(1.11)
+            else:
+                # Increment anonymous_rating session
+                request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
+                request.session.modified = True
             return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
     else:
         ngram = NGrams.objects.get(token=ngram)
