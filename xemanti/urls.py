@@ -9,6 +9,7 @@ from django.views.generic import TemplateView
 from django.contrib.sitemaps import GenericSitemap
 from zinnia.models import Entry
 from ngramengine.models import NGrams
+from views import *
 
 # Admin Autodiscover
 from django.contrib import admin
@@ -19,21 +20,16 @@ from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 dajaxice_autodiscover()
 
 urlpatterns = patterns('xemanti.views',
-    #
-    # Anonymous User URLs
-    #
+    # General Views
+    url(r'^$', StartView.as_view(), name='home'),
+    url(r'^faq/', FAQView.as_view(), name='faq'),
+    url(r'^impressum/',  ImpressumView.as_view(), name='impressum'),
     
-    # Home View
-    url(r'^$', 'home_view', name='home'),
-    
-    # Frequently Asked Questions
-    url(r'^faq/', 'faq_view', name='faq'),
-    # Impressum
-    url(r'^impressum/', 'impressum_view', name='impressum'),
-    #url(r'^accounts/login/', login, name='login_view'),
-    url(r'^accounts/login/', 'login_view', name='login_view'),
-    url(r'^accounts/logout/', 'logout_view', name='logout_view'),
-    url(r'^accounts/registration/','registration_view', name='registration_view'),
+    #Registration Views
+    #url(r'^accounts/login/', 'login_view', name='login_view'),
+    url(r'^accounts/login/', LoginView.as_view(), name='login_view'),
+    url(r'^accounts/logout/', LogoutView.as_view(), name='logout_view'),
+    url(r'^accounts/registration/',RegistrationView.as_view(), name='registration_view'),
     
     #
     # Application URL Includes

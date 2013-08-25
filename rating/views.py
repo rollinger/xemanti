@@ -11,6 +11,7 @@ from django.conf import settings
 from django.db.models import Q, F
 from django.db.models import Count
 from django.utils import simplejson
+from django.contrib import messages
 import itertools
 
 # Custom Import Statement
@@ -40,6 +41,8 @@ def rate_assoc_view(request, ngram=None):
                 Associations.inject(source, target)
                 # Multiple Associations if multiple_tokens 
                 multiple_tokens = Tokenizer.linear_token_list(form.cleaned_data['rating'])
+                # Success Message
+                messages.add_message(request, messages.SUCCESS, _('Thanks for rating!'), fail_silently=True)
                 if len(multiple_tokens) > 1:
                     for t in multiple_tokens:
                         atomic_target = NGrams.inject(token=t)

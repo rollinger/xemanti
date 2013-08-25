@@ -12,9 +12,11 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.conf import settings
 from django.contrib import messages
+from django.views.generic import View, TemplateView, RedirectView, FormView
 
 # Custom Import Statement
-from forms import UserCreationForm
+from forms import CustomUserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from ngramengine.models import NGrams
 from ngramengine.tasks import add_text_to_system
 from usr_profile.models import Profile
@@ -22,61 +24,125 @@ from usr_profile.models import Profile
 
 #from ngram_engine_de.tasks import *#add_sentences_to_stack, rate_sentences, calculate_devianz
 
-#
-# Home Page View for text submission and main navigation view
-#
-def home_view(request):
-    return HttpResponseRedirect(reverse('inspect_query'))
-    # Render Template Home
-    #return render_to_response('xemanti/home.html', {
-    #}, context_instance=RequestContext(request))
+
+
+class StartView(RedirectView):
+    """
+    Start View Redirect
+    """
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('inspect_query')
 
 
 
-def faq_view(request):
-    return render_to_response('xemanti/faq.html', {}, context_instance=RequestContext(request))
+class FAQView(TemplateView):
+    """
+     Frequently Asked Question View
+    """
+    template_name = 'xemanti/faq.html'
 
-def impressum_view(request):
-    return render_to_response('xemanti/impressum.html', {}, context_instance=RequestContext(request))
 
-def login_view(request):
-    if request.method == 'POST':
+
+class ImpressumView(TemplateView):
+    """
+    Impressum View
+    """
+    template_name = 'xemanti/impressum.html'
+
+
+
+class LoginView(View):
+    """
+    Handles User Login
+    """
+    def get(self, request, *args, **kwargs):
+        """
+        Shows Flash Message and renders login screen
+        """
+        messages.add_message(request, 
+                             messages.INFO,
+                             _('Fill in your Credentials and log into Xemanti!'),
+                             fail_silently=True)
+        return render(request, "registration/login.html", {})
+    
+    def post(self, request, *args, **kwargs):
+        """
+        Handles Login Submission, Messages and Redirect
+        """
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = auth.authenticate(username=username, password=password)
         if user is not None and user.is_active:
             # Correct password, and the user is marked "active"
             auth.login(request, user)
-            messages.add_message(request, messages.SUCCESS, _('Welcome to Xemanti!'), fail_silently=True)
+            messages.add_message(request,
+                                 messages.SUCCESS,
+                                 _('Welcome to Xemanti!'),
+                                 fail_silently=True)
             # Redirect to a success page.
             return HttpResponseRedirect("/")
         else:
-            # Show an error page
-            messages.add_message(request, messages.ERROR, _('Something went wrong! Username or Password did not validate.'), fail_silently=True)
+            # Error logging in 
+            messages.add_message(request, messages.ERROR,
+                                 _('Something went wrong! Username or Password did not validate.'),
+                                 fail_silently=True)
             return HttpResponseRedirect("login_view")
-    else:
-        messages.add_message(request, messages.INFO, _('Fill in your Credentials and log into Xemanti!'), fail_silently=True)
-        return render(request, "registration/login.html", {})
     
-def logout_view(request):
-    auth.logout(request)
-    messages.add_message(request, messages.SUCCESS, _('See you soon on Xemanti!'), fail_silently=True)
-    # Redirect to a success page.
-    url = reverse('home')
-    return HttpResponseRedirect(url)
+    
+    
+class LogoutView(View):
+    """
+    Handles User Login
+    """
+    def get(self, request, *args, **kwargs):
+        """
+        Logs out, shows Flash Message and renders redirect
+        """
+        auth.logout(request)
+        messages.add_message(request,
+                             messages.SUCCESS,
+                             _('See you soon on Xemanti!'),
+                             fail_silently=True)
+        return HttpResponseRedirect(reverse('home'))
 
-def registration_view(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+
+
+class RegistrationView(View):
+    """
+    Handles User Registration
+    """
+    template_name = 'registration/register.html'
+    
+    def get(self, request, *args, **kwargs):
+        """
+        Shows User Registration Form 
+        """
+        form = CustomUserCreationForm()
+        messages.add_message(request,
+                             messages.INFO,
+                             _('Please fill in your registration form.'),
+                             fail_silently=True)
+        return render(request, self.template_name, {
+                                                    'form': form,
+                                                    })
+    
+    def post(self, request, *args, **kwargs):
+        """
+        Handles User Registration Form, Messages and Redirect
+        """
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
             new_profile = Profile(user=new_user, balance=settings.REGISTRATION_START_BALANCE)
             new_profile.save()
-            messages.add_message(request, messages.SUCCESS, _('Thanks for registering on Xemanti!'), fail_silently=True)
+            messages.add_message(request,
+                                 messages.SUCCESS,
+                                 _('Thanks for registering on Xemanti!'),
+                                 fail_silently=True)
             return HttpResponseRedirect(reverse('login_view'))
-    else:
-        form = UserCreationForm()
-        messages.add_message(request, messages.INFO, _('Please fill in your registration form.'), fail_silently=True)
-    return render(request, "registration/register.html", {
-        'form': form,
-    })
+        else:
+            messages.add_message(request,
+                                 messages.SUCCESS,
+                                 _('Something went wrong with your registration!'),
+                                 fail_silently=True)
+            return HttpResponseRedirect(reverse('registration_view'))
