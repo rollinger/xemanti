@@ -24,24 +24,23 @@ urlpatterns = patterns('xemanti.views',
     url(r'^$', StartView.as_view(), name='home'),
     url(r'^faq/', FAQView.as_view(), name='faq'),
     url(r'^impressum/',  ImpressumView.as_view(), name='impressum'),
-    
-    #Registration Views
-    #url(r'^accounts/login/', 'login_view', name='login_view'),
+    #
+    # Registration Views
+    #
     url(r'^accounts/login/', LoginView.as_view(), name='login_view'),
     url(r'^accounts/logout/', LogoutView.as_view(), name='logout_view'),
     url(r'^accounts/registration/',RegistrationView.as_view(), name='registration_view'),
-    
     #
     # Application URL Includes
     #
-    url(r'^de/', include('ngramengine.urls')),
-    url(r'^rate/', include('rating.urls')),
-    url(r'^report/', include('reporting.urls')),
+    url(r'^engine/', include('ngramengine.urls')),
+    url(r'^rating/', include('rating.urls')),
+    url(r'^reporting/', include('reporting.urls')),
     
     #
     # Zinnia Weblog URLs
     #
-    url(r'^weblog/', include('zinnia.urls')),
+    url(r'^blog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
 
     #
