@@ -66,6 +66,6 @@ wiktionary_import()
                     SubCategory.inject(NGrams.inject(ngram,times=0),NGrams.inject(sub,times=0))
                 # Save NGram
                 ngram.save()
-        #except:
-            #print "Something went wrong"
+        except:
+            print "Something went wrong"
     json_data.close()
