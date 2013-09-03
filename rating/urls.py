@@ -4,12 +4,12 @@
 #
 from django.conf.urls.defaults import patterns, include, url
 
+from views import *
+
 urlpatterns = patterns('rating.views',
-    
-    # Rating View
-    
-    
-    
+    #
+    # Rating Views
+    #
     url(r'^eval/sd/(?P<ngram>[\w\ -_]+)/$', 'eval_sem_diff_view', name='eval_sem_diff'),
     url(r'^sort/(?P<ngram>[\w\ -_]+)/$', 'sort_ngram_view', name='sort_ngram'),
     url(r'^(?P<ngram>[\w\ -_]+)/$', 'rate_assoc_view', name='rate_assoc'),

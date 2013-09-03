@@ -12,6 +12,7 @@ from django.db.models import Q, F
 from django.db.models import Count
 from django.utils import simplejson
 from django.contrib import messages
+from django.views.generic import View, TemplateView, RedirectView, FormView
 import itertools
 
 # Custom Import Statement
@@ -19,9 +20,8 @@ from forms import RateAssociationForm, SemanticDifferentialForm
 from ngramengine.tokenizer import Tokenizer
 from ngramengine.models import *
 
-#
-# Rating View for Associations
-#
+
+
 def rate_assoc_view(request, ngram=None):
     ngram_token = ngram
     # Form submitted:
