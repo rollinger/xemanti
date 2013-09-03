@@ -43,7 +43,7 @@ def bulk_ngram_upload_view(request):
             elif type == 'antonym':
                 for source in Tokenizer.linear_token_list(sources):
                     for target in Tokenizer.linear_token_list(targets):
-                        Synonyms.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
+                        Antonyms.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0))
             elif type == 'super':
                 for source in Tokenizer.linear_token_list(sources):
                     for target in Tokenizer.linear_token_list(targets):

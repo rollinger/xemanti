@@ -89,9 +89,6 @@ class PartOfSpeech(models.Model):
         self.save()
         return self.ngram_count
     
-    def save(self):
-        super(PartOfSpeech, self).save()
-    
     class Meta:
         verbose_name = 'Part Of Speech'
         verbose_name_plural = 'Part Of Speeches'
@@ -118,9 +115,6 @@ class Languages(models.Model):
         self.ngram_count = self.ngrams.count()
         self.save()
         return self.ngram_count
-    
-    def save(self):
-        super(Languages, self).save()
     
     class Meta:
         verbose_name = 'Language'

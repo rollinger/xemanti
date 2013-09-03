@@ -11,9 +11,10 @@ from ngramengine.models import *
 
 def wiktionary_import(importfile='ngramengine/data/wiktionary.json'):
     """
-    from ngramengine.scripts import wiktionary_import
-    wiktionary_import()
+from ngramengine.scripts import wiktionary_import
+wiktionary_import()
     """
+    #importfile='ngramengine/data/xaa'
     json_data=open(importfile,'r')
     data = json.load(json_data)
     
@@ -30,48 +31,41 @@ def wiktionary_import(importfile='ngramengine/data/wiktionary.json'):
             supercategory = dict['supercategory']
             subcategory = dict['subcategory']
             
-            pprint(ngram)
-            pprint(language)
-            pprint(partofspeech)
-            pprint(synonyme)
-            pprint(antonyme)
-            pprint(supercategory)
-            pprint(subcategory)
-            
-            print
-            
-            # Create NGram
-            ngram,created = NGrams.objects.get_or_create(token=ngram)
-            # Save NGram
-            ngram.save()
-            if not created:
-                continue
-            for lang in language:
-                lang,created = Languages.objects.get_or_create(language=lang)
-                lang.save()
-                lang.ngrams.add( ngram )
-            for pos in partofspeech:
-                pos,created = PartOfSpeech.objects.get_or_create(type=pos)
-                pos.save()
-                pos.ngrams.add( ngram )
-            for syn in synonyme:
-                syn,created = NGrams.objects.get_or_create(token=syn)
-                syn.save()
-                Synonyms.objects.get_or_create(source=ngram,target=syn)
-            for aty in antonyme:
-                aty,created = NGrams.objects.get_or_create(token=aty)
-                aty.save()
-                Antonyms.objects.get_or_create(source=ngram,target=syn)
-            for super in supercategory:
-                super,created = NGrams.objects.get_or_create(token=super)
-                super.save()
-                SuperCategory.objects.get_or_create(source=ngram,target=super)
-            for sub in subcategory:
-                sub,created = NGrams.objects.get_or_create(token=sub)
-                sub.save()
-                SubCategory.objects.get_or_create(source=ngram,target=sub)
-            # Save NGram
-            ngram.save()
-        except:
-            print "Something went wrong"
+            if "Deutsch" in language:
+                pprint(ngram)
+                pprint(language)
+                pprint(partofspeech)
+                pprint(synonyme)
+                pprint(antonyme)
+                pprint(supercategory)
+                pprint(subcategory)
+                
+                print
+                
+                # Create NGram
+                ngram,created = NGrams.objects.get_or_create(token=ngram)
+                # Save NGram
+                ngram.save()
+                if not created:
+                    continue
+                for lang in language:
+                    lang,created = Languages.objects.get_or_create(language=lang)
+                    lang.save()
+                    ngram.language.add(lang)
+                for pos in partofspeech:
+                    pos,created = PartOfSpeech.objects.get_or_create(type=pos)
+                    pos.save()
+                    ngram.partofspeech.add(pos)
+                for syn in synonyme:
+                    Synonyms.inject(NGrams.inject(ngram,times=0),NGrams.inject(syn,times=0))
+                for aty in antonyme:
+                    Antonyms.inject(NGrams.inject(ngram,times=0),NGrams.inject(aty,times=0))
+                for super in supercategory:
+                    SuperCategory.inject(NGrams.inject(ngram,times=0),NGrams.inject(super,times=0))
+                for sub in subcategory:
+                    SubCategory.inject(NGrams.inject(ngram,times=0),NGrams.inject(sub,times=0))
+                # Save NGram
+                ngram.save()
+        #except:
+            #print "Something went wrong"
     json_data.close()
