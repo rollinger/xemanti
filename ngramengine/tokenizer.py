@@ -2,6 +2,7 @@
 
 # Imports
 import re
+import shlex
 from django.utils.encoding import smart_str, smart_unicode
 
 """
@@ -27,9 +28,9 @@ class Tokenizer():
         nonword_pat = re.compile(r'[.!?:;,]+', re.UNICODE)
         word_pat = re.compile(r'[\w.]+', re.UNICODE)
         text = re.sub(nonword_pat, ' ' , text)
-        return word_pat.findall( text ) 
-    
-    
+        #return word_pat.findall( text )
+        return map(lambda s: s.decode('UTF8'), shlex.split(text.encode('utf8')))
+        #return [p for p in re.split("( |\\\".*?\\\"|'.*?')", text) if p.strip()]
     
     @classmethod
     # Pattern for Sentence Tokenization
