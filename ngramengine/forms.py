@@ -14,6 +14,8 @@ NGRAM_LINKING_CHOICES = (
        ("sub", _("sub")),
        ("lang", _("lang")),
        ("pos", _("pos")),
+       ("cooc", _("cooc")),
+       
    )
 class NGramBulkUploadForm(forms.Form):
     source  = forms.CharField(widget=forms.TextInput())

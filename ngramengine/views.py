@@ -66,7 +66,10 @@ def bulk_ngram_upload_view(request):
                         ngram = NGrams.inject(source,times=0)
                         ngram.partofspeech.add(lang)
                         ngram.save()
-                        
+            elif type == 'cooc':
+                for source in Tokenizer.linear_token_list(sources):
+                    for target in Tokenizer.linear_token_list(targets):
+                        CoOccurrences.inject(NGrams.inject(source,times=0),NGrams.inject(target,times=0),position=1,times=0)
                     
             
             return HttpResponseRedirect( reverse( 'bulk_ngram_upload' ) )
