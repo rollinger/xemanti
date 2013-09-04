@@ -11,19 +11,23 @@
 	});
 </script>
 
+{% if not visible and not invisible%}
+	<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
+{% endif %}
+
 <span>
 	{% for assoc in visible.all %}
 		<a href="{{ assoc.target.get_absolute_url }}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
 			{{ assoc.target }}
 		</a>
-	{% empty %}
-		<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 	{% endfor %}
 <span>
 
-<a href="#" class="color-red" id="{{type}}_toogle-button">
-	{% trans "show more..." %}
-</a>
+{% if invisible %}
+	<a href="#" class="color-red" id="{{type}}_toogle-button">
+		{% trans "show more..." %}
+	</a>
+{% endif %}
 
 <span style="display:none;" id="{{type}}_toogle-target">
 	{% for assoc in invisible.all %}
