@@ -14,7 +14,7 @@ def wiktionary_import(importfile='ngramengine/data/wiktionary.json'):
 from ngramengine.scripts import wiktionary_import
 wiktionary_import()
     """
-    #importfile='ngramengine/data/xaa'
+    importfile='ngramengine/data/xaa'
     json_data=open(importfile,'r')
     data = json.load(json_data)
     
