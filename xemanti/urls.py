@@ -75,7 +75,7 @@ ngram_info_dict = {
     'date_field': 'updated',
 }
 sitemaps = {
-    'blog': GenericSitemap(blog_info_dict, priority=0.6, changefreq='hourly'),
+    'blog': GenericSitemap(blog_info_dict, priority=0.4, changefreq='daily'),
     'ngram': GenericSitemap(ngram_info_dict, priority=0.6, changefreq='hourly'),
 }
 
