@@ -70,13 +70,16 @@
 		<div id="accordion">
 			<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
 			<div>
-				{% for assoc in ngram.association_outbound.all %}
+				{% render_tag_cloud ngram 'assoc' %}
+			{% comment %}
+				{% for assoc in ngram.association_outbound_sorted.all %}
 					<a href="{% url 'inspect_query' assoc.target.token %}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
 						{{ assoc.target }}
 					</a>
 				{% empty %}
 					<p>{% trans "Sorry, no entries yet! Contribute your knowledge " %}<a href="{% url 'rate_assoc' %}">{% trans 'here' %}</a></p>
 				{% endfor %}
+			{% endcomment %}
 			</div>
 			<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
 			<div>

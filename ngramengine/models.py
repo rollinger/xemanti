@@ -472,6 +472,9 @@ class NGrams(models.Model):
         elif freq <= interval*5: return tags[4]
         else: return _('Unknown')
         
+    def association_outbound_sorted(self):
+        return self.association_outbound.order_by('-power')
+        
     def get_absolute_url(self):
         return reverse('inspect_query', kwargs={'ngram':self.token})
 
