@@ -336,6 +336,8 @@ class NGrams(models.Model):
     t_occurred              = models.PositiveIntegerField(_('Times Occurred'),default=0)
     # Counter how many times the token was rated by a user (Association)
     t_rated                 = models.PositiveIntegerField(_('Times Rated'),default=0)
+    # Counter how many times the token was rated by a user (Association)
+    t_visited               = models.PositiveIntegerField(_('Times Visited'),default=0)
     # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness) [old: semantic_meaningless]
     coocurrence_relevancy   = models.NullBooleanField(_('Relevant for Co-Occurrences'),blank=True, null=True)
     # Dirty Flag: Indicates the object has changed

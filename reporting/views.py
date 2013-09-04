@@ -34,6 +34,8 @@ def inspect_query_view(request, ngram=None):
         form = QueryNGramForm()
         if ngram:
             ngram = NGrams.objects.get(token=ngram)
+            ngram.t_visited += 1
+            ngram.save()
             if request.user.is_authenticated():
                 # Redirect to Rating View if user cannot pay
                 if not request.user.profile.payment(1.00):
@@ -48,6 +50,7 @@ def inspect_query_view(request, ngram=None):
                         success_redirect = HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram': ngram.token}))
                         request.session['anonymous_rating'] = {'state':0,'max':1,'target':'rate_assoc','success_redirect':success_redirect}
                         return HttpResponseRedirect( reverse( 'rate_assoc' ) )
+            
         else:
             ngram = None
     
