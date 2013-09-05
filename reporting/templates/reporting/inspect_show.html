@@ -62,7 +62,14 @@
 		<div class="units-row">
 			<div class="unit-centered unit-90 border-bottom">
 				<center><h2>
-					{{ ngram.token }}
+					{% if user.is_superuser %}
+						{% load admin_urls %}
+						<a href="/admin/ngramengine/ngrams/{{ngram.id}}/" target="_blank" class="supersmall">
+							{{ ngram.token }}
+						</a>
+					{% else %}
+						{{ ngram.token }}
+					{% endif %}
 				</h2></center>
 			</div>
 		</div>
