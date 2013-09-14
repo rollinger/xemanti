@@ -18,7 +18,9 @@
 {% block custom-js %}
 <script type="text/javascript">
 	$(function() {
-		$( "#accordion" ).accordion();
+		$( "#accordion" ).accordion({
+			heightStyle: "content"
+		});
 	});
 </script>
 {% endblock custom-js %}
