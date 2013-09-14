@@ -62,7 +62,7 @@ def rate_assoc_view(request, ngram=None):
     else:
         if ngram == None:
             excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
-            ngram = NGrams.objects.exclude(partofspeech__in=excludes).order_by("?")[0]
+            ngram = NGrams.objects.filter(qualified=True).exclude(partofspeech__in=excludes).order_by("?")[0]
         else:
             ngram = NGrams.objects.get(token=ngram_token)
         # Get Suggestions for rating (json)
