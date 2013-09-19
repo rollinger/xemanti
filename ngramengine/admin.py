@@ -83,7 +83,7 @@ class NGramsAdmin(admin.ModelAdmin):
     
     fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
     readonly_fields = ('created','updated')
-    actions = ['merge','set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
+    actions = ['merge','set_meaningless','set_qualified','set_changed', 'make_qualified_german_substantive','make_qualified_german_verb',\
                'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
                'unset_verb','set_verb','set_buchstabe','unset_buchstabe','set_zahl']
     
@@ -97,6 +97,9 @@ class NGramsAdmin(admin.ModelAdmin):
     def set_qualified(self, request, queryset):
         queryset.update(qualified=True)
     set_qualified.short_description = "Mark selected ngrams as qualified"
+    def set_changed(self, request, queryset):
+        queryset.update(dirty=True)
+    set_changed.short_description = "Mark selected ngrams as changed"
     
     def make_qualified_german_substantive(self, request, queryset):
         lang = Languages.objects.get(language="Deutsch")
