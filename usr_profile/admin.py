@@ -3,9 +3,9 @@ from django.contrib import admin
 from usr_profile.models import Profile, NGramBooking
 
 class ProfileAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'balance', 'total_earnings','total_spendings')
 admin.site.register(Profile, ProfileAdmin)
 
 class NGramBookingAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('profile', 'ngram', 'created','booked','expires')
 admin.site.register(NGramBooking, NGramBookingAdmin)
