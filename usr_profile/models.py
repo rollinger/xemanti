@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from fields import MoneyField
 from ngramengine.models import NGrams
+from django.utils import timezone
 
 
 
@@ -17,6 +18,18 @@ class Profile(models.Model):
     total_earnings  = MoneyField(default=0.00)
     total_spendings = MoneyField(default=0.00)
     
+    def has_booked(self, ngram):
+        booked = self.ngram_bookings.filter(ngram=ngram)
+        if booked:
+            return booked[0].is_booked()
+        return False
+    
+    def book(self, ngram):
+        booking, created = NGramBooking.objects.get_or_create(ngram=ngram, profile=self)
+        if not created:
+            booking.book()
+        return booking.save()
+        
     def income(self, value):
         self.balance = self.balance + float(value)
         self.total_earnings = self.total_earnings + float(value)
@@ -54,7 +67,7 @@ class NGramBooking(models.Model):
         """
         Returns True if the NGram is still booked by the user
         """
-        if self.expires > datetime.now():
+        if self.expires > timezone.now():
             return True
         return False
     
@@ -62,8 +75,8 @@ class NGramBooking(models.Model):
         """
         Books the instance for a user for a period of BOOKING_PERIOD_HOURS into the future 
         """
-        self.booked = datetime.now()
-        self.expires = datetime.now()+timedelta(hours=self.BOOKING_PERIOD_HOURS)
+        self.booked = timezone.now()
+        self.expires = timezone.now()+timedelta(hours=self.BOOKING_PERIOD_HOURS)
         self.save()
         
     def __unicode__(self):

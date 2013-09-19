@@ -36,10 +36,15 @@ def inspect_query_view(request, ngram=None):
             ngram = NGrams.objects.get(token=ngram)
             ngram.t_visited += 1
             ngram.save()
+            # Handle Authenticated Users:
             if request.user.is_authenticated():
-                # Redirect to Rating View if user cannot pay
-                if not request.user.profile.payment(1.00):
-                    return HttpResponseRedirect( reverse( 'rate_assoc' ) )
+                # Redirect to Rating View if user has not booked and cannot pay
+                if not request.user.profile.has_booked(ngram):
+                    if not request.user.profile.payment(1.00):
+                        return HttpResponseRedirect( reverse( 'rate_assoc' ) )
+                    else:
+                        request.user.profile.book(ngram)
+            # Handle Anonymous Users:
             else:
                 BotNames=['Googlebot','Slurp','Twiceler','msnbot','KaloogaBot','YodaoBot','"Baiduspider','googlebot','Speedy Spider','DotBot']
                 if not any(x in request.META['HTTP_USER_AGENT'] for x in BotNames):#Allow robots to access the page and sitemap no 302 Redirect
@@ -53,7 +58,6 @@ def inspect_query_view(request, ngram=None):
             
         else:
             ngram = None
-    
     # Render Template ngram_query
     return render_to_response('reporting/inspect_show.html', {
         "ngram":ngram,
