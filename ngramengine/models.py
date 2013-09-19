@@ -338,6 +338,8 @@ class NGrams(models.Model):
     t_rated                 = models.PositiveIntegerField(_('Times Rated'),default=0)
     # Counter how many times the token was rated by a user (Association)
     t_visited               = models.PositiveIntegerField(_('Times Visited'),default=0)
+    # t_occurred + t_visited - (t_rated*2)
+    rating_index            = models.IntegerField(_('Calculated Index for ratings left'), default=0)
     # Boolean if the ngram is meaningless (if true: overrides partofspeech.semantic_meaninglessness) [old: semantic_meaningless]
     coocurrence_relevancy   = models.NullBooleanField(_('Relevant for Co-Occurrences'),blank=True, null=True)
     # Dirty Flag: Indicates the object has changed
@@ -476,7 +478,11 @@ class NGrams(models.Model):
         
     def association_outbound_sorted(self):
         return self.association_outbound.order_by('-power')
-        
+    
+    def calculate_rating_index(self):
+        self.rating_index = self.t_occurred + self.t_visited - (self.t_rated * 2)
+        return self.rating_index
+    
     def get_absolute_url(self):
         return reverse('inspect_query', kwargs={'ngram':self.token})
 

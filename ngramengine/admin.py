@@ -74,14 +74,14 @@ class IntervalListFilter(admin.SimpleListFilter):
         else:
             return queryset
 class NGramsAdmin(admin.ModelAdmin):
-    list_display = ('token', 't_occurred', 't_rated','t_visited', "dirty","qualified",'created','updated',"wiktionary_url")
+    list_display = ('token', 't_occurred', 't_rated','t_visited','rating_index', "dirty","qualified",'created','updated',"wiktionary_url")
     list_filter = ['dirty', "qualified", 'updated', IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
     inlines = [SemanticDifferentialInline,PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,\
                SuperCategoryInline,SubCategoryInline]
     
-    fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_rated','t_visited'), ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
+    fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
     readonly_fields = ('created','updated')
     actions = ['merge','set_meaningless','set_qualified', 'make_qualified_german_substantive','make_qualified_german_verb',\
                'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\

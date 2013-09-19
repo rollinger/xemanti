@@ -14,6 +14,7 @@ from django.utils import simplejson
 from django.contrib import messages
 from django.views.generic import View, TemplateView, RedirectView, FormView
 import itertools
+from random import choice
 
 # Custom Import Statement
 from forms import RateAssociationForm, SemanticDifferentialForm
@@ -62,7 +63,7 @@ def rate_assoc_view(request, ngram=None):
     else:
         if ngram == None:
             excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
-            ngram = NGrams.objects.filter(qualified=True).exclude(partofspeech__in=excludes).order_by("?")[0]
+            ngram = choice( NGrams.objects.filter(qualified=True).exclude(partofspeech__in=excludes).order_by("-rating_index")[:3] )
         else:
             ngram = NGrams.objects.get(token=ngram_token)
         # Get Suggestions for rating (json)

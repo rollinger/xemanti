@@ -150,6 +150,7 @@ def ngram_maintenance():
         # NGram Maintenance
         #
         obj.dirty = False
+        obj.calculate_rating_index()
         obj.save()
         
     # Performance Message
