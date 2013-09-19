@@ -149,8 +149,8 @@ def ngram_maintenance():
         #
         # NGram Maintenance
         #
+        obj.rating_index = obj.t_occurred + obj.t_visited - (obj.t_rated * 2)
         obj.dirty = False
-        obj.calculate_rating_index()
         obj.save()
         
     # Performance Message
