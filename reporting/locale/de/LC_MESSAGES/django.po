@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-04 11:41+0200\n"
+"POT-Creation-Date: 2013-09-20 18:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,106 +26,99 @@ msgstr ""
 msgid "Inspect the Word: "
 msgstr "Untersuch das Wort: "
 
-#: forms.py:16
+#: forms.py:17
 msgid "State your text you want to analyze..."
 msgstr ""
+
+#: templates/reporting/_tag_cloud_partial.html:15
+msgid "Sorry, no entries yet! Contribute your knowledge "
+msgstr "Leider noch kein Wissen vorhanden! Teile dein Wissen "
+
+#: templates/reporting/_tag_cloud_partial.html:15
+msgid "here"
+msgstr "hier"
+
+#: templates/reporting/_tag_cloud_partial.html:28
+msgid "show more..."
+msgstr "mehr..."
 
 #: templates/reporting/initiate_report.html:13
 msgid "Your Text:"
 msgstr "Dein Text"
 
-#: templates/reporting/inspect_show.html:50
+#: templates/reporting/inspect_show.html:56
 msgid "Inspect"
 msgstr "Untersuche"
 
-#: templates/reporting/inspect_show.html:67
+#: templates/reporting/inspect_show.html:80
 msgid "Associations"
 msgstr "Assoziation"
 
-#: templates/reporting/inspect_show.html:74
 #: templates/reporting/inspect_show.html:84
-#: templates/reporting/inspect_show.html:94
-#: templates/reporting/inspect_show.html:104
-#: templates/reporting/inspect_show.html:114
-#: templates/reporting/inspect_show.html:125
-msgid "Sorry, no entries yet! Contribute your knowledge "
-msgstr ""
-
-#: templates/reporting/inspect_show.html:74
-#: templates/reporting/inspect_show.html:84
-#: templates/reporting/inspect_show.html:94
-#: templates/reporting/inspect_show.html:104
-#: templates/reporting/inspect_show.html:114
-#: templates/reporting/inspect_show.html:125
-msgid "here"
-msgstr "hier"
-
-#: templates/reporting/inspect_show.html:77
 msgid "Synonyms"
 msgstr "Synonyme"
 
-#: templates/reporting/inspect_show.html:87
+#: templates/reporting/inspect_show.html:88
 msgid "Antonyms"
 msgstr "Antonyme"
 
-#: templates/reporting/inspect_show.html:97
+#: templates/reporting/inspect_show.html:92
 msgid "Super Categories"
 msgstr "Oberkategorie"
 
-#: templates/reporting/inspect_show.html:107
+#: templates/reporting/inspect_show.html:96
 msgid "Sub Categories"
 msgstr "Unterkategorie"
 
-#: templates/reporting/inspect_show.html:118
+#: templates/reporting/inspect_show.html:101
 msgid "Co-Occurrences"
 msgstr "Gemeinsames Auftreten"
 
-#: templates/reporting/inspect_show.html:139
+#: templates/reporting/inspect_show.html:116
 msgid "Contibute your Knowledge:"
 msgstr "Bring dein Wissen ein:"
 
-#: templates/reporting/inspect_show.html:141
+#: templates/reporting/inspect_show.html:118
 msgid "Sort "
 msgstr "Sortieren"
 
-#: templates/reporting/inspect_show.html:144
-#, fuzzy
+#: templates/reporting/inspect_show.html:121
 msgid "Associate "
 msgstr "Assoziiere"
 
-#: templates/reporting/inspect_show.html:147
+#: templates/reporting/inspect_show.html:124
 msgid "Evaluate"
 msgstr "Bewerte"
 
-#: templates/reporting/inspect_show.html:149
+#: templates/reporting/inspect_show.html:126
 msgid "... earn Xetis!"
 msgstr "... mach' Xetis!"
 
-#: templates/reporting/inspect_show.html:155
+#: templates/reporting/inspect_show.html:132
 msgid "Evaluation:"
 msgstr "Werthaltung:"
 
-#: templates/reporting/inspect_show.html:175
+#: templates/reporting/inspect_show.html:152
 msgid "Frequency: "
 msgstr "Häufigkeit"
 
-#: templates/reporting/inspect_show.html:179
+#: templates/reporting/inspect_show.html:156
 msgid "Rated: "
 msgstr "Bewertet: "
 
-#: templates/reporting/inspect_show.html:183
+#: templates/reporting/inspect_show.html:160
 msgid "Genus: "
 msgstr "Genus:"
 
-#: templates/reporting/inspect_show.html:187
+#: templates/reporting/inspect_show.html:164
 msgid "Numerus: "
 msgstr "Numerus:"
 
-#: templates/reporting/inspect_show.html:191
+#: templates/reporting/inspect_show.html:168
 msgid "Part of Speech: "
 msgstr "Wortarten:"
 
-#: templates/reporting/inspect_show.html:197
+#: templates/reporting/inspect_show.html:174
 msgid "Languages: "
 msgstr "Sprachen:"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-04 11:47+0200\n"
+"POT-Creation-Date: 2013-09-20 18:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,69 +22,77 @@ msgstr ""
 msgid "State your immediate association..."
 msgstr "Dein erster Gedanke..."
 
-#: templates/rating/ngram_eval_sem_diff.html:29
+#: views.py:46
+msgid "Thanks for rating!"
+msgstr "Danke für deine Einschätzung!"
+
+#: views.py:77
+msgid "Rate one Word and you will get redirected!"
+msgstr "Assoziiere ein Wort und du wirst sofort weitergeleitet!"
+
+#: templates/rating/ngram_eval_sem_diff.html:35
 msgid "bad"
 msgstr "schlecht"
 
-#: templates/rating/ngram_eval_sem_diff.html:30
-#: templates/rating/ngram_eval_sem_diff.html:37
-#: templates/rating/ngram_eval_sem_diff.html:44
+#: templates/rating/ngram_eval_sem_diff.html:36
+#: templates/rating/ngram_eval_sem_diff.html:43
+#: templates/rating/ngram_eval_sem_diff.html:50
 msgid "neutral"
 msgstr "neutral"
 
-#: templates/rating/ngram_eval_sem_diff.html:31
+#: templates/rating/ngram_eval_sem_diff.html:37
 msgid "good"
 msgstr "gut"
 
-#: templates/rating/ngram_eval_sem_diff.html:36
+#: templates/rating/ngram_eval_sem_diff.html:42
 msgid "weak"
 msgstr "schwach"
 
-#: templates/rating/ngram_eval_sem_diff.html:38
+#: templates/rating/ngram_eval_sem_diff.html:44
 msgid "strong"
 msgstr "stark"
 
-#: templates/rating/ngram_eval_sem_diff.html:43
+#: templates/rating/ngram_eval_sem_diff.html:49
 msgid "passive"
 msgstr "passiv"
 
-#: templates/rating/ngram_eval_sem_diff.html:45
+#: templates/rating/ngram_eval_sem_diff.html:51
 msgid "active"
 msgstr "aktiv"
 
-#: templates/rating/ngram_eval_sem_diff.html:53
+#: templates/rating/ngram_eval_sem_diff.html:59
 msgid "Rate"
 msgstr "Einschätzen"
 
-#: templates/rating/ngram_rating.html:39
+#: templates/rating/ngram_rating.html:38
 msgid "Inspect"
 msgstr "Untersuchen"
 
-#: templates/rating/ngram_rating.html:44
+#: templates/rating/ngram_rating.html:45
 msgid "N-Gram Admin"
 msgstr ""
 
-#: templates/rating/ngram_sorting.html:66
+#: templates/rating/ngram_sorting.html:72
 msgid "Not Related"
 msgstr "Nicht Relevant"
 
-#: templates/rating/ngram_sorting.html:78
+#: templates/rating/ngram_sorting.html:84
 msgid "Association"
 msgstr "Assoziation"
 
-#: templates/rating/ngram_sorting.html:87
+#: templates/rating/ngram_sorting.html:93
 msgid "Antonyms"
 msgstr "Antonyme"
 
-#: templates/rating/ngram_sorting.html:93
+#: templates/rating/ngram_sorting.html:99
 msgid "Synonyms"
 msgstr "Synonyme"
 
-#: templates/rating/ngram_sorting.html:102
+#: templates/rating/ngram_sorting.html:108
 msgid "Super Category"
 msgstr "Oberkategorie"
 
-#: templates/rating/ngram_sorting.html:110
+#: templates/rating/ngram_sorting.html:116
 msgid "Sub Category"
 msgstr "Unterkategorie"
 
