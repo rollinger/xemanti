@@ -71,7 +71,11 @@ def rate_assoc_view(request, ngram=None):
         # Unbound form
         form = RateAssociationForm(ngram=ngram)
         form.fields['target'] = forms.CharField(initial=ngram.token, widget=forms.widgets.HiddenInput())
-    
+        
+        # Information for redirected Users: 
+        if request.session.has_key('anonymous_rating'):
+            messages.add_message(request, messages.INFO, _('Rate one Word and you will get redirected!'), fail_silently=True)
+            
     # Render Template Home
     return render_to_response('rating/ngram_rating.html', {
         "form":form,
