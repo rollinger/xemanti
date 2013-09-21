@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.utils import simplejson
 import random
 import itertools

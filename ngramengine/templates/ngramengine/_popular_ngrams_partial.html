@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<script>
+<script type="text/javascript">
 	$( document ).ready(function() {
 		$('#pop-slot-1').css('background-color', get_random_color());
 		$('#pop-slot-2').css('background-color', get_random_color());
@@ -18,7 +18,7 @@
 	window.setInterval(function(){
 		var slot = $('#pop-slot-' + String(1 + Math.floor(Math.random() * 5)));
 		var hue = get_random_color();
-		Dajaxice.ngramengine.get_popular_ngram_slot(update_popular_ngram_slot,{});
+		Dajaxice.ngramengine.get_popular_ngram_slot(update_popular_ngram_slot);
 		function update_popular_ngram_slot(data){
 			if (data != undefined){
 				slot.empty();
