@@ -3,6 +3,9 @@
 # URL RATING CONFIG
 #
 from django.conf.urls.defaults import patterns, include, url
+# Dajaxice Autodiscover
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
+dajaxice_autodiscover()
 
 from views import *
 
@@ -17,4 +20,5 @@ urlpatterns = patterns('rating.views',
     
     # DEPRECATED: NGram Setup Rating view for Admin
     #url(r'^ngramsetup/', 'ngram_setup_view', name='ngram_setup'),
+    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 )
