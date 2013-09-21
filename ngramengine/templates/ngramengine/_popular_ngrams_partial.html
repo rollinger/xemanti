@@ -1,16 +1,24 @@
 {% load i18n %}
 
 <script>
+	$( document ).ready(function() {
+		$('#pop-slot-1').css('background-color', get_random_color());
+		$('#pop-slot-2').css('background-color', get_random_color());
+		$('#pop-slot-3').css('background-color', get_random_color());
+		$('#pop-slot-4').css('background-color', get_random_color());
+		$('#pop-slot-5').css('background-color', get_random_color());
+	});
+	function get_random_color(){
+			hue = 'rgb('
+				+ (Math.floor(Math.random() * 256)) + ','
+				+ (Math.floor(Math.random() * 256)) + ','
+				+ (Math.floor(Math.random() * 256)) + ')';
+			return hue;
+		}
 	window.setInterval(function(){
 		var slot = $('#pop-slot-' + String(1 + Math.floor(Math.random() * 5)));
-		var hue = 'rgb('
-			+ (Math.floor(Math.random() * 256)) + ','
-			+ (Math.floor(Math.random() * 256)) + ','
-			+ (Math.floor(Math.random() * 256)) + ')';
+		var hue = get_random_color();
 		Dajaxice.ngramengine.get_popular_ngram_slot(update_popular_ngram_slot,{});
-		//set random Ngram in slot
-		//animate color transitions
-		
 		function update_popular_ngram_slot(data){
 			if (data != undefined){
 				slot.empty();
@@ -21,19 +29,25 @@
 				}, 2000 );
 			}
 		}
+		
 	}, 2000);
 </script>
 
 
 <div class="units-row units-split">
 	<div class="unit-20" id="pop-slot-1">
+		<span><center><a class="color-black clickable" href="{{ popular_ngrams.1.get_absolute_url }}">{{ popular_ngrams.1 }}</a></center></span>
 	</div>
 	<div class="unit-20" id="pop-slot-2">
+		<span><center><a class="color-black clickable" href="{{ popular_ngrams.2.get_absolute_url }}">{{ popular_ngrams.2 }}</a></center></span>
 	</div>
 	<div class="unit-20" id="pop-slot-3">
+		<span><center><a class="color-black clickable" href="{{ popular_ngrams.3.get_absolute_url }}">{{ popular_ngrams.3 }}</a></center></span>
 	</div>
 	<div class="unit-20" id="pop-slot-4">
+		<span><center><a class="color-black clickable" href="{{ popular_ngrams.4.get_absolute_url }}">{{ popular_ngrams.4 }}</a></center></span>
 	</div>
 	<div class="unit-20" id="pop-slot-5">
+		<span><center><a class="color-black clickable" href="{{ popular_ngrams.5.get_absolute_url }}">{{ popular_ngrams.5 }}</a></center></span>
 	</div>
 </div>
