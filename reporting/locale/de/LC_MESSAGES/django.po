@@ -52,7 +52,7 @@ msgstr "Untersuche"
 
 #: templates/reporting/inspect_show.html:80
 msgid "Associations"
-msgstr "Assoziation"
+msgstr "Assoziationen"
 
 #: templates/reporting/inspect_show.html:84
 msgid "Synonyms"

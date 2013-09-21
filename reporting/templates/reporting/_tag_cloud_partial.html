@@ -17,9 +17,15 @@
 
 <span>
 	{% for assoc in visible.all %}
-		<a href="{{ assoc.target.get_absolute_url }}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
-			{{ assoc.target }}
-		</a>
+		{% if reverse %}
+			<a href="{{ assoc.source.get_absolute_url }}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
+				{{ assoc.source }}
+			</a>
+		{% else %}
+			<a href="{{ assoc.target.get_absolute_url }}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
+				{{ assoc.target }}
+			</a>
+		{% endif %}
 	{% endfor %}
 <span>
 
@@ -31,8 +37,14 @@
 
 <span {% if visible %}style="display:none;"{% endif %} id="{{type}}_toogle-target">
 	{% for assoc in invisible.all %}
-		<a href="{{ assoc.target.get_absolute_url }}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
-			{{ assoc.target }}
-		</a>
+		{% if reverse %}
+			<a href="{{ assoc.source.get_absolute_url }}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
+				{{ assoc.source }}
+			</a>
+		{% else %}
+			<a href="{{ assoc.target.get_absolute_url }}" style="font-size:{{assoc.power|power_to_font_size}}em;margin-right:5px;" title="{{ assoc.power|floatformat:2 }}">
+				{{ assoc.target }}
+			</a>
+		{% endif %}
 	{% endfor %}
 </span>
