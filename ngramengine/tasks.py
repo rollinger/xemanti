@@ -149,7 +149,7 @@ def ngram_maintenance():
         #
         # NGram Maintenance
         #
-        obj.rating_index = obj.t_occurred + obj.t_visited - (obj.t_rated * 2)
+        obj.rating_index = obj.t_visited - obj.t_rated * 2
         obj.dirty = False
         obj.save()
         
