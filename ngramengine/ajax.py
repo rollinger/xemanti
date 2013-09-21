@@ -6,7 +6,8 @@ from dajaxice.core import dajaxice_functions
 from dajaxice.decorators import dajaxice_register
 from ngramengine.models import *
 
-@dajaxice_register
+#@dajaxice_register
 def get_popular_ngram_slot(request):
     popular = random.choice(NGrams.get_popular_ngram(1,20))
     return '<span><center><a class="color-black clickable" href="%s">%s</a></center></span>' % (popular.get_absolute_url(), popular)
+dajaxice_functions.register(get_popular_ngram_slot)
