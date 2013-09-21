@@ -6,6 +6,8 @@ from django.utils.translation import ugettext as _
 from itertools import chain
 from django.core.urlresolvers import reverse
 
+from datetime import datetime, timedelta
+
 # Custom Imports
 from tokenizer import Tokenizer
 
@@ -485,7 +487,16 @@ class NGrams(models.Model):
     
     def get_absolute_url(self):
         return reverse('inspect_query', kwargs={'ngram':self.token})
-
+    
+    def get_similar_ngrams(self):
+        pass
+    
+    @classmethod
+    def get_popular_ngram(cls, daterange=1, number=100):
+        #return NGrams.objects.dates('updated', daterange).order_by('t_rated')[:number]
+        yesterday = datetime.now() - timedelta(days=daterange)
+        return NGrams.objects.filter(updated__gt=yesterday).order_by('t_rated')[:number]
+    
     def __unicode__(self):
         return self.token
     
