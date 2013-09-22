@@ -2,4 +2,4 @@
 # is git ignored - the file will not be transfered
 # modifications have to be edited on the server
 
-DEBUG = False
+DEBUG = True
