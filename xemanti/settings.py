@@ -3,8 +3,9 @@
 import os
 import sys
 import manage
+import instance_settings
 
-DEBUG = True
+DEBUG = instance_settings.DEBUG
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
