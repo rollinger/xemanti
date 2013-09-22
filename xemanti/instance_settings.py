@@ -3,3 +3,4 @@
 # modifications have to be edited on the server
 
 DEBUG = True
+# ADDITION
