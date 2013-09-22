@@ -2,6 +2,8 @@
 GOALS:
 a) make a living with xemanti
 
+
+
 == Beta Release ==
 GOALS:
 a) International: English and Spanisch
@@ -66,13 +68,12 @@ O Import Wiktionary Dump 250000 ngrams
 - NGramEngine workflow optimization
 :: new_text is split and each ngram is added to the system and all meaningful coooccurrences are added. 
 :: meaningful cooccurrence: ngram pairs that do not belong to a (semantically) meaningless part of speech (e.g. articles,pronouns,...) and are in the language of the language of the system (Deutsch) are considered a meaningful cooccurrence - thus added to the system. This table get laaaaarge!
-::
-- Rating
--- Synonym
--- Antonym
--- SuperCategory
--- SubCategory
--- Association
+OK Rating
+OK Synonym
+OK Antonym
+OK SuperCategory
+OK SubCategory
+OK Association
 
 - Reporting
 -- Report (Model) [target,linear_target,target_combinations,outbound_assoc_array]
@@ -90,29 +91,28 @@ O Import Wiktionary Dump 250000 ngrams
 - browser tests (Selenium)
 3 Fix all Bugs on bitbucket
 4. Help texts and icons
-- refactoring all strings with i18n tags _() {trans}
-- i18n Translation
-- Text for Impressum
-- Text for FAQ
-- Only German Translation
+OK refactoring all strings with i18n tags _() {trans}
+OK i18n Translation
+OK Text for Impressum
+OK Text for FAQ
+OK Only German Translation
 5. CSS Prettifications
 - Design blocks
 - Prettify User Interface (Size for all screens media queries)
-- Use LESS4 HTML5 & jQuery UI (skip jQuery Mobile)
+OK Use LESS4 HTML5 & jQuery UI (skip jQuery Mobile)
 6. Server, SVN, Alpha Public Release (Deployment)
 OK Strato root server from 39 Euros
 OK- Strato virtual server from 15 Euros
 OK Bitbucket Account with Issue-Tracker and Wiki
-O- Domain Decision (.com)
+OK- Domain Decision (.com)
 - Deployment to Server
 OK Apache db django pip configuration 
 OK test ip
 7. SEO
-- keyword analysis {text texten}
-O- keyword analysis
-- google ranking
-- advertisment google in report section
+OK keyword analysis {text texten}
+OK- keyword analysis
+OK google ranking
 8. Data Insertion
--- Import dictionary german into system
--- Names import
+OK Import dictionary german into system
+OK Names import
 
