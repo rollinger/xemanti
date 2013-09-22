@@ -253,7 +253,8 @@ class LanguagesAdmin(admin.ModelAdmin):
 admin.site.register(Languages, LanguagesAdmin)
 
 class AssociationsAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 't_associated', 'power')
+    list_display = ('__unicode__', 't_associated', 'power','created','updated')
+    list_filter = ['created','updated']
     raw_id_fields = ('source','target',)
 admin.site.register(Associations, AssociationsAdmin)
 
