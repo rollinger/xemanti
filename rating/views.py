@@ -23,7 +23,7 @@ from ngramengine.models import *
 
 
 
-def rate_assoc_view(request, ngram=None):
+def rate_assoc_view(request, ngram=None, repeated=False):
     ngram_token = ngram
     # Form submitted:
     if request.method == 'POST':
@@ -32,8 +32,8 @@ def rate_assoc_view(request, ngram=None):
             return HttpResponseRedirect(reverse('rate_assoc'))
         elif 'rate' in request.POST:
             if form.is_valid():
+                # reload if the input exceeds 100 Chars
                 if len( form.cleaned_data['rating'] ) >= 100:
-                    # reload if the input exceeds 100 Chars
                     return HttpResponseRedirect(reverse('rate_assoc'))
                 # get source and target ngram
                 source = NGrams.inject(token=form.cleaned_data['target'])
@@ -42,15 +42,19 @@ def rate_assoc_view(request, ngram=None):
                 Associations.inject(source, target)
                 # Multiple Associations if multiple_tokens 
                 multiple_tokens = Tokenizer.linear_token_list(form.cleaned_data['rating'])
-                # Success Message
-                messages.add_message(request, messages.SUCCESS, _('Thanks for rating!'), fail_silently=True)
                 if len(multiple_tokens) > 1:
                     for t in multiple_tokens:
                         atomic_target = NGrams.inject(token=t)
                         Associations.inject(source, atomic_target)
+                # Success Message
+                messages.add_message(request, messages.SUCCESS, _('Thanks for rating!'), fail_silently=True)
+                # Redirect
                 if request.user.is_authenticated():
                     request.user.profile.income(1.11)
-                    return HttpResponseRedirect(reverse('rate_assoc'))
+                    if repeated:
+                        return HttpResponseRedirect(reverse('rate_assoc', args=(ngram_token, True)))
+                    else:
+                        return HttpResponseRedirect(reverse('rate_assoc'))
                 else:
                     # Increment anonymous_rating session
                     if request.session.has_key('anonymous_rating'):

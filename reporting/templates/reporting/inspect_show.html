@@ -148,7 +148,7 @@
 			<a href="{% url 'sort_ngram' ngram.token %}"> 
 				<button class="btn width-100">{% trans 'Sort ' %}</button>
 			</a><br>
-			<a href="{% url 'rate_assoc' ngram.token %}"> 
+			<a href="{% url 'rate_assoc' ngram.token True %}"> 
 				<button class="btn width-100">{% trans 'Associate ' %}</button>
 			</a><br>
 			<a href="{% url 'eval_sem_diff' ngram.token %}"> 
