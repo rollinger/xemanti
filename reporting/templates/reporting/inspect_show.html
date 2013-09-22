@@ -81,57 +81,57 @@
 		
 			<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
 			<div class="units-row-end" >
-				<div class="unit-40">{% render_tag_cloud ngram 'association_inbound' True %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'association_inbound' True %}</div>
 				<div class="unit-20">
 					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
 				</div>
-				<div class="unit-40">{% render_tag_cloud ngram 'association_outbound' %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'association_outbound' %}</div>
 			</div>
 			
 			<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
 			<div class="units-row-end" >
-				<div class="unit-40">{% render_tag_cloud ngram 'synonym_of' True %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonym_of' True %}</div>
 				<div class="unit-20">
 					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
 				</div>
-				<div class="unit-40">{% render_tag_cloud ngram 'synonyms' %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonyms' %}</div>
 			</div>
 			
 			<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
 			<div class="units-row-end" >
-				<div class="unit-40">{% render_tag_cloud ngram 'antonym_of' True %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonym_of' True %}</div>
 				<div class="unit-20">
 					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
 				</div>
-				<div class="unit-40">{% render_tag_cloud ngram 'antonyms' %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonyms' %}</div>
 			</div>
 			
 			<h3 class="btn">{% trans "Super Categories"%} ({{ngram.supercategories.count}})</h3>
 			<div class="units-row-end" >
-				<div class="unit-40">{% render_tag_cloud ngram 'supercategory_of' True %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategory_of' True %}</div>
 				<div class="unit-20">
 					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
 				</div>
-				<div class="unit-40">{% render_tag_cloud ngram 'supercategories' %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategories' %}</div>
 			</div>
 			
 			<h3 class="btn">{% trans "Sub Categories"%} ({{ngram.subcategories.count}})</h3>
 			<div class="units-row-end" >
-				<div class="unit-40">{% render_tag_cloud ngram 'subcategory_of' True %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategory_of' True %}</div>
 				<div class="unit-20">
 					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
 				</div>
-				<div class="unit-40">{% render_tag_cloud ngram 'subcategories' %}</div>
+				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategories' %}</div>
 			</div>
 			
 			{% if user.is_superuser %}
 				<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
 				<div class="units-row-end" >
-					<div class="unit-40">{% render_tag_cloud ngram 'coocurrence_inbound' True %}</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'coocurrence_inbound' True %}</div>
 					<div class="unit-20">
 						{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
 					</div>
-					<div class="unit-40">{% render_tag_cloud ngram 'coocurrence_outbound' %}</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'coocurrence_outbound' %}</div>
 				</div>
 			{% endif %}
 		</div>
