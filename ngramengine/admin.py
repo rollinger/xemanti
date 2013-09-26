@@ -83,7 +83,8 @@ class NGramsAdmin(admin.ModelAdmin):
     
     fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
     readonly_fields = ('created','updated')
-    actions = ['merge','set_meaningless','set_qualified','set_changed', 'make_qualified_german_substantive','make_qualified_german_verb',\
+    actions = ['merge','set_meaningless','set_qualified','set_changed', 'make_german_male_substantive', 'make_german_female_substantive',\
+               'make_german_female_plural_substantive', 'make_german_neutrum_substantive', 'make_qualified_german_verb',\
                'make_qualified_german_adjektiv','make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
                'unset_verb','set_verb','set_buchstabe','unset_buchstabe','set_zahl']
     
@@ -101,19 +102,31 @@ class NGramsAdmin(admin.ModelAdmin):
         queryset.update(dirty=True)
     set_changed.short_description = "Mark selected ngrams as changed"
     
-    def make_qualified_german_substantive(self, request, queryset):
+    def make_german_substantive(self, request, queryset, genus, numerus):
         lang = Languages.objects.get(language="Deutsch")
         pos = PartOfSpeech.objects.get(type="Substantiv")
+        genus = Genus.objects.get(type=genus)
+        numerus = Numerus.objects.get(type=numerus)
         for ngram in queryset.all():
-            #try:
             ngram.token = unicode( ngram.token.title() )
             ngram.language.add(lang)
             ngram.partofspeech.add(pos)
+            ngram.genus = genus
+            ngram.numerus = numerus
             ngram.qualified = True
             ngram.save()
-            #except IntegrityError, e: # Delete if double (uppercasing)
-                #ngram.delete()
-    make_qualified_german_substantive.short_description = "Sets the ngram to german, substantive and qualified"
+    def make_german_male_substantive(self, request, queryset):
+        self.make_german_substantive(request, queryset, 'Maskulinum','Singular')
+    make_german_male_substantive.short_description = "Sets the ngram to german, male singular substantive "
+    def make_german_female_substantive(self, request, queryset):
+        self.make_german_substantive(request, queryset, 'Femeninum','Singular')
+    make_german_female_substantive.short_description = "Sets the ngram to german, female singular substantive"
+    def make_german_female_plural_substantive(self, request, queryset):
+        self.make_german_substantive(request, queryset, 'Femeninum','Plural')
+    make_german_female_plural_substantive.short_description = "Sets the ngram to german, female plural substantive"
+    def make_german_neutrum_substantive(self, request, queryset):
+        self.make_german_substantive(request, queryset, 'Neutrum','Singular')
+    make_german_neutrum_substantive.short_description = "Sets the ngram to german, neutrum singular substantive"
     
     def make_qualified_german_verb(self, request, queryset):
         lang = Languages.objects.get(language="Deutsch")
