@@ -79,7 +79,7 @@
 		
 		<div id="accordion" class="units-container">
 		
-			<h3 class="btn">{% trans "Associations"%} ({{ngram.association_outbound.count}})</h3>
+			<h3 class="btn">{% trans "Associations"%}</h3>
 			<div class="units-row-end" >
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'association_inbound' True %}</div>
 				<div class="unit-20">
@@ -88,7 +88,7 @@
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'association_outbound' %}</div>
 			</div>
 			
-			<h3 class="btn">{% trans "Synonyms"%} ({{ngram.synonyms.count}})</h3>
+			<h3 class="btn">{% trans "Synonyms"%}</h3>
 			<div class="units-row-end" >
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonym_of' True %}</div>
 				<div class="unit-20">
@@ -97,7 +97,7 @@
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonyms' %}</div>
 			</div>
 			
-			<h3 class="btn">{% trans "Antonyms"%} ({{ngram.antonyms.count}})</h3>
+			<h3 class="btn">{% trans "Antonyms"%}</h3>
 			<div class="units-row-end" >
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonym_of' True %}</div>
 				<div class="unit-20">
@@ -106,7 +106,7 @@
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonyms' %}</div>
 			</div>
 			
-			<h3 class="btn">{% trans "Super Categories"%} ({{ngram.supercategories.count}})</h3>
+			<h3 class="btn">{% trans "Super Categories"%}</h3>
 			<div class="units-row-end" >
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategory_of' True %}</div>
 				<div class="unit-20">
@@ -115,7 +115,7 @@
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategories' %}</div>
 			</div>
 			
-			<h3 class="btn">{% trans "Sub Categories"%} ({{ngram.subcategories.count}})</h3>
+			<h3 class="btn">{% trans "Sub Categories"%}</h3>
 			<div class="units-row-end" >
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategory_of' True %}</div>
 				<div class="unit-20">
@@ -203,6 +203,8 @@
 		</div>
 	</div>
 	
+	{% comment %}
+	{# Switched off - this can be later be visible, but somewhat hidden #}
 	<div class="units-row">
 		<div class="unit-50">{% trans "Frequency: "%}</div>
 		<div class="unit-50 label label-blue"><center>{{ngram.occurrence_frequency_tag}}</center></div>
@@ -231,7 +233,7 @@
 			<div class="unit-50 label label-blue"><center>{{lang}}</center></div>
 		{% endfor %}
 	</div>
-	
+	{% endcomment %}
 </div>
 {% endif %}
 
