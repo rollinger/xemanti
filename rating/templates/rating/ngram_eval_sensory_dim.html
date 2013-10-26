@@ -1,0 +1,88 @@
+{% extends "xemanti/base.html" %}
+{% load i18n %}
+{% load reporting_tags %}
+
+{% block metadata %}
+	<title>Xemanti - Erstes Gefühl, bestes Gefühl</title>
+	<meta content="Xemanti - Sprachtools für deine Texte. Welche Sinne sind bei {{ ngram }} bei dir wichtig?" name="description"></meta>
+	<meta content="sprachtools,sprachtool,assoziation,text,texten,rhetorik,kommunikation,bedeutung,synonym,antonym,wörterbuch" name="keywords"></meta>
+{% endblock metadata %}
+
+{% block custom-js %}
+<script type="text/javascript">
+</script>
+{% endblock custom-js %}
+
+
+{% block main-content %}
+	
+	<div class="units-row-end">
+		<div id="" class="unit-50">
+			<div id="" class="units-row"><br>
+			</div>
+			<div id="" class="units-row">
+				<center><h2>{{ ngram }}</h2></center>
+			</div>
+			<div id="" class="units-row"><br>
+			</div>
+			<div id="" class="units-row"><br>
+			</div>
+		</div>
+		
+		<div id="" class="unit-50">
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_visual">
+					<button class="btn unit-40" value="-1.0">{% trans 'no seeing' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'seeing' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_auditory">
+					<button class="btn unit-40" value="-1.0">{% trans 'no hearing' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'hearing' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_cognition">
+					<button class="btn unit-40" value="-1.0">{% trans 'no thinking' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'thinking' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_kinesthetic">
+					<button class="btn unit-40" value="-1.0">{% trans 'no touching' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'touching' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_olfactory">
+					<button class="btn unit-40" value="-1.0">{% trans 'no smelling' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'smelling' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<span class="unit-100 btn-group" data-toggle="buttons" data-target="#id_gustatory">
+					<button class="btn unit-40" value="-1.0">{% trans 'no tasting' %}</button>
+					<button class="btn unit-20" value="0.0">{% trans 'neutral' %}</button>
+					<button class="btn unit-40" value="1.0">{% trans 'tasting' %}</button>
+				</span>
+			</div>
+			<div id="" class="units-row">
+				<div class="unit-centered unit-60">
+					<form action="." method="post">
+						{% csrf_token %}
+						{{ form.as_p }}
+						<input type="submit" value="{% trans "Rate" %}" class="btn width-100"/>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+{% endblock main-content %}

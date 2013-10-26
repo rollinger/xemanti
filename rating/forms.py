@@ -4,7 +4,7 @@ PR-130627: Rating Forms
 from django import forms
 from django.forms import ModelChoiceField
 from django.utils.translation import ugettext as _
-from ngramengine.models import NGrams, SemanticDifferential
+from ngramengine.models import NGrams, SemanticDifferential, SensoryDimensions
 
 class RateAssociationForm(forms.Form):
     rating = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _("State your immediate association..."),'autofocus':'autofocus','class':'unit-100'}), min_length=2, max_length=255)
@@ -25,4 +25,19 @@ class SemanticDifferentialForm(forms.ModelForm):
             'evaluation': forms.HiddenInput(),
             'potency': forms.HiddenInput(),
             'activity': forms.HiddenInput()
+            }
+
+
+
+class SensoryDimensionForm(forms.ModelForm):
+    class Meta:
+         model = SensoryDimensions
+         fields = ('visual', 'auditory', 'cognition','kinesthetic', 'olfactory', 'gustatory')
+         widgets = {
+            'visual': forms.HiddenInput(),
+            'auditory': forms.HiddenInput(),
+            'cognition': forms.HiddenInput(),
+            'kinesthetic': forms.HiddenInput(),
+            'olfactory': forms.HiddenInput(),
+            'gustatory': forms.HiddenInput()
             }

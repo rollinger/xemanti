@@ -145,14 +145,17 @@
 	<div class="units-row">
 		<div class="unit-100">
 			<h4>{% trans 'Contibute your Knowledge:' %}</h4>
-			<a href="{% url 'sort_ngram' ngram.token %}"> 
-				<button class="btn width-100">{% trans 'Sort ' %}</button>
+			<a href="{% url 'rate_assoc' ngram.token True %}" title='{% blocktrans %} Click here to add more associations to {{ ngram }} {% endblocktrans %}'> 
+				<button class="btn width-100">{% trans 'Add Associations' %}</button>
 			</a><br>
-			<a href="{% url 'rate_assoc' ngram.token True %}"> 
-				<button class="btn width-100">{% trans 'Associate ' %}</button>
+			<a href="{% url 'sort_ngram' ngram.token %}" title='{% blocktrans %} Click here to sort existing associations of {{ ngram }} {% endblocktrans %}'> 
+				<button class="btn width-100">{% trans 'Sort Associations' %}</button>
 			</a><br>
-			<a href="{% url 'eval_sem_diff' ngram.token %}"> 
-				<button class="btn width-100">{% trans 'Evaluate' %}</button>
+			<a href="{% url 'eval_sem_diff' ngram.token %}" title='{% blocktrans %} Click here to evaluate your attitude for {{ ngram }} {% endblocktrans %}'> 
+				<button class="btn width-100">{% trans 'Evaluate for Attitude' %}</button>
+			</a><br>
+			<a href="{% url 'eval_sensory_dim' ngram.token %}" title='{% blocktrans %} Click here to evaluate which senses are involved for {{ ngram }} {% endblocktrans %}'> 
+				<button class="btn width-100">{% trans 'Evaluate for Senses' %}</button>
 			</a>
 			<h4 class="text-right">{% trans '... earn Xetis!' %}</h4>
 		</div>
@@ -160,22 +163,43 @@
 	
 	<div class="units-row">
 		{% if ngram.semanticdifferential %}
-		<h4>{% trans 'Evaluation:' %}</h4>
-		{% load chart_tags %}
-		{% chart %}
-		//chart.googleapis.com/chart
-			&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active
-			&chxp=1,2,1,0|2,2,1,0
-			&chxr=0,-1,1|1,0,2|2,0,2
-			&chxt=x,y,r
-			&chbh=a
-			&chs=380x220
-			&cht=bhs
-			&chco=4D89F9
-			&chds=-1,1
-			&chd=t:{{ngram.semanticdifferential.evaluation|stringformat:"f"}},{{ngram.semanticdifferential.potency|stringformat:"f"}},{{ngram.semanticdifferential.activity|stringformat:"f"}}
-			&chtt=Evaluation
-		{% endchart %}
+			<h4>{% trans 'Attitude Dimensions:' %}</h4>
+			{% load chart_tags %}
+			{% chart %}
+			//chart.googleapis.com/chart
+				{% trans '&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active' %}
+				&chxp=1,2,1,0|2,2,1,0
+				&chxr=0,-1,1|1,0,2|2,0,2
+				&chxt=x,y,r
+				&chbh=a
+				&chs=380x220
+				&cht=bhs
+				&chco=4D89F9
+				&chds=-1,1
+				&chd=t:{{ngram.semanticdifferential.evaluation|stringformat:"f"}},{{ngram.semanticdifferential.potency|stringformat:"f"}},{{ngram.semanticdifferential.activity|stringformat:"f"}}
+				&chtt=Evaluation
+			{% endchart %}
+		{% endif %}
+	</div>
+	
+	<div class="units-row">
+		{% if ngram.sensorydimensions %}
+			<h4>{% trans 'Sensory Dimensions:' %}</h4>
+			{% load chart_tags %}
+			{% chart %}
+			//chart.googleapis.com/chart
+				{% trans '&chxl=1:|no_seeing|no_hearing|no_thinking|no_touching|no_smelling|no_tasting|2:|seeing|hearing|thinking|touching|smelling|tasting' %}
+				&chxp=1,5,4,3,2,1,0|2,5,4,3,2,1,0
+				&chxr=0,-1,1|1,0,5|2,0,5
+				&chxt=x,y,r
+				&chbh=a
+				&chs=380x440
+				&cht=bhs
+				&chco=4D89F9
+				&chds=-1,1
+				&chd=t:{{ngram.sensorydimensions.visual|stringformat:"f"}},{{ngram.sensorydimensions.auditory|stringformat:"f"}},{{ngram.sensorydimensions.cognition|stringformat:"f"}},{{ngram.sensorydimensions.kinesthetic|stringformat:"f"}},{{ngram.sensorydimensions.olfactory|stringformat:"f"}},{{ngram.sensorydimensions.gustatory|stringformat:"f"}}
+				&chtt=Evaluation
+			{% endchart %}
 		{% endif %}
 	</div>
 	

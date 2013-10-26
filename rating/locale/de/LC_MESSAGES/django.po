@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 18:25+0200\n"
+"POT-Creation-Date: 2013-10-26 16:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,11 +22,11 @@ msgstr ""
 msgid "State your immediate association..."
 msgstr "Dein erster Gedanke..."
 
-#: views.py:46
+#: views.py:50
 msgid "Thanks for rating!"
 msgstr "Danke für deine Einschätzung!"
 
-#: views.py:77
+#: views.py:81
 msgid "Rate one Word and you will get redirected!"
 msgstr "Assoziiere ein Wort und du wirst sofort weitergeleitet!"
 
@@ -37,6 +37,12 @@ msgstr "schlecht"
 #: templates/rating/ngram_eval_sem_diff.html:36
 #: templates/rating/ngram_eval_sem_diff.html:43
 #: templates/rating/ngram_eval_sem_diff.html:50
+#: templates/rating/ngram_eval_sensory_dim.html:36
+#: templates/rating/ngram_eval_sensory_dim.html:43
+#: templates/rating/ngram_eval_sensory_dim.html:50
+#: templates/rating/ngram_eval_sensory_dim.html:57
+#: templates/rating/ngram_eval_sensory_dim.html:64
+#: templates/rating/ngram_eval_sensory_dim.html:71
 msgid "neutral"
 msgstr "neutral"
 
@@ -61,8 +67,57 @@ msgid "active"
 msgstr "aktiv"
 
 #: templates/rating/ngram_eval_sem_diff.html:59
+#: templates/rating/ngram_eval_sensory_dim.html:80
 msgid "Rate"
 msgstr "Einschätzen"
+
+#: templates/rating/ngram_eval_sensory_dim.html:35
+msgid "no seeing"
+msgstr "nicht sehen"
+
+#: templates/rating/ngram_eval_sensory_dim.html:37
+msgid "seeing"
+msgstr "sehen"
+
+#: templates/rating/ngram_eval_sensory_dim.html:42
+msgid "no hearing"
+msgstr "nicht hören"
+
+#: templates/rating/ngram_eval_sensory_dim.html:44
+msgid "hearing"
+msgstr "hören"
+
+#: templates/rating/ngram_eval_sensory_dim.html:49
+msgid "no thinking"
+msgstr "nicht denken"
+
+#: templates/rating/ngram_eval_sensory_dim.html:51
+msgid "thinking"
+msgstr "denken"
+
+#: templates/rating/ngram_eval_sensory_dim.html:56
+msgid "no touching"
+msgstr "nicht tasten"
+
+#: templates/rating/ngram_eval_sensory_dim.html:58
+msgid "touching"
+msgstr "tasten"
+
+#: templates/rating/ngram_eval_sensory_dim.html:63
+msgid "no smelling"
+msgstr "nicht riechen"
+
+#: templates/rating/ngram_eval_sensory_dim.html:65
+msgid "smelling"
+msgstr "riechen"
+
+#: templates/rating/ngram_eval_sensory_dim.html:70
+msgid "no tasting"
+msgstr "nicht schmecken"
+
+#: templates/rating/ngram_eval_sensory_dim.html:72
+msgid "tasting"
+msgstr "schmecken"
 
 #: templates/rating/ngram_rating.html:38
 msgid "Inspect"
