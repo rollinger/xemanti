@@ -311,6 +311,95 @@ class SubCategory(models.Model):
 
 
 
+class Examples(models.Model):
+    """
+    Example for an ngram
+    """
+    source  = models.ForeignKey('NGrams', related_name="examples")
+    target  = models.ForeignKey('NGrams', related_name="example_of")
+    # How many times the Example was rated
+    t_rated = models.PositiveIntegerField(default=0)
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
+    
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        super, created = SuperCategory.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            super.t_rated = super.t_rated + times
+        super.source.set_dirty()
+        super.save()
+        return super
+    
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = self.source.example.all().aggregate(Sum('t_rated'))['t_rated__sum']
+        if sum:
+            try:
+                self.power = self.t_rated/float(sum)
+                self.save()
+                return self.power
+            except:
+                return 0.0
+    
+    def __unicode__(self):
+        return self.target#"%s <super> &s"%(self.source,self.target)
+    
+    class Meta:
+        verbose_name = 'Example'
+        verbose_name_plural = 'Examples'
+
+
+
+class Attributes(models.Model):
+    """
+    Attribute for an ngram
+    """
+    source  = models.ForeignKey('NGrams', related_name="attributes")
+    target  = models.ForeignKey('NGrams', related_name="attribute_of")
+    # How many times the Attribute was rated
+    t_rated = models.PositiveIntegerField(default=0)
+    # Discriminatory Power
+    power = models.FloatField(default=0.0)
+    
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
+    @classmethod
+    def inject(cls,source_ngram,target_ngram,times=1):
+        super, created = SuperCategory.objects.get_or_create(source=source_ngram,target=target_ngram)
+        if times > 0:
+            super.t_rated = super.t_rated + times
+        super.source.set_dirty()
+        super.save()
+        return super
+    
+    def compute_discriminatory_power(self):
+        # Returns the mean position of the target ngram from the source ngram
+        sum  = self.source.attribute.all().aggregate(Sum('t_rated'))['t_rated__sum']
+        if sum:
+            try:
+                self.power = self.t_rated/float(sum)
+                self.save()
+                return self.power
+            except:
+                return 0.0
+    
+    def __unicode__(self):
+        return self.target#"%s <super> &s"%(self.source,self.target)
+    
+    class Meta:
+        verbose_name = 'Attribute'
+        verbose_name_plural = 'Attributes'
+
+
+
+
 class SemanticDifferential(models.Model):
     """
     Semantic Differential of an ngram
@@ -519,6 +608,30 @@ class NGrams(models.Model):
     
     def has_outbound_associations(self):
         if self.association_outbound.count() == 0:
+            return False
+        return True
+    def has_synonyms(self):
+        if self.synonyms.count() == 0:
+            return False
+        return True
+    def has_antonyms(self):
+        if self.antonyms.count() == 0:
+            return False
+        return True
+    def has_supercategories(self):
+        if self.supercategories.count() == 0:
+            return False
+        return True
+    def has_subcategories(self):
+        if self.subcategories.count() == 0:
+            return False
+        return True
+    def has_examples(self):
+        if self.examples.count() == 0:
+            return False
+        return True
+    def has_attributes(self):
+        if self.attributes.count() == 0:
             return False
         return True
     

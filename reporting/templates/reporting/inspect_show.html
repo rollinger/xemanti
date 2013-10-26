@@ -88,41 +88,71 @@
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'association_outbound' %}</div>
 			</div>
 			
-			<h3 class="btn">{% trans "Synonyms"%}</h3>
-			<div class="units-row-end" >
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonym_of' True %}</div>
-				<div class="unit-20">
-					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+			{% if ngram.has_synonyms %}
+				<h3 class="btn">{% trans "Synonyms"%}</h3>
+				<div class="units-row-end" >
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonym_of' True %}</div>
+					<div class="unit-20">
+						{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+					</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonyms' %}</div>
 				</div>
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonyms' %}</div>
-			</div>
+			{% endif %}
 			
-			<h3 class="btn">{% trans "Antonyms"%}</h3>
-			<div class="units-row-end" >
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonym_of' True %}</div>
-				<div class="unit-20">
-					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+			{% if ngram.has_antonyms %}
+				<h3 class="btn">{% trans "Antonyms"%}</h3>
+				<div class="units-row-end" >
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonym_of' True %}</div>
+					<div class="unit-20">
+						{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+					</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonyms' %}</div>
 				</div>
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonyms' %}</div>
-			</div>
+			{% endif %}
 			
-			<h3 class="btn">{% trans "Super Categories"%}</h3>
-			<div class="units-row-end" >
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategory_of' True %}</div>
-				<div class="unit-20">
-					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+			{% if ngram.has_supercategories %}
+				<h3 class="btn">{% trans "Super Categories"%}</h3>
+				<div class="units-row-end" >
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategory_of' True %}</div>
+					<div class="unit-20">
+						{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+					</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategories' %}</div>
 				</div>
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategories' %}</div>
-			</div>
+			{% endif %}
 			
-			<h3 class="btn">{% trans "Sub Categories"%}</h3>
-			<div class="units-row-end" >
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategory_of' True %}</div>
-				<div class="unit-20">
-					{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+			{% if ngram.has_subcategories %}
+				<h3 class="btn">{% trans "Sub Categories"%}</h3>
+				<div class="units-row-end" >
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategory_of' True %}</div>
+					<div class="unit-20">
+						{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+					</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategories' %}</div>
 				</div>
-				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategories' %}</div>
-			</div>
+			{% endif %}
+			
+			{% if ngram.has_examples %}
+				<h3 class="btn">{% trans "Examples"%}</h3>
+				<div class="units-row-end" >
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'example_of' True %}</div>
+					<div class="unit-20">
+						{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+					</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'examples' %}</div>
+				</div>
+			{% endif %}
+			
+			{% if ngram.has_attributes %}
+				<h3 class="btn">{% trans "Sub Categories"%}</h3>
+				<div class="units-row-end" >
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'attribute_of' True %}</div>
+					<div class="unit-20">
+						{% include "reporting/_directional_ngram_image_partial.html" with ngram=ngram %}
+					</div>
+					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'attributes' %}</div>
+				</div>
+			{% endif %}
 			
 			{% if ngram.semanticdifferential %}
 				<h3 class="btn">{% trans 'Attitude Dimensions' %}</h3>

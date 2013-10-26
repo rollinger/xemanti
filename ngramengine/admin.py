@@ -38,6 +38,16 @@ class SubCategoryInline(admin.TabularInline):
     fk_name = 'source'
     raw_id_fields = ('source','target',)
     extra = 0
+class ExamplesInline(admin.TabularInline):
+    model = Examples
+    fk_name = 'source'
+    raw_id_fields = ('source','target',)
+    extra = 0
+class AttributesInline(admin.TabularInline):
+    model = Attributes
+    fk_name = 'source'
+    raw_id_fields = ('source','target',)
+    extra = 0
 class AssociationInline(admin.TabularInline):
     model = Associations
     fk_name = 'source'
@@ -89,7 +99,9 @@ class NGramsAdmin(admin.ModelAdmin):
                SynonymsInline,
                AntonymsInline,
                SuperCategoryInline,
-               SubCategoryInline]
+               SubCategoryInline,
+               ExamplesInline,
+               AttributesInline]
     
     fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
     readonly_fields = ('created','updated')
