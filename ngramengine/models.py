@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from django.db import models
 from django.db.models import Sum
 from django.utils.translation import ugettext as _
@@ -13,10 +12,10 @@ from tokenizer import Tokenizer
 
 
 
-"""
-Word Stems a stem for ngrams with the same stem
-"""
 class WordStems(models.Model):
+    """
+    Word Stems a stem for ngrams with the same stem
+    """
     # The Stem of a set of Ngrams
     stem        = models.CharField(max_length=255,unique=True)
     # Model Timestamp
@@ -30,11 +29,13 @@ class WordStems(models.Model):
         verbose_name = 'Word Stem'
         verbose_name_plural = 'Word Stems'
         ordering = ['stem',]
-        
-"""
-Genus of an ngram
-"""
+
+
+
 class Genus(models.Model):
+    """
+    Genus of an ngram
+    """
     # The Genus of Ngrams
     type        = models.CharField(max_length=255,unique=True)
     # Model Timestamp
@@ -48,10 +49,13 @@ class Genus(models.Model):
         verbose_name = 'Genus'
         verbose_name_plural = 'Genus'
         ordering = ['type',]
-"""
-Numerus of an ngram
-"""
+
+
+
 class Numerus(models.Model):
+    """
+    Numerus of an ngram
+    """
     # The Stem of a set of Ngrams
     type        = models.CharField(max_length=255,unique=True)
     # Model Timestamp
@@ -65,10 +69,13 @@ class Numerus(models.Model):
         verbose_name = 'Numerus'
         verbose_name_plural = 'Numerus'
         ordering = ['type',]
-"""
-Part Of Speech typify the ngram for their part of speech
-"""
+
+
+
 class PartOfSpeech(models.Model):
+    """
+    Part Of Speech typify the ngram for their part of speech
+    """
     # The Part of Speech of a set of Ngrams
     type                    = models.CharField(max_length=255,unique=True)
     # Part of Speech related to NGrams
@@ -95,10 +102,13 @@ class PartOfSpeech(models.Model):
         verbose_name = 'Part Of Speech'
         verbose_name_plural = 'Part Of Speeches'
         ordering = ['type',]
-"""
-Languages of a ngram
-"""
+
+
+
 class Languages(models.Model):
+    """
+    Languages of a ngram
+    """
     # The Stem of a set of Ngrams
     language        = models.CharField(max_length=255,unique=True)
     # Language of NGram 
@@ -122,10 +132,13 @@ class Languages(models.Model):
         verbose_name = 'Language'
         verbose_name_plural = 'Languages'
         ordering = ['language',]
-"""
-Synonyms of an ngram
-"""
+
+
+
 class Synonyms(models.Model):
+    """
+    Synonyms of an ngram
+    """
     source  = models.ForeignKey('NGrams', related_name="synonyms")
     target  = models.ForeignKey('NGrams', related_name="synonym_of")
     # How many times the synonym was rated
@@ -163,10 +176,13 @@ class Synonyms(models.Model):
     class Meta:
         verbose_name = 'Synonym'
         verbose_name_plural = 'Synonyms'
-"""
-Antonyms of an ngram
-"""
+
+
+
 class Antonyms(models.Model):
+    """
+    Antonyms of an ngram
+    """
     source  = models.ForeignKey('NGrams', related_name="antonyms")
     target  = models.ForeignKey('NGrams', related_name="antonym_of")
     # How many times the Antonym was rated
@@ -204,10 +220,13 @@ class Antonyms(models.Model):
     class Meta:
         verbose_name = 'Antonym'
         verbose_name_plural = 'Antonyms'
-"""
-SuperCategory of an ngram
-"""
+
+
+
 class SuperCategory(models.Model):
+    """
+    SuperCategory of an ngram
+    """
     source  = models.ForeignKey('NGrams', related_name="supercategories")
     target  = models.ForeignKey('NGrams', related_name="supercategory_of")
     # How many times the Super Category was rated
@@ -245,10 +264,13 @@ class SuperCategory(models.Model):
     class Meta:
         verbose_name = 'Super Category'
         verbose_name_plural = 'Super Categories'
-"""
-SubCategory of an ngram
-"""
+
+
+
 class SubCategory(models.Model):
+    """
+    SubCategory of an ngram
+    """
     source  = models.ForeignKey('NGrams', related_name="subcategories")
     target  = models.ForeignKey('NGrams', related_name="subcategory_of")
     # How many times the Sub Category was rated
@@ -289,10 +311,10 @@ class SubCategory(models.Model):
 
 
 
-"""
-Semantic Differential of an ngram
-"""
 class SemanticDifferential(models.Model):
+    """
+    Semantic Differential of an ngram
+    """
     # Semantic Differential of this Ngram
     ngram       = models.OneToOneField('NGrams', blank=True, null=True,)
     # Three main dimensions of the semantic differential
@@ -328,10 +350,61 @@ class SemanticDifferential(models.Model):
 
 
 
-"""
-NGram holds the ngrams
-"""
+class SensualDimensions(models.Model):
+    """
+    Sensual Dimensions of an ngram
+    """
+    # Semantic Differential of this Ngram
+    ngram       = models.OneToOneField('NGrams', blank=True, null=True,)
+    # Sensual Dimensions of the ngram
+    visual      = models.FloatField(_('Visual Dimension'), default=0.0)
+    auditory    = models.FloatField(_('Auditory Dimension'), default=0.0)
+    cognition   = models.FloatField(_('Thinking Dimension'), default=0.0)
+    kinesthetic = models.FloatField(_('Feeling Dimension'), default=0.0)
+    olfactory   = models.FloatField(_('Smell Dimension'), default=0.0)
+    gustatory   = models.FloatField(_('Taste Dimension'), default=0.0) 
+    # Counter how many times the Semantic Differential was rated
+    t_rated     = models.PositiveIntegerField(_('Times Rated'),default=0)
+    v_sum       = models.IntegerField(_('Visual Dimension Sum'), default=0)
+    a_sum       = models.IntegerField(_('Auditory Dimension Sum'), default=0)
+    c_sum       = models.IntegerField(_('Thinking Dimension Sum'), default=0)
+    k_sum       = models.IntegerField(_('Kinesthetic Dimension Sum'), default=0)
+    o_sum       = models.IntegerField(_('Olfactory Dimension Sum'), default=0)
+    g_sum       = models.IntegerField(_('Gustatory Dimension Sum'), default=0)
+
+    # Model Timestamp
+    created     = models.DateTimeField(auto_now_add=True)
+    updated     = models.DateTimeField(auto_now=True)
+    
+    def record(self, visual, auditory, cognition, kinesthetic, olfactory, gustatory):
+        self.v_sum += int(visual)
+        self.a_sum += int(auditory)
+        self.c_sum += int(cognition)
+        self.k_sum += int(kinesthetic)
+        self.o_sum += int(olfactory)
+        self.g_sum += int(gustatory)
+        self.t_rated += 1
+        self.visual = float(self.v_sum) / self.t_rated
+        self.auditory = float(self.a_sum) / self.t_rated
+        self.cognition = float(self.c_sum) / self.t_rated
+        self.kinesthetic = float(self.k_sum) / self.t_rated
+        self.olfactory = float(self.o_sum) / self.t_rated
+        self.gustatory = float(self.g_sum) / self.t_rated
+        self.save()
+    
+    def __unicode__(self):
+        return u"%s"%(self.ngram)
+    
+    class Meta:
+        verbose_name = 'Sensual Dimension'
+        verbose_name_plural = 'Sensual Dimensions'
+
+
+
 class NGrams(models.Model):
+    """
+    NGram holds the ngrams
+    """
     # Unique key for a token
     token                   = models.CharField(_('NGram'),max_length=255,unique=True)
     # Counter how many times the token was injected into the system
@@ -507,10 +580,10 @@ class NGrams(models.Model):
 
 
 
-"""
-Co-Occurrence Class: NGrams that occure together
-"""
 class CoOccurrences(models.Model):
+    """
+    Co-Occurrence Class: NGrams that occure together
+    """
     source  = models.ForeignKey(NGrams, related_name="coocurrence_outbound")
     target  = models.ForeignKey(NGrams, related_name="coocurrence_inbound")
     # How many times co-occurred
@@ -581,14 +654,13 @@ class CoOccurrences(models.Model):
     class Meta:
         verbose_name = 'Co-Occurrence'
         verbose_name_plural = 'Co-Occurrences'
-        
-    
-    
-    
-"""
-Association Class: NGrams that were associated by users
-"""
+
+
+
 class Associations(models.Model):
+    """
+    Association Class: NGrams that were associated by users
+    """
     source  = models.ForeignKey(NGrams, related_name="association_outbound")
     target  = models.ForeignKey(NGrams, related_name="association_inbound")
     # How many times associated
@@ -636,13 +708,13 @@ class Associations(models.Model):
     class Meta:
         verbose_name = 'Association'
         verbose_name_plural = 'Associations'
-    
-    
-    
-"""
-Not Related Class: An Ngram is not related to another Ngram
-"""
+
+
+
 class NotRelated(models.Model):
+    """
+    Not Related Class: An Ngram is not related to another Ngram
+    """
     source  = models.ForeignKey('NGrams', related_name="not_related_to")
     target  = models.ForeignKey('NGrams', related_name="not_related_from")
     # How many times the Non-Relationship was rated

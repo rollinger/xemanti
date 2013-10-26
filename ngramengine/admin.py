@@ -49,8 +49,10 @@ class NotRelatedInline(admin.TabularInline):
     raw_id_fields = ('source','target',)
     extra = 0
 class SemanticDifferentialInline(admin.TabularInline):
-    model = SemanticDifferential#.ngrams.through
-    #raw_id_fields = ('ngrams',)
+    model = SemanticDifferential
+    extra = 0
+class SensualDimensionsInline(admin.TabularInline):
+    model = SensualDimensions
     extra = 0
 class IntervalListFilter(admin.SimpleListFilter):
     title = _('Interval Occurrence Filter')
@@ -78,8 +80,16 @@ class NGramsAdmin(admin.ModelAdmin):
     list_filter = ['dirty', "qualified", 'updated', IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
-    inlines = [SemanticDifferentialInline,PartofSpeechesInline,LanguagesInline,AssociationInline,NotRelatedInline,SynonymsInline,AntonymsInline,\
-               SuperCategoryInline,SubCategoryInline]
+    inlines = [SemanticDifferentialInline,
+               SensualDimensionsInline,
+               PartofSpeechesInline,
+               LanguagesInline,
+               AssociationInline,
+               NotRelatedInline,
+               SynonymsInline,
+               AntonymsInline,
+               SuperCategoryInline,
+               SubCategoryInline]
     
     fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
     readonly_fields = ('created','updated')
@@ -276,6 +286,15 @@ class NotRelatedAdmin(admin.ModelAdmin):
     raw_id_fields = ('source','target',)
 admin.site.register(NotRelated, NotRelatedAdmin)
 
+
+
 class SemanticDifferentialAdmin(admin.ModelAdmin):
     pass
 admin.site.register(SemanticDifferential, SemanticDifferentialAdmin)
+
+
+
+class SensualDimensionsAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(SensualDimensions, SensualDimensionsAdmin)
+
