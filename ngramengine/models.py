@@ -480,6 +480,7 @@ class NGrams(models.Model):
     def set_dirty(self):
         self.dirty = True
         self.save()
+        
     def set_clean(self):
         self.dirty = False
         self.save()
@@ -505,15 +506,21 @@ class NGrams(models.Model):
         return self.languages
     
     def get_all_outbound_tokens(self):
-        outbound_list = chain( self.association_outbound.all().values_list('target__token'), \
+        outbound_list = list( set( chain( self.association_outbound.all().values_list('target__token'), \
                                self.supercategories.all().values_list('target__token'), \
                                self.subcategories.all().values_list('target__token'), \
                                self.synonyms.all().values_list('target__token'), \
                                self.antonyms.all().values_list('target__token'), \
-                               self.coocurrence_outbound.all().values_list('target__token'))
+                               self.coocurrence_outbound.all().values_list('target__token'))))
         return outbound_list
+    
     def get_all_association_token(self):
         return list( chain( *self.association_outbound.all().values_list('target__token') ) )
+    
+    def has_outbound_associations(self):
+        if self.association_outbound.count() == 0:
+            return False
+        return True
     
     def save(self, *args, **kwargs):
         super(NGrams, self).save(*args, **kwargs)

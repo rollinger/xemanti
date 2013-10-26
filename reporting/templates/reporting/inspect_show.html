@@ -3,7 +3,7 @@
 {% load reporting_tags %}
 
 {% block metadata %}
-	{% if ngram %}
+	{% if ngram.has_outbound_associations %}
 		<title> Xemanti - Eintrag für: {{ ngram }}</title>
 		<meta content="Xemanti - Sprachtools für deine Texte. {{ ngram }} wurde assoziiert mit: {{ ngram.get_all_association_token|join:" " }}" name="description"></meta>
 		<meta content="sprachtools,sprachtool,assoziation,text,texten,rhetorik,kommunikation,bedeutung,synonym,antonym,wörterbuch" name="keywords"></meta>
@@ -156,7 +156,7 @@
 						&chxr=0,-1,1|1,0,5|2,0,5
 						&chxt=x,y,r
 						&chbh=a
-						&chs=380x440
+						&chs=380x220
 						&cht=bhs
 						&chco=4D89F9
 						&chds=-1,1
