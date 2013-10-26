@@ -51,8 +51,8 @@ class NotRelatedInline(admin.TabularInline):
 class SemanticDifferentialInline(admin.TabularInline):
     model = SemanticDifferential
     extra = 0
-class SensualDimensionsInline(admin.TabularInline):
-    model = SensualDimensions
+class SensoryDimensionsInline(admin.TabularInline):
+    model = SensoryDimensions
     extra = 0
 class IntervalListFilter(admin.SimpleListFilter):
     title = _('Interval Occurrence Filter')
@@ -81,7 +81,7 @@ class NGramsAdmin(admin.ModelAdmin):
     search_fields = ('token', )
     ordering = ('-t_occurred',)
     inlines = [SemanticDifferentialInline,
-               SensualDimensionsInline,
+               SensoryDimensionsInline,
                PartofSpeechesInline,
                LanguagesInline,
                AssociationInline,
@@ -294,7 +294,7 @@ admin.site.register(SemanticDifferential, SemanticDifferentialAdmin)
 
 
 
-class SensualDimensionsAdmin(admin.ModelAdmin):
+class SensoryDimensionsAdmin(admin.ModelAdmin):
     pass
-admin.site.register(SensualDimensions, SensualDimensionsAdmin)
+admin.site.register(SensoryDimensions, SensoryDimensionsAdmin)
 

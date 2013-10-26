@@ -350,9 +350,9 @@ class SemanticDifferential(models.Model):
 
 
 
-class SensualDimensions(models.Model):
+class SensoryDimensions(models.Model):
     """
-    Sensual Dimensions of an ngram
+    Sensory Dimensions of an ngram
     """
     # Semantic Differential of this Ngram
     ngram       = models.OneToOneField('NGrams', blank=True, null=True,)
@@ -396,8 +396,8 @@ class SensualDimensions(models.Model):
         return u"%s"%(self.ngram)
     
     class Meta:
-        verbose_name = 'Sensual Dimension'
-        verbose_name_plural = 'Sensual Dimensions'
+        verbose_name = 'Sensory Dimension'
+        verbose_name_plural = 'Sensory Dimensions'
 
 
 

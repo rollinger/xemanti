@@ -190,9 +190,9 @@ class SemanticDifferentialFunctionalTest(TestCase):
 
 
 
-class SensualDimensionsFunctionalTest(TestCase):
+class SensoryDimensionsFunctionalTest(TestCase):
     """
-    Functional Test Suite for the SensualDimensions Model
+    Functional Test Suite for the SensoryDimensions Model
     """
     def setUp(self):
         # Routine called BEFORE each test method
