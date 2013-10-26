@@ -124,6 +124,48 @@
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategories' %}</div>
 			</div>
 			
+			{% if ngram.semanticdifferential %}
+				<h3 class="btn">{% trans 'Attitude Dimensions' %}</h3>
+				<div class="units-row-end" >
+					{% load chart_tags %}
+					{% chart %}
+					//chart.googleapis.com/chart
+						{% trans '&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active' %}
+						&chxp=1,2,1,0|2,2,1,0
+						&chxr=0,-1,1|1,0,2|2,0,2
+						&chxt=x,y,r
+						&chbh=a
+						&chs=380x220
+						&cht=bhs
+						&chco=4D89F9
+						&chds=-1,1
+						&chd=t:{{ngram.semanticdifferential.evaluation|stringformat:"f"}},{{ngram.semanticdifferential.potency|stringformat:"f"}},{{ngram.semanticdifferential.activity|stringformat:"f"}}
+						&chtt=Evaluation
+					{% endchart %}
+				</div>
+			{% endif %}
+			
+			{% if ngram.sensorydimensions %}
+				<h3 class="btn">{% trans 'Sensory Dimensions' %}</h3>
+				<div class="units-row-end" >
+					{% load chart_tags %}
+					{% chart %}
+					//chart.googleapis.com/chart
+						{% trans '&chxl=1:|no_seeing|no_hearing|no_thinking|no_touching|no_smelling|no_tasting|2:|seeing|hearing|thinking|touching|smelling|tasting' %}
+						&chxp=1,5,4,3,2,1,0|2,5,4,3,2,1,0
+						&chxr=0,-1,1|1,0,5|2,0,5
+						&chxt=x,y,r
+						&chbh=a
+						&chs=380x440
+						&cht=bhs
+						&chco=4D89F9
+						&chds=-1,1
+						&chd=t:{{ngram.sensorydimensions.visual|stringformat:"f"}},{{ngram.sensorydimensions.auditory|stringformat:"f"}},{{ngram.sensorydimensions.cognition|stringformat:"f"}},{{ngram.sensorydimensions.kinesthetic|stringformat:"f"}},{{ngram.sensorydimensions.olfactory|stringformat:"f"}},{{ngram.sensorydimensions.gustatory|stringformat:"f"}}
+						&chtt=Evaluation
+					{% endchart %}
+				</div>
+			{% endif %}
+			
 			{% if user.is_superuser %}
 				<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
 				<div class="units-row-end" >
@@ -159,48 +201,6 @@
 			</a>
 			<h4 class="text-right">{% trans '... earn Xetis!' %}</h4>
 		</div>
-	</div>
-	
-	<div class="units-row">
-		{% if ngram.semanticdifferential %}
-			<h4>{% trans 'Attitude Dimensions:' %}</h4>
-			{% load chart_tags %}
-			{% chart %}
-			//chart.googleapis.com/chart
-				{% trans '&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active' %}
-				&chxp=1,2,1,0|2,2,1,0
-				&chxr=0,-1,1|1,0,2|2,0,2
-				&chxt=x,y,r
-				&chbh=a
-				&chs=380x220
-				&cht=bhs
-				&chco=4D89F9
-				&chds=-1,1
-				&chd=t:{{ngram.semanticdifferential.evaluation|stringformat:"f"}},{{ngram.semanticdifferential.potency|stringformat:"f"}},{{ngram.semanticdifferential.activity|stringformat:"f"}}
-				&chtt=Evaluation
-			{% endchart %}
-		{% endif %}
-	</div>
-	
-	<div class="units-row">
-		{% if ngram.sensorydimensions %}
-			<h4>{% trans 'Sensory Dimensions:' %}</h4>
-			{% load chart_tags %}
-			{% chart %}
-			//chart.googleapis.com/chart
-				{% trans '&chxl=1:|no_seeing|no_hearing|no_thinking|no_touching|no_smelling|no_tasting|2:|seeing|hearing|thinking|touching|smelling|tasting' %}
-				&chxp=1,5,4,3,2,1,0|2,5,4,3,2,1,0
-				&chxr=0,-1,1|1,0,5|2,0,5
-				&chxt=x,y,r
-				&chbh=a
-				&chs=380x440
-				&cht=bhs
-				&chco=4D89F9
-				&chds=-1,1
-				&chd=t:{{ngram.sensorydimensions.visual|stringformat:"f"}},{{ngram.sensorydimensions.auditory|stringformat:"f"}},{{ngram.sensorydimensions.cognition|stringformat:"f"}},{{ngram.sensorydimensions.kinesthetic|stringformat:"f"}},{{ngram.sensorydimensions.olfactory|stringformat:"f"}},{{ngram.sensorydimensions.gustatory|stringformat:"f"}}
-				&chtt=Evaluation
-			{% endchart %}
-		{% endif %}
 	</div>
 	
 	<div class="units-row">
