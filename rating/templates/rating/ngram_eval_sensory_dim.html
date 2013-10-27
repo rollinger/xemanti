@@ -21,7 +21,9 @@
 			<div id="" class="units-row"><br>
 			</div>
 			<div id="" class="units-row">
-				<center><h2>{{ ngram }}</h2></center>
+				<center><a href="{% url 'inspect_query' ngram.token %}" title="{% trans "Inspect" %}">
+					<h2>{{ ngram }}</h2>
+				</a></center>
 			</div>
 			<div id="" class="units-row"><br>
 			</div>
