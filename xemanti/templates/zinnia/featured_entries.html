@@ -4,12 +4,12 @@
 		<div class="unit-33">
 			<div class="units-row-end">
 	            <div class="unit-100">
-	            	<a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
+	            	<h5><a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a></h5>
 	            </div>
 	        </div>
 	        <div class="units-row-end">
 	            <div class="unit-100">
-	            	<p>{{ entry.excerpt|safe|truncatewords:25 }}</p>
+	            	<p class="small" style="text-align:justify;">{{ entry.excerpt|safe|truncatewords:25 }}</p>
 	            </div>
 	        </div>
 		</div>
