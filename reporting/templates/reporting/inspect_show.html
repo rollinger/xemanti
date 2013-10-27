@@ -5,12 +5,12 @@
 {% block metadata %}
 	{% if ngram.has_outbound_associations %}
 		<title> Xemanti - Eintrag für: {{ ngram }}</title>
-		<meta content="Xemanti - Sprachtools für deine Texte. {{ ngram }} wurde assoziiert mit: {{ ngram.get_all_association_token|join:" " }}" name="description"></meta>
-		<meta content="sprachtools,sprachtool,assoziation,text,texten,rhetorik,kommunikation,bedeutung,synonym,antonym,wörterbuch" name="keywords"></meta>
+		<meta content="Xemanti - Meine Sprachtools. {{ ngram|upper }} ist verbunden mit: {{ ngram.get_all_association_token|join:" " }}" name="description"></meta>
+		<meta content="sprachtools,kommunikation,bedeutung,einstellungen,synonyme,beziehung,sinn,wörterbuch" name="keywords"></meta>
   	{% else %}
   		<title>Xemanti - Untersuche dein Wort</title>
-			<meta content="Xemanti - Sprachtools für deine Texte. Finde Assoziationen, Synonyme, und viel mehr für deine Wörter und Texte." name="description"></meta>
-			<meta content="sprachtools,sprachtool,assoziation,text,texten,rhetorik,kommunikation,bedeutung,synonym,antonym,wörterbuch" name="keywords"></meta>
+			<meta content="Xemanti - Meine Sprachtools. Finde Beziehungen, Sinn, Einstellungen, Bedeutungen und vieles mehr in deinem Crowd Association Dictionary!" name="description"></meta>
+			<meta content="sprachtools,kommunikation,bedeutung,einstellungen,synonyme,beziehung,sinn,wörterbuch" name="keywords"></meta>
   	{% endif %}	
 {% endblock metadata %}
 
@@ -216,7 +216,7 @@
 	
 	<div class="units-row">
 		<div class="unit-100">
-			<h4>{% trans 'Contibute your Knowledge:' %}</h4>
+			<h5>{% trans 'Contibute your Knowledge:' %}<h5>
 			<a href="{% url 'rate_assoc' ngram.token True %}" title='{% blocktrans %} Click here to add more associations to {{ ngram }} {% endblocktrans %}'> 
 				<button class="btn width-100">{% trans 'Add Associations' %}</button>
 			</a><br>
@@ -229,10 +229,21 @@
 			<a href="{% url 'eval_sensory_dim' ngram.token %}" title='{% blocktrans %} Click here to evaluate which senses are involved for {{ ngram }} {% endblocktrans %}'> 
 				<button class="btn width-100">{% trans 'Evaluate for Senses' %}</button>
 			</a>
-			<h4 class="text-right">{% trans '... earn Xetis!' %}</h4>
+			<h5 class="text-right">{% trans '... earn Xetis!' %}<h5>
 		</div>
 	</div>
 	
+	<article class="units-row">
+		<div class="unit-100">
+			{% blocktrans %}
+				<h5>Xemanti - Deine Sprachtools.</h5>
+				<p class="small" style="text-align:justify;">Finde Antworten auf deine Fragen in unserem Interaktiv-Wörterbuch!<br>
+				Was bedeutet "<strong>{{ ngram }}</strong>" für andere? Welche Einstellungen und Meinung ruft "{{ ngram }}" bei anderen hervor? 
+				Welche Beziehung hat "{{ ngram }}" zu anderen Wörtern? Tausende Nutzer bringen täglich ihre <strong>Gedanken, Meinungen und Gefühle</strong> auf Xemanti ein. 
+				Du kannst dieses Wissen abfragen und als <strong>Inspiration</strong> verwenden. Trage jetzt dein Wissen bei und <strong>mach deine Freunde schlauer...</strong></p>
+			{% endblocktrans %}
+		</div>
+	</article>
 	{% comment %}
 	{# Switched off - this can be later be visible, but somewhat hidden #}
 	<div class="units-row">
