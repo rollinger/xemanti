@@ -103,7 +103,7 @@ class NGramsAdmin(admin.ModelAdmin):
                ExamplesInline,
                AttributesInline]
     
-    fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
+    fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","active","qualified","featured"),('wordstem', 'numerus','genus'), ('created','updated'))
     readonly_fields = ('created','updated')
     actions = ['merge','set_meaningless','toogle_active','toogle_qualified','toogle_featured','set_changed',\
                'make_german_male_substantive', 'make_german_female_substantive', 'make_german_female_plural_substantive', 'make_german_neutrum_substantive',\
