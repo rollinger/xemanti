@@ -3,20 +3,10 @@
 <nav class="nav-v">
     <h5>{% trans "Featured Words:"%}</h5>
     <ul>
+    {% for featured in featured_ngrams %}
         <li>
-        	<a class="label label-orange text-centered" style="color: rgb(0, 0, 0);" href="{{ featured_ngrams.0.get_absolute_url }}">{{ featured_ngrams.0 }}</a>
+        	<a class="label label-orange text-centered" style="color: rgb(0, 0, 0);" href="{{ featured.get_absolute_url }}">{{ featured }}</a>
         </li>
-		<li>
-        	<a class="label label-orange text-centered" style="color: rgb(0, 0, 0);" href="{{ featured_ngrams.1.get_absolute_url }}">{{ featured_ngrams.1 }}</a>
-        </li>
-        <li>
-        	<a class="label label-orange text-centered" style="color: rgb(0, 0, 0);" href="{{ featured_ngrams.2.get_absolute_url }}">{{ featured_ngrams.2 }}</a>
-        </li>
-        <li>
-        	<a class="label label-orange text-centered" style="color: rgb(0, 0, 0);" href="{{ featured_ngrams.3.get_absolute_url }}">{{ featured_ngrams.3 }}</a>
-        </li>
-        <li>
-        	<a class="label label-orange text-centered" style="color: rgb(0, 0, 0);" href="{{ featured_ngrams.4.get_absolute_url }}">{{ featured_ngrams.4 }}</a>
-        </li>
+	{% endfor %}
     </ul>
 </nav>

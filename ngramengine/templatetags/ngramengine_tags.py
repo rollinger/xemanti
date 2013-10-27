@@ -17,8 +17,9 @@ def render_popular_ngrams(daterange=1, number=5):
 
 
 @register.inclusion_tag('ngramengine/_featured_ngrams_partial.html')
-def render_featured_ngrams():
-    featured_ngrams = NGrams.objects.filter(featured=True).order_by('?')
+def render_featured_ngrams(number=5):
+    import random
+    featured_ngrams = NGrams.objects.filter(featured=True).order_by('?')[:number]
     return {
         'featured_ngrams': featured_ngrams,
     }
