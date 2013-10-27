@@ -610,28 +610,62 @@ class NGrams(models.Model):
         if self.association_outbound.count() == 0:
             return False
         return True
+    def has_inbound_associations(self):
+        if self.association_inbound.count() == 0:
+            return False
+        return True
+    
     def has_synonyms(self):
         if self.synonyms.count() == 0:
             return False
         return True
+    def is_synonym(self):
+        if self.synonym_of.count() == 0:
+            return False
+        return True
+    
     def has_antonyms(self):
         if self.antonyms.count() == 0:
             return False
         return True
+    def is_antonym(self):
+        if self.antonym_of.count() == 0:
+            return False
+        return True
+    
     def has_supercategories(self):
         if self.supercategories.count() == 0:
             return False
         return True
+    def is_supercategory(self):
+        if self.supercategory_of.count() == 0:
+            return False
+        return True
+    
     def has_subcategories(self):
         if self.subcategories.count() == 0:
             return False
         return True
+    def is_subcategory(self):
+        if self.subcategory_of.count() == 0:
+            return False
+        return True
+    
     def has_examples(self):
         if self.examples.count() == 0:
             return False
         return True
+    def is_example(self):
+        if self.example_of.count() == 0:
+            return False
+        return True
+    
     def has_attributes(self):
         if self.attributes.count() == 0:
+            return False
+        return True
+    def is_attribute(self):
+        if self.attribute_of.count() == 0:
             return False
         return True
     

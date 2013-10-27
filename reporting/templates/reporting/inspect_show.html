@@ -88,7 +88,7 @@
 				<div class="unit-40 units-padding">{% render_tag_cloud ngram 'association_outbound' %}</div>
 			</div>
 			
-			{% if ngram.has_synonyms %}
+			{% if ngram.has_synonyms or ngram.is_synonym %}
 				<h3 class="btn">{% trans "Synonyms"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'synonym_of' True %}</div>
@@ -99,7 +99,7 @@
 				</div>
 			{% endif %}
 			
-			{% if ngram.has_antonyms %}
+			{% if ngram.has_antonyms or ngram.is_antonym %}
 				<h3 class="btn">{% trans "Antonyms"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'antonym_of' True %}</div>
@@ -110,7 +110,7 @@
 				</div>
 			{% endif %}
 			
-			{% if ngram.has_supercategories %}
+			{% if ngram.has_supercategories or ngram.is_supercategory %}
 				<h3 class="btn">{% trans "Super Categories"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'supercategory_of' True %}</div>
@@ -121,7 +121,7 @@
 				</div>
 			{% endif %}
 			
-			{% if ngram.has_subcategories %}
+			{% if ngram.has_subcategories or ngram.is_subcategory %}
 				<h3 class="btn">{% trans "Sub Categories"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'subcategory_of' True %}</div>
@@ -132,7 +132,7 @@
 				</div>
 			{% endif %}
 			
-			{% if ngram.has_examples %}
+			{% if ngram.has_examples or ngram.is_example %}
 				<h3 class="btn">{% trans "Examples"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'example_of' True %}</div>
@@ -143,7 +143,7 @@
 				</div>
 			{% endif %}
 			
-			{% if ngram.has_attributes %}
+			{% if ngram.has_attributes or ngram.is_attribute %}
 				<h3 class="btn">{% trans "Attributes"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'attribute_of' True %}</div>
@@ -197,7 +197,7 @@
 			{% endif %}
 			
 			{% if user.is_superuser %}
-				<h3 class="btn">{% trans "Co-Occurrences"%} ({{ngram.coocurrence_outbound.count}})</h3>
+				<h3 class="btn">{% trans "Co-Occurrences"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'coocurrence_inbound' True %}</div>
 					<div class="unit-20">
