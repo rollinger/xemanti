@@ -13,3 +13,12 @@ def render_popular_ngrams(daterange=1, number=5):
         'daterange':daterange,
         'number': number,
     }
+
+
+
+@register.inclusion_tag('ngramengine/_featured_ngrams_partial.html')
+def render_featured_ngrams():
+    featured_ngrams = NGrams.objects.filter(featured=True).order_by('?')
+    return {
+        'featured_ngrams': featured_ngrams,
+    }

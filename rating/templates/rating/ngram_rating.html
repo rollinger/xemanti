@@ -1,5 +1,6 @@
 {% extends "xemanti/base.html" %}
 {% load i18n %}
+{% load ngramengine_tags %}
 
 {% block metadata %}
 	<title>Xemanti - Erster Gedanke, bester Gedanke</title>
@@ -27,7 +28,8 @@
 
 
 {% block main-content %}
-<div class="units-row">
+
+<div id="left-content" class="units-row unit-70">
 	<div class="unit-centered unit-90">
 		<form action="." method="POST" data-ajax="false">
 		{% csrf_token %}
@@ -66,8 +68,12 @@
 	</div>
 </div>
 
-{% endblock main-content %}
+<div id="right-sidebar" class="unit-30">
+	<div id="featured" class="units-row">
+		<div id="featured-ngrams" class="unit-100">
+			{% render_featured_ngrams %}
+		</div>
+	</div>
+</div>
 
-{% block right-sidebar %}
-	
-{% endblock right-sidebar %}
+{% endblock main-content %}
