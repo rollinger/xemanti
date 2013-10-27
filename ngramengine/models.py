@@ -328,12 +328,12 @@ class Examples(models.Model):
     
     @classmethod
     def inject(cls,source_ngram,target_ngram,times=1):
-        super, created = SuperCategory.objects.get_or_create(source=source_ngram,target=target_ngram)
+        example, created = Examples.objects.get_or_create(source=source_ngram,target=target_ngram)
         if times > 0:
-            super.t_rated = super.t_rated + times
-        super.source.set_dirty()
-        super.save()
-        return super
+            example.t_rated = example.t_rated + times
+        example.source.set_dirty()
+        example.save()
+        return example
     
     def compute_discriminatory_power(self):
         # Returns the mean position of the target ngram from the source ngram
@@ -372,11 +372,11 @@ class Attributes(models.Model):
     
     @classmethod
     def inject(cls,source_ngram,target_ngram,times=1):
-        super, created = SuperCategory.objects.get_or_create(source=source_ngram,target=target_ngram)
+        attribute, created = Attributes.objects.get_or_create(source=source_ngram,target=target_ngram)
         if times > 0:
-            super.t_rated = super.t_rated + times
-        super.source.set_dirty()
-        super.save()
+            attribute.t_rated = attribute.t_rated + times
+        attribute.source.set_dirty()
+        attribute.save()
         return super
     
     def compute_discriminatory_power(self):

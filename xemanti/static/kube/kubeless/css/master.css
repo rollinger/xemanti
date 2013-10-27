@@ -45,6 +45,9 @@ body {
 .label-yellow {
 	color: #000;
 }
+.text-left{
+	text-align: left;
+}
 /* =Layout
 -----------------------------------------------------------------------------*/
 .wrapper {

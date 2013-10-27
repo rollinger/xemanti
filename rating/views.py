@@ -17,7 +17,7 @@ import itertools
 from random import choice
 
 # Custom Import Statement
-from forms import RateAssociationForm, SemanticDifferentialForm, SensoryDimensionForm
+from forms import RateAssociationForm, SortAssociationForm, SemanticDifferentialForm, SensoryDimensionForm
 from ngramengine.tokenizer import Tokenizer
 from ngramengine.models import *
 
@@ -95,12 +95,51 @@ def rate_assoc_view(request, ngram=None, repeated=False):
 def sort_ngram_view(request, ngram):
     # Get random qualified NGram to rate
     ngram = NGrams.objects.get(token=ngram)
-    # Get Sorting List
-    token_list = list( set( itertools.chain( *ngram.get_all_outbound_tokens() ) ) )
+    
+    if request.method == 'POST':
+        form = SortAssociationForm(request.POST)
+        if form.is_valid():
+            source = NGrams.objects.get(token=form.cleaned_data['source'])
+             # Inject sorted target
+            for type in form.cleaned_data['sorting'].split(","):
+                if type == "not_related":
+                    NotRelated.inject(ngram,source)
+                elif type == "associated":
+                    Associations.inject(ngram,source)
+                elif type == "synonym":
+                    Synonyms.inject(ngram,source)
+                elif type == "antonym":
+                    Antonyms.inject(ngram,source)
+                elif type == "subcategory":
+                    SubCategory.inject(ngram,source)
+                elif type == "supercategory":
+                    SuperCategory.inject(ngram,source)
+                elif type == "example":
+                    Examples.inject(ngram,source)
+                elif type == "attribute":
+                    Attributes.inject(ngram,source)
+            # Process Payment
+            if request.user.is_authenticated():
+                # Increment authenticated profile
+                request.user.profile.income(8.88)
+            else:
+                # Increment anonymous_rating session
+                if request.session.has_key('anonymous_rating'):
+                    request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
+                    request.session.modified = True
+            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
+    else:
+        # Get Sorting List
+        source = choice( list( set( itertools.chain( *ngram.get_all_outbound_tokens() ) ) ) )
+        # Setup Form
+        form = SortAssociationForm(initial={'ngram': ngram.token,'source': source})
+    
     # Render Template Home
     return render_to_response('rating/ngram_sorting.html', {
         "ngram":ngram,
-        "token_list":simplejson.dumps( token_list ),
+        "source":source,
+        "form":form,
+        #"token_list":simplejson.dumps( token_list ),
     }, context_instance=RequestContext(request))
 
 

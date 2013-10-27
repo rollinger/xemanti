@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-26 16:49+0200\n"
+"POT-Creation-Date: 2013-10-27 11:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,6 +67,7 @@ msgstr "aktiv"
 
 #: templates/rating/ngram_eval_sem_diff.html:59
 #: templates/rating/ngram_eval_sensory_dim.html:80
+#: templates/rating/ngram_sorting.html:87
 msgid "Rate"
 msgstr "Einschätzen"
 
@@ -127,29 +127,49 @@ msgstr "Untersuchen"
 msgid "N-Gram Admin"
 msgstr ""
 
-#: templates/rating/ngram_sorting.html:72
-msgid "Not Related"
-msgstr "Nicht Relevant"
+#: templates/rating/ngram_sorting.html:28
+msgid "is not relevant for"
+msgstr "ist nicht relevant für"
 
-#: templates/rating/ngram_sorting.html:84
-msgid "Association"
-msgstr "Assoziation"
+#: templates/rating/ngram_sorting.html:35
+msgid "is associated with"
+msgstr "ist assoziiert mit"
 
-#: templates/rating/ngram_sorting.html:93
-msgid "Antonyms"
-msgstr "Antonyme"
+#: templates/rating/ngram_sorting.html:42
+msgid "is opposed to"
+msgstr "ist gegensätzlich zu"
 
-#: templates/rating/ngram_sorting.html:99
-msgid "Synonyms"
-msgstr "Synonyme"
+#: templates/rating/ngram_sorting.html:49
+msgid "is synonymous to"
+msgstr "ist bedeutungsgleich mit"
 
-#: templates/rating/ngram_sorting.html:108
-msgid "Super Category"
-msgstr "Oberkategorie"
+#: templates/rating/ngram_sorting.html:56
+msgid "is a super category of"
+msgstr "ist eine Oberkategorie von"
 
-#: templates/rating/ngram_sorting.html:116
-msgid "Sub Category"
-msgstr "Unterkategorie"
+#: templates/rating/ngram_sorting.html:63
+msgid "is a sub category of"
+msgstr "ist eine Unterkategorie von"
+
+#: templates/rating/ngram_sorting.html:70
+msgid "is an example of"
+msgstr "ist ein Beispiel von"
+
+#: templates/rating/ngram_sorting.html:77
+msgid "is an attribute of"
+msgstr "ist ein Attribut von"
+
+#~ msgid "Not Related"
+#~ msgstr "Nicht Relevant"
+
+#~ msgid "Association"
+#~ msgstr "Assoziation"
+
+#~ msgid "Antonyms"
+#~ msgstr "Antonyme"
+
+#~ msgid "Synonyms"
+#~ msgstr "Synonyme"
 
 #~ msgid "Categorize words for: "
 #~ msgstr "Wörter kategorisieren für:"

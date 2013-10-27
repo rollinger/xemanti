@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-26 18:26+0200\n"
+"POT-Creation-Date: 2013-10-27 11:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,113 +53,116 @@ msgstr "Untersuche"
 msgid "Associations"
 msgstr "Assoziationen"
 
-#: templates/reporting/inspect_show.html:91
+#: templates/reporting/inspect_show.html:92
 msgid "Synonyms"
 msgstr "Synonyme"
 
-#: templates/reporting/inspect_show.html:100
+#: templates/reporting/inspect_show.html:103
 msgid "Antonyms"
 msgstr "Antonyme"
 
-#: templates/reporting/inspect_show.html:109
+#: templates/reporting/inspect_show.html:114
 msgid "Super Categories"
-msgstr "Oberkategorie"
+msgstr "Oberkategorien"
 
-#: templates/reporting/inspect_show.html:118
+#: templates/reporting/inspect_show.html:125
 msgid "Sub Categories"
-msgstr "Unterkategorie"
+msgstr "Unterkategorien"
 
-#: templates/reporting/inspect_show.html:128
+#: templates/reporting/inspect_show.html:136
+msgid "Examples"
+msgstr "Beispiele"
+
+#: templates/reporting/inspect_show.html:147
+msgid "Attributes"
+msgstr "Attribute"
+
+#: templates/reporting/inspect_show.html:158
 msgid "Attitude Dimensions"
 msgstr "Einstellung"
 
-#: templates/reporting/inspect_show.html:133
+#: templates/reporting/inspect_show.html:163
 msgid "&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active"
 msgstr "&chxl=1:|Schlecht|Schwach|Passiv|2:|Gut|Stark|Aktiv"
 
-#: templates/reporting/inspect_show.html:149
+#: templates/reporting/inspect_show.html:179
 msgid "Sensory Dimensions"
 msgstr "Sinneswahrnehmungen"
 
-#: templates/reporting/inspect_show.html:154
+#: templates/reporting/inspect_show.html:184
 msgid ""
-"&chxl=1:|no_seeing|no_hearing|no_thinking|no_touching|no_smelling|no_tasting|"
-"2:|seeing|hearing|thinking|touching|smelling|tasting"
+"&chxl=1:|no&#160;seeing|no&#160;hearing|no&#160;thinking|no&#160;touching|"
+"no&#160;smelling|no&#160;tasting|2:|seeing|hearing|thinking|touching|"
+"smelling|tasting"
 msgstr ""
-"&chxl=1:|nicht_sehen|nicht_hören|nicht_denken|nicht_tasten|nicht_riechen|"
-"nicht_schmecken|2:|sehen|hören|denken|tasten|riechen|schmecken"
+"&chxl=1:|nicht&#160;sehen|nicht&#160;hören|nicht&#160;denken|nicht&#160;tasten|nicht&#160;riechen|"
+"nicht schmecken|2:|sehen|hören|denken|tasten|riechen|schmecken"
 
-#: templates/reporting/inspect_show.html:170
+#: templates/reporting/inspect_show.html:200
 msgid "Co-Occurrences"
 msgstr "Gemeinsames Auftreten"
 
-#: templates/reporting/inspect_show.html:189
+#: templates/reporting/inspect_show.html:219
 msgid "Contibute your Knowledge:"
 msgstr "Bring dein Wissen ein:"
 
-#: templates/reporting/inspect_show.html:190
+#: templates/reporting/inspect_show.html:220
 #, python-format
 msgid " Click here to add more associations to %(ngram)s "
 msgstr "Klick hier um weitere Assoziationen zu %(ngram)s hinzuzufügen"
 
-#: templates/reporting/inspect_show.html:191
+#: templates/reporting/inspect_show.html:221
 msgid "Add Associations"
 msgstr "Assoziationen hinzufügen"
 
-#: templates/reporting/inspect_show.html:193
+#: templates/reporting/inspect_show.html:223
 #, python-format
 msgid " Click here to sort existing associations of %(ngram)s "
 msgstr "Klick hier um bestehende Assoziationen zu %(ngram)s zu sortieren"
 
-#: templates/reporting/inspect_show.html:194
+#: templates/reporting/inspect_show.html:224
 msgid "Sort Associations"
 msgstr "Assoziationen sortieren"
 
-#: templates/reporting/inspect_show.html:196
+#: templates/reporting/inspect_show.html:226
 #, python-format
 msgid " Click here to evaluate your attitude for %(ngram)s "
 msgstr "Klick hier um deine Einstellung zu %(ngram)s hinzuzufügen"
 
-#: templates/reporting/inspect_show.html:197
+#: templates/reporting/inspect_show.html:227
 msgid "Evaluate for Attitude"
 msgstr "Einstellung bewerten"
 
-#: templates/reporting/inspect_show.html:199
+#: templates/reporting/inspect_show.html:229
 #, python-format
 msgid " Click here to evaluate which senses are involved for %(ngram)s "
 msgstr "Klick hier um zu bewerten, welche Sinne bei %(ngram)s wichtig sind"
 
-#: templates/reporting/inspect_show.html:200
+#: templates/reporting/inspect_show.html:230
 msgid "Evaluate for Senses"
 msgstr "Sinneswahrnehmung bewerten:"
 
-#: templates/reporting/inspect_show.html:202
+#: templates/reporting/inspect_show.html:232
 msgid "... earn Xetis!"
 msgstr "... mach' Xetis!"
 
-#: templates/reporting/inspect_show.html:221
-msgid "Frequency: "
-msgstr "Häufigkeit"
+#~ msgid "Frequency: "
+#~ msgstr "Häufigkeit"
 
-#: templates/reporting/inspect_show.html:225
-msgid "Rated: "
-msgstr "Bewertet: "
+#~ msgid "Rated: "
+#~ msgstr "Bewertet: "
 
-#: templates/reporting/inspect_show.html:229
-msgid "Genus: "
-msgstr "Genus:"
+#~ msgid "Genus: "
+#~ msgstr "Genus:"
 
-#: templates/reporting/inspect_show.html:233
-msgid "Numerus: "
-msgstr "Numerus:"
+#~ msgid "Numerus: "
+#~ msgstr "Numerus:"
 
-#: templates/reporting/inspect_show.html:237
-msgid "Part of Speech: "
-msgstr "Wortarten:"
+#~ msgid "Part of Speech: "
+#~ msgstr "Wortarten:"
 
-#: templates/reporting/inspect_show.html:243
-msgid "Languages: "
-msgstr "Sprachen:"
+#~ msgid "Languages: "
+#~ msgstr "Sprachen:"
 
 #~ msgid "Evaluation:"
 #~ msgstr "Bewertung:"

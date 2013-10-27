@@ -144,7 +144,7 @@
 			{% endif %}
 			
 			{% if ngram.has_attributes %}
-				<h3 class="btn">{% trans "Sub Categories"%}</h3>
+				<h3 class="btn">{% trans "Attributes"%}</h3>
 				<div class="units-row-end" >
 					<div class="unit-40 units-padding">{% render_tag_cloud ngram 'attribute_of' True %}</div>
 					<div class="unit-20">
@@ -181,7 +181,7 @@
 					{% load chart_tags %}
 					{% chart %}
 					//chart.googleapis.com/chart
-						{% trans '&chxl=1:|no_seeing|no_hearing|no_thinking|no_touching|no_smelling|no_tasting|2:|seeing|hearing|thinking|touching|smelling|tasting' %}
+						{% trans '&chxl=1:|no&#160;seeing|no&#160;hearing|no&#160;thinking|no&#160;touching|no&#160;smelling|no&#160;tasting|2:|seeing|hearing|thinking|touching|smelling|tasting' %}
 						&chxp=1,5,4,3,2,1,0|2,5,4,3,2,1,0
 						&chxr=0,-1,1|1,0,5|2,0,5
 						&chxt=x,y,r

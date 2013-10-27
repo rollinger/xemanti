@@ -17,6 +17,16 @@ class RateAssociationForm(forms.Form):
             self.fields['rating'].label = ngram.token
 
 
+
+class SortAssociationForm(forms.Form):
+    #rating = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _("State your immediate association..."),'autofocus':'autofocus','class':'unit-100'}), min_length=2, max_length=255)
+    
+    sorting = forms.CharField(widget=forms.HiddenInput())
+    ngram = forms.CharField(widget=forms.HiddenInput())
+    source = forms.CharField(widget=forms.HiddenInput())
+
+
+
 class SemanticDifferentialForm(forms.ModelForm):
     class Meta:
          model = SemanticDifferential
