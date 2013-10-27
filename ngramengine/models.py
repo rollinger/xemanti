@@ -508,8 +508,12 @@ class NGrams(models.Model):
     coocurrence_relevancy   = models.NullBooleanField(_('Relevant for Co-Occurrences'),blank=True, null=True)
     # Dirty Flag: Indicates the object has changed
     dirty                   = models.BooleanField(_('Dirty'),default=True)
+    # Active Flag: If True the ngram is rateable and google will index it
+    active               = models.BooleanField(_('Active'),default=False)
     # Qualified Flag: True if Staff has checked, qualified and updated the ngram and associated models
     qualified               = models.BooleanField(_('Qualified'),default=False)
+    # Featured Flag: If True ngram shows up as featured -> more traffic redirect
+    featured               = models.BooleanField(_('Featured'),default=False)
     
     # Word Stem of the token
     wordstem                = models.ForeignKey(WordStems, blank=True, null=True)

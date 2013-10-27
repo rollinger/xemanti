@@ -19,6 +19,7 @@ encoding//rating/views.py=utf-8
 encoding//reporting/urls.py=utf-8
 encoding//reporting/views.py=utf-8
 encoding//usr_profile/admin.py=utf-8
+encoding//usr_profile/migrations/0005_auto__add_ngrambooking__add_unique_ngrambooking_ngram_profile.py=utf-8
 encoding//usr_profile/models.py=utf-8
 encoding//xemanti/admin.py=utf-8
 encoding//xemanti/middleware.py=utf-8

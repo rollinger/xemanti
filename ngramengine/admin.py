@@ -86,8 +86,8 @@ class IntervalListFilter(admin.SimpleListFilter):
         else:
             return queryset
 class NGramsAdmin(admin.ModelAdmin):
-    list_display = ('token', 't_occurred', 't_visited','t_rated','rating_index', "dirty","qualified",'created','updated',"wiktionary_url")
-    list_filter = ['dirty', "qualified", 'updated', IntervalListFilter,'partofspeech', 'language']
+    list_display = ('token', 't_occurred', 't_visited','t_rated','rating_index', "dirty","active","qualified","featured",'created','updated',"wiktionary_url")
+    list_filter = ['dirty',"active", "qualified","featured", 'updated', IntervalListFilter,'partofspeech', 'language']
     search_fields = ('token', )
     ordering = ('-t_occurred',)
     inlines = [SemanticDifferentialInline,
@@ -105,7 +105,7 @@ class NGramsAdmin(admin.ModelAdmin):
     
     fields = ('token', 'coocurrence_relevancy', ('t_occurred', 't_visited', 't_rated'),'rating_index', ("dirty","qualified"),('wordstem', 'numerus','genus'), ('created','updated'))
     readonly_fields = ('created','updated')
-    actions = ['merge','set_meaningless','set_qualified','set_changed',\
+    actions = ['merge','set_meaningless','toogle_active','toogle_qualified','toogle_featured','set_changed',\
                'make_german_male_substantive', 'make_german_female_substantive', 'make_german_female_plural_substantive', 'make_german_neutrum_substantive',\
                'make_qualified_german_verb','make_qualified_german_adjektiv',\
                'make_uppercase','make_lowercase','unset_substantiv','set_substantiv',\
@@ -118,9 +118,21 @@ class NGramsAdmin(admin.ModelAdmin):
     def set_meaningless(self, request, queryset):
         queryset.update(coocurrence_relevancy=True)
     set_meaningless.short_description = "Mark selected ngrams as semantically meaningless"
-    def set_qualified(self, request, queryset):
-        queryset.update(qualified=True)
-    set_qualified.short_description = "Mark selected ngrams as qualified"
+    def toogle_qualified(self, request, queryset):
+        for ngram in queryset.all():
+             ngram.qualified = not ngram.qualified
+             ngram.save()
+    toogle_qualified.short_description = "Toogles selected ngrams qualified status"
+    def toogle_active(self, request, queryset):
+        for ngram in queryset.all():
+             ngram.active = not ngram.active
+             ngram.save()
+    toogle_active.short_description = "Toogle selected ngrams active status"
+    def toogle_featured(self, request, queryset):
+        for ngram in queryset.all():
+             ngram.featured = not ngram.featured
+             ngram.save()
+    toogle_featured.short_description = "Toogle selected ngrams featured status"
     def set_changed(self, request, queryset):
         queryset.update(dirty=True)
     set_changed.short_description = "Mark selected ngrams as changed"
@@ -135,6 +147,7 @@ class NGramsAdmin(admin.ModelAdmin):
             ngram.partofspeech.add(pos)
             ngram.genus = genus
             ngram.numerus = numerus
+            ngram.active = True
             ngram.qualified = True
             ngram.save()
     def make_german_male_substantive(self, request, queryset):
@@ -157,6 +170,7 @@ class NGramsAdmin(admin.ModelAdmin):
             ngram.token = ngram.token.lower()
             ngram.language.add(lang)
             ngram.partofspeech.add(pos)
+            ngram.active = True
             ngram.qualified = True
             ngram.save()
     make_qualified_german_verb.short_description = "Sets the ngram to german, verb and qualified"
@@ -168,6 +182,7 @@ class NGramsAdmin(admin.ModelAdmin):
             ngram.token = ngram.token.lower()
             ngram.language.add(lang)
             ngram.partofspeech.add(pos)
+            ngram.active = True
             ngram.qualified = True
             ngram.save()
     make_qualified_german_adjektiv.short_description = "Sets the ngram to german, adjektiv and qualified"
@@ -217,6 +232,7 @@ class NGramsAdmin(admin.ModelAdmin):
         for ngram in queryset.all():
             ngram.partofspeech.add(PartOfSpeech.objects.get(type="Zahlzeichen"))
             ngram.language.add(lang)
+            ngram.active = True
             ngram.qualified = True
             ngram.save()
     set_zahl.short_description = "Set Part of Speech `Zahlzeichen´, International and qualified"

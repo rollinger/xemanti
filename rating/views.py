@@ -67,7 +67,7 @@ def rate_assoc_view(request, ngram=None, repeated=False):
     else:
         if ngram == None:
             excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
-            ngram = choice( NGrams.objects.filter(qualified=True).exclude(partofspeech__in=excludes).order_by("-rating_index")[:500] )
+            ngram = choice( NGrams.objects.filter(active=True).exclude(partofspeech__in=excludes).order_by("-rating_index")[:500] )
         else:
             ngram = NGrams.objects.get(token=ngram_token)
         # Get Suggestions for rating (json)
@@ -93,7 +93,7 @@ def rate_assoc_view(request, ngram=None, repeated=False):
 # Sorting View for an NGram
 #
 def sort_ngram_view(request, ngram):
-    # Get random qualified NGram to rate
+    # Get random NGram to rate
     ngram = NGrams.objects.get(token=ngram)
     
     if request.method == 'POST':
