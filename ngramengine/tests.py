@@ -22,6 +22,13 @@ class NGramsFunctionalTest(TestCase):
         # Routine called AFTER each test method
         pass
     
+    def test_merge_model_objects(self):
+        """
+        Tests the merging of ngrams
+        ngramengine/merge.py
+        """
+        pass
+        
     def test_basic_addition(self):
         """
         Tests that 1 + 1 always equals 2.
@@ -307,3 +314,5 @@ class WordStemsFunctionalTest(TestCase):
         Tests that 1 + 1 always equals 2.
         """
         self.assertEqual(1 + 1, 2)
+        
+        

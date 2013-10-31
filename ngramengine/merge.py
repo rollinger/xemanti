@@ -1,7 +1,9 @@
 from django.db import transaction
 from django.db.models import get_models, Model
 from django.contrib.contenttypes.generic import GenericForeignKey
-    
+
+
+
 @transaction.commit_on_success
 def merge_model_objects(primary_object, alias_objects=[], keep_old=False):
     """
@@ -14,6 +16,7 @@ def merge_model_objects(primary_object, alias_objects=[], keep_old=False):
     primary_user = User.objects.get(email='good_email@example.com')
     duplicate_user = User.objects.get(email='good_email+duplicate@example.com')
     merge_model_objects(primary_user, duplicate_user)
+    TODO: Check, bugfix, improve and test the merging of ngrams
     """
     if not isinstance(alias_objects, list):
         alias_objects = [alias_objects]

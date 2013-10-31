@@ -9,6 +9,7 @@ from pprint import pprint
 from ngramengine.models import *
 
 
+# TODO: Bugfix and test the routine
 def wiktionary_import(importfile='ngramengine/data/wiktionary.json'):
     """
 from ngramengine.scripts import wiktionary_import

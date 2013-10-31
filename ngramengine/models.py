@@ -10,19 +10,26 @@ from datetime import datetime, timedelta
 # Custom Imports
 from tokenizer import Tokenizer
 
-
+# TODO: Refactor WordStems, Genus, Numerus, Language, PartofSpeech in a separate file (descriptive_models.py)
+# TODO: Figure out of the above mentioned models should be rateable (user-driven)
+# TODO: Find more possible linguistic, descriptive models
 
 class WordStems(models.Model):
     """
-    Word Stems a stem for ngrams with the same stem
+    Word Stems a stem for ngrams with the same word root
     """
     # The Stem of a set of Ngrams
     stem        = models.CharField(max_length=255,unique=True)
+    # TODO: Add Many to Many field so one NGram could have more than one WordStems
+    #ngrams      = models.ManyToManyField('NGrams', related_name="wordstems", blank=True, null=True)
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return self.stem
     
     class Meta:
@@ -38,11 +45,16 @@ class Genus(models.Model):
     """
     # The Genus of Ngrams
     type        = models.CharField(max_length=255,unique=True)
+    # TODO: Add Many to Many field so one NGram could have more than one Genus
+    #ngrams      = models.ManyToManyField('NGrams', related_name="genuses", blank=True, null=True)
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return self.type
     
     class Meta:
@@ -58,11 +70,16 @@ class Numerus(models.Model):
     """
     # The Stem of a set of Ngrams
     type        = models.CharField(max_length=255,unique=True)
+    # TODO: Add Many to Many field so one NGram could have more than one Numerus
+    #ngrams      = models.ManyToManyField('NGrams', related_name="numeruses", blank=True, null=True)
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return self.type
     
     class Meta:
@@ -84,6 +101,7 @@ class PartOfSpeech(models.Model):
     # Meaninglessness is better inferred from the part of speech than meaningfulness [old: semantic_meaningless
     coocurrence_relevancy   = models.NullBooleanField(_('Relevant for Co-Occurrences'),blank=True, null=True)
     # How many ngrams have this part of speech
+    # TODO: Check if deprecated: bleads db and calculation time, when is it triggered? Any use cases?
     ngram_count             = models.PositiveIntegerField(default=0)
     
     # Model Timestamp
@@ -91,9 +109,13 @@ class PartOfSpeech(models.Model):
     updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return self.type
     
     def count_ngrams(self):
+        # TODO: Check if deprecated: bleads db and calculation time, when is it triggered? Any use cases?
         self.ngram_count = self.ngrams.count()
         self.save()
         return self.ngram_count
@@ -114,6 +136,7 @@ class Languages(models.Model):
     # Language of NGram 
     ngrams          = models.ManyToManyField('NGrams', related_name="language", blank=True, null=True)
     # How many ngrams have this language
+    # TODO: Check if deprecated: bleads db and calculation time, when is it triggered? Any use cases?
     ngram_count     = models.PositiveIntegerField(default=0)
     
     # Model Timestamp
@@ -121,9 +144,13 @@ class Languages(models.Model):
     updated     = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return self.language
     
     def count_ngrams(self):
+        # TODO: Check if deprecated: bleads db and calculation time, when is it triggered? Any use cases?
         self.ngram_count = self.ngrams.count()
         self.save()
         return self.ngram_count
@@ -135,6 +162,10 @@ class Languages(models.Model):
 
 
 
+# TODO: Make abstract class to handle common routines for Synonyms, SuperCategory, and others
+# TODO: Refactor Synonyms, Antonyms, SuperCategory, SubCategory, Example, Attributes...
+# in a separate file (relational_models.py)
+# TODO: Find more possible linguistic, relational models
 class Synonyms(models.Model):
     """
     Synonyms of an ngram
@@ -143,18 +174,24 @@ class Synonyms(models.Model):
     target  = models.ForeignKey('NGrams', related_name="synonym_of")
     # How many times the synonym was rated
     t_rated = models.PositiveIntegerField(default=0)
-    # Discriminatory Power
+    # Discriminatory Power of this synonym relation compared to sibling relations
     power = models.FloatField(default=0.0)
-
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
     
     @classmethod
     def inject(cls,source_ngram,target_ngram,times=1):
+        """
+        Get or create the synonym  handles rating increment and sets the source ngram to dirty
+        Returns the synonym
+        """
+        # TODO: The method does not check if the source and target exists.
         synonym, created = Synonyms.objects.get_or_create(source=source_ngram,target=target_ngram)
         if times > 0:
+            # Increment only if times is positive
             synonym.t_rated = synonym.t_rated + times
+        # TODO: Check if it is needed to set target to dirty as well
         synonym.source.set_dirty()
         synonym.save()
         return synonym
@@ -171,6 +208,9 @@ class Synonyms(models.Model):
                 return 0.0
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return self.target#"%s <synonym> &s"%(self.source,self.target)
     
     class Meta:
@@ -178,7 +218,7 @@ class Synonyms(models.Model):
         verbose_name_plural = 'Synonyms'
 
 
-
+# TODO: See Synonyms
 class Antonyms(models.Model):
     """
     Antonyms of an ngram
@@ -222,7 +262,7 @@ class Antonyms(models.Model):
         verbose_name_plural = 'Antonyms'
 
 
-
+# TODO: See Synonyms
 class SuperCategory(models.Model):
     """
     SuperCategory of an ngram
@@ -266,7 +306,7 @@ class SuperCategory(models.Model):
         verbose_name_plural = 'Super Categories'
 
 
-
+# TODO: See Synonyms
 class SubCategory(models.Model):
     """
     SubCategory of an ngram
@@ -310,7 +350,7 @@ class SubCategory(models.Model):
         verbose_name_plural = 'Sub Categories'
 
 
-
+# TODO: See Synonyms
 class Examples(models.Model):
     """
     Example for an ngram
@@ -354,7 +394,7 @@ class Examples(models.Model):
         verbose_name_plural = 'Examples'
 
 
-
+# TODO: See Synonyms
 class Attributes(models.Model):
     """
     Attribute for an ngram
@@ -399,7 +439,8 @@ class Attributes(models.Model):
 
 
 
-
+# TODO: Refactor SemanticDifferential, SensoryDimensions in a separate file (statistical_models.py)
+# TODO: Find more possible linguistic, statistical models
 class SemanticDifferential(models.Model):
     """
     Semantic Differential of an ngram
@@ -415,7 +456,6 @@ class SemanticDifferential(models.Model):
     e_sum       = models.IntegerField(_('Evaluative Dimension Sum'), default=0)
     p_sum       = models.IntegerField(_('Potency Dimension Sum'), default=0)
     a_sum       = models.IntegerField(_('Activity Dimension Sum'), default=0)
-
     # Model Timestamp
     created     = models.DateTimeField(auto_now_add=True)
     updated     = models.DateTimeField(auto_now=True)
@@ -425,12 +465,16 @@ class SemanticDifferential(models.Model):
         self.p_sum += int(potency)
         self.a_sum += int(activity)
         self.t_rated += 1
+        # TODO: Is this the right way to calculate a mean?
         self.evaluation = float(self.e_sum) / self.t_rated
         self.potency = float(self.p_sum) / self.t_rated
         self.activity = float(self.a_sum) / self.t_rated
         self.save()
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return u"%s"%(self.ngram)
     
     class Meta:
@@ -473,6 +517,7 @@ class SensoryDimensions(models.Model):
         self.o_sum += int(olfactory)
         self.g_sum += int(gustatory)
         self.t_rated += 1
+        # TODO: Is this the right way to calculate a mean?
         self.visual = float(self.v_sum) / self.t_rated
         self.auditory = float(self.a_sum) / self.t_rated
         self.cognition = float(self.c_sum) / self.t_rated
@@ -482,6 +527,9 @@ class SensoryDimensions(models.Model):
         self.save()
     
     def __unicode__(self):
+        """
+        Returns unicode representation of the instance
+        """
         return u"%s"%(self.ngram)
     
     class Meta:
@@ -490,6 +538,7 @@ class SensoryDimensions(models.Model):
 
 
 
+# TODO: Refactor NGrams in a separate file (ngram_model.py)
 class NGrams(models.Model):
     """
     NGram holds the ngrams
@@ -515,6 +564,7 @@ class NGrams(models.Model):
     # Featured Flag: If True ngram shows up as featured -> more traffic redirect
     featured               = models.BooleanField(_('Featured'),default=False)
     
+    # TODO: The next three columns are deprecated
     # Word Stem of the token
     wordstem                = models.ForeignKey(WordStems, blank=True, null=True)
     # Numerus of the token
@@ -737,7 +787,7 @@ class NGrams(models.Model):
         ordering = ['token',]
 
 
-
+# TODO: It is really an extended relational model
 class CoOccurrences(models.Model):
     """
     Co-Occurrence Class: NGrams that occure together
@@ -815,6 +865,7 @@ class CoOccurrences(models.Model):
 
 
 
+# TODO: It is really an relational model
 class Associations(models.Model):
     """
     Association Class: NGrams that were associated by users
@@ -868,7 +919,7 @@ class Associations(models.Model):
         verbose_name_plural = 'Associations'
 
 
-
+# TODO: It is really an relational model
 class NotRelated(models.Model):
     """
     Not Related Class: An Ngram is not related to another Ngram

@@ -18,12 +18,19 @@ NGRAM_LINKING_CHOICES = (
        
    )
 class NGramBulkUploadForm(forms.Form):
+    """
+    Form for the bulk upload. Linking a (list of) source to (list of) target via a type
+    TODO: Make a complete form including examples, attributes, pos, language,... so that admins 
+    can add new ngrams and relations in a fast and furious fashion
+    """
     source  = forms.CharField(widget=forms.TextInput())
     type    = forms.ChoiceField(choices=NGRAM_LINKING_CHOICES)
     target  = forms.CharField(widget=forms.TextInput())
 
 
-
+#PR-131028: DEPRECATED
+"""
+"""
 class RatePartOfSpeechForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(RatePartOfSpeechForm, self).__init__(*args, **kwargs)
