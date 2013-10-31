@@ -121,7 +121,7 @@ def sort_ngram_view(request, ngram):
             # Process Payment
             if request.user.is_authenticated():
                 # Increment authenticated profile
-                request.user.profile.income(8.88)
+                request.user.profile.income(2.22)
             else:
                 # Increment anonymous_rating session
                 if request.session.has_key('anonymous_rating'):
@@ -156,7 +156,7 @@ def eval_sem_diff_view(request, ngram):
             semdiff.record(form.cleaned_data['evaluation'],form.cleaned_data['potency'],form.cleaned_data['activity'])
             if request.user.is_authenticated():
                 # Increment authenticated profile
-                request.user.profile.income(3.33)
+                request.user.profile.income(2.22)
             else:
                 # Increment anonymous_rating session
                 if request.session.has_key('anonymous_rating'):
@@ -191,7 +191,7 @@ def eval_sensory_dim_view(request, ngram):
                            form.cleaned_data['gustatory'],)
             if request.user.is_authenticated():
                 # Increment authenticated profile
-                request.user.profile.income(6.66)
+                request.user.profile.income(2.22)
             else:
                 # Increment anonymous_rating session
                 if request.session.has_key('anonymous_rating'):
