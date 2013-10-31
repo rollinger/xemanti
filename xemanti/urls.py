@@ -40,7 +40,7 @@ urlpatterns = patterns('xemanti.views',
     #
     # Zinnia Weblog URLs
     #
-    url(r'^blog/', include('zinnia.urls')),
+    url(r'^blog/', include('zinnia.urls'), name='blog'),
     url(r'^comments/', include('django.contrib.comments.urls')),
 
     #
