@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 18:24+0200\n"
+"POT-Creation-Date: 2013-10-31 21:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.py:56
+#: admin.py:68
 msgid "Interval Occurrence Filter"
 msgstr "Auftretens-Interval Filter"
 
-#: admin.py:60
+#: admin.py:72
 msgid "1"
 msgstr ""
 
-#: admin.py:61
+#: admin.py:73
 msgid "<10"
 msgstr ""
 
-#: admin.py:62
+#: admin.py:74
 msgid "<100"
 msgstr ""
 
-#: admin.py:63
+#: admin.py:75
 msgid "<1000"
 msgstr ""
 
-#: admin.py:199
+#: admin.py:250
 msgid "Meaningful Co-Occurrence"
-msgstr ""
+msgstr "Bedeutungsvoll für Zusammenhänge"
 
-#: admin.py:203
+#: admin.py:254
 msgid "Yes"
 msgstr "Ja"
 
-#: admin.py:204
+#: admin.py:255
 msgid "No"
 msgstr "Nein"
 
@@ -86,82 +86,154 @@ msgstr ""
 msgid "cooc"
 msgstr ""
 
-#: models.py:76 models.py:344
+#: models.py:102 models.py:557
 msgid "Relevant for Co-Occurrences"
 msgstr "Relevant für Ko-Okurrenz"
 
-#: models.py:297
+#: models.py:451
 msgid "Evaluative Dimension"
 msgstr "Wertungs Dimension"
 
-#: models.py:298
+#: models.py:452
 msgid "Potency Dimension"
 msgstr "Potenz Dimension"
 
-#: models.py:299
+#: models.py:453
 msgid "Activity Dimension"
 msgstr "Aktivitäts Dimension"
 
-#: models.py:301 models.py:338
+#: models.py:455 models.py:500 models.py:551
 msgid "Times Rated"
 msgstr "Einschätzungshäufigkeit"
 
-#: models.py:302
+#: models.py:456
 msgid "Evaluative Dimension Sum"
 msgstr "Summe der Wertungs Dimension"
 
-#: models.py:303
+#: models.py:457
 msgid "Potency Dimension Sum"
 msgstr "Summe der Potenz Dimension"
 
-#: models.py:304
+#: models.py:458
 msgid "Activity Dimension Sum"
 msgstr "Summe der Aktivitäts Dimension"
 
-#: models.py:334
+#: models.py:493
+#, fuzzy
+msgid "Visual Dimension"
+msgstr "Wertungs Dimension"
+
+#: models.py:494
+#, fuzzy
+msgid "Auditory Dimension"
+msgstr "Aktivitäts Dimension"
+
+#: models.py:495
+#, fuzzy
+msgid "Thinking Dimension"
+msgstr "Aktivitäts Dimension"
+
+#: models.py:496
+#, fuzzy
+msgid "Feeling Dimension"
+msgstr "Potenz Dimension"
+
+#: models.py:497
+#, fuzzy
+msgid "Smell Dimension"
+msgstr "Potenz Dimension"
+
+#: models.py:498
+#, fuzzy
+msgid "Taste Dimension"
+msgstr "Potenz Dimension"
+
+#: models.py:501
+#, fuzzy
+msgid "Visual Dimension Sum"
+msgstr "Summe der Wertungs Dimension"
+
+#: models.py:502
+#, fuzzy
+msgid "Auditory Dimension Sum"
+msgstr "Summe der Aktivitäts Dimension"
+
+#: models.py:503
+#, fuzzy
+msgid "Thinking Dimension Sum"
+msgstr "Summe der Aktivitäts Dimension"
+
+#: models.py:504
+#, fuzzy
+msgid "Kinesthetic Dimension Sum"
+msgstr "Summe der Potenz Dimension"
+
+#: models.py:505
+#, fuzzy
+msgid "Olfactory Dimension Sum"
+msgstr "Summe der Aktivitäts Dimension"
+
+#: models.py:506
+#, fuzzy
+msgid "Gustatory Dimension Sum"
+msgstr "Summe der Aktivitäts Dimension"
+
+#: models.py:547
 msgid "NGram"
 msgstr ""
 
-#: models.py:336
+#: models.py:549
 msgid "Times Occurred"
 msgstr "Auftretenshäufigkeit"
 
-#: models.py:340
+#: models.py:553
 msgid "Times Visited"
 msgstr "Aufrufhäufigkeit"
 
-#: models.py:342
+#: models.py:555
 msgid "Calculated Index for ratings left"
 msgstr "Rating Index"
 
-#: models.py:346
+#: models.py:559
 msgid "Dirty"
 msgstr "Verändert"
 
-#: models.py:348
+#: models.py:561
+msgid "Active"
+msgstr "Aktiv"
+
+#: models.py:563
 msgid "Qualified"
 msgstr "Qualifiziert"
 
-#: models.py:456 models.py:470
+#: models.py:565
+msgid "Featured"
+msgstr "Empfohlen"
+
+#: models.py:739 models.py:753
 msgid "Almost never"
 msgstr "Fast Nie"
 
-#: models.py:456 models.py:470
+#: models.py:739 models.py:753
 msgid "Rarely"
 msgstr "Selten"
 
-#: models.py:456 models.py:470
+#: models.py:739 models.py:753
 msgid "Occasionally"
 msgstr "Gelegentlich"
 
-#: models.py:456 models.py:470
+#: models.py:739 models.py:753
 msgid "Often"
 msgstr "Häufig"
 
-#: models.py:456 models.py:470
+#: models.py:739 models.py:753
 msgid "Frequently"
 msgstr "Regelmäßig"
 
-#: models.py:463 models.py:477
+#: models.py:746 models.py:760
 msgid "Unknown"
 msgstr "Unbekannt"
+
+#: templates/ngramengine/_featured_ngrams_partial.html:4
+msgid "Featured Words:"
+msgstr "Interessante Wörter"

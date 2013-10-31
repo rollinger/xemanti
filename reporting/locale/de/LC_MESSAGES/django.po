@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-27 11:19+0100\n"
+"POT-Creation-Date: 2013-10-31 21:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr "Untersuch das Wort: "
 
 #: forms.py:17
 msgid "State your text you want to analyze..."
-msgstr ""
+msgstr "Welchen Text möchtest du untersuchen..."
 
 #: templates/reporting/_tag_cloud_partial.html:15
 msgid "Sorry, no entries yet! Contribute your knowledge "
@@ -95,8 +95,9 @@ msgid ""
 "no&#160;smelling|no&#160;tasting|2:|seeing|hearing|thinking|touching|"
 "smelling|tasting"
 msgstr ""
-"&chxl=1:|nicht&#160;sehen|nicht&#160;hören|nicht&#160;denken|nicht&#160;tasten|nicht&#160;riechen|"
-"nicht schmecken|2:|sehen|hören|denken|tasten|riechen|schmecken"
+"&chxl=1:|nicht&#160;sehen|nicht&#160;hören|nicht&#160;denken|nicht&#160;"
+"tasten|nicht&#160;riechen|nicht schmecken|2:|sehen|hören|denken|tasten|"
+"riechen|schmecken"
 
 #: templates/reporting/inspect_show.html:200
 msgid "Co-Occurrences"
@@ -145,6 +146,25 @@ msgstr "Sinneswahrnehmung bewerten:"
 #: templates/reporting/inspect_show.html:232
 msgid "... earn Xetis!"
 msgstr "... mach' Xetis!"
+
+#: templates/reporting/inspect_show.html:238
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t<h5>Xemanti - Deine Sprachtools.</h5>\n"
+"\t\t\t\t<p class=\"small\" style=\"text-align:justify;\">Finde Antworten auf "
+"deine Fragen in unserem Interaktiv-Wörterbuch!<br>\n"
+"\t\t\t\tWas bedeutet \"<strong>%(ngram)s</strong>\" für andere? Welche "
+"Einstellungen und Meinung ruft \"%(ngram)s\" bei anderen hervor? \n"
+"\t\t\t\tWelche Beziehung hat \"%(ngram)s\" zu anderen Wörtern? Tausende "
+"Nutzer bringen täglich ihre <strong>Gedanken, Meinungen und Gefühle</strong> "
+"auf Xemanti ein. \n"
+"\t\t\t\tDu kannst dieses Wissen abfragen und als <strong>Inspiration</"
+"strong> verwenden. \n"
+"\t\t\t\tMach deine Freunde schlauer und <strong>trage dein Wissen jetzt "
+"bei...</strong></p>\n"
+"\t\t\t"
+msgstr ""
 
 #~ msgid "Frequency: "
 #~ msgstr "Häufigkeit"

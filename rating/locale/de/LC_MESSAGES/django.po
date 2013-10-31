@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-27 11:12+0100\n"
+"POT-Creation-Date: 2013-10-31 21:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,103 +29,165 @@ msgstr "Danke für deine Einschätzung!"
 msgid "Rate one Word and you will get redirected!"
 msgstr "Assoziiere ein Wort und du wirst sofort weitergeleitet!"
 
-#: templates/rating/ngram_eval_sem_diff.html:35
+#: templates/rating/ngram_eval_sem_diff.html:24
+#: templates/rating/ngram_eval_sensory_dim.html:24
+#: templates/rating/ngram_rating.html:40
+msgid "Inspect"
+msgstr "Untersuchen"
+
+#: templates/rating/ngram_eval_sem_diff.html:32
+#, python-format
+msgid ""
+"\n"
+"                        What is your attitude towards <strong>%(ngram)s</"
+"strong>?<br>\n"
+"                        Please indicate on the right your attitude. Does "
+"%(ngram)s appear\n"
+"                        to you rather bad, weak and passive or rather good, "
+"strong and active? After you pressed\n"
+"                        the buttons that best represent your attitude, "
+"please click on the button rate.\n"
+"                    "
+msgstr ""
+"\n"
+"                        Was ist deine Einstellung zu <strong>%(ngram)s</"
+"strong>?<br>\n"
+"                        Bitte gib deine Einstellung auf der rechten Seite an."
+"Erscheint dir %(ngram)s eher\n"
+"                        schlecht, schwach und passiv oder eher gut, stark "
+"und aktiv? Nachdem du die Schaltflächen\n"
+"                        deiner Einstellung entsprechend gedrückt hast, "
+"klicke auf die Schaltfläche \"Einschätzen\".\n"
+"                    "
+
+#: templates/rating/ngram_eval_sem_diff.html:45
 msgid "bad"
 msgstr "schlecht"
 
-#: templates/rating/ngram_eval_sem_diff.html:36
-#: templates/rating/ngram_eval_sem_diff.html:43
-#: templates/rating/ngram_eval_sem_diff.html:50
-#: templates/rating/ngram_eval_sensory_dim.html:36
-#: templates/rating/ngram_eval_sensory_dim.html:43
-#: templates/rating/ngram_eval_sensory_dim.html:50
-#: templates/rating/ngram_eval_sensory_dim.html:57
-#: templates/rating/ngram_eval_sensory_dim.html:64
-#: templates/rating/ngram_eval_sensory_dim.html:71
+#: templates/rating/ngram_eval_sem_diff.html:46
+#: templates/rating/ngram_eval_sem_diff.html:53
+#: templates/rating/ngram_eval_sem_diff.html:60
+#: templates/rating/ngram_eval_sensory_dim.html:54
+#: templates/rating/ngram_eval_sensory_dim.html:61
+#: templates/rating/ngram_eval_sensory_dim.html:68
+#: templates/rating/ngram_eval_sensory_dim.html:75
+#: templates/rating/ngram_eval_sensory_dim.html:82
+#: templates/rating/ngram_eval_sensory_dim.html:89
 msgid "neutral"
 msgstr "neutral"
 
-#: templates/rating/ngram_eval_sem_diff.html:37
+#: templates/rating/ngram_eval_sem_diff.html:47
 msgid "good"
 msgstr "gut"
 
-#: templates/rating/ngram_eval_sem_diff.html:42
+#: templates/rating/ngram_eval_sem_diff.html:52
 msgid "weak"
 msgstr "schwach"
 
-#: templates/rating/ngram_eval_sem_diff.html:44
+#: templates/rating/ngram_eval_sem_diff.html:54
 msgid "strong"
 msgstr "stark"
 
-#: templates/rating/ngram_eval_sem_diff.html:49
+#: templates/rating/ngram_eval_sem_diff.html:59
 msgid "passive"
 msgstr "passiv"
 
-#: templates/rating/ngram_eval_sem_diff.html:51
+#: templates/rating/ngram_eval_sem_diff.html:61
 msgid "active"
 msgstr "aktiv"
 
-#: templates/rating/ngram_eval_sem_diff.html:59
-#: templates/rating/ngram_eval_sensory_dim.html:80
+#: templates/rating/ngram_eval_sem_diff.html:69
+#: templates/rating/ngram_eval_sensory_dim.html:98
+#: templates/rating/ngram_rating.html:55
 #: templates/rating/ngram_sorting.html:87
 msgid "Rate"
 msgstr "Einschätzen"
 
-#: templates/rating/ngram_eval_sensory_dim.html:35
+#: templates/rating/ngram_eval_sensory_dim.html:38
+#, python-format
+msgid ""
+"\n"
+"                        What is your sensory experience with <strong>"
+"%(ngram)s</strong>?<br>\n"
+"                        Please indicate on the right your sensory experience "
+"you have with %(ngram)s.\n"
+"                        Do you see pictures, hear sounds, think or reason "
+"about %(ngram)s?\n"
+"                        Do you experience bodily sensations, smell or taste "
+"something?\n"
+"                        After you pressed the buttons that best represent "
+"your sensory experience,\n"
+"                        please click on the button rate.\n"
+"                    "
+msgstr ""
+"\n"
+"                        Welche deiner Sinne sind bei <strong>%(ngram)s</"
+"strong> hauptsächlich aktiv?<br>\n"
+"                        Bitte gib deine Sinneswahrnehmungen auf der rechten "
+"Seite an.                        Siehst du Bilder, hörst du Geräusche oder "
+"denkst du über %(ngram)s nach?\n"
+"                        Spürst du körperliche Empfindungen, Gerüche oder "
+"Geschmäcker?\n"
+"Nachdem du die Schaltflächen\n"
+"                        deiner Sinneswahrnehmung entsprechend gedrückt hast, "
+"klicke auf die Schaltfläche \"Einschätzen\".\n"
+"                    "
+
+#: templates/rating/ngram_eval_sensory_dim.html:53
 msgid "no seeing"
 msgstr "nicht sehen"
 
-#: templates/rating/ngram_eval_sensory_dim.html:37
+#: templates/rating/ngram_eval_sensory_dim.html:55
 msgid "seeing"
 msgstr "sehen"
 
-#: templates/rating/ngram_eval_sensory_dim.html:42
+#: templates/rating/ngram_eval_sensory_dim.html:60
 msgid "no hearing"
 msgstr "nicht hören"
 
-#: templates/rating/ngram_eval_sensory_dim.html:44
+#: templates/rating/ngram_eval_sensory_dim.html:62
 msgid "hearing"
 msgstr "hören"
 
-#: templates/rating/ngram_eval_sensory_dim.html:49
+#: templates/rating/ngram_eval_sensory_dim.html:67
 msgid "no thinking"
 msgstr "nicht denken"
 
-#: templates/rating/ngram_eval_sensory_dim.html:51
+#: templates/rating/ngram_eval_sensory_dim.html:69
 msgid "thinking"
 msgstr "denken"
 
-#: templates/rating/ngram_eval_sensory_dim.html:56
+#: templates/rating/ngram_eval_sensory_dim.html:74
 msgid "no touching"
 msgstr "nicht tasten"
 
-#: templates/rating/ngram_eval_sensory_dim.html:58
+#: templates/rating/ngram_eval_sensory_dim.html:76
 msgid "touching"
 msgstr "tasten"
 
-#: templates/rating/ngram_eval_sensory_dim.html:63
+#: templates/rating/ngram_eval_sensory_dim.html:81
 msgid "no smelling"
 msgstr "nicht riechen"
 
-#: templates/rating/ngram_eval_sensory_dim.html:65
+#: templates/rating/ngram_eval_sensory_dim.html:83
 msgid "smelling"
 msgstr "riechen"
 
-#: templates/rating/ngram_eval_sensory_dim.html:70
+#: templates/rating/ngram_eval_sensory_dim.html:88
 msgid "no tasting"
 msgstr "nicht schmecken"
 
-#: templates/rating/ngram_eval_sensory_dim.html:72
+#: templates/rating/ngram_eval_sensory_dim.html:90
 msgid "tasting"
 msgstr "schmecken"
 
-#: templates/rating/ngram_rating.html:38
-msgid "Inspect"
-msgstr "Untersuchen"
-
-#: templates/rating/ngram_rating.html:45
+#: templates/rating/ngram_rating.html:47
 msgid "N-Gram Admin"
 msgstr ""
+
+#: templates/rating/ngram_rating.html:56
+msgid "Skip"
+msgstr "Überspringen"
 
 #: templates/rating/ngram_sorting.html:28
 msgid "is not relevant for"
@@ -158,6 +220,12 @@ msgstr "ist ein Beispiel von"
 #: templates/rating/ngram_sorting.html:77
 msgid "is an attribute of"
 msgstr "ist ein Attribut von"
+
+#~ msgid "rate"
+#~ msgstr "Einschätzen"
+
+#~ msgid "skip"
+#~ msgstr "Überspringen"
 
 #~ msgid "Not Related"
 #~ msgstr "Nicht Relevant"

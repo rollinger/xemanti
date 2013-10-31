@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/static/kube/kubeless/css/master.css" afterPath="$PROJECT_DIR$/xemanti/static/kube/kubeless/css/master.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/templates/rating/ngram_eval_sem_diff.html" afterPath="$PROJECT_DIR$/rating/templates/rating/ngram_eval_sem_diff.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/templates/rating/ngram_eval_sensory_dim.html" afterPath="$PROJECT_DIR$/rating/templates/rating/ngram_eval_sensory_dim.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" afterPath="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/xemanti.iml" afterPath="$PROJECT_DIR$/.idea/xemanti.iml" />
     </list>
     <ignored path="xemanti.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,6 +64,12 @@
       <list>
         <option value="$PROJECT_DIR$/xemanti/static/kube/kubeless/css/kube.css" />
         <option value="$PROJECT_DIR$/xemanti/static/kube/kubeless/css/master.css" />
+        <option value="$PROJECT_DIR$/rating/templates/rating/ngram_eval_sem_diff.html" />
+        <option value="$PROJECT_DIR$/rating/templates/rating/ngram_eval_sensory_dim.html" />
+        <option value="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po" />
+        <option value="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po" />
+        <option value="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" />
+        <option value="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" />
       </list>
     </option>
   </component>
@@ -108,116 +121,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kube" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kubeless" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kube" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kubeless" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kube" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -468,12 +371,18 @@
       <created>1383245891292</created>
       <updated>1383245891292</updated>
     </task>
+    <task id="LOCAL-00001" summary="Render Link without underline">
+      <created>1383249825582</created>
+      <updated>1383249825582</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1617" height="1055" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -501,6 +410,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Render Link without underline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Render Link without underline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -522,7 +433,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/static/kube/kubeless/css/master.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="24" selection-start="269" selection-end="269" vertical-scroll-proportion="0.33854166" vertical-offset="0" max-vertical-offset="1845">
+        <state line="10" column="10" selection-start="152" selection-end="161" vertical-scroll-proportion="0.26041666" vertical-offset="0" max-vertical-offset="1890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_eval_sensory_dim.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="24" selection-start="1693" selection-end="1693" vertical-scroll-proportion="-16.25" vertical-offset="255" max-vertical-offset="1665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="238" column="27" selection-start="4143" selection-end="4143" vertical-scroll-proportion="0.8177083" vertical-offset="3099" max-vertical-offset="3675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="44" selection-start="863" selection-end="863" vertical-scroll-proportion="-3.609375" vertical-offset="2514" max-vertical-offset="3090">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_eval_sem_diff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="69" selection-start="1085" selection-end="1085" vertical-scroll-proportion="-8.0" vertical-offset="288" max-vertical-offset="1230">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="20" selection-start="5775" selection-end="5775" vertical-scroll-proportion="0.0" vertical-offset="954" max-vertical-offset="3735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_rating.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="100" selection-start="1872" selection-end="1872" vertical-scroll-proportion="0.6122449" vertical-offset="495" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
