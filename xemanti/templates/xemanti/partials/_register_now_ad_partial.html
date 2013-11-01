@@ -1,0 +1,235 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ocanvas/2.5.0/ocanvas.min.js"></script>
+<script>
+    $(function() {
+		var canvas = oCanvas.create({
+            canvas: "#register-now-ad",
+            background: "#fff",
+            fps: 60
+            //drawEachFrame: true
+        });
+        canvas.settings.drawEachFrame = true;
+
+        var numberofusers = 7;
+        var flashprobability = 0.1;
+        var offset = 50;
+        var x_boundary = canvas.width;
+        var y_boundary = canvas.height;
+        var featured_tokens = [];
+        var connectionflash = new Array();
+        var maxconnections = 12;
+
+        function movesprite(user){
+            if (user.rotation_direction == 1){
+                user.rotation -= Math.random()*3;
+            }else if (user.rotation_direction == 3){
+                user.rotation += Math.random()*3;
+            }
+            if (user.x_direction == 1){
+                user.x -= Math.random()*1;
+            }else if (user.x_direction == 3){
+                user.x += Math.random()*1;
+            }
+            if (user.y_direction == 1){
+                user.y -= Math.random()*1;
+            }else if (user.y_direction == 3){
+                user.y += Math.random()*1;
+            }
+        }
+
+        function turnback(user){
+            turned = false;
+            if (user.x < 0 - offset || user.x > x_boundary + offset){
+                turned = true;
+                if (user.x_direction == 1){
+                    user.x_direction = 3;
+                }else if (user.x_direction == 3){
+                    user.x_direction = 1;
+                }
+            }
+            if (user.y < 0 - offset || user.y > y_boundary + offset){
+                turned = true;
+                if (user.y_direction == 1){
+                    user.y_direction = 3;
+                }else if (user.y_direction == 3){
+                    user.y_direction = 1;
+                }
+            }
+            if (turned == true){
+                user.rotation_direction = Math.floor((Math.random()*3)+1);
+            }
+        }
+
+        function addconnectionflash(user01,user02){
+            if (connectionflash.length > maxconnections ){
+                i = Math.floor(Math.random() * connectionflash.length);
+                connectionflash[i].fadeOut("long", "ease-in-out-cubic", function () {});
+                canvas.removeChild(connectionflash[i]);
+                connectionflash.splice(i,1);
+            }else{
+                var line = canvas.display.line({
+                    //start: { x: user01.x, y: user01.y },
+                    end: user02,
+                    origin: { x: "center", y: "center" },
+                    stroke: "3px #a0a0a0",
+                    cap: "round",
+                    opacity: 0
+                });
+                connectionflash.push(line);
+                //canvas.addChild(line);
+                //user01.addChild();
+                user01.addChild(line);
+                line.fadeIn("long", "ease-in-out-cubic", function () {});
+            }
+        }
+
+        var button = canvas.display.rectangle({
+            x: canvas.width / 2,
+            y: canvas.width / 5,
+            origin: { x: "center", y: "center" },
+            width: canvas.width -50,
+            height: 40,
+            fill: "#5ca9e4",
+            stroke: "10px #5ca9e4",
+            join: "round",
+            zIndex: "front",
+            opacity: 0
+        });
+        var buttonText = canvas.display.text({
+            x: 0,
+            y: 0,
+            origin: { x: "center", y: "center" },
+            align: "center",
+            font: "bold 25px sans-serif",
+            text: "Register Now!",
+            fill: "#fff"
+        });
+        button.addChild(buttonText);
+
+        // Add four connection points
+        var connectionarray = new Array();
+        var connectionprototype = canvas.display.rectangle({
+            x: 0,
+            y: 0,
+            width: 10,
+            height: 10,
+            origin: { x: "center", y: "center" },
+            fill: "#0aa"
+        });
+        // Instatiate user objects
+        for (var i = 0; i < 4; i++) {
+            connection = connectionprototype.clone({
+                x: Math.floor((Math.random()*100)+1),
+                y: Math.floor((Math.random()*100)+1)
+            });
+            connectionarray.push(connection);
+        }
+        for (var i = 0; i < 4; i++) {
+            canvas.addChild(connectionarray[i]);
+        }
+
+
+        var userarray = new Array();
+        // Define Prototype
+        var user = canvas.display.image({
+            x: Math.floor((Math.random()*canvas.width-offset)+1),
+            y: Math.floor((Math.random()*canvas.height-offset)+1),
+            origin: { x: "center", y: "center" },
+            image: "{{ STATIC_URL }}images/design/strichmaennchen.png",
+            rotation: Math.floor((Math.random()*360)+1),
+            rotation_direction: Math.floor((Math.random()*3)+1),
+            x_direction: Math.floor((Math.random()*3)+1),
+            y_direction: Math.floor((Math.random()*3)+1),
+        });
+        // Instatiate user objects
+        for (var i = 0; i < numberofusers; i++) {
+            var userobject = user.clone({ x: Math.floor((Math.random()*canvas.width)+1),
+                y: Math.floor((Math.random()*canvas.height)+1),
+                rotation: Math.floor((Math.random()*360)+1),
+                rotation_direction: Math.floor((Math.random()*3)+1),
+                x_direction: Math.floor((Math.random()*3)+1),
+                y_direction: Math.floor((Math.random()*3)+1) });
+            userarray.push(userobject);
+        }
+
+        // Add objects to canvas
+        canvas.addChild(button);
+        for (var i = 0; i < numberofusers; i++) {
+            canvas.addChild(userarray[i]);
+        }
+
+        // Make objects dragable
+        var dragOptions = { changeZindex: true };
+        for (var i = 0; i < numberofusers; i++) {
+            userarray[i].dragAndDrop(dragOptions);
+        }
+
+        canvas.setLoop(function () {
+            // move each object
+            for (var i = 0; i < numberofusers; i++) {
+                turnback(userarray[i]);
+                movesprite(userarray[i]);
+            }
+            if (Math.random() < flashprobability ){
+                var user01 = userarray[Math.floor(Math.random() * userarray.length)];
+                var user02 = userarray[Math.floor(Math.random() * userarray.length)];
+                //addconnectionflash(user01,user02);
+            }
+        });
+
+        // Animation on mouse enter/leave
+        canvas.bind("mouseenter touchenter", function () {
+            userarray[0].animate({rotation: 45, x: 90, y: 134
+                }, {duration: "short", easing: "ease-in-cubic"
+            });
+            userarray[1].animate({rotation: 315, x: 210, y: 136
+                }, {duration: "short", easing: "ease-in-cubic"
+            });
+            userarray[2].animate({rotation: 225, x: 210, y: 11
+                }, {duration: "short", easing: "ease-in-cubic"
+            });
+            userarray[3].animate({rotation: 134, x: 90, y: 10
+                }, {duration: "short", easing: "ease-in-cubic"
+            });
+            userarray[4].animate({opacity: 0.5
+                }, {duration: "normal", easing: "ease-in-out-bounce"
+            });
+            userarray[5].animate({opacity: 0.5
+                }, {duration: "normal", easing: "ease-in-out-bounce"
+            });
+            userarray[6].animate({opacity: 0.5
+                }, {duration: "normal", easing: "ease-in-out-bounce"
+            });
+
+	        canvas.redraw();
+            canvas.timeline.stop();
+            button.fadeIn("short", "ease-in-out-cubic", function () {
+                this.zIndex = "front";
+            });
+        }).bind("mouseleave touchleave", function () {
+            userarray[4].animate({opacity: 1
+                }, {duration: "normal", easing: "ease-in-out-bounce"
+            });
+            userarray[5].animate({opacity: 1
+                }, {duration: "normal", easing: "ease-in-out-bounce"
+            });
+            userarray[6].animate({opacity: 1
+                }, {duration: "normal", easing: "ease-in-out-bounce"
+            });
+            canvas.timeline.start();
+            button.fadeOut("long", "ease-in-out-cubic", function () {
+                this.zIndex = "back";
+            });
+        })
+        // Link to Register Page
+        button.bind("click tap", function () {
+            location= '{% url "registration_view" %}';
+        });
+
+        // Initially start animation
+        canvas.timeline.start();
+	});
+</script>
+
+
+<canvas id="register-now-ad" height="200" style="background-color: white;">
+</canvas>

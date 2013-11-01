@@ -47,8 +47,10 @@
 		<header id="header">
 			<div class="units-row-end">
 				<div class="unit-30">
+                    {% include 'xemanti/partials/_animated_logo_partial.html' with messages=messages%}
 					<a href="{% url "home" %}" rel="external">
-						<img id="logo-image" src="{{STATIC_URL}}images/design/logo_small.png">
+						{# <img id="logo-image" src="{{STATIC_URL}}images/design/logo_small.png"> #}
+
 					</a>
 				</div>
 				<div class="unit-70">

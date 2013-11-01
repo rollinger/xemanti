@@ -1,0 +1,55 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ocanvas/2.5.0/ocanvas.min.js"></script>
+<script>
+    $(function() {
+		var canvas = oCanvas.create({
+            canvas: "#animated-logo",
+            background: "#fff",
+            fps: 60
+        });
+
+        var sign = canvas.display.image({
+            x: 43,
+            y: 43,
+            origin: { x: "center", y: "center" },
+            image: "{{ STATIC_URL }}images/design/logo_sign.png",
+        });
+        canvas.addChild(sign);
+
+        var text = canvas.display.image({
+            x: 76,
+            y: 10,
+            origin: { x: "left", y: "top" },
+            image: "{{ STATIC_URL }}images/design/logo_text.png",
+        });
+        canvas.addChild(text);
+
+        // Ongoing Animation
+        canvas.setLoop(function () {
+            sign.rotation += .33;
+        });
+
+        // Animation on mouse enter/leave
+        canvas.bind("mouseenter touchenter", function () {
+            sign.animate({
+		        rotation: 720 //+ (sign.rotation - 360.0),
+	        }, {
+                duration: "long",
+                easing: "ease-in-out-elastic"
+	        });
+            canvas.timeline.stop();
+        }).bind("mouseleave touchleave", function () {
+            canvas.timeline.start();
+        })
+        // Link to Register Page
+        canvas.bind("click tap", function () {
+            location= '{% url "home" %}';
+        });
+
+        // Initially start animation
+        canvas.timeline.start();
+	});
+</script>
+
+
+<canvas id="animated-logo" width="220" height="87" style="background-color: #f5f5f5;">
+</canvas>
