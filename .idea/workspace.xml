@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/static/images/design/logo_sign.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/static/images/design/logo_text.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/static/images/design/strichmaennchen.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/static/images/design/strichmaennchen_small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_animated_logo_partial.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_register_now_ad_partial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/templates/xemanti/base.html" afterPath="$PROJECT_DIR$/xemanti/templates/xemanti/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" afterPath="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" afterPath="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -39,16 +30,36 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="102" selection-start="1780" selection-end="1780" vertical-scroll-proportion="-6.25" vertical-offset="585" max-vertical-offset="2535">
+            <state line="49" column="102" selection-start="1780" selection-end="1780" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="2535">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_register_now_ad_partial.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_register_now_ad_partial.html">
+      <file leaf-file-name="inspect_show.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="215" column="67" selection-start="8181" selection-end="8181" vertical-scroll-proportion="0.60387325" vertical-offset="2882" max-vertical-offset="3615">
+            <state line="249" column="18" selection-start="10239" selection-end="10239" vertical-scroll-proportion="0.5675676" vertical-offset="3420" max-vertical-offset="4140">
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#article#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ngramengine_tags.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ngramengine/templatetags/ngramengine_tags.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ngram_rating.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_rating.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="4" selection-start="2132" selection-end="2264" vertical-scroll-proportion="-10.625" vertical-offset="810" max-vertical-offset="1365">
               <folding />
             </state>
           </provider>
@@ -82,11 +93,11 @@
         <option value="$PROJECT_DIR$/xemanti/urls.py" />
         <option value="$PROJECT_DIR$/rating/views.py" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/home.html" />
-        <option value="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" />
-        <option value="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/base.html" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_animated_logo_partial.html" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_register_now_ad_partial.html" />
+        <option value="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" />
+        <option value="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" />
       </list>
     </option>
   </component>
@@ -355,6 +366,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ngramengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ngramengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templatetags" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ngramengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ngramengine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -634,7 +699,11 @@
       <created>1383255576077</created>
       <updated>1383255576077</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Put rating payment straight">
+      <created>1383337154387</created>
+      <updated>1383337154387</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -649,7 +718,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67170626" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.5003096" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.5009288" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.4990712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -679,13 +748,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_eval_sem_diff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="69" selection-start="1085" selection-end="1085" vertical-scroll-proportion="-8.0" vertical-offset="288" max-vertical-offset="1230">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po">
       <provider selected="true" editor-type-id="text-editor">
         <state line="189" column="20" selection-start="5775" selection-end="5775" vertical-scroll-proportion="0.0" vertical-offset="954" max-vertical-offset="3735" />
@@ -712,11 +774,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ngramengine/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="4" selection-start="307" selection-end="307" vertical-scroll-proportion="0.15202703" vertical-offset="90" max-vertical-offset="14580">
-          <folding>
-            <element signature="e#24#52#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="12" column="4" selection-start="307" selection-end="307" vertical-scroll-proportion="0.15202703" vertical-offset="90" max-vertical-offset="14580" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_sorting.html">
@@ -728,28 +786,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_flash_message_partial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/static/images/design/strichmaennchen_small.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_rating.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="73" selection-start="2417" selection-end="2417" vertical-scroll-proportion="-48.125" vertical-offset="15" max-vertical-offset="1335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="16" selection-start="10372" selection-end="10372" vertical-scroll-proportion="-13.75" vertical-offset="3465" max-vertical-offset="4080">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/views.py">
@@ -766,26 +808,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="102" selection-start="1780" selection-end="1780" vertical-scroll-proportion="-6.25" vertical-offset="585" max-vertical-offset="2535">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_animated_logo_partial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="31" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.57746476" vertical-offset="197" max-vertical-offset="900">
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
+        <state line="35" column="31" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.57746476" vertical-offset="197" max-vertical-offset="900" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_register_now_ad_partial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="67" selection-start="8181" selection-end="8181" vertical-scroll-proportion="0.60387325" vertical-offset="2882" max-vertical-offset="3615">
+        <state line="215" column="67" selection-start="8181" selection-end="8181" vertical-scroll-proportion="0.84859157" vertical-offset="2743" max-vertical-offset="3615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="102" selection-start="1780" selection-end="1780" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="2535">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_rating.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="4" selection-start="2132" selection-end="2264" vertical-scroll-proportion="-10.625" vertical-offset="810" max-vertical-offset="1365">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngramengine/templatetags/ngramengine_tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="249" column="18" selection-start="10239" selection-end="10239" vertical-scroll-proportion="0.5675676" vertical-offset="3420" max-vertical-offset="4140">
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#article#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

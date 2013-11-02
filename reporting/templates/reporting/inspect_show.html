@@ -1,6 +1,7 @@
 {% extends "xemanti/base.html" %}
 {% load i18n %}
 {% load reporting_tags %}
+{% load ngramengine_tags %}
 
 {% block metadata %}
 	{% if ngram.has_outbound_associations %}
@@ -29,11 +30,7 @@
 
 {% block main-content %}
 
-{% if ngram %}
 <div id="left-content" class="unit-70">
-{% else %}
-<div id="left-content" class="unit-70">
-{% endif %}
 
 	<div class="units-row">
 		<div class="unit-centered unit-90">
@@ -211,9 +208,9 @@
 	{% endif %}
 </div>
 
-{% if ngram %}
-    <div id="right-sidebar" class="unit-30">
-	
+
+<div id="right-sidebar" class="unit-30">
+	{% if ngram %}
         <div class="units-row">
             <div class="unit-100">
                 <h5>{% trans 'Contibute your Knowledge:' %}<h5>
@@ -245,18 +242,25 @@
                 {% endblocktrans %}
             </div>
         </article>
+
+    {% endif %}
+
+    <div id="featured" class="units-row">
+        <div id="featured-ngrams" class="unit-100">
+            {% if request.user.is_authenticated %}
+                {% render_featured_ngrams %}
+            {% endif %}
+        </div>
     </div>
-{% else %}
-
-    <div id="right-sidebar" class="unit-30">
-        {% if not request.user.is_authenticated %}
-            {% include "xemanti/partials/_register_now_ad_partial.html"%}
-        {% endif %}
+    <div id="featured" class="units-row">
+        <div id="featured-ngrams" class="unit-100">
+            {% if not request.user.is_authenticated %}
+                {% include "xemanti/partials/_register_now_ad_partial.html"%}
+            {% endif %}
+        </div>
     </div>
 
-{% endif %}
-
-
+</div>
 
 {% endblock main-content %}
 

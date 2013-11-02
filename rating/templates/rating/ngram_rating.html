@@ -76,7 +76,9 @@
 	</div>
     <div id="featured" class="units-row">
 		<div id="featured-ngrams" class="unit-100">
-			{% include "xemanti/partials/_register_now_ad_partial.html"%}
+			{% if not request.user.is_authenticated %}
+                {% include "xemanti/partials/_register_now_ad_partial.html"%}
+            {% endif %}
 		</div>
 	</div>
 </div>
