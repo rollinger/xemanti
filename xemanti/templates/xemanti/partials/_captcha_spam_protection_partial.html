@@ -1,0 +1,135 @@
+{% load i18n %}
+{% load static %}
+
+<style>
+.zoverlay {
+    z-index: 1000;
+}
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+</style>
+
+<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+
+<script>
+$(function() {
+    $('#spam-protection-captcha-form').bind("keyup", function(e) {
+        var code = e.keyCode || e.which;
+        if (code  == 13) {
+        e.preventDefault();
+        return false;
+        }
+    });
+
+    $.fn.serializeObject = function()
+    // TODO: Add this function to jQuery.core.extensions because very useful
+        {
+           var o = {};
+           var a = this.serializeArray();
+           $.each(a, function() {
+               if (o[this.name]) {
+                   if (!o[this.name].push) {
+                       o[this.name] = [o[this.name]];
+                   }
+                   o[this.name].push(this.value || '');
+               } else {
+                   o[this.name] = this.value || '';
+               }
+           });
+           return o;
+        };
+    function verify_captcha(register){
+        data = $('#spam-protection-captcha-form').serializeObject();
+        Dajaxice.xemanti.verify_captcha(verify_captcha_callback, { register: register,'form': data });
+        return false;
+    }
+    function verify_captcha_callback(data){
+        //alert(data.status + data.register);
+        if (data.status == 'true'){
+            //alert('Solved');
+            // Captcha was solved
+            if (data.register == true){
+                //alert('Go to register');
+                //redirect to register form
+                $( '#spam-protection-captcha-dialog' ).dialog('close');
+                location= '{% url "registration_view" %}';
+            }else{
+                //close dialog
+                //alert('Close Dialog');
+                $( '#spam-protection-captcha-dialog' ).dialog('close');
+            }
+        }else{
+            // Captcha was not solved add message to form
+            //alert('Wrong');
+            $('#recaptcha-error').show().text( "Sorry, wrong answer!" );
+            Recaptcha.reload();
+        }
+
+    }
+    $( '#spam-protection-captcha-dialog' ).dialog({
+        autoOpen: {{ request.open_captcha_dialog }},
+        modal: true,
+        resizable: false,
+        draggable: false,
+        closeOnEscape: false,
+        height: 'auto',
+        width: 500,
+        dialogClass: "zoverlay no-close",
+
+        show: {
+            effect: "blind",
+            duration: 1000
+        },
+        hide: {
+            effect: "explode",
+            duration: 1000
+        },
+        open: function() {
+            $('.ui-widget-overlay').css('position', 'fixed');
+        },
+        close: function() {
+            $('.ui-widget-overlay').css('position', 'absolute');
+        },
+        buttons: {
+            "{% trans 'Register Now!' %}": function() {
+                verify_captcha(register=true);
+            },
+            "{% trans 'Verify' %}": function() {
+                verify_captcha(register=false);
+            }
+        }
+    });
+
+    if ( {{ request.open_captcha_dialog }} ){
+        Recaptcha.create("6LeZp-kSAAAAAMTTvSz6U8yccAJYx7MHxoHp9EIV",
+            "spam-protection-captcha-recaptcha",
+            {
+              theme: "clean",
+              callback: Recaptcha.focus_response_field
+            }
+        );
+    }
+
+});
+
+</script>
+
+
+
+<div id="spam-protection-captcha-dialog" title="{% trans 'Thanks for using Xemanti!' %}" style="display:none">
+    <p class="small blocktext">{% blocktrans %}You want opinions from real humans, therefor we'd like to ensure you are not HAL ;)
+        If you <b>Register on Xemanti</b>, we are confident you are human indeed!{% endblocktrans %}</p>
+    <form action="." method="get" id="spam-protection-captcha-form" accept-charset="ISO-8859-1">
+        {% csrf_token %}
+        <div class="units-row small">
+            <div class="unit-100">
+                <label>{% trans 'Please help translate old books:' %}</label>
+            </div>
+            <div class="message message-error" id="recaptcha-error" style="display:none;">
+            </div>
+        </div>
+        <div class="units-row units-centered" id="spam-protection-captcha-recaptcha" >
+        </div>
+    </form>
+</div>

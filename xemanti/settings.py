@@ -124,6 +124,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'xemanti.middleware.AnonymousSpamProtectionMiddleware',
     'xemanti.middleware.AnonymousRatingMiddleware',
 )
 
@@ -225,8 +226,20 @@ BROKER_URL = 'amqp://guest:guest@localhost:5672/'
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERYBEAT_LOADER = "djcelery.loaders.DjangoLoader"
 
-#
-# XEMANTIC CONFIGURATION SETTINGS
-#
+"""
+XEMANTI CONFIGURATION SETTINGS
+"""
 REGISTRATION_START_BALANCE = 100.00
 ANONYMOUS_RATING_CYCLES = 3
+
+"""
+Spam Protection Configuration
+- probability each request of showing captcha
+- urls where Spam Protection is enabled
+Alternatively:
+if the context variable open_captcha is set to 'true' the subsequent template will show the modal dialog
+"""
+SPAM_PROTECTED_PROBABILITY = 0.02
+SPAM_PROTECTED_URLS = ['/rating/','/reporting/']
+
+SPAM_PROTECTED_URL_PROBABILITY = {'/rating/': 0.5, '/reporting/': 0.5}
