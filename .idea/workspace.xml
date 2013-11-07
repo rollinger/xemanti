@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/templates/reporting/_directional_ngram_image_partial.html" afterPath="$PROJECT_DIR$/reporting/templates/reporting/_directional_ngram_image_partial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" afterPath="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/forms.py" afterPath="$PROJECT_DIR$/xemanti/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xemanti.iws" />
@@ -27,20 +26,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="inspect_show.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html">
+      <file leaf-file-name="forms.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/xemanti/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="245" column="22" selection-start="11075" selection-end="11075" vertical-scroll-proportion="0.7297297" vertical-offset="3270" max-vertical-offset="4755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_directional_ngram_image_partial.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/_directional_ngram_image_partial.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="17" selection-start="88" selection-end="88" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
-              <folding />
+            <state line="6" column="43" selection-start="209" selection-end="209" vertical-scroll-proportion="0.15202703" vertical-offset="0" max-vertical-offset="592">
+              <folding>
+                <element signature="e#35#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,7 +62,6 @@
         <option value="$PROJECT_DIR$/rating/templates/rating/ngram_rating.html" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/base.html" />
         <option value="$PROJECT_DIR$/xemanti/urls.py" />
-        <option value="$PROJECT_DIR$/xemanti/forms.py" />
         <option value="$PROJECT_DIR$/xemanti/views.py" />
         <option value="$PROJECT_DIR$/xemanti/middleware.py" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_captcha_spam_protection_partial.html" />
@@ -79,6 +70,7 @@
         <option value="$PROJECT_DIR$/xemanti/settings.py" />
         <option value="$PROJECT_DIR$/reporting/templates/reporting/_directional_ngram_image_partial.html" />
         <option value="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" />
+        <option value="$PROJECT_DIR$/xemanti/forms.py" />
       </list>
     </option>
   </component>
@@ -142,29 +134,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="reporting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reporting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reporting" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -492,7 +462,11 @@
       <created>1383815833066</created>
       <updated>1383815833066</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed reporting design">
+      <created>1383817217305</created>
+      <updated>1383817217305</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -525,7 +499,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67170626" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67170626" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39956802" sideWeight="0.8136223" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.5009288" order="7" side_tool="true" content_ui="tabs" />
@@ -555,7 +529,8 @@
     <MESSAGE value="Set register ad placement" />
     <MESSAGE value="Add reCaptcha form" />
     <MESSAGE value="Changed settings and deactivated for now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed settings and deactivated for now" />
+    <MESSAGE value="Changed reporting design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed reporting design" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -566,11 +541,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/lib/python2.7/SocketServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="593" column="0" selection-start="19209" selection-end="19209" vertical-scroll-proportion="0.0" vertical-offset="8668" max-vertical-offset="10995" />
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/threading.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="762" column="0" selection-start="26946" selection-end="26946" vertical-scroll-proportion="0.3174905" vertical-offset="11263" max-vertical-offset="20055" />
@@ -648,17 +618,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/_directional_ngram_image_partial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="17" selection-start="88" selection-end="88" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="150">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="245" column="22" selection-start="11075" selection-end="11075" vertical-scroll-proportion="0.7297297" vertical-offset="3270" max-vertical-offset="4755">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/_directional_ngram_image_partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0528169" vertical-offset="0" max-vertical-offset="568">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="43" selection-start="209" selection-end="209" vertical-scroll-proportion="0.15202703" vertical-offset="0" max-vertical-offset="592">
+          <folding>
+            <element signature="e#35#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
