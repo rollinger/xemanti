@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_captcha_spam_protection_partial.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/ajax.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/templates/xemanti/base.html" afterPath="$PROJECT_DIR$/xemanti/templates/xemanti/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.pot" afterPath="$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/forms.py" afterPath="$PROJECT_DIR$/xemanti/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html" afterPath="$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/middleware.py" afterPath="$PROJECT_DIR$/xemanti/middleware.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/settings.py" afterPath="$PROJECT_DIR$/xemanti/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/views.py" afterPath="$PROJECT_DIR$/xemanti/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xemanti.iws" />
@@ -33,17 +25,7 @@
     <favorites_list name="xemanti" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="5" selection-start="4653" selection-end="4653" vertical-scroll-proportion="0.1895093" vertical-offset="1733" max-vertical-offset="3705">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -130,6 +112,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -138,13 +134,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../venv/bin/python2.7" />
     <property name="FullScreen" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -265,7 +261,27 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xemanti" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -291,27 +307,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="xemanti" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -446,7 +442,11 @@
       <created>1383378477896</created>
       <updated>1383378477896</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add reCaptcha form">
+      <created>1383495107061</created>
+      <updated>1383495107061</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -473,13 +473,12 @@
     <frame x="64" y="-4" width="1617" height="1055" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.4996904" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67062634" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67062634" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39956802" sideWeight="0.8136223" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.5003096" order="7" side_tool="true" content_ui="tabs" />
@@ -489,6 +488,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -498,6 +498,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
@@ -520,118 +521,87 @@
   <component name="editorHistoryManager">
     <entry file="file:///usr/lib/python2.7/wsgiref/simple_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="0" selection-start="3789" selection-end="3789" vertical-scroll-proportion="0.0" vertical-offset="1648" max-vertical-offset="2385">
-          <folding />
-        </state>
+        <state line="123" column="0" selection-start="3789" selection-end="3789" vertical-scroll-proportion="0.0" vertical-offset="1648" max-vertical-offset="2385" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/django/core/servers/basehttp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="0" selection-start="5144" selection-end="5144" vertical-scroll-proportion="0.0" vertical-offset="1993" max-vertical-offset="2910">
-          <folding />
-        </state>
+        <state line="149" column="0" selection-start="5144" selection-end="5144" vertical-scroll-proportion="0.0" vertical-offset="1993" max-vertical-offset="2910" />
       </provider>
     </entry>
     <entry file="file:///usr/lib/python2.7/SocketServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="593" column="0" selection-start="19209" selection-end="19209" vertical-scroll-proportion="0.0" vertical-offset="8668" max-vertical-offset="10995">
-          <folding />
-        </state>
+        <state line="593" column="0" selection-start="19209" selection-end="19209" vertical-scroll-proportion="0.0" vertical-offset="8668" max-vertical-offset="10995" />
       </provider>
     </entry>
     <entry file="file:///usr/lib/python2.7/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="762" column="0" selection-start="26946" selection-end="26946" vertical-scroll-proportion="0.3174905" vertical-offset="11263" max-vertical-offset="20055">
-          <folding />
-        </state>
+        <state line="762" column="0" selection-start="26946" selection-end="26946" vertical-scroll-proportion="0.3174905" vertical-offset="11263" max-vertical-offset="20055" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="4779" selection-end="4779" vertical-scroll-proportion="0.33269963" vertical-offset="1325" max-vertical-offset="4020">
-          <folding />
-        </state>
+        <state line="114" column="0" selection-start="4779" selection-end="4779" vertical-scroll-proportion="0.33269963" vertical-offset="1325" max-vertical-offset="4020" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/django/views/generic/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2293" selection-end="2293" vertical-scroll-proportion="0.33269963" vertical-offset="695" max-vertical-offset="3075">
-          <folding />
-        </state>
+        <state line="67" column="0" selection-start="2293" selection-end="2293" vertical-scroll-proportion="0.33269963" vertical-offset="695" max-vertical-offset="3075" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/dajaxice/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.57224333" vertical-offset="344" max-vertical-offset="870">
-          <folding />
-        </state>
+        <state line="51" column="0" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.57224333" vertical-offset="344" max-vertical-offset="870" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/instance_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_captcha_spam_protection_partial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="10" selection-start="1346" selection-end="1346" vertical-scroll-proportion="-3.0416667" vertical-offset="632" max-vertical-offset="2100">
+        <state line="47" column="10" selection-start="1346" selection-end="1346" vertical-scroll-proportion="-3.0416667" vertical-offset="632" max-vertical-offset="2100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.pot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="9" selection-start="943" selection-end="943" vertical-scroll-proportion="0.6334459" vertical-offset="180" max-vertical-offset="780" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="221" selection-end="271" vertical-scroll-proportion="0.10135135" vertical-offset="0" max-vertical-offset="2265" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/ajax.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="51" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/faq.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="40" selection-start="14138" selection-end="14138" vertical-scroll-proportion="1.945946" vertical-offset="45" max-vertical-offset="1410" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="27" selection-start="4675" selection-end="4675" vertical-scroll-proportion="0.5177665" vertical-offset="1539" max-vertical-offset="3720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/middleware.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="810">
+        <state line="35" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.5177665" vertical-offset="219" max-vertical-offset="810">
           <folding>
             <element signature="e#51#100#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.pot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="9" selection-start="943" selection-end="943" vertical-scroll-proportion="0.6334459" vertical-offset="180" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="221" selection-end="271" vertical-scroll-proportion="0.10135135" vertical-offset="0" max-vertical-offset="2265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/ajax.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="51" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="660">
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1383489330176" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/faq.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="40" selection-start="14138" selection-end="14138" vertical-scroll-proportion="1.945946" vertical-offset="45" max-vertical-offset="1410">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="5" selection-start="4653" selection-end="4653" vertical-scroll-proportion="0.1895093" vertical-offset="1733" max-vertical-offset="3705">
-          <folding />
         </state>
       </provider>
     </entry>

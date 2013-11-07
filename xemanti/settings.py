@@ -124,6 +124,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Disabled - activate maybee later...
     #'xemanti.middleware.AnonymousSpamProtectionMiddleware',
     'xemanti.middleware.AnonymousRatingMiddleware',
 )
@@ -242,4 +243,4 @@ if the context variable open_captcha is set to 'true' the subsequent template wi
 SPAM_PROTECTED_PROBABILITY = 0.02
 SPAM_PROTECTED_URLS = ['/rating/','/reporting/']
 
-SPAM_PROTECTED_URL_PROBABILITY = {'/rating/': 0.5, '/reporting/': 0.5}
+SPAM_PROTECTED_URL_PROBABILITY = {'/rating/': 0.02, '/reporting/': 0.02}
