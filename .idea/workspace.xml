@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="Issue #156&#10;Translation">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/logging_filters.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/settings.py" afterPath="$PROJECT_DIR$/xemanti/settings.py" />
+    <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/views.py" afterPath="$PROJECT_DIR$/rating/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xemanti.iws" />
@@ -27,46 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rating/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="28" selection-start="6484" selection-end="6484" vertical-scroll-proportion="0.2893401" vertical-offset="2619" max-vertical-offset="3840">
+            <state line="23" column="49" selection-start="869" selection-end="877" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="660">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logging_filters.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xemanti/logging_filters.py">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rating/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="74" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngramengine/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="308" column="45" selection-start="13477" selection-end="13477" vertical-scroll-proportion="0.0" vertical-offset="4144" max-vertical-offset="5040">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngramengine/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14490">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngramengine/tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4845">
+            <state line="154" column="89" selection-start="7042" selection-end="7068" vertical-scroll-proportion="0.33952704" vertical-offset="1899" max-vertical-offset="3675">
               <folding />
             </state>
           </provider>
@@ -106,11 +78,11 @@
         <option value="$PROJECT_DIR$/rating/templates/rating/ngram_sorting.html" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/base.html" />
         <option value="$PROJECT_DIR$/rating/urls.py" />
-        <option value="$PROJECT_DIR$/rating/views.py" />
         <option value="$PROJECT_DIR$/ngramengine/admin.py" />
         <option value="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" />
         <option value="$PROJECT_DIR$/xemanti/logging_filters.py" />
         <option value="$PROJECT_DIR$/xemanti/settings.py" />
+        <option value="$PROJECT_DIR$/rating/views.py" />
       </list>
     </option>
   </component>
@@ -174,7 +146,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
+              <option name="myItemId" value="rating" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -186,13 +158,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../venv/bin/python2.7" />
     <property name="FullScreen" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -314,7 +286,27 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="xemanti" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -340,27 +332,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="xemanti" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -527,7 +499,11 @@
       <created>1383901988763</created>
       <updated>1383901988763</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary=" #175:&#10;  sort view throws error at http://www.xemanti.com/rating/sort/Luxemburg/random_rating/ Rating&#10;&#9;bug">
+      <created>1383915372822</created>
+      <updated>1383915372822</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -554,22 +530,22 @@
     <frame x="64" y="-4" width="1617" height="1055" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67062634" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67170626" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39956802" sideWeight="0.8136223" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.5003096" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829374" sideWeight="0.4990712" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.4996904" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.5009288" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.4990712" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -595,7 +571,8 @@
     <MESSAGE value="Make rate_sort repeatable" />
     <MESSAGE value="Issue #156&#10;Make Rating streak so that it randomizes the various rating possibilities" />
     <MESSAGE value="Issue #156&#10;Translation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue #156&#10;Translation" />
+    <MESSAGE value=" #175:&#10;  sort view throws error at http://www.xemanti.com/rating/sort/Luxemburg/random_rating/ Rating&#10;&#9;bug" />
+    <option name="LAST_COMMIT_MESSAGE" value=" #175:&#10;  sort view throws error at http://www.xemanti.com/rating/sort/Luxemburg/random_rating/ Rating&#10;&#9;bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -622,16 +599,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_eval_sem_diff.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="20" selection-start="905" selection-end="1471" vertical-scroll-proportion="0.6866197" vertical-offset="90" max-vertical-offset="1230">
-          <folding />
-        </state>
+        <state line="32" column="20" selection-start="905" selection-end="1471" vertical-scroll-proportion="0.6866197" vertical-offset="90" max-vertical-offset="1230" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_sorting.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="84" selection-start="3790" selection-end="3790" vertical-scroll-proportion="0.7394366" vertical-offset="990" max-vertical-offset="1650">
-          <folding />
-        </state>
+        <state line="94" column="84" selection-start="3790" selection-end="3790" vertical-scroll-proportion="0.7394366" vertical-offset="990" max-vertical-offset="1650" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/_tag_cloud_partial.html">
@@ -639,34 +612,14 @@
         <state line="23" column="18" selection-start="678" selection-end="678" vertical-scroll-proportion="0.44894367" vertical-offset="90" max-vertical-offset="825" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rating/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="36" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="60" selection-start="7336" selection-end="7336" vertical-scroll-proportion="0.21452703" vertical-offset="3458" max-vertical-offset="4050">
-          <folding />
-        </state>
+        <state line="239" column="60" selection-start="7336" selection-end="7336" vertical-scroll-proportion="0.21452703" vertical-offset="3458" max-vertical-offset="4050" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="54" selection-start="3230" selection-end="3230" vertical-scroll-proportion="0.41284403" vertical-offset="1035" max-vertical-offset="2550">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rating/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="0" selection-start="10785" selection-end="10785" vertical-scroll-proportion="0.71540177" vertical-offset="2929" max-vertical-offset="3825">
-          <folding>
-            <element signature="e#51#82#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="93" column="54" selection-start="3230" selection-end="3230" vertical-scroll-proportion="0.41284403" vertical-offset="1035" max-vertical-offset="2550" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html">
@@ -678,14 +631,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/instance_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="591">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="591" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ngramengine/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="308" column="45" selection-start="13477" selection-end="13477" vertical-scroll-proportion="0.0" vertical-offset="4144" max-vertical-offset="5040">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="28" selection-start="6484" selection-end="6484" vertical-scroll-proportion="0.2893401" vertical-offset="2619" max-vertical-offset="3840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/logging_filters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="74" selection-start="179" selection-end="179" vertical-scroll-proportion="0.12690355" vertical-offset="0" max-vertical-offset="591">
           <folding />
         </state>
       </provider>
@@ -704,16 +669,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/logging_filters.py">
+    <entry file="file://$PROJECT_DIR$/rating/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="74" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+        <state line="23" column="49" selection-start="869" selection-end="877" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="660">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
+    <entry file="file://$PROJECT_DIR$/rating/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="28" selection-start="6484" selection-end="6484" vertical-scroll-proportion="0.2893401" vertical-offset="2619" max-vertical-offset="3840">
+        <state line="154" column="89" selection-start="7042" selection-end="7068" vertical-scroll-proportion="0.33952704" vertical-offset="1899" max-vertical-offset="3675">
           <folding />
         </state>
       </provider>

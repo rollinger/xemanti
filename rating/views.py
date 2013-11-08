@@ -152,7 +152,7 @@ def sort_ngram_view(request, ngram, repeated=False, success_url=None):
         outbound_tokens = ngram.get_all_outbound_tokens()
         if len(outbound_tokens) == 0:
             # Redirect if no tokens
-            return HttpResponseRedirect(reverse('rate_assoc', kwargs={'ngram':ngram.token}))
+            return HttpResponseRedirect(reverse('rate_assoc', kwargs={'ngram':ngram.token,'success_url':success_url}))
         source = choice( list( set( itertools.chain( *outbound_tokens ) ) ) )
         # Setup Form
         form = SortAssociationForm(initial={'ngram': ngram.token,'source': source})
