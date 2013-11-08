@@ -38,7 +38,7 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rating/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="66" selection-start="3703" selection-end="3714" vertical-scroll-proportion="0.49155405" vertical-offset="729" max-vertical-offset="3705">
+            <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.6689189" vertical-offset="999" max-vertical-offset="3705">
               <folding />
             </state>
           </provider>
@@ -507,7 +507,11 @@
       <created>1383915660614</created>
       <updated>1383915660614</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Bug fixes get_or create instead of get()">
+      <created>1383916429440</created>
+      <updated>1383916429440</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -577,7 +581,8 @@
     <MESSAGE value="Issue #156&#10;Translation" />
     <MESSAGE value=" #175:&#10;  sort view throws error at http://www.xemanti.com/rating/sort/Luxemburg/random_rating/ Rating&#10;&#9;bug" />
     <MESSAGE value=" #175:&#10;Addendum success_url is passed along" />
-    <option name="LAST_COMMIT_MESSAGE" value=" #175:&#10;Addendum success_url is passed along" />
+    <MESSAGE value="Bug fixes get_or create instead of get()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes get_or create instead of get()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -683,7 +688,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rating/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="66" selection-start="3703" selection-end="3714" vertical-scroll-proportion="0.49155405" vertical-offset="729" max-vertical-offset="3705">
+        <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.6689189" vertical-offset="999" max-vertical-offset="3705">
           <folding />
         </state>
       </provider>

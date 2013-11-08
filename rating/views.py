@@ -80,7 +80,7 @@ def rate_assoc_view(request, ngram=None, repeated=False, success_url=None):
         if ngram == None:
             ngram = get_random_ngram()
         else:
-            ngram = NGrams.objects.get_or_create(token=ngram_token)
+            ngram, created = NGrams.objects.get_or_create(token=ngram_token)
         # Get Suggestions for rating (json)
         rating_suggestions = simplejson.dumps( sorted( list(  itertools.chain(*ngram.get_all_outbound_tokens())  ) ) )
         # Unbound form
@@ -105,7 +105,7 @@ def rate_assoc_view(request, ngram=None, repeated=False, success_url=None):
 #
 def sort_ngram_view(request, ngram, repeated=False, success_url=None):
     # Get NGram to rate
-    ngram = NGrams.objects.get_or_create(token=ngram)
+    ngram, created = NGrams.objects.get_or_create(token=ngram)
     
     if request.method == 'POST':
         form = SortAssociationForm(request.POST)
