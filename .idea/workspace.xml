@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xemanti.iws" />
@@ -547,7 +547,11 @@
       <created>1383901602973</created>
       <updated>1383901602973</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Issue #156&#10;Translation">
+      <created>1383901988763</created>
+      <updated>1383901988763</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -614,7 +618,8 @@
     <MESSAGE value="add jQuery UI Images" />
     <MESSAGE value="Make rate_sort repeatable" />
     <MESSAGE value="Issue #156&#10;Make Rating streak so that it randomizes the various rating possibilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue #156&#10;Make Rating streak so that it randomizes the various rating possibilities" />
+    <MESSAGE value="Issue #156&#10;Translation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Issue #156&#10;Translation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
