@@ -92,7 +92,7 @@ def rate_assoc_view(request, ngram=None, repeated=False):
 #
 # Sorting View for an NGram
 #
-def sort_ngram_view(request, ngram):
+def sort_ngram_view(request, ngram, repeated=False):
     # Get random NGram to rate
     ngram = NGrams.objects.get(token=ngram)
     
@@ -127,9 +127,13 @@ def sort_ngram_view(request, ngram):
                 if request.session.has_key('anonymous_rating'):
                     request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
                     request.session.modified = True
-            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
+            if repeated:
+                return HttpResponseRedirect(reverse('sort_ngram', kwargs={'ngram':ngram.token, 'repeated':True}))
+            else:
+                return HttpResponseRedirect(reverse('sort_ngram', kwargs={'ngram':ngram.token}))
     else:
         # Get Sorting List
+        # TODO: Throws error if no outbound_tokens are present
         source = choice( list( set( itertools.chain( *ngram.get_all_outbound_tokens() ) ) ) )
         # Setup Form
         form = SortAssociationForm(initial={'ngram': ngram.token,'source': source})
@@ -201,6 +205,19 @@ def eval_sensory_dim_view(request, ngram):
     else:
         ngram = NGrams.objects.get(token=ngram)
         form = SensoryDimensionForm(instance=ngram)
+    # Render Template Home
+    return render_to_response('rating/ngram_eval_sensory_dim.html', {
+        "ngram":ngram,
+        "form":form,
+    }, context_instance=RequestContext(request))
+
+
+
+def random_rating_view(request, form_class=None, template_name=None, success_url=None ):
+    """
+    View for rating randomly a random ngram
+    """
+
     # Render Template Home
     return render_to_response('rating/ngram_eval_sensory_dim.html', {
         "ngram":ngram,

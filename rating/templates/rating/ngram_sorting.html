@@ -81,11 +81,24 @@
 			</span>
 		</div>
 		<div id="" class="unit-40" >
-			<form action="." method="post">
-				{% csrf_token %}
-				{{ form.as_p }}
-				<input type="submit" value="{% trans "Rate" %}" class="btn width-100"/>
-			</form>
+            <div id="" class="units-row">
+                <form action="." method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="{% trans "Rate" %}" class="btn width-100"/>
+                </form>
+			</div>
+            <div id="" class="units-row">
+                <p class="small blocktext">
+                    {% blocktrans %}
+                        Please sort <strong>{{ ngram }}</strong> by clicking the buttons where the containing statement
+                        is true to you. If you are ready click on the 'Rate' button.<br>
+                    {% endblocktrans %}
+                    <a href='{{ ngram.get_absolute_url }}'>
+                        {% blocktrans %} Click here if you want to go back inspecting {{ ngram }} {% endblocktrans %}
+                    </a>
+				</p>
+			</div>
 		</div>
 	</div>
 
