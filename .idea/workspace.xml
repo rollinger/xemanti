@@ -38,7 +38,7 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rating/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="89" selection-start="7042" selection-end="7068" vertical-scroll-proportion="0.33952704" vertical-offset="1899" max-vertical-offset="3675">
+            <state line="82" column="66" selection-start="3703" selection-end="3714" vertical-scroll-proportion="0.49155405" vertical-offset="729" max-vertical-offset="3705">
               <folding />
             </state>
           </provider>
@@ -503,7 +503,11 @@
       <created>1383915372822</created>
       <updated>1383915372822</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary=" #175:&#10;Addendum success_url is passed along">
+      <created>1383915660614</created>
+      <updated>1383915660614</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -572,7 +576,8 @@
     <MESSAGE value="Issue #156&#10;Make Rating streak so that it randomizes the various rating possibilities" />
     <MESSAGE value="Issue #156&#10;Translation" />
     <MESSAGE value=" #175:&#10;  sort view throws error at http://www.xemanti.com/rating/sort/Luxemburg/random_rating/ Rating&#10;&#9;bug" />
-    <option name="LAST_COMMIT_MESSAGE" value=" #175:&#10;  sort view throws error at http://www.xemanti.com/rating/sort/Luxemburg/random_rating/ Rating&#10;&#9;bug" />
+    <MESSAGE value=" #175:&#10;Addendum success_url is passed along" />
+    <option name="LAST_COMMIT_MESSAGE" value=" #175:&#10;Addendum success_url is passed along" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -678,7 +683,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rating/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="89" selection-start="7042" selection-end="7068" vertical-scroll-proportion="0.33952704" vertical-offset="1899" max-vertical-offset="3675">
+        <state line="82" column="66" selection-start="3703" selection-end="3714" vertical-scroll-proportion="0.49155405" vertical-offset="729" max-vertical-offset="3705">
           <folding />
         </state>
       </provider>
