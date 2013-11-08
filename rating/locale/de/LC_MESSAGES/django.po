@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 21:51+0100\n"
+"POT-Creation-Date: 2013-11-08 10:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "State your immediate association..."
 msgstr "Dein erster Gedanke..."
 
-#: views.py:50
+#: views.py:60 views.py:133 views.py:177 views.py:217
 msgid "Thanks for rating!"
 msgstr "Danke für deine Einschätzung!"
 
-#: views.py:81
+#: views.py:92
 msgid "Rate one Word and you will get redirected!"
 msgstr "Assoziiere ein Wort und du wirst sofort weitergeleitet!"
 
@@ -99,7 +99,7 @@ msgstr "aktiv"
 #: templates/rating/ngram_eval_sem_diff.html:69
 #: templates/rating/ngram_eval_sensory_dim.html:98
 #: templates/rating/ngram_rating.html:55
-#: templates/rating/ngram_sorting.html:87
+#: templates/rating/ngram_sorting.html:88
 msgid "Rate"
 msgstr "Einschätzen"
 
@@ -185,10 +185,6 @@ msgstr "schmecken"
 msgid "N-Gram Admin"
 msgstr ""
 
-#: templates/rating/ngram_rating.html:56
-msgid "Skip"
-msgstr "Überspringen"
-
 #: templates/rating/ngram_sorting.html:28
 msgid "is not relevant for"
 msgstr "ist nicht relevant für"
@@ -220,6 +216,31 @@ msgstr "ist ein Beispiel von"
 #: templates/rating/ngram_sorting.html:77
 msgid "is an attribute of"
 msgstr "ist ein Attribut von"
+
+#: templates/rating/ngram_sorting.html:93
+#, python-format
+msgid ""
+"\n"
+"                        Please sort <strong>%(ngram)s</strong> by clicking "
+"the buttons where the containing statement\n"
+"                        is true to you. If you are ready click on the 'Rate' "
+"button.<br>\n"
+"                    "
+msgstr ""
+"\n"
+"                        Bitte sortiere <strong>%(ngram)s</strong> durch drücken "
+"der Schaltflächen bei denen die Aussage\n"
+"                        für dich zutrifft. Wenn du fertig bist, drücke die 'Einschätzen' "
+"Schaltfläche.<br>\n"
+"                    "
+
+#: templates/rating/ngram_sorting.html:98
+#, python-format
+msgid " Click here if you want to go back inspecting %(ngram)s "
+msgstr " Klicke hier wenn du %(ngram)s untersuchen möchtest."
+
+#~ msgid "Skip"
+#~ msgstr "Überspringen"
 
 #~ msgid "rate"
 #~ msgstr "Einschätzen"
