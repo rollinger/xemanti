@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/views.py" afterPath="$PROJECT_DIR$/rating/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/middleware.py" afterPath="$PROJECT_DIR$/xemanti/middleware.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xemanti.iws" />
@@ -35,10 +35,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rating/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.6689189" vertical-offset="999" max-vertical-offset="3705">
+            <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.0" vertical-offset="999" max-vertical-offset="3705">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="middleware.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/xemanti/middleware.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="76" selection-start="432" selection-end="432" vertical-scroll-proportion="0.30405405" vertical-offset="0" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
@@ -68,7 +77,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/xemanti/views.py" />
-        <option value="$PROJECT_DIR$/xemanti/middleware.py" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_captcha_spam_protection_partial.html" />
         <option value="$PROJECT_DIR$/xemanti/ajax.py" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html" />
@@ -83,6 +91,7 @@
         <option value="$PROJECT_DIR$/xemanti/logging_filters.py" />
         <option value="$PROJECT_DIR$/xemanti/settings.py" />
         <option value="$PROJECT_DIR$/rating/views.py" />
+        <option value="$PROJECT_DIR$/xemanti/middleware.py" />
       </list>
     </option>
   </component>
@@ -133,20 +142,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rating" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -511,7 +506,11 @@
       <created>1383916429440</created>
       <updated>1383916429440</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Bug fixes get_or create instead of get()">
+      <created>1383916545968</created>
+      <updated>1383916545968</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -544,7 +543,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67170626" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67170626" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39956802" sideWeight="0.8136223" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.5009288" order="8" side_tool="true" content_ui="tabs" />
@@ -593,15 +592,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/xemanti/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="43" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding>
-            <element signature="e#35#59#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/static/css/jquery-ui-1.10.3.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="537" column="19" selection-start="10688" selection-end="10691" vertical-scroll-proportion="-5.1714287" vertical-offset="7874" max-vertical-offset="17910" />
@@ -688,7 +678,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rating/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.6689189" vertical-offset="999" max-vertical-offset="3705">
+        <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.0" vertical-offset="999" max-vertical-offset="3705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/middleware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="76" selection-start="432" selection-end="432" vertical-scroll-proportion="0.30405405" vertical-offset="0" max-vertical-offset="780">
           <folding />
         </state>
       </provider>
