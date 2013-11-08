@@ -23,7 +23,17 @@ from ngramengine.models import *
 
 
 
-def rate_assoc_view(request, ngram=None, repeated=False):
+def get_random_ngram(ordering="-rating_index",size=500):
+    """
+    Selects a random ngram from a ordered set of ngrams
+    """
+    excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
+    ngram = choice( NGrams.objects.filter(active=True).exclude(partofspeech__in=excludes).order_by(ordering)[:size])
+    return ngram
+
+
+
+def rate_assoc_view(request, ngram=None, repeated=False, success_url=None):
     ngram_token = ngram
     # Form submitted:
     if request.method == 'POST':
@@ -53,6 +63,8 @@ def rate_assoc_view(request, ngram=None, repeated=False):
                     request.user.profile.income(1.11)
                     if repeated:
                         return HttpResponseRedirect(reverse('rate_assoc', args=(ngram_token, True)))
+                    elif success_url:
+                        return HttpResponseRedirect(reverse(success_url))
                     else:
                         return HttpResponseRedirect(reverse('rate_assoc'))
                 else:
@@ -66,8 +78,7 @@ def rate_assoc_view(request, ngram=None, repeated=False):
     # Form not submitted:
     else:
         if ngram == None:
-            excludes = PartOfSpeech.objects.filter(coocurrence_relevancy=False)
-            ngram = choice( NGrams.objects.filter(active=True).exclude(partofspeech__in=excludes).order_by("-rating_index")[:500] )
+            ngram = get_random_ngram()
         else:
             ngram = NGrams.objects.get(token=ngram_token)
         # Get Suggestions for rating (json)
@@ -92,7 +103,7 @@ def rate_assoc_view(request, ngram=None, repeated=False):
 #
 # Sorting View for an NGram
 #
-def sort_ngram_view(request, ngram, repeated=False):
+def sort_ngram_view(request, ngram, repeated=False, success_url=None):
     # Get random NGram to rate
     ngram = NGrams.objects.get(token=ngram)
     
@@ -118,6 +129,8 @@ def sort_ngram_view(request, ngram, repeated=False):
                     Examples.inject(ngram,source)
                 elif type == "attribute":
                     Attributes.inject(ngram,source)
+            # Success Message
+            messages.add_message(request, messages.SUCCESS, _('Thanks for rating!'), fail_silently=True)
             # Process Payment
             if request.user.is_authenticated():
                 # Increment authenticated profile
@@ -129,6 +142,8 @@ def sort_ngram_view(request, ngram, repeated=False):
                     request.session.modified = True
             if repeated:
                 return HttpResponseRedirect(reverse('sort_ngram', kwargs={'ngram':ngram.token, 'repeated':True}))
+            elif success_url:
+                return HttpResponseRedirect(reverse(success_url))
             else:
                 return HttpResponseRedirect(reverse('sort_ngram', kwargs={'ngram':ngram.token}))
     else:
@@ -148,7 +163,7 @@ def sort_ngram_view(request, ngram, repeated=False):
 
 
 
-def eval_sem_diff_view(request, ngram):
+def eval_sem_diff_view(request, ngram, success_url=None):
     """
     View for adding attitude (via semantic differential) to an NGram
     """
@@ -158,6 +173,8 @@ def eval_sem_diff_view(request, ngram):
         if form.is_valid():
             semdiff, created = SemanticDifferential.objects.get_or_create(ngram=ngram)
             semdiff.record(form.cleaned_data['evaluation'],form.cleaned_data['potency'],form.cleaned_data['activity'])
+            # Success Message
+            messages.add_message(request, messages.SUCCESS, _('Thanks for rating!'), fail_silently=True)
             if request.user.is_authenticated():
                 # Increment authenticated profile
                 request.user.profile.income(2.22)
@@ -166,7 +183,10 @@ def eval_sem_diff_view(request, ngram):
                 if request.session.has_key('anonymous_rating'):
                     request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
                     request.session.modified = True
-            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
+            if success_url:
+                return HttpResponseRedirect(reverse(success_url))
+            else:
+                return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
     else:
         ngram = NGrams.objects.get(token=ngram)
         form = SemanticDifferentialForm(instance=ngram)
@@ -178,7 +198,7 @@ def eval_sem_diff_view(request, ngram):
 
 
 
-def eval_sensory_dim_view(request, ngram):
+def eval_sensory_dim_view(request, ngram, success_url=None):
     """
     View for adding the sensory dimensions involved for an NGram
     """
@@ -193,6 +213,8 @@ def eval_sensory_dim_view(request, ngram):
                            form.cleaned_data['kinesthetic'],
                            form.cleaned_data['olfactory'],
                            form.cleaned_data['gustatory'],)
+            # Success Message
+            messages.add_message(request, messages.SUCCESS, _('Thanks for rating!'), fail_silently=True)
             if request.user.is_authenticated():
                 # Increment authenticated profile
                 request.user.profile.income(2.22)
@@ -201,7 +223,10 @@ def eval_sensory_dim_view(request, ngram):
                 if request.session.has_key('anonymous_rating'):
                     request.session['anonymous_rating']['state'] = int( request.session['anonymous_rating']['state'] ) + 1
                     request.session.modified = True
-            return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
+            if success_url:
+                return HttpResponseRedirect(reverse(success_url))
+            else:
+                return HttpResponseRedirect(reverse('inspect_query', kwargs={'ngram':ngram.token}))
     else:
         ngram = NGrams.objects.get(token=ngram)
         form = SensoryDimensionForm(instance=ngram)
@@ -213,13 +238,13 @@ def eval_sensory_dim_view(request, ngram):
 
 
 
-def random_rating_view(request, form_class=None, template_name=None, success_url=None ):
+def random_rating_view(request, form_class=None, template_name=None, success_url='random_rating'):
     """
-    View for rating randomly a random ngram
+    View for random rating of an random ngram
     """
-
-    # Render Template Home
-    return render_to_response('rating/ngram_eval_sensory_dim.html', {
-        "ngram":ngram,
-        "form":form,
-    }, context_instance=RequestContext(request))
+    # Get (weighted) random rating facillity
+    rating_facillity = choice( ['rate_assoc','rate_assoc','rate_assoc','sort_ngram','sort_ngram','eval_sensory_dim','eval_sem_diff'] )
+    # Get random NGram
+    ngram = get_random_ngram()
+    # Redirect to random rating facillity with this as success_url
+    return HttpResponseRedirect(reverse(rating_facillity, kwargs={'ngram':ngram.token,'success_url':success_url}))

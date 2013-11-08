@@ -306,6 +306,7 @@ admin.site.register(Languages, LanguagesAdmin)
 class AssociationsAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 't_associated', 'power','created','updated')
     list_filter = ['created','updated']
+    search_fields = ('source__token','target__token',)
     raw_id_fields = ('source','target',)
 admin.site.register(Associations, AssociationsAdmin)
 
