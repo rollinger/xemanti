@@ -31,7 +31,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['127.0.0.1','85.214.123.105','.xemanti.com','.xemanti.net']
+ALLOWED_HOSTS = ['127.0.0.1','85.214.123.105','.xemanti.com','.xemanti.net','h2170983.stratoserver.net']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
