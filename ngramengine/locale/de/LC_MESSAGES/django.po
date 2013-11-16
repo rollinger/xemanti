@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-16 11:50+0100\n"
+"POT-Creation-Date: 2013-11-16 12:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,64 +119,52 @@ msgid "Activity Dimension Sum"
 msgstr "Summe der Aktivitäts Dimension"
 
 #: models.py:493
-#, fuzzy
 msgid "Visual Dimension"
-msgstr "Wertungs Dimension"
+msgstr "Visuelle Dimension"
 
 #: models.py:494
-#, fuzzy
 msgid "Auditory Dimension"
-msgstr "Aktivitäts Dimension"
+msgstr "Auditive Dimension"
 
 #: models.py:495
-#, fuzzy
 msgid "Thinking Dimension"
-msgstr "Aktivitäts Dimension"
+msgstr "Kognitive Dimension"
 
 #: models.py:496
-#, fuzzy
 msgid "Feeling Dimension"
-msgstr "Potenz Dimension"
+msgstr "Kinesthetische Dimension"
 
 #: models.py:497
-#, fuzzy
 msgid "Smell Dimension"
-msgstr "Potenz Dimension"
+msgstr "Olfaktorische Dimension"
 
 #: models.py:498
-#, fuzzy
 msgid "Taste Dimension"
-msgstr "Potenz Dimension"
+msgstr "Gustatorische Dimension"
 
 #: models.py:501
-#, fuzzy
 msgid "Visual Dimension Sum"
-msgstr "Summe der Wertungs Dimension"
+msgstr "Summe der Visuellen Dimension"
 
 #: models.py:502
-#, fuzzy
 msgid "Auditory Dimension Sum"
-msgstr "Summe der Aktivitäts Dimension"
+msgstr "Summe der Auditiven Dimension"
 
 #: models.py:503
-#, fuzzy
 msgid "Thinking Dimension Sum"
-msgstr "Summe der Aktivitäts Dimension"
+msgstr "Summe der Kognitiven Dimension"
 
 #: models.py:504
-#, fuzzy
 msgid "Kinesthetic Dimension Sum"
-msgstr "Summe der Potenz Dimension"
+msgstr "Summe der Kinestetischen Dimension"
 
 #: models.py:505
-#, fuzzy
 msgid "Olfactory Dimension Sum"
-msgstr "Summe der Aktivitäts Dimension"
+msgstr "Summe der Olfaktorischen Dimension"
 
 #: models.py:506
-#, fuzzy
 msgid "Gustatory Dimension Sum"
-msgstr "Summe der Aktivitäts Dimension"
+msgstr "Summe der Gustatorischen Dimension"
 
 #: models.py:547
 msgid "NGram"
