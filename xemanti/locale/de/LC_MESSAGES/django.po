@@ -1,0 +1,489 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-16 11:56+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: views.py:64
+msgid "Fill in your Credentials and log into Xemanti!"
+msgstr "Gib deine Zugangsdaten ein und melde dich bei Xemanti an!"
+
+#: views.py:80 templates/xemanti/home.html:14
+msgid "Welcome to Xemanti!"
+msgstr "Willkommen auf Xemanti!"
+
+#: views.py:87
+msgid "Something went wrong! Username or Password did not validate."
+msgstr "Etwas lief schief! Benutzername oder Passwort sind falsch"
+
+#: views.py:104
+msgid "See you soon on Xemanti!"
+msgstr "Bis bald auf Xemanti!"
+
+#: views.py:123
+msgid "Please fill in your registration form."
+msgstr "Bitte fülle dieses Registrierungsformular aus."
+
+#: views.py:140
+msgid "Thanks for registering on Xemanti!"
+msgstr "Danke für deine Registrierung auf Xemanti!"
+
+#: views.py:146
+msgid "Something went wrong with your registration!"
+msgstr "Etwas lief schief mit deiner Registrierung!"
+
+#: templates/registration/login.html:8
+msgid "Log In:"
+msgstr "Anmelden:"
+
+#: templates/registration/login.html:10
+msgid "Sorry, that's not a valid username or password"
+msgstr "Oh, das ist kein gültiger Benutzername"
+
+#: templates/registration/login.html:16
+msgid "User name:"
+msgstr "Benutzername"
+
+#: templates/registration/login.html:20
+msgid "Password"
+msgstr "Passwort"
+
+#: templates/registration/login.html:24
+msgid "login"
+msgstr "Anmelden"
+
+#: templates/registration/register.html:8
+msgid "Register:"
+msgstr "Registrieren:"
+
+#: templates/registration/register.html:10
+msgid "Sorry, that's not a valid username, password or email"
+msgstr "Oh! Du hast keinen gültigen Benuzernamen, Passwort oder E-Mail-Addresse eingegeben"
+
+#: templates/registration/register.html:29
+msgid "Create my account"
+msgstr "Erstelle mein Konto"
+
+#: templates/xemanti/base.html:62
+msgid "Logout"
+msgstr "Abmelden"
+
+#: templates/xemanti/base.html:69
+msgid "Login"
+msgstr "Anmelden"
+
+#: templates/xemanti/base.html:70
+msgid "Register"
+msgstr "Registrieren"
+
+#: templates/xemanti/base.html:89
+msgid "Inspect a Word"
+msgstr "Untersuche ein Wort"
+
+#: templates/xemanti/base.html:90
+msgid "Inspect"
+msgstr "Untersuchen"
+
+#: templates/xemanti/base.html:94
+msgid "Share your Knowledge!"
+msgstr "Teile dein Wissen!"
+
+#: templates/xemanti/base.html:95
+msgid "Rate"
+msgstr "Einschätzen"
+
+#: templates/xemanti/base.html:99 templates/xemanti/base.html.py:100
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/xemanti/base.html:108
+msgid "Analyze your text"
+msgstr "Untersuche deinen Text"
+
+#: templates/xemanti/base.html:109
+msgid "Reporting"
+msgstr "Analysen"
+
+#: templates/xemanti/base.html:113 templates/xemanti/base.html.py:114
+msgid "Administration"
+msgstr "Administration"
+
+#: templates/xemanti/base.html:118 templates/xemanti/base.html.py:119
+msgid "Bulk Upload"
+msgstr "Massen-Upload"
+
+#: templates/xemanti/base.html:151
+msgid ""
+"\n"
+"\t\t\t\t\t\t&copy; All rights reserved.\n"
+"\t\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\t\t\t&copy; Alle Rechte vorbehalten.\n"
+"\t\t\t\t\t"
+
+#: templates/xemanti/base.html:157
+msgid "FAQ"
+msgstr "Häufige Fragen"
+
+#: templates/xemanti/base.html:158
+msgid "Impressum"
+msgstr "Impressum"
+
+#: templates/xemanti/faq.html:24 templates/xemanti/faq.html.py:30
+msgid "Was ist Xemanti?"
+msgstr ""
+
+#: templates/xemanti/faq.html:25 templates/xemanti/faq.html.py:42
+msgid "Wie funktioniert Xemanti?"
+msgstr ""
+
+#: templates/xemanti/faq.html:26 templates/xemanti/faq.html.py:52
+msgid "Wie kann ich mitmachen?"
+msgstr ""
+
+#: templates/xemanti/impressum.html:25 templates/xemanti/impressum.html:36
+msgid "Legal Details"
+msgstr "Rechtliches"
+
+#: templates/xemanti/impressum.html:26 templates/xemanti/impressum.html:46
+msgid "Contact"
+msgstr "Kontakt"
+
+#: templates/xemanti/impressum.html:27 templates/xemanti/impressum.html:57
+msgid "Exclusion of Liability"
+msgstr "Haftungsausschluss"
+
+#: templates/xemanti/impressum.html:28 templates/xemanti/impressum.html:63
+msgid "Data Security Terms"
+msgstr "Datenschutzbestimmungen"
+
+#: templates/xemanti/impressum.html:29 templates/xemanti/impressum.html:73
+msgid "Third-Party-Attribution"
+msgstr "Fremdsoftware Hinweise"
+
+#: templates/xemanti/impressum.html:30 templates/xemanti/impressum.html:80
+msgid "References"
+msgstr "Referenzen"
+
+#: templates/xemanti/impressum.html:37
+msgid ""
+"\n"
+"\t\t\t\t\t<p>Angaben gemäß § 5 TMG:</p>\n"
+"\t\t\t\t\t<p>Philipp Rollinger<br />\n"
+"\t\t\t\t\tAdolph-Probst-Straße 21<br />\n"
+"\t\t\t\t\t87509 Immenstadt im Allgäu<br />\n"
+"\t\t\t\t\t</p>\n"
+"\t\t\t\t"
+msgstr ""
+
+#: templates/xemanti/impressum.html:47
+msgid ""
+"\n"
+"\t\t\t\t\t<table>\n"
+"\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t<tr><td><p>E-Mail:</p></td>\n"
+"\t\t\t\t\t\t\t<td><p>info@xemanti.com</p></td>\n"
+"\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t</table>\n"
+"\t\t\t\t"
+msgstr ""
+
+#: templates/xemanti/impressum.html:58
+msgid ""
+"\n"
+"\t\t        \t<p><strong>Haftung für Inhalte</strong></p> <p>Die Inhalte "
+"unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, "
+"Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr "
+"übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene "
+"Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach "
+"§§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, "
+"übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach "
+"Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. "
+"Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen "
+"nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche "
+"Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten "
+"Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden "
+"Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p> "
+"<p><strong>Haftung für Links</strong></p> <p>Unser Angebot enthält Links zu "
+"externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. "
+"Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. "
+"Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder "
+"Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum "
+"Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. "
+"Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. "
+"Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne "
+"konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei "
+"Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend "
+"entfernen.</p> <p><strong>Urheberrecht</strong></p> <p>Die durch die "
+"Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen "
+"dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung "
+"und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes "
+"bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. "
+"Downloads und Kopien dieser Seite sind nur für den privaten, nicht "
+"kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht "
+"vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. "
+"Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie "
+"trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um "
+"einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen "
+"werden wir derartige Inhalte umgehend entfernen.</p> <p><strong>Datenschutz</"
+"strong></p> <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe "
+"personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene "
+"Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, "
+"erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten "
+"werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. </"
+"p> <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei "
+"der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein "
+"lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. "
+"</p> <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten "
+"Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich "
+"angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich "
+"widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich "
+"rechtliche Schritte im Falle der unverlangten Zusendung von "
+"Werbeinformationen, etwa durch Spam-Mails, vor.</p><p> </p>\n"
+"\t\t\t\t"
+msgstr ""
+
+#: templates/xemanti/impressum.html:64
+msgid ""
+"\n"
+"\t\t\t\t\t<p><strong>Datenschutzerklärung für die Nutzung von Facebook-"
+"Plugins (Like-Button)</strong></p> <p>Auf unseren Seiten sind Plugins des "
+"sozialen Netzwerks Facebook, 1601 South California Avenue, Palo Alto, CA "
+"94304, USA integriert. Die Facebook-Plugins erkennen Sie an dem Facebook-"
+"Logo oder dem \"Like-Button\" (\"Gefällt mir\") auf unserer Seite. Eine "
+"Übersicht über die Facebook-Plugins finden Sie hier: <a href=\"http://"
+"developers.facebook.com/docs/plugins/\" target=\"_blank\">http://developers."
+"facebook.com/docs/plugins/</a>.<br /> Wenn Sie unsere Seiten besuchen, wird "
+"über das Plugin eine direkte Verbindung zwischen Ihrem Browser und dem "
+"Facebook-Server hergestellt. Facebook erhält dadurch die Information, dass "
+"Sie mit Ihrer IP-Adresse unsere Seite besucht haben. Wenn Sie den Facebook "
+"\"Like-Button\" anklicken während Sie in Ihrem Facebook-Account eingeloggt "
+"sind, können Sie die Inhalte unserer Seiten auf Ihrem Facebook-Profil "
+"verlinken. Dadurch kann Facebook den Besuch unserer Seiten Ihrem "
+"Benutzerkonto zuordnen. Wir weisen darauf hin, dass wir als Anbieter der "
+"Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung "
+"durch Facebook erhalten. Weitere Informationen hierzu finden Sie in der "
+"Datenschutzerklärung von facebook unter <a href=\"http://de-de.facebook.com/"
+"policy.php\" target=\"_blank\"> http://de-de.facebook.com/policy.php</a></p> "
+"<p>Wenn Sie nicht wünschen, dass Facebook den Besuch unserer Seiten Ihrem "
+"Facebook-Nutzerkonto zuordnen kann, loggen Sie sich bitte aus Ihrem Facebook-"
+"Benutzerkonto aus.</p><p> </p>\n"
+"\t\t\t\t\t<p><strong>Datenschutzerklärung für die Nutzung von Google "
+"Analytics</strong></p> <p>Diese Website benutzt Google Analytics, einen "
+"Webanalysedienst der Google Inc. (\"Google\"). Google Analytics verwendet "
+"sog. \"Cookies\", Textdateien, die auf Ihrem Computer gespeichert werden und "
+"die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch "
+"den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden "
+"in der Regel an einen Server von Google in den USA übertragen und dort "
+"gespeichert. Im Falle der Aktivierung der IP-Anonymisierung auf dieser "
+"Webseite wird Ihre IP-Adresse von Google jedoch innerhalb von "
+"Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des "
+"Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt.</p> <p>Nur in "
+"Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den "
+"USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website "
+"wird Google diese Informationen benutzen, um Ihre Nutzung der Website "
+"auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um "
+"weitere mit der Websitenutzung und der Internetnutzung verbundene "
+"Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen "
+"von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht "
+"mit anderen Daten von Google zusammengeführt.</p> <p>Sie können die "
+"Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-"
+"Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem "
+"Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich "
+"werden nutzen können. Sie können darüber hinaus die Erfassung der durch das "
+"Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. "
+"Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google "
+"verhindern, indem sie das unter dem folgenden Link verfügbare Browser-Plugin "
+"herunterladen und installieren: <a href=\"http://tools.google.com/dlpage/"
+"gaoptout?hl=de\">http://tools.google.com/dlpage/gaoptout?hl=de</a>.<p> </p>\n"
+"\t\t\t\t\t<p><strong>Datenschutzerklärung für die Nutzung von Google "
+"Adsense</strong></p> <p>Diese Website benutzt Google AdSense, einen Dienst "
+"zum Einbinden von Werbeanzeigen der Google Inc. (\"Google\"). Google AdSense "
+"verwendet sog. \"Cookies\", Textdateien, die auf Ihrem Computer gespeichert "
+"werden und die eine Analyse der Benutzung der Website ermöglicht. Google "
+"AdSense verwendet auch so genannte Web Beacons (unsichtbare Grafiken). Durch "
+"diese Web Beacons können Informationen wie der Besucherverkehr auf diesen "
+"Seiten ausgewertet werden.</p> <p>Die durch Cookies und Web Beacons "
+"erzeugten Informationen über die Benutzung dieser Website (einschließlich "
+"Ihrer IP-Adresse) und Auslieferung von Werbeformaten werden an einen Server "
+"von Google in den USA übertragen und dort gespeichert. Diese Informationen "
+"können von Google an Vertragspartner von Google weiter gegeben werden. "
+"Google wird Ihre IP-Adresse jedoch nicht mit anderen von Ihnen gespeicherten "
+"Daten zusammenführen.</p> <p>Sie können die Installation der Cookies durch "
+"eine entsprechende Einstellung Ihrer Browser Software verhindern; wir weisen "
+"Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht "
+"sämtliche Funktionen dieser Website voll umfänglich nutzen können. Durch die "
+"Nutzung dieser Website erklären Sie sich mit der Bearbeitung der über Sie "
+"erhobenen Daten durch Google in der zuvor beschriebenen Art und Weise und zu "
+"dem zuvor benannten Zweck einverstanden.</p><p> </p>\n"
+"\t\t\t\t\t<p><strong>Datenschutzerklärung für die Nutzung von Google +1</"
+"strong></p> <p><i>Erfassung und Weitergabe von Informationen:</i><br /> "
+"Mithilfe der Google +1-Schaltfläche können Sie Informationen weltweit "
+"veröffentlichen. über die Google +1-Schaltfläche erhalten Sie und andere "
+"Nutzer personalisierte Inhalte von Google und unseren Partnern. Google "
+"speichert sowohl die Information, dass Sie für einen Inhalt +1 gegeben "
+"haben, als auch Informationen über die Seite, die Sie beim Klicken auf +1 "
+"angesehen haben. Ihre +1 können als Hinweise zusammen mit Ihrem Profilnamen "
+"und Ihrem Foto in Google-Diensten, wie etwa in Suchergebnissen oder in Ihrem "
+"Google-Profil, oder an anderen Stellen auf Websites und Anzeigen im Internet "
+"eingeblendet werden.<br /> Google zeichnet Informationen über Ihre +1-"
+"Aktivitäten auf, um die Google-Dienste für Sie und andere zu verbessern. Um "
+"die Google +1-Schaltfläche verwenden zu können, benötigen Sie ein weltweit "
+"sichtbares, öffentliches Google-Profil, das zumindest den für das Profil "
+"gewählten Namen enthalten muss. Dieser Name wird in allen Google-Diensten "
+"verwendet. In manchen Fällen kann dieser Name auch einen anderen Namen "
+"ersetzen, den Sie beim Teilen von Inhalten über Ihr Google-Konto verwendet "
+"haben. Die Identität Ihres Google-Profils kann Nutzern angezeigt werden, die "
+"Ihre E-Mail-Adresse kennen oder über andere identifizierende Informationen "
+"von Ihnen verfügen.<br /> <br /> <i>Verwendung der erfassten Informationen:</"
+"i><br /> Neben den oben erläuterten Verwendungszwecken werden die von Ihnen "
+"bereitgestellten Informationen gemäß den geltenden Google-"
+"Datenschutzbestimmungen genutzt. Google veröffentlicht möglicherweise "
+"zusammengefasste Statistiken über die +1-Aktivitäten der Nutzer bzw. gibt "
+"diese an Nutzer und Partner weiter, wie etwa Publisher, Inserenten oder "
+"verbundene Websites. </p><p> </p>\n"
+"\t\t\t\t\t<p><strong>Datenschutzerklärung für die Nutzung von Twitter</"
+"strong></p> <p>Auf unseren Seiten sind Funktionen des Dienstes Twitter "
+"eingebunden. Diese Funktionen werden angeboten durch die Twitter Inc., "
+"Twitter, Inc. 1355 Market St, Suite 900, San Francisco, CA 94103, USA. Durch "
+"das Benutzen von Twitter und der Funktion \"Re-Tweet\" werden die von Ihnen "
+"besuchten Webseiten mit Ihrem Twitter-Account verknüpft und anderen Nutzern "
+"bekannt gegeben. Dabei werden auch Daten an Twitter übertragen.</p> <p>Wir "
+"weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom "
+"Inhalt der übermittelten Daten sowie deren Nutzung durch Twitter erhalten. "
+"Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von "
+"Twitter unter <a href=\"http://twitter.com/privacy\" target=\"_blank"
+"\">http://twitter.com/privacy</a>.</p> <p>Ihre Datenschutzeinstellungen bei "
+"Twitter können Sie in den Konto-Einstellungen unter <a href=\"http://twitter."
+"com/account/settings\" target=\"_blank\">http://twitter.com/account/"
+"settings</a> ändern.</p> <p> </p>\n"
+"\t\t\t\t"
+msgstr ""
+
+#: templates/xemanti/impressum.html:74
+msgid ""
+"\n"
+"\t\t        \t<p>FatCow Farm Fresh Icons<br>Copyright 2013 FatCow Web "
+"Hosting. All rights reserved.<br>These icons are licensed under a <a href="
+"\"http://creativecommons.org/licenses/by/3.0/us/\" target=\"_blank"
+"\">Creative Commons Attribution 3.0 License</a>.<br>Visit them: <a href="
+"\"https://twitter.com/FatCow\" target=\"_blank\">Twitter</a> or <a href="
+"\"http://www.facebook.com/FatCow\" target=\"_blank\">Facebook</a> or <a href="
+"\"https://plus.google.com/101826539018374982925\" target=\"_blank\">Google+</"
+"a></p>\n"
+"\t\t\t\t    <p>oCanvas<br>Copyright by 2013 Johannes Koggdal<br> oCanvas is "
+"released under the <a href=\"http://creativecommons.org/licenses/MIT/\" "
+"target=\"_blank\">MIT license</a><br>Visit them: <a href=\"http://ocanvas."
+"org/\" target=\"_blank\">oCanvas</a> or <a href=\"https://twitter.com/ocanvas"
+"\" target=\"_blank\">Twitter</a></p>\n"
+"                "
+msgstr ""
+
+#: templates/xemanti/impressum.html:81
+msgid ""
+"\n"
+"\t\t        \t<p><i>Quellenangaben: <a href=\"http://www.e-recht24.de/muster-"
+"disclaimer.htm\" target=\"_blank\">eRecht24 Disclaimer</a>, <a href=\"http://"
+"www.e-recht24.de/artikel/datenschutz/6590-facebook-like-button-datenschutz-"
+"disclaimer.html\" target=\"_blank\">Facebook Datenschutzerklärung</a>, <a "
+"href=\"http://www.google.com/intl/de/analytics/privacyoverview.html\" target="
+"\"_blank\">Datenschutzerklärung Google Analytics</a>, <a href=\"http://www.e-"
+"recht24.de/artikel/datenschutz/6635-datenschutz-rechtliche-risiken-bei-der-"
+"nutzung-von-google-analytics-und-googleadsense.html\" target=\"_blank"
+"\">Datenschutzerklärung für Google Adsense</a>, <a href=\"http://www.google."
+"com/intl/de/+/policy/+1button.html\" target=\"_blank\">Google +1 "
+"Datenschutzerklärung</a>, <a href=\"http://twitter.com/privacy\" target="
+"\"_blank\">Twitter Bedingungen</a></i></p>\n"
+"\t\t\t\t"
+msgstr ""
+
+#: templates/xemanti/partials/_captcha_spam_protection_partial.html:95
+msgid "Register Now!"
+msgstr "Jetzt registrieren!"
+
+#: templates/xemanti/partials/_captcha_spam_protection_partial.html:98
+msgid "Verify"
+msgstr "Prüfen"
+
+#: templates/xemanti/partials/_captcha_spam_protection_partial.html:120
+msgid "Thanks for using Xemanti!"
+msgstr "Danke das du Xemanti benutzt!"
+
+#: templates/xemanti/partials/_captcha_spam_protection_partial.html:121
+msgid ""
+"You want opinions from real humans, therefor we'd like to ensure you are not "
+"HAL ;)\n"
+"        If you <b>Register on Xemanti</b>, we are confident you are human "
+"indeed!"
+msgstr ""
+"Du möchtest Meinungen von echten Menschen, daher wollen wir wissen "
+"das du kein Roboter bist ;)\n"
+"        <b>Registere dich auf Xemanti</b> und wir sind sicher, dass du ein Mensch bist. "
+"indeed!"
+
+#: templates/xemanti/partials/_captcha_spam_protection_partial.html:127
+msgid "Please help translate old books:"
+msgstr "Helfe alte Bücher zu digitalisieren:"
+
+#: templates/zinnia/base.html:17
+msgid "RSS Feed of latest entries"
+msgstr "RSS-Feed der letzten Beiträge"
+
+#: templates/zinnia/base.html:18
+msgid "RSS Feed of latest discussions"
+msgstr "RSS-Feed der letzten Diskussionen"
+
+#: templates/zinnia/base.html:50
+msgid "Calendar"
+msgstr "Kalender"
+
+#: templates/zinnia/base.html:54
+msgid "Tags"
+msgstr "Schlagwörter"
+
+#: templates/zinnia/base.html:58
+msgid "Recent entries"
+msgstr "Neue Beiträge"
+
+#: templates/zinnia/base.html:62
+msgid "Popular entries"
+msgstr "Beliebte Beiträge"
+
+#: templates/zinnia/base.html:66
+msgid "Archives"
+msgstr "Archiv"
+
+#: templates/zinnia/base.html:71
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: templates/zinnia/base.html:75 templates/zinnia/base.html.py:76
+msgid "Dashboard"
+msgstr "Pinnwand"
+
+#: templates/zinnia/base.html:82 templates/zinnia/base.html.py:83
+msgid "Post an entry"
+msgstr "Schreib einen Beitrag"
+
+#: templates/zinnia/base.html:90 templates/zinnia/base.html.py:91
+msgid "Log out"
+msgstr "Abmelden"
+
+#: templates/zinnia/featured_entries.html:18
+msgid "No entries yet."
+msgstr "Noch keine Beiträge."

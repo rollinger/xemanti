@@ -1,47 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="Bug fixes get_or create instead of get()">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.pot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/._css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/._index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/css/._master.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/js/._kube.buttons.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/js/._kube.tabs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._blocks.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._buttons.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._code.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._colors.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._forms.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._grid.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._helpers.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._images.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._kube.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._labels.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._lists.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._master.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._messages.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._mixins.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._navs.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._reset.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-blocks.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-forms.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-grid.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-media.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-navs.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-utils.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._tables.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._typo.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._variables.less" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_makemessages.py" afterPath="$PROJECT_DIR$/run_makemessages.py" />
+    <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="Fixed #174 Translation issues on xemanti caused by MAC OS Version of Kube... :D">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.mo" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.po" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xemanti.iws" />
@@ -104,7 +66,7 @@
       <file leaf-file-name="impressum.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="57" selection-start="13655" selection-end="13655" vertical-scroll-proportion="0.46028882" vertical-offset="855" max-vertical-offset="1410">
+            <state line="76" column="35" selection-start="14472" selection-end="14472" vertical-scroll-proportion="0.5144404" vertical-offset="855" max-vertical-offset="1410">
               <folding />
             </state>
           </provider>
@@ -241,32 +203,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xemanti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="de" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LC_MESSAGES" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -642,7 +578,11 @@
       <created>1383916545968</created>
       <updated>1383916545968</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed #174 Translation issues on xemanti caused by MAC OS Version of Kube... :D">
+      <created>1384600266460</created>
+      <updated>1384600266460</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -669,10 +609,11 @@
     <frame x="64" y="-4" width="1617" height="1055" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.4996904" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67062634" order="0" side_tool="false" content_ui="combo" />
@@ -684,7 +625,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -713,7 +653,8 @@
     <MESSAGE value=" #175:&#10;  sort view throws error at http://www.xemanti.com/rating/sort/Luxemburg/random_rating/ Rating&#10;&#9;bug" />
     <MESSAGE value=" #175:&#10;Addendum success_url is passed along" />
     <MESSAGE value="Bug fixes get_or create instead of get()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes get_or create instead of get()" />
+    <MESSAGE value="Fixed #174 Translation issues on xemanti caused by MAC OS Version of Kube... :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed #174 Translation issues on xemanti caused by MAC OS Version of Kube... :D" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -829,7 +770,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="57" selection-start="13655" selection-end="13655" vertical-scroll-proportion="0.46028882" vertical-offset="855" max-vertical-offset="1410">
+        <state line="76" column="35" selection-start="14472" selection-end="14472" vertical-scroll-proportion="0.5144404" vertical-offset="855" max-vertical-offset="1410">
           <folding />
         </state>
       </provider>
