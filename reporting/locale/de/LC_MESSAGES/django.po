@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-31 21:45+0100\n"
+"POT-Creation-Date: 2013-11-16 11:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,51 +45,51 @@ msgstr "mehr..."
 msgid "Your Text:"
 msgstr "Dein Text"
 
-#: templates/reporting/inspect_show.html:57
+#: templates/reporting/inspect_show.html:55
 msgid "Inspect"
 msgstr "Untersuche"
 
-#: templates/reporting/inspect_show.html:82
+#: templates/reporting/inspect_show.html:80
 msgid "Associations"
 msgstr "Assoziationen"
 
-#: templates/reporting/inspect_show.html:92
+#: templates/reporting/inspect_show.html:96
 msgid "Synonyms"
 msgstr "Synonyme"
 
-#: templates/reporting/inspect_show.html:103
+#: templates/reporting/inspect_show.html:112
 msgid "Antonyms"
 msgstr "Antonyme"
 
-#: templates/reporting/inspect_show.html:114
+#: templates/reporting/inspect_show.html:128
 msgid "Super Categories"
 msgstr "Oberkategorien"
 
-#: templates/reporting/inspect_show.html:125
+#: templates/reporting/inspect_show.html:144
 msgid "Sub Categories"
 msgstr "Unterkategorien"
 
-#: templates/reporting/inspect_show.html:136
+#: templates/reporting/inspect_show.html:160
 msgid "Examples"
 msgstr "Beispiele"
 
-#: templates/reporting/inspect_show.html:147
+#: templates/reporting/inspect_show.html:176
 msgid "Attributes"
 msgstr "Attribute"
 
-#: templates/reporting/inspect_show.html:158
+#: templates/reporting/inspect_show.html:192
 msgid "Attitude Dimensions"
 msgstr "Einstellung"
 
-#: templates/reporting/inspect_show.html:163
+#: templates/reporting/inspect_show.html:197
 msgid "&chxl=1:|Bad|Weak|Passive|2:|Good|Strong|Active"
 msgstr "&chxl=1:|Schlecht|Schwach|Passiv|2:|Gut|Stark|Aktiv"
 
-#: templates/reporting/inspect_show.html:179
+#: templates/reporting/inspect_show.html:213
 msgid "Sensory Dimensions"
 msgstr "Sinneswahrnehmungen"
 
-#: templates/reporting/inspect_show.html:184
+#: templates/reporting/inspect_show.html:218
 msgid ""
 "&chxl=1:|no&#160;seeing|no&#160;hearing|no&#160;thinking|no&#160;touching|"
 "no&#160;smelling|no&#160;tasting|2:|seeing|hearing|thinking|touching|"
@@ -99,71 +99,71 @@ msgstr ""
 "tasten|nicht&#160;riechen|nicht schmecken|2:|sehen|hören|denken|tasten|"
 "riechen|schmecken"
 
-#: templates/reporting/inspect_show.html:200
+#: templates/reporting/inspect_show.html:234
 msgid "Co-Occurrences"
 msgstr "Gemeinsames Auftreten"
 
-#: templates/reporting/inspect_show.html:219
+#: templates/reporting/inspect_show.html:257
 msgid "Contibute your Knowledge:"
 msgstr "Bring dein Wissen ein:"
 
-#: templates/reporting/inspect_show.html:220
+#: templates/reporting/inspect_show.html:258
 #, python-format
 msgid " Click here to add more associations to %(ngram)s "
 msgstr "Klick hier um weitere Assoziationen zu %(ngram)s hinzuzufügen"
 
-#: templates/reporting/inspect_show.html:221
+#: templates/reporting/inspect_show.html:259
 msgid "Add Associations"
 msgstr "Assoziationen hinzufügen"
 
-#: templates/reporting/inspect_show.html:223
+#: templates/reporting/inspect_show.html:261
 #, python-format
 msgid " Click here to sort existing associations of %(ngram)s "
 msgstr "Klick hier um bestehende Assoziationen zu %(ngram)s zu sortieren"
 
-#: templates/reporting/inspect_show.html:224
+#: templates/reporting/inspect_show.html:262
 msgid "Sort Associations"
 msgstr "Assoziationen sortieren"
 
-#: templates/reporting/inspect_show.html:226
+#: templates/reporting/inspect_show.html:264
 #, python-format
 msgid " Click here to evaluate your attitude for %(ngram)s "
 msgstr "Klick hier um deine Einstellung zu %(ngram)s hinzuzufügen"
 
-#: templates/reporting/inspect_show.html:227
+#: templates/reporting/inspect_show.html:265
 msgid "Evaluate for Attitude"
 msgstr "Einstellung bewerten"
 
-#: templates/reporting/inspect_show.html:229
+#: templates/reporting/inspect_show.html:267
 #, python-format
 msgid " Click here to evaluate which senses are involved for %(ngram)s "
 msgstr "Klick hier um zu bewerten, welche Sinne bei %(ngram)s wichtig sind"
 
-#: templates/reporting/inspect_show.html:230
+#: templates/reporting/inspect_show.html:268
 msgid "Evaluate for Senses"
 msgstr "Sinneswahrnehmung bewerten:"
 
-#: templates/reporting/inspect_show.html:232
+#: templates/reporting/inspect_show.html:270
 msgid "... earn Xetis!"
 msgstr "... mach' Xetis!"
 
-#: templates/reporting/inspect_show.html:238
+#: templates/reporting/inspect_show.html:276
 #, python-format
 msgid ""
 "\n"
-"\t\t\t\t<h5>Xemanti - Deine Sprachtools.</h5>\n"
-"\t\t\t\t<p class=\"small\" style=\"text-align:justify;\">Finde Antworten auf "
-"deine Fragen in unserem Interaktiv-Wörterbuch!<br>\n"
-"\t\t\t\tWas bedeutet \"<strong>%(ngram)s</strong>\" für andere? Welche "
-"Einstellungen und Meinung ruft \"%(ngram)s\" bei anderen hervor? \n"
-"\t\t\t\tWelche Beziehung hat \"%(ngram)s\" zu anderen Wörtern? Tausende "
-"Nutzer bringen täglich ihre <strong>Gedanken, Meinungen und Gefühle</strong> "
-"auf Xemanti ein. \n"
-"\t\t\t\tDu kannst dieses Wissen abfragen und als <strong>Inspiration</"
-"strong> verwenden. \n"
-"\t\t\t\tMach deine Freunde schlauer und <strong>trage dein Wissen jetzt "
-"bei...</strong></p>\n"
-"\t\t\t"
+"                    <h5>Xemanti - Deine Sprachtools.</h5>\n"
+"                    <p class=\"small\" style=\"text-align:justify;\">Finde "
+"Antworten auf deine Fragen in unserem Interaktiv-Wörterbuch!<br>\n"
+"                    Was bedeutet \"<strong>%(ngram)s</strong>\" für andere? "
+"Welche Einstellungen und Meinung ruft \"%(ngram)s\" bei anderen hervor?\n"
+"                    Welche Beziehung hat \"%(ngram)s\" zu anderen Wörtern? "
+"Tausende Nutzer bringen täglich ihre <strong>Gedanken, Meinungen und "
+"Gefühle</strong> auf Xemanti ein.\n"
+"                    Du kannst dieses Wissen abfragen und als "
+"<strong>Inspiration</strong> verwenden.\n"
+"                    Mach deine Freunde schlauer und <strong>trage dein "
+"Wissen jetzt bei...</strong></p>\n"
+"                "
 msgstr ""
 
 #~ msgid "Frequency: "

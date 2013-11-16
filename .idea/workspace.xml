@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xemanti/middleware.py" afterPath="$PROJECT_DIR$/xemanti/middleware.py" />
+    <list default="true" id="54e753ba-7a1c-4fc2-8f33-aeb9bfd2eb7c" name="Default" comment="Bug fixes get_or create instead of get()">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.pot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/._css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/._index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/css/._master.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/js/._kube.buttons.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/js/._kube.tabs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._blocks.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._colors.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._helpers.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._images.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._kube.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._labels.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._lists.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._master.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._messages.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._navs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._reset.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-blocks.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-media.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-navs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._responsive-utils.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._tables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._typo.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xemanti/static/kube/__MACOSX/kubeless/less/._variables.less" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.mo" afterPath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/ngramengine/locale/de/LC_MESSAGES/django.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/reporting/locale/de/LC_MESSAGES/django.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_makemessages.py" afterPath="$PROJECT_DIR$/run_makemessages.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xemanti.iws" />
@@ -20,34 +59,79 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DjangoConsoleOptions">
+    <option name="myUseModuleSdk" value="true" />
+    <option name="myModuleName" value="xemanti" />
+    <option name="myEnvs">
+      <map>
+        <entry key="DJANGO_SETTINGS_MODULE" value="xemanti.settings" />
+      </map>
+    </option>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="xemanti" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rating/urls.py">
+      <file leaf-file-name="analytics_tracker.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/analytics_tracker.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="49" selection-start="869" selection-end="877" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="660">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rating/views.py">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.0" vertical-offset="999" max-vertical-offset="3705">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="11.25" vertical-offset="270" max-vertical-offset="2550">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="middleware.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/xemanti/middleware.py">
+      <file leaf-file-name="faq.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/faq.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="76" selection-start="432" selection-end="432" vertical-scroll-proportion="0.30405405" vertical-offset="0" max-vertical-offset="780">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="18.75" vertical-offset="450" max-vertical-offset="1005">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="impressum.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="74" column="57" selection-start="13655" selection-end="13655" vertical-scroll-proportion="0.46028882" vertical-offset="855" max-vertical-offset="1410">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="3840">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_makemessages.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_makemessages.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="58" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="django.po" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.po">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="488" column="28" selection-start="21473" selection-end="21473" vertical-scroll-proportion="0.0" vertical-offset="6834" max-vertical-offset="7425">
               <folding />
             </state>
           </provider>
@@ -76,10 +160,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/xemanti/views.py" />
         <option value="$PROJECT_DIR$/xemanti/templates/xemanti/partials/_captcha_spam_protection_partial.html" />
         <option value="$PROJECT_DIR$/xemanti/ajax.py" />
-        <option value="$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html" />
         <option value="$PROJECT_DIR$/reporting/templates/reporting/_directional_ngram_image_partial.html" />
         <option value="$PROJECT_DIR$/xemanti/forms.py" />
         <option value="$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html" />
@@ -92,6 +174,8 @@
         <option value="$PROJECT_DIR$/xemanti/settings.py" />
         <option value="$PROJECT_DIR$/rating/views.py" />
         <option value="$PROJECT_DIR$/xemanti/middleware.py" />
+        <option value="$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.po" />
+        <option value="$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html" />
       </list>
     </option>
   </component>
@@ -127,6 +211,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -145,16 +230,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xemanti" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LC_MESSAGES" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="com.jetbrains.django.DjangoModulesConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../venv/bin/python2.7" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -163,7 +287,15 @@
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <PyConsoleSettings />
+      <PyConsoleSettings>
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="xemanti" />
+        <option name="myEnvs">
+          <map>
+            <entry key="DJANGO_SETTINGS_MODULE" value="xemanti.settings" />
+          </map>
+        </option>
+      </PyConsoleSettings>
     </option>
   </component>
   <component name="RecentsManager">
@@ -537,22 +669,22 @@
     <frame x="64" y="-4" width="1617" height="1055" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.4996904" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67170626" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229102" sideWeight="0.67062634" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39956802" sideWeight="0.8136223" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.5009288" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32829374" sideWeight="0.4990712" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32937366" sideWeight="0.5003096" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829374" sideWeight="0.4990712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.4996904" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -592,90 +724,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/xemanti/static/css/jquery-ui-1.10.3.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="537" column="19" selection-start="10688" selection-end="10691" vertical-scroll-proportion="-5.1714287" vertical-offset="7874" max-vertical-offset="17910" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_eval_sem_diff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="20" selection-start="905" selection-end="1471" vertical-scroll-proportion="0.6866197" vertical-offset="90" max-vertical-offset="1230" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rating/templates/rating/ngram_sorting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="84" selection-start="3790" selection-end="3790" vertical-scroll-proportion="0.7394366" vertical-offset="990" max-vertical-offset="1650" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/_tag_cloud_partial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="18" selection-start="678" selection-end="678" vertical-scroll-proportion="0.44894367" vertical-offset="90" max-vertical-offset="825" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rating/locale/de/LC_MESSAGES/django.po">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="60" selection-start="7336" selection-end="7336" vertical-scroll-proportion="0.21452703" vertical-offset="3458" max-vertical-offset="4050" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="54" selection-start="3230" selection-end="3230" vertical-scroll-proportion="0.41284403" vertical-offset="1035" max-vertical-offset="2550" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reporting/templates/reporting/inspect_show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="260" column="65" selection-start="11607" selection-end="11653" vertical-scroll-proportion="0.0072072074" vertical-offset="3896" max-vertical-offset="4755">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/instance_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="591" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ngramengine/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="308" column="45" selection-start="13477" selection-end="13477" vertical-scroll-proportion="0.0" vertical-offset="4144" max-vertical-offset="5040">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="28" selection-start="6484" selection-end="6484" vertical-scroll-proportion="0.2893401" vertical-offset="2619" max-vertical-offset="3840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xemanti/logging_filters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="74" selection-start="179" selection-end="179" vertical-scroll-proportion="0.12690355" vertical-offset="0" max-vertical-offset="591">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ngramengine/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14490">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ngramengine/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4845">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rating/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="49" selection-start="869" selection-end="877" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rating/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="107" column="18" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.0" vertical-offset="999" max-vertical-offset="3705">
@@ -685,7 +733,103 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xemanti/middleware.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="76" selection-start="432" selection-end="432" vertical-scroll-proportion="0.30405405" vertical-offset="0" max-vertical-offset="780">
+        <state line="14" column="76" selection-start="432" selection-end="432" vertical-scroll-proportion="0.30405405" vertical-offset="0" max-vertical-offset="780" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_register_now_ad_partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="15.0" vertical-offset="360" max-vertical-offset="3615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_flash_message_partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="567">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_captcha_spam_protection_partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.6519337" vertical-offset="1440" max-vertical-offset="2100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/partials/_animated_logo_partial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.58450705" vertical-offset="332" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/registration/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="104" selection-start="269" selection-end="326" vertical-scroll-proportion="0.23767605" vertical-offset="0" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.8260136" vertical-offset="1673" max-vertical-offset="2265">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/analytics_tracker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="11.25" vertical-offset="270" max-vertical-offset="2550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/faq.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="18.75" vertical-offset="450" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="3840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_makemessages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="58" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/locale/de/LC_MESSAGES/django.po">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="488" column="28" selection-start="21473" selection-end="21473" vertical-scroll-proportion="0.0" vertical-offset="6834" max-vertical-offset="7425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xemanti/templates/xemanti/impressum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="57" selection-start="13655" selection-end="13655" vertical-scroll-proportion="0.46028882" vertical-offset="855" max-vertical-offset="1410">
           <folding />
         </state>
       </provider>

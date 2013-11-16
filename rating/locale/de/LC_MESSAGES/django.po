@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-08 10:10+0100\n"
+"POT-Creation-Date: 2013-11-16 11:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "State your immediate association..."
 msgstr "Dein erster Gedanke..."
 
-#: views.py:60 views.py:133 views.py:177 views.py:217
+#: views.py:60 views.py:135 views.py:183 views.py:223
 msgid "Thanks for rating!"
 msgstr "Danke für deine Einschätzung!"
 
@@ -228,10 +228,10 @@ msgid ""
 "                    "
 msgstr ""
 "\n"
-"                        Bitte sortiere <strong>%(ngram)s</strong> durch drücken "
-"der Schaltflächen bei denen die Aussage\n"
-"                        für dich zutrifft. Wenn du fertig bist, drücke die 'Einschätzen' "
-"Schaltfläche.<br>\n"
+"                        Bitte sortiere <strong>%(ngram)s</strong> durch "
+"drücken der Schaltflächen bei denen die Aussage\n"
+"                        für dich zutrifft. Wenn du fertig bist, drücke die "
+"'Einschätzen' Schaltfläche.<br>\n"
 "                    "
 
 #: templates/rating/ngram_sorting.html:98
