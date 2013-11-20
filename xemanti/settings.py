@@ -126,6 +126,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Disabled - activate maybee later...
     #'xemanti.middleware.AnonymousSpamProtectionMiddleware',
+    'xemanti.middleware.CrawlerBlockerMiddleware',
     'xemanti.middleware.AnonymousRatingMiddleware',
 )
 

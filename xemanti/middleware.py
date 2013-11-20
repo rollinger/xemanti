@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Generic Import Statement
+from django.http import HttpResponseForbidden
 from django.shortcuts import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 import random
@@ -7,13 +8,46 @@ import random
 # Custom Import Statement
 from django.conf import settings
 
+BotNames=['Googlebot','Slurp','Twiceler','msnbot','KaloogaBot','YodaoBot','"Baiduspider','googlebot','Speedy Spider','DotBot']
+param_name='deny_crawlers'
+
+
+
+class CrawlerBlockerMiddleware(object):
+    """
+    Deny access for requests without user agent
+    Deny access for crawler for specific views, where param_name in view_kwargs
+    # See https://djangosnippets.org/snippets/1865/
+    """
+    def process_request(self, request):
+        user_agent=request.META.get('HTTP_USER_AGENT',None)
+
+        if not user_agent:
+            return HttpResponseForbidden('Request without username are not supported!')
+        request.is_crawler=False
+
+        for botname in BotNames:
+            # TODO: Better whitelist ip-ranges from Crawlers - user-agent can be set to anything by spammers
+            if botname in user_agent:
+                request.is_crawler=True
+
+
+    def process_view(self, request, view_func, view_args, view_kwargs):
+        if param_name in view_kwargs:
+            if view_kwargs[param_name]:
+                del view_kwargs[param_name]
+                if request.is_crawler:
+                    return HttpResponseForbidden('Adress removed from crawling. Check robots.txt')
+
+
+
 class AnonymousRatingMiddleware(object):
     """
     Handles Rating for anonymous user
     """
     def process_request(self, request):
-        BotNames=['Googlebot','Slurp','Twiceler','msnbot','bingbot','Bingbot','KaloogaBot','YodaoBot','"Baiduspider','googlebot','Speedy Spider','DotBot']
-        if not any(x in request.META['HTTP_USER_AGENT'] for x in BotNames): #Allow robots to access the page and sitemap
+        if not request.is_crawler: # Only if not crawler
+        #any(x in request.META['HTTP_USER_AGENT'] for x in BotNames): #Allow robots to access the page and sitemap
             if request.session.has_key('anonymous_rating'):
                 anonymous_rating = request.session.get('anonymous_rating')
                 if request.path != reverse( anonymous_rating['target'] ): 
